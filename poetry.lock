@@ -192,18 +192,6 @@ files = [
 ]
 
 [[package]]
-name = "asyncio"
-version = "4.0.0"
-description = "Deprecated backport of asyncio; use the stdlib package instead"
-optional = false
-python-versions = ">=3.4"
-groups = ["main"]
-files = [
-    {file = "asyncio-4.0.0-py3-none-any.whl", hash = "sha256:c1eddb0659231837046809e68103969b2bef8b0400d59cfa6363f6b5ed8cc88b"},
-    {file = "asyncio-4.0.0.tar.gz", hash = "sha256:570cd9e50db83bc1629152d4d0b7558d6451bb1bfd5dfc2e935d96fc2f40329b"},
-]
-
-[[package]]
 name = "attrs"
 version = "25.4.0"
 description = "Classes Without Boilerplate"
@@ -226,6 +214,20 @@ files = [
     {file = "certifi-2025.11.12-py3-none-any.whl", hash = "sha256:97de8790030bbd5c2d96b7ec782fc2f7820ef8dba6db909ccf95449f2d062d4b"},
     {file = "certifi-2025.11.12.tar.gz", hash = "sha256:d8ab5478f2ecd78af242878415affce761ca6bc54a22a27e026d7c25357c3316"},
 ]
+
+[[package]]
+name = "dotenv"
+version = "0.9.9"
+description = "Deprecated package"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "dotenv-0.9.9-py2.py3-none-any.whl", hash = "sha256:29cf74a087b31dafdb5a446b6d7e11cbce8ed2741540e2339c69fbef92c94ce9"},
+]
+
+[package.dependencies]
+python-dotenv = "*"
 
 [[package]]
 name = "frozenlist"
@@ -1009,4 +1011,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "7abf4a6305f034f850bbe641d29cf83cd3918b06d873a4d4098ab3b177c6367b"
+content-hash = "cc1e2e3564f3d0550bee8d40fd243862d98a7ed8a18545cc342c3bd0b66d3b8c"
