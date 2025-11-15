@@ -4,9 +4,13 @@ import os
 import asyncio
 
 from aiogram import Bot, Dispatcher
-from aiogram.types import Message, InlineKeyboardButton
+from aiogram.types import Message, InlineKeyboardButton, BotCommand
 from aiogram.filters import Filter, CommandStart
 from dotenv import load_dotenv
+
+
+from commands import *
+
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
@@ -14,7 +18,6 @@ ADMIN = os.getenv("ADMIN") or ""
 
 dp = Dispatcher()
 
-print(ADMIN)
 @dp.message(CommandStart)
 async def start_message(message: Message):
     if message.from_user.id != int(ADMIN):  # type:ignore
@@ -25,8 +28,11 @@ async def start_message(message: Message):
             await message.answer(f"Assalomu alaykum {message.from_user.first_name} bizning botimizga hush kelibsiz!" ) #type:ignore
     else:
         await message.answer("Admin")
+
+
 async def main() -> None:
     bot = Bot(TOKEN)  # type:ignore
+    await intilize_settings(bot)
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
