@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 
 
 from commands import *
+from .hendler import router as handler_router
 
 
 load_dotenv()
@@ -31,6 +32,7 @@ async def start_message(message: Message):
 
 
 async def main() -> None:
+    dp.include_router(handler_router)
     bot = Bot(TOKEN)  # type:ignore
     await intilize_settings(bot)
     await dp.start_polling(bot)
