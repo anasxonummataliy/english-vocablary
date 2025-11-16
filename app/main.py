@@ -4,8 +4,6 @@ import os
 import asyncio
 
 from aiogram import Bot, Dispatcher
-from aiogram.types import Message, InlineKeyboardButton, BotCommand
-from aiogram.filters import Filter, CommandStart
 from dotenv import load_dotenv
 
 
