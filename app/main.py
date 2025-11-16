@@ -23,11 +23,11 @@ bot = Bot(TOKEN)
 
 @dp.startup()
 async def start_message(bot: Bot) -> None:
-    await bot.send_message(ADMIN, 'Bot ishga tushdi ✅')
+    await bot.send_message(ADMIN, 'Bot ishga tushdi✅')
 
 @dp.shutdown()
 async def shotdown_message(bot: Bot) -> None:
-    await bot.send_message(ADMIN, 'Bot ishga tushdi ✅')
+    await bot.send_message(ADMIN, "Bot to'xtatildi❌")
 
 
 async def main() -> None:
