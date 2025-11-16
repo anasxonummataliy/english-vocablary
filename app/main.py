@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 
 
 from commands import *
-from handler import router as handler_router
+from router.start import router as handler_router
 
 
 load_dotenv()

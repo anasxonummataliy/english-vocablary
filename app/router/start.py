@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 load_dotenv()
 router = Router()
 ADMIN = os.getenv("ADMIN") or ""
-print(ADMIN)
 
 
 @router.message(CommandStart)
