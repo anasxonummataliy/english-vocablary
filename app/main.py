@@ -5,6 +5,7 @@ import asyncio
 
 from aiogram import Bot, Dispatcher
 from dotenv import load_dotenv
+from aiogram.types import BotCommandScopeChat, BotCommandScopeAllPrivateChats
 
 
 from commands import *
@@ -21,6 +22,17 @@ bot = Bot(TOKEN)
 
 @dp.startup()
 async def start_message(bot: Bot) -> None:
+    admin_commands = [
+        BotCommand(command='/start', description='Boshlash🏁'),
+        BotCommand(command='/users', description='User list📚'),
+        BotCommand(command='/check', description='Botni tekshirish☑️')
+    ]
+    user_command = [
+        BotCommand(command='start', description='Boshlash'),  # type: ignore
+        BotCommand(command='help', description='Yordam'),  # type:ignore
+    ]
+    await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
+    await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
     await bot.send_message(ADMIN, 'Bot ishga tushdi✅')
 
 @dp.shutdown()
