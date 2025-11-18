@@ -1,8 +1,9 @@
 import os
 
-from aiogram import Router
+from aiogram import Bot, Router
 from aiogram.filters import CommandStart
 from aiogram.types import Message
+from aiogram.enums import ChatAction
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -11,7 +12,8 @@ ADMIN = os.getenv("ADMIN") or ""
 
 
 @router.message(CommandStart)
-async def start_handler(message: Message):
+async def start_handler(message: Message, bot : Bot):
+    await bot.send_chat_action(chat_id=message.from_user.id, action=ChatAction.TYPING) #type:ignore
     if message.from_user.id != int(ADMIN):  # type:ignore
         print(type((message.from_user.id)))  # type:ignore
         if message.from_user.last_name is not None:  # type:ignore
