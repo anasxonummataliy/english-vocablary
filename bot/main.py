@@ -4,6 +4,7 @@ import os
 import asyncio
 
 from aiogram import Bot, Dispatcher
+from aiogram.enums import ChatMemberStatus
 from dotenv import load_dotenv
 from aiogram.types import BotCommandScopeChat, BotCommandScopeAllPrivateChats
 
@@ -18,6 +19,16 @@ ADMIN = os.getenv("ADMIN") or ""
 
 dp = Dispatcher()
 bot = Bot(TOKEN)
+CHANNEL_LINK = os.getenv("CHANNEL_LINK") or ""
+
+
+class IsJoinChannel:
+    def __init__(self, channel_id):
+        self.channel_id = channel_id
+
+    async def __call__(self, message: Message, bot:Bot):
+        chat_member = await bot.get_chat_member(self.channel_id, message.from_user.id)
+        return chat_member.status not in (ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.CREATOR, ChatMemberStatus.MEMBER)
 
 
 @dp.startup()
@@ -34,6 +45,8 @@ async def start_message(bot: Bot) -> None:
     await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
     await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
     await bot.send_message(ADMIN, 'Bot ishga tushdi✅')
+
+@dp.message(IsJoinChannel(CH))
 
 @dp.shutdown()
 async def shotdown_message(bot: Bot) -> None:
