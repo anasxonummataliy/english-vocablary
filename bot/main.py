@@ -23,6 +23,9 @@ dp = Dispatcher()
 bot = Bot(TOKEN)
 CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 
+CHANNEL_LIST = [CHANNEL_ID]
+print(CHANNEL_LIST)
+
 
 
 class IsJoinChannel(Filter):
