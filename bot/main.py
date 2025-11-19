@@ -12,6 +12,7 @@ from aiogram.types import BotCommandScopeChat, BotCommandScopeAllPrivateChats, I
 
 from commands import *
 from router.start import router as start_router
+from commands import router as command_router
 
 
 load_dotenv()
@@ -21,9 +22,7 @@ ADMIN = os.getenv("ADMIN") or ""
 dp = Dispatcher()
 bot = Bot(TOKEN)
 CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
-CHANNEL_LINK = os.getenv("CHANNEL_LINK") or ""
-print(CHANNEL_LINK)
-print(CHANNEL_ID)
+
 
 
 class IsJoinChannel(Filter):
@@ -31,7 +30,7 @@ class IsJoinChannel(Filter):
         self.channel_id = channel_id
 
     async def __call__(self, message: Message, bot:Bot):
-        chat_member = await bot.get_chat_member(self.channel_id, message.from_user.id)
+        chat_member = await bot.get_chat_member(self.channel_id, message.from_user.id) # type: ignore
         return chat_member.status not in (ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.CREATOR, ChatMemberStatus.MEMBER)
 
 
@@ -56,15 +55,17 @@ async def shotdown_message(bot: Bot) -> None:
 
 @dp.message(IsJoinChannel(CHANNEL_ID))
 async def join_handler(message: Message):
+    channel = await bot.get_chat(CHANNEL_ID)
     ikb = InlineKeyboardBuilder()
     ikb.add(
-        InlineKeyboardButton(text='Enlgish Vocablary', url=CHANNEL_LINK)
+        InlineKeyboardButton(text='Enlgish Vocablary', url=channel.invite_link)
     )
-    await message.answer(text="Kanalga a'zo bo'ling", reply_markup=ikb.as_markup())
+    await message.answer(text="❗️ Botdan foydalanish uchun kanalga obuna bo‘ling va qaytadan /start buyrug‘ini bosing!", reply_markup=ikb.as_markup())
 
 
 
 async def main() -> None:
+    dp.include_router(command_router)
     dp.include_router(start_router)
     await intilize_settings(bot)
     await dp.start_polling(bot)
