@@ -5,12 +5,13 @@ import asyncio
 
 from aiogram import Bot, Dispatcher
 from aiogram.enums import ChatMemberStatus
+from aiogram.filters import Filter
+from aiogram.utils.keyboard import InlineKeyboardBuilder
 from dotenv import load_dotenv
-from aiogram.types import BotCommandScopeChat, BotCommandScopeAllPrivateChats
-
+from aiogram.types import BotCommandScopeChat, BotCommandScopeAllPrivateChats, InlineKeyboardButton
 
 from commands import *
-from router.start import router as handler_router
+from router.start import router as start_router
 
 
 load_dotenv()
@@ -19,10 +20,13 @@ ADMIN = os.getenv("ADMIN") or ""
 
 dp = Dispatcher()
 bot = Bot(TOKEN)
+CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 CHANNEL_LINK = os.getenv("CHANNEL_LINK") or ""
+print(CHANNEL_LINK)
+print(CHANNEL_ID)
 
 
-class IsJoinChannel:
+class IsJoinChannel(Filter):
     def __init__(self, channel_id):
         self.channel_id = channel_id
 
@@ -45,16 +49,23 @@ async def start_message(bot: Bot) -> None:
     await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
     await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
     await bot.send_message(ADMIN, 'Bot ishga tushdi✅')
-
-@dp.message(IsJoinChannel(CH))
-
 @dp.shutdown()
 async def shotdown_message(bot: Bot) -> None:
     await bot.send_message(ADMIN, "Bot to'xtatildi❌")
 
 
+@dp.message(IsJoinChannel(CHANNEL_ID))
+async def join_handler(message: Message):
+    ikb = InlineKeyboardBuilder()
+    ikb.add(
+        InlineKeyboardButton(text='Enlgish Vocablary', url=CHANNEL_LINK)
+    )
+    await message.answer(text="Kanalga a'zo bo'ling", reply_markup=ikb.as_markup())
+
+
+
 async def main() -> None:
-    dp.include_router(handler_router)
+    dp.include_router(start_router)
     await intilize_settings(bot)
     await dp.start_polling(bot)
 
