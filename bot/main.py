@@ -24,14 +24,6 @@ dp = Dispatcher()
 bot = Bot(TOKEN)
 CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 
-# class IsJoinChannelMiddleware(Filter):
-#     def __init__(self, channel_id):
-#         self.channel_id = channel_id
-
-#     async def __call__(self, message: Message, bot:Bot):
-#         chat_member = await bot.get_chat_member(self.channel_id, message.from_user.id) # type: ignore
-#         return chat_member.status not in (ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.CREATOR, ChatMemberStatus.MEMBER)
-
 
 @dp.startup()
 async def start_message(bot: Bot) -> None:
@@ -50,16 +42,6 @@ async def start_message(bot: Bot) -> None:
 @dp.shutdown()
 async def shotdown_message(bot: Bot) -> None:
     await bot.send_message(ADMIN, "Bot to'xtatildi❌")
-
-
-# @dp.message(IsJoinChannel(CHANNEL_ID))
-# async def join_handler(message: Message):
-#     channel = await bot.get_chat(CHANNEL_ID)
-#     ikb = InlineKeyboardBuilder()
-#     ikb.add(
-#         InlineKeyboardButton(text='Enlgish Vocablary', url=channel.invite_link)
-#     )
-#     await message.answer(text="❗️ Botdan foydalanish uchun kanalga obuna bo‘ling va qaytadan /start buyrug‘ini bosing!", reply_markup=ikb.as_markup())
 
 
 
