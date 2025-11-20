@@ -14,7 +14,7 @@ from commands import *
 from router.start import router as start_router
 from commands import router as command_router
 from middleware import IsJoinChannelMiddleware
-
+from admin import router as admin_router
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
@@ -48,6 +48,7 @@ async def shotdown_message(bot: Bot) -> None:
 async def main() -> None:
     dp.update.outer_middleware.register(IsJoinChannelMiddleware())
     dp.include_router(command_router)
+    dp.include_router(admin_router)
     dp.include_router(start_router)
 
 
