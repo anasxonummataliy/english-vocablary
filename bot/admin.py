@@ -25,6 +25,6 @@ async def add_channel(message : Message, state : FSMContext):
 
 @router.message(AddChannelStates.channel, isAdmin())
 async def channel_state(message : Message, state : FSMContext, bot : Bot):
-    channel_id = await message.text
+    channel_id = await message.text #type:ignore
     result = await bot.get_chat(channel_id)
     await message.answer("...")
