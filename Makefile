@@ -10,3 +10,5 @@ compile:
 	pybabel compile -d locales
 	pybabel update -d locales -i locales/message.pot
 	
+update:
+ 	pybabel update -d locales -i locales/message.pot
