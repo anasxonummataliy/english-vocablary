@@ -16,7 +16,7 @@ from commands import *
 from router.start import router as start_router
 from commands import router as command_router
 from middleware import IsJoinChannelMiddleware
-from bot.admin.admin import router as admin_router
+from admin.admin import router as admin_router
 from router.help import router as help_router
 
 load_dotenv()
