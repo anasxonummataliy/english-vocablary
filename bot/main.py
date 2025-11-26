@@ -13,7 +13,7 @@ from aiogram.utils.i18n import gettext as _
 from aiogram.utils.i18n import lazy_gettext as __
 
 from router.commands import intilize_settings,  router as command_router
-from middleware import IsJoinChannelMiddleware
+from utils.middleware import IsJoinChannelMiddleware
 from admin.admin import router as admin_router
 
 load_dotenv()
