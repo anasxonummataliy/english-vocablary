@@ -15,6 +15,7 @@ from aiogram.utils.i18n import lazy_gettext as __
 from router.commands import intilize_settings,  router as command_router
 from utils.middleware import IsJoinChannelMiddleware
 from admin.admin import router as admin_router
+from admin.admin_commands import admin_commands
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
@@ -27,8 +28,8 @@ CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 
 @dp.startup()
 async def start_message(bot: Bot) -> None:
-    # await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
-    # await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
+    await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
+    await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
     await bot.send_message(ADMIN, 'Bot ishga tushdi✅')
 
 @dp.shutdown()
@@ -36,11 +37,10 @@ async def shotdown_message(bot: Bot) -> None:
     await bot.send_message(ADMIN, "Bot to'xtatildi❌")
 
 
-
 async def main() -> None:
+    dp.include_router(admin_router)
     dp.update.outer_middleware.register(IsJoinChannelMiddleware())
     dp.include_router(command_router)
-    dp.include_router(admin_router)
 
     await intilize_settings(bot)
     await dp.start_polling(bot)
