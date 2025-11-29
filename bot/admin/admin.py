@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 ADMIN = getenv("ADMIN")
+print(ADMIN)
 
 router = Router()
 
@@ -38,3 +39,6 @@ async def channel_state(message: Message, state: FSMContext, bot: Bot):
     await message.answer("...")
 
 
+@router.message(isAdmin())
+async def msg_handler(message: Message):
+    await message.answer("salom")
