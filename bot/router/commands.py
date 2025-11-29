@@ -43,5 +43,3 @@ async def start_handler(message: Message, bot: Bot):
             )  
         else:
             await message.answer(f"Assalomu alaykum {message.from_user.first_name} bizning botimizga hush kelibsiz!")  # type: ignore
-    else:
-        await message.answer("Admin")
