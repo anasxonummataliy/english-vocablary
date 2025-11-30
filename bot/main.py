@@ -1,21 +1,16 @@
-import sys
+import asyncio
 import logging
 import os
-import asyncio
+import sys
 
 from aiogram import Bot, Dispatcher
-from aiogram.enums import ChatMemberStatus
-from aiogram.filters import Filter
-from aiogram.utils.keyboard import InlineKeyboardBuilder
+from aiogram.types import BotCommandScopeChat, BotCommandScopeAllPrivateChats
 from dotenv import load_dotenv
-from aiogram.types import BotCommandScopeChat, BotCommandScopeAllPrivateChats, InlineKeyboardButton
-from aiogram.utils.i18n import gettext as _
-from aiogram.utils.i18n import lazy_gettext as __
 
-from router.commands import intilize_settings,  router as command_router
-from utils.middleware import IsJoinChannelMiddleware
 from admin.admin import router as admin_router
 from admin.admin_commands import admin_commands
+from router.commands import intilize_settings, router as command_router
+from utils.middleware import IsJoinChannelMiddleware
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
@@ -24,6 +19,7 @@ ADMIN = os.getenv("ADMIN") or ""
 dp = Dispatcher()
 bot = Bot(TOKEN)
 CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
+
 
 
 @dp.startup()
