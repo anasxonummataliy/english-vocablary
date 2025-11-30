@@ -25,7 +25,7 @@ CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 @dp.startup()
 async def start_message(bot: Bot) -> None:
     await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
-    await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
+    # await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
     await bot.send_message(ADMIN, 'Bot ishga tushdi✅')
 
 @dp.shutdown()
