@@ -10,6 +10,8 @@ from dotenv import load_dotenv
 from utils.middleware import IsJoinChannelMiddleware
 from router.users import router as user_roter
 from admin.admin import router as admin_router
+from utils.middleware import router as middleware_router
+
 from admin.admin_commands import admin_commands
 from router.user_commands import user_command
 
@@ -36,8 +38,9 @@ async def shotdown_message(bot: Bot) -> None:
 
 async def main() -> None:
     dp.include_router(admin_router)
+    dp.message.middleware(IsJoinChannelMiddleware())
 
-    dp.update.outer_middleware.register(IsJoinChannelMiddleware())
+    dp.include_router(middleware_router)
     dp.include_router(user_roter)
     await dp.start_polling(bot)
 

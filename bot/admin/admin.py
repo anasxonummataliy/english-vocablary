@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 load_dotenv()
 ADMIN = int(os.getenv('ADMIN') or "")
 
-print(ADMIN, type(ADMIN))
 router = Router()
 
 
