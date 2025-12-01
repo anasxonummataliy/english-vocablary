@@ -13,15 +13,6 @@ load_dotenv()
 router = Router()
 ADMIN = os.getenv("ADMIN") or ""
 
-
-async def intilize_settings(bot: Bot):
-    command = [
-        BotCommand(command="start", description="Boshlash"),  # type: ignore
-        BotCommand(command="help", description="Yordam"),  # type:ignore
-        BotCommand(command="admin", description="Adminga xabar yozish"),
-    ]
-    await bot.set_my_commands(commands=command, scope=BotCommandScopeAllPrivateChats())
-
 class MessageToAdmin(StatesGroup):
     message = State()
 

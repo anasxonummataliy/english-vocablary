@@ -4,11 +4,14 @@ import os
 import asyncio
 
 from aiogram import Bot, Dispatcher
+from aiogram.types import BotCommandScopeAllPrivateChats, BotCommandScopeChat
 from dotenv import load_dotenv
 
 from utils.middleware import IsJoinChannelMiddleware
-from router.commands import intilize_settings, router as command_router
+from router.users import router as user_roter
 from admin.admin import router as admin_router
+from admin.admin_commands import admin_commands
+from router.user_commands import user_command
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
@@ -21,22 +24,21 @@ CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 
 @dp.startup()
 async def start_message(bot: Bot) -> None:
-    # await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
-    # await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
+    await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
+    await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
     await bot.send_message(ADMIN, 'Bot ishga tushdi✅')
-
 
 @dp.shutdown()
 async def shotdown_message(bot: Bot) -> None:
     await bot.send_message(ADMIN, "Bot to'xtatildi❌")
 
 
+
 async def main() -> None:
     dp.include_router(admin_router)
-    dp.update.outer_middleware.register(IsJoinChannelMiddleware())
-    dp.include_router(command_router)
 
-    await intilize_settings(bot)
+    dp.update.outer_middleware.register(IsJoinChannelMiddleware())
+    dp.include_router(user_roter)
     await dp.start_polling(bot)
 
 
