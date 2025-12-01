@@ -26,15 +26,6 @@ class MessageToAdmin(StatesGroup):
     message = State()
 
 
-@router.message(Command("help"))
-async def help_handler(message: Message):
-    await message.answer(
-        "Buyruqlar: \n 1. /start - botni boshlash uchun \n"
-        " 2. /help - botning buyruqlari haqida \n"
-        " 3. /admin - adminga bot haqida muammo yoki taklif bo'lsa yozish uchun."
-    )
-
-
 @router.message(CommandStart())
 async def start_handler(message: Message, bot: Bot):
     await bot.send_chat_action(
@@ -77,4 +68,13 @@ async def message_handler(message: Message, bot: Bot, state: FSMContext):
         await message.answer(f"❌ Xatolik yuz berdi: {e}")
     finally:
         await state.clear()
+
+
+@router.message(Command("help"))
+async def help_handler(message: Message):
+    await message.answer(
+        "Buyruqlar: \n 1. /start - botni boshlash uchun \n"
+        " 2. /help - botning buyruqlari haqida \n"
+        " 3. /admin - adminga bot haqida muammo yoki taklif bo'lsa yozish uchun."
+    )
 

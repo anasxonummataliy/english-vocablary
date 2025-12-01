@@ -1,9 +1,8 @@
 import os
 
-from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.types import Message
-from aiogram.filters import Filter, Command, IS_ADMIN, CommandStart
+from aiogram.filters import Filter, Command, CommandStart
 from aiogram import Bot, Router
 from dotenv import load_dotenv
 
@@ -27,6 +26,7 @@ class isAdmin(Filter):
 @router.message(CommandStart(), isAdmin())
 async def start_handler(message: Message):
     await message.answer(f"Salom {message.from_user.first_name}, Ahvolingiz yaxshimi?")
+
 #
 # @router.message(Command("/add_channel"), isAdmin())
 # async def add_channel(message: Message, state: FSMContext):
@@ -40,4 +40,6 @@ async def start_handler(message: Message):
 #     result = await bot.get_chat(channel_id)
 #     await message.answer("...")
 
-
+@router.message(Command("broadcast"))
+async def broadcast_handler(message: Message, bot: Bot):
+    pass
