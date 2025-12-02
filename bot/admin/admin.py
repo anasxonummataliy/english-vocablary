@@ -28,7 +28,6 @@ class AddChannelStates(StatesGroup):
 async def start_handler(message: Message):
     await message.answer(f"Salom {message.from_user.first_name}, Ahvolingiz yaxshimi?")
 
-
 #
 # @router.message(Command("/add_channel"))
 # async def add_channel(message: Message, state: FSMContext):
@@ -46,3 +45,6 @@ async def start_handler(message: Message):
 async def broadcast_handler(message: Message, bot: Bot):
     await message.answer("")
 
+@router.message()
+async def message_handler(message: Message):
+    await message.answer(message.text)
