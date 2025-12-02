@@ -1,0 +1,44 @@
+name: Templify-api Build, Test & Publish
+
+on:
+  push:
+    branches: 
+      - "development"
+
+permissions:
+  contents: read
+  packages: write
+  pull-requests: write
+
+jobs:
+  build-test-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      # - name: 📦 Install dependencies
+      #   run: |
+      #     python -m pip install --upgrade pip
+      #     pip install poetry
+      #     poetry install
+
+      # - name: Run pytest
+      #   run: |
+      #     pytest --maxfail=1 --disable-warnings -q
+
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build Docker image
+        run: docker build -t ghcr.io/${{ github.repository_owner }}/english-vocab:latest .
+
+      - name: Push Docker image
+        run: docker push ghcr.io/${{ github.repository_owner }}/english-vocab:latest

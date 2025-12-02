@@ -1,0 +1,37 @@
+name: Re-Deploy templify-api
+
+on:
+  push:
+    branches:
+      - "main"
+
+permissions:
+  contents: read
+  packages: read  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v1.1.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            set -e  
+            echo "🔹 Navigating to project folder..."
+            cd ~/english_vocab
+
+            echo "🔹 Pulling latest image..."
+            docker-compose pull
+
+            echo "🔹 Running containers..."
+            docker-compose restart
+
+            echo "✅ Deployment completed successfully!"
