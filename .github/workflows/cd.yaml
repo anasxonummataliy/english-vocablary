@@ -25,17 +25,13 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             set -e  
-            echo "🔹 Logging into GHCR..."
-            docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GHCR_PAT }}
-            
             echo "🔹 Navigating to project folder..."
-            cd ~/templify
+            cd ~/english_vocab
 
             echo "🔹 Pulling latest image..."
-            docker compose pull templify-api
+            docker-compose pull
 
             echo "🔹 Running containers..."
-            docker compose up -d --no-deps --build --remove-orphans templify-api
-            docker compose up -d --no-deps --build --remove-orphans templify-worker
+            docker-compose restart
 
             echo "✅ Deployment completed successfully!"

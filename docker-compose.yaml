@@ -1,6 +1,6 @@
 services:
   bot:
-    build: .
-    container_name: python_bot
+    image: ghcr.io/anasxonummataliy/english-vocab:latest
+    container_name: english_vocab
     env_file:
       - .env
