@@ -11,6 +11,7 @@ from utils.middleware import IsJoinChannelMiddleware
 from router.users import router as user_roter
 from admin.admin import router as admin_router
 from utils.middleware import router as middleware_router
+from admin.reply_to_user import router as reply_to_user
 
 from admin.admin_commands import admin_commands
 from router.user_commands import user_command
@@ -41,6 +42,7 @@ async def main() -> None:
     dp.message.middleware(IsJoinChannelMiddleware())
 
     dp.include_router(middleware_router)
+    dp.include_router(reply_to_user)
     dp.include_router(user_roter)
     await dp.start_polling(bot)
 

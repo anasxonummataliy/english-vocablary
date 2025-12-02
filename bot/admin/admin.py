@@ -1,5 +1,6 @@
 import os
 
+from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.types import Message
 from aiogram.filters import Filter, Command, CommandStart
@@ -9,31 +10,33 @@ from dotenv import load_dotenv
 load_dotenv()
 ADMIN = int(os.getenv('ADMIN') or "")
 
+
+class isAdmin(Filter):
+    async def __call__(self, message: Message):
+        return message.from_user.id == ADMIN
+
+
 router = Router()
+router.message.filter(isAdmin())
 
 
 class AddChannelStates(StatesGroup):
     channel = State()
 
 
-class isAdmin(Filter):
-    async def __call__(self, message: Message):
-        print(message.from_user.id)
-        return message.from_user.id == ADMIN
-
-
-@router.message(CommandStart(), isAdmin())
+@router.message(CommandStart())
 async def start_handler(message: Message):
     await message.answer(f"Salom {message.from_user.first_name}, Ahvolingiz yaxshimi?")
 
+
 #
-# @router.message(Command("/add_channel"), isAdmin())
+# @router.message(Command("/add_channel"))
 # async def add_channel(message: Message, state: FSMContext):
 #     await state.set_state(AddChannelStates.channel)
 #     await message.answer("Qo'shmoqchi bo'lgan kanalingiz id sini kiriting : ")
 #
 #
-# @router.message(AddChannelStates.channel, isAdmin())
+# @router.message(AddChannelStates.channel)
 # async def channel_state(message: Message, state: FSMContext, bot: Bot):
 #     channel_id = await message.text  # type:ignore
 #     result = await bot.get_chat(channel_id)
@@ -41,4 +44,5 @@ async def start_handler(message: Message):
 
 @router.message(Command("broadcast"))
 async def broadcast_handler(message: Message, bot: Bot):
-    pass
+    await message.answer("")
+

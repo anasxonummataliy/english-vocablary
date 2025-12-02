@@ -54,7 +54,7 @@ async def message_handler(message: Message, bot: Bot, state: FSMContext):
             user_info += f"📱 Username: @{message.from_user.username}\n"
         user_info += f"\n📩 Xabar:\n{message.text}"
         await bot.send_message(int(ADMIN), user_info)
-        await message.answer("✅ Xabaringiz adminga yuborildi!")
+        await message.answer("✅ Xabaringiz adminga yuborildi!\n Tez orada javob beramiz.")
     except Exception as e:
         await message.answer(f"❌ Xatolik yuz berdi: {e}")
     finally:
