@@ -4,3 +4,5 @@ services:
     container_name: english_vocab
     env_file:
       - .env
+
+
