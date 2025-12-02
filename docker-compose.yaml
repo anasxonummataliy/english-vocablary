@@ -1,0 +1,6 @@
+services:
+  bot:
+    build: .
+    container_name: python_bot
+    env_file:
+      - .env
