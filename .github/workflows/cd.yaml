@@ -32,6 +32,7 @@ jobs:
             docker-compose pull
 
             echo "🔹 Running containers..."
-            docker-compose restart
+            docker-compose down
+            docker-compose up -d
 
             echo "✅ Deployment completed successfully!"
