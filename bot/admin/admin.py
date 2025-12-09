@@ -7,7 +7,7 @@ from aiogram.filters import Filter, Command, CommandStart
 from aiogram import Bot, Router
 from dotenv import load_dotenv
 
-from reply_to_user import router as reply_router
+from admin.reply_to_user import router as reply_router
 
 load_dotenv()
 ADMIN = int(os.getenv('ADMIN') or "")
