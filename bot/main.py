@@ -8,12 +8,12 @@ from aiogram.types import BotCommandScopeAllPrivateChats, BotCommandScopeChat
 from dotenv import load_dotenv
 
 from utils.middleware import IsJoinChannelMiddleware
-from router.users import router as user_roter
-from bot.admin.start import router as admin_router
+from bot.routers import user_router
+from bot.admin import admin_router 
 from utils.middleware import router as middleware_router
 
 from bot.admin.commands import admin_commands
-from router.user_commands import user_command
+from routers.user_commands import user_command
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
@@ -41,7 +41,7 @@ async def main() -> None:
     dp.message.middleware(IsJoinChannelMiddleware())
 
     dp.include_router(middleware_router)
-    dp.include_router(user_roter)
+    dp.include_router(user_router)
     await dp.start_polling(bot)
 
 
