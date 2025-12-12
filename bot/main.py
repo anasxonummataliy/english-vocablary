@@ -9,10 +9,10 @@ from dotenv import load_dotenv
 
 from utils.middleware import IsJoinChannelMiddleware
 from router.users import router as user_roter
-from admin.admin import router as admin_router
+from bot.admin.start import router as admin_router
 from utils.middleware import router as middleware_router
 
-from admin.admin_commands import admin_commands
+from bot.admin.commands import admin_commands
 from router.user_commands import user_command
 
 load_dotenv()
