@@ -12,4 +12,4 @@ RUN poetry install --no-root
 
 COPY . /app
 
-CMD ["python", "bot/main.py"]
+CMD ["python", "-m", "bot.main"]
