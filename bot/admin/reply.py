@@ -1,24 +1,10 @@
-import os
-
 from aiogram import Router, Bot
-from aiogram.filters import Command, Filter
+from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from aiogram.types import Message
-from dotenv import load_dotenv
-
-load_dotenv()
-TOKEN = os.getenv("TOKEN")
-ADMIN = int(os.getenv("ADMIN"))
-
-
-class isAdmin(Filter):
-    async def __call__(self, message: Message):
-        return message.from_user.id == ADMIN
-
 
 router = Router()
-router.message.filter(isAdmin())
 
 
 class ReplyMessage(StatesGroup):
