@@ -13,7 +13,7 @@ from bot.admin import admin_router
 from bot.middleware.middleware import router as middleware_router
 
 from bot.admin.commands import admin_commands
-from routers.user_commands import user_command
+from bot.routers.user_commands import user_command
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
@@ -21,7 +21,7 @@ TOKEN = os.getenv("TOKEN") or ""
 dp = Dispatcher()
 bot = Bot(TOKEN)
 CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
-
+ADMIN = int(os.getenv("ADMIN"))
 
 @dp.startup()
 async def start_message(bot: Bot) -> None:
