@@ -13,7 +13,7 @@ from bot.admin import admin_router
 from utils.middleware import router as middleware_router
 
 from bot.admin.commands import admin_commands
-from routers.user_commands import user_command
+from router.user_commands import user_command
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
@@ -41,7 +41,7 @@ async def main() -> None:
     dp.message.middleware(IsJoinChannelMiddleware())
 
     dp.include_router(middleware_router)
-    dp.include_router(user_router)
+    dp.include_router(user_roter)
     await dp.start_polling(bot)
 
 
