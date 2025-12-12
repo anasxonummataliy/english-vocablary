@@ -12,6 +12,8 @@ dependencies = [
     "dotenv (>=0.9.9,<0.10.0)",
     "babel (>=2.17.0,<3.0.0)",
     "redis-dict (>=3.2.5,<4.0.0)",
+    "sqlalchemy (>=2.0.45,<3.0.0)",
+    "pydantic-settings (>=2.12.0,<3.0.0)",
 ]
 
 

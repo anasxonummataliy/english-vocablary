@@ -7,22 +7,21 @@ from aiogram import Bot, Dispatcher
 from aiogram.types import BotCommandScopeAllPrivateChats, BotCommandScopeChat
 from dotenv import load_dotenv
 
-from utils.middleware import IsJoinChannelMiddleware
-from router.users import router as user_roter
-from admin.admin import router as admin_router
-from utils.middleware import router as middleware_router
+from bot.middleware.middleware import IsJoinChannelMiddleware
+from bot.routers import user_router
+from bot.admin import admin_router 
+from bot.middleware.middleware import router as middleware_router
 
-from admin.admin_commands import admin_commands
-from router.user_commands import user_command
+from bot.admin.commands import admin_commands
+from bot.routers.user_commands import user_command
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
-ADMIN = os.getenv("ADMIN") or ""
 
 dp = Dispatcher()
 bot = Bot(TOKEN)
 CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
-
+ADMIN = int(os.getenv("ADMIN"))
 
 @dp.startup()
 async def start_message(bot: Bot) -> None:
@@ -39,9 +38,8 @@ async def shotdown_message(bot: Bot) -> None:
 async def main() -> None:
     dp.include_router(admin_router)
     dp.message.middleware(IsJoinChannelMiddleware())
-
     dp.include_router(middleware_router)
-    dp.include_router(user_roter)
+    dp.include_router(user_router)
     await dp.start_polling(bot)
 
 
