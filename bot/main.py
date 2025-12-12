@@ -17,7 +17,6 @@ from routers.user_commands import user_command
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
-ADMIN = os.getenv("ADMIN") or ""
 
 dp = Dispatcher()
 bot = Bot(TOKEN)
@@ -39,9 +38,8 @@ async def shotdown_message(bot: Bot) -> None:
 async def main() -> None:
     dp.include_router(admin_router)
     dp.message.middleware(IsJoinChannelMiddleware())
-
     dp.include_router(middleware_router)
-    dp.include_router(user_roter)
+    dp.include_router(user_router)
     await dp.start_polling(bot)
 
 
