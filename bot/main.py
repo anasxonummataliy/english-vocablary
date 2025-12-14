@@ -14,7 +14,7 @@ from bot.middleware.middleware import router as middleware_router
 
 from bot.admin.commands import admin_commands
 from bot.routers.user_commands import user_command
-from bot.database.init_db import init_db
+from bot.database import init_db
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
