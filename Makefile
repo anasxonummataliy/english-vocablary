@@ -12,3 +12,12 @@ compile:
 	
 update:
  	pybabel update -d locales -i locales/message.pot
+
+init_migration:
+	alembic init migration
+
+revision_migration:
+	alembic revision --autogenerate -m "Initial migration"
+
+migrate:
+	alembic upgrade head
