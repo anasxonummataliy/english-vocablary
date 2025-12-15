@@ -14,7 +14,7 @@ from bot.middleware.middleware import router as middleware_router
 
 from bot.admin.commands import admin_commands
 from bot.routers.user_commands import user_command
-# from bot.database import init_db
+from bot.database import init_db
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
@@ -45,6 +45,6 @@ async def main() -> None:
 
 
 if __name__ == '__main__':
-    # init_db()
+    init_db()
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
     asyncio.run(main())
