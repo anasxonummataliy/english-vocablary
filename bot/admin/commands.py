@@ -6,5 +6,6 @@ admin_commands = [
     BotCommand(command='/channels', description='Channel list📢'),
     BotCommand(command='/add_channel', description="Majburiy kanal qo'shish➕"),
     BotCommand(command='/broadcast', description='Hamma userlar uchun xabar yuborish📢'),
-    BotCommand(command='/reply', description='Bitta userga xabar yuborish')
+    BotCommand(command='/reply', description='Bitta userga xabar yuborish'),
+    BotCommand(command='/users', description='Userlar')
 ]
