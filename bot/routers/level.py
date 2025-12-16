@@ -33,3 +33,4 @@ async def level_selected(message: Message):
         f"✅ Siz {selected_level} darajasini tanladingiz!",
         reply_markup=ReplyKeyboardRemove(),
     )
+
