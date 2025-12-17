@@ -1,0 +1,56 @@
+[
+    {
+        "elementary": [
+            {
+                "word": "name",
+                "translation_uz": "ism",
+                "example": "My name is Anna."
+            },
+            {
+                "word": "first name",
+                "translation_uz": "ism",
+                "example": "My first name is John."
+            },
+            {
+                "word": "last name",
+                "translation_uz": "familiya",
+                "example": "My last name is Smith."
+            },
+            {
+                "word": "country",
+                "translation_uz": "mamlakat",
+                "example": "I am from Uzbekistan."
+            },
+            {
+                "word": "nationality",
+                "translation_uz": "millat",
+                "example": "I am Uzbek."
+            },
+            {
+                "word": "job",
+                "translation_uz": "kasb",
+                "example": "I am a teacher."
+            },
+            {
+                "word": "student",
+                "translation_uz": "talaba",
+                "example": "I am a student."
+            },
+            {
+                "word": "teacher",
+                "translation_uz": "o‘qituvchi",
+                "example": "She is an English teacher."
+            },
+            {
+                "word": "hello",
+                "translation_uz": "salom",
+                "example": "Hello! Nice to meet you."
+            },
+            {
+                "word": "goodbye",
+                "translation_uz": "xayr",
+                "example": "Goodbye! See you later."
+            }
+        ]
+    }
+]

@@ -9,7 +9,7 @@ router = Router()
 
 @router.message(Command("level"))
 async def level_handler(message: Message):
-    kb = level_keyboard()
+    kb = await level_keyboard()
     await message.answer(
         "📚 English Vocablary in Use Kitobni qaysi qismidan boshlamoqchisiz?",
         reply_markup=kb.as_markup(resize_keyboard=True),
