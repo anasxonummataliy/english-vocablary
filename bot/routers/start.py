@@ -18,13 +18,7 @@ router = Router()
 async def start_handler(message: Message, bot: Bot):
     user = session.query(User).filter_by(id=message.from_user.id).first()
     if not user:
-        user = User(
-            id=message.from_user.id,
-            first_name=message.from_user.first_name,
-            last_name=message.from_user.last_name,
-            username=message.from_user.username,
-        )
-        session.add(user)
+        session.add(user.model_dump(*user))
         session.commit()
     await bot.send_chat_action(chat_id=message.from_user.id, action=ChatAction.TYPING)
     kb = level_keyboard()
