@@ -1,23 +1,40 @@
-from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
-from typing import AsyncGenerator
+from functools import cache
 from contextlib import asynccontextmanager
+
+from sqlalchemy.ext.asyncio import (
+    AsyncSession,
+    async_sessionmaker,
+    create_async_engine,
+)
 
 from bot.config import settings
 
-async_engine = create_async_engine(settings.db_url)
 
-SessionLocal = async_sessionmaker(
-    async_engine, expire_on_commit=False, class_=AsyncSession
-)
+@cache
+def get_async_engine():
+    return create_async_engine(
+        url=settings.db_url, pool_size=3, max_overflow=5, future=True
+    )
 
 
-async def get_db() -> AsyncGenerator[AsyncSession, None]:
-    async with SessionLocal() as session:
-        yield session
+@cache
+def get_session_maker() -> async_sessionmaker[AsyncSession]:
+    engine = get_async_engine()
+    return async_sessionmaker(
+        bind=engine,
+        autoflush=False,
+        expire_on_commit=False,
+    )
 
 
 @asynccontextmanager
-async def get_async_context_session() -> AsyncGenerator[AsyncSession, None]:
-    session_maker = SessionLocal()
-    async with session_maker as new_session:
-        yield new_session
+async def get_async_session_context():
+    session_maker = get_session_maker()
+    async with session_maker() as new_session:
+        try:
+            yield new_session
+        except Exception:
+            await new_session.rollback()
+            raise
+        finally:
+            await new_session.close()
