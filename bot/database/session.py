@@ -1,5 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from typing import AsyncGenerator
+from contextlib import asynccontextmanager
 
 from bot.config import settings
 
@@ -13,3 +14,10 @@ SessionLocal = async_sessionmaker(
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
     async with SessionLocal() as session:
         yield session
+
+
+@asynccontextmanager
+async def get_async_context_session() -> AsyncGenerator[AsyncSession, None]:
+    session_maker = SessionLocal()
+    async with session_maker as new_session:
+        yield new_session

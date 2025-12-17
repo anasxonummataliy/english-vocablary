@@ -4,9 +4,11 @@ from aiogram import Bot, Router, F
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 from aiogram.enums import ChatAction
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from dotenv import load_dotenv
-from bot.database.session import session
+from bot.database.session import get_async_context_session
 from bot.routers.keyboard import level_keyboard
 from bot.database.models.users import User
 
@@ -16,10 +18,20 @@ router = Router()
 
 @router.message(CommandStart())
 async def start_handler(message: Message, bot: Bot):
-    user = session.query(User).filter_by(id=message.from_user.id).first()
-    if not user:
-        session.add(user.model_dump(*user))
-        session.commit()
+    async with get_async_context_session() as session:
+        stmt = select(User).where(User.tg_id == message.from_user.id)
+        result = await session.execute(stmt)
+        db_user = result.scalar_one_or_none()
+
+        if not db_user:
+            db_user = User(
+                tg_id=message.from_user.id,
+                first_name=message.from_user.first_name,
+                username=message.from_user.username,
+            )
+            session.add(db_user)
+            await session.commit()
+
     await bot.send_chat_action(chat_id=message.from_user.id, action=ChatAction.TYPING)
     kb = level_keyboard()
     await message.answer(
