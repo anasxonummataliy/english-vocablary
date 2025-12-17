@@ -32,7 +32,7 @@ async def start_handler(message: Message, bot: Bot):
             await session.commit()
 
     await bot.send_chat_action(chat_id=message.from_user.id, action=ChatAction.TYPING)
-    kb = level_keyboard()
+    kb = await level_keyboard()
     await message.answer(
         f"Assalomu alaykum {message.from_user.first_name} bizning botimizga hush kelibsiz! \n 📚 English Vocablary in Use Kitobni qaysi qismidan boshlamoqchisiz?",
         reply_markup=kb.as_markup(resize_keyboard=True),
