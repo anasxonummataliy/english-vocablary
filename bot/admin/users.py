@@ -7,7 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from aiogram.utils.markdown import hbold, hcode, text
 
 from bot.database.models.users import User
-from bot.database.session import get_async_context_session
+from bot.database.session import get_async_session_context
 
 
 router = Router()
@@ -15,7 +15,7 @@ router = Router()
 
 @router.message(Command("users"))
 async def get_users(message: Message):
-    async with get_async_context_session() as session:
+    async with get_async_session_context() as session:
         smtm = select(User)
         result = await session.execute(smtm)
         users = result.scalars().all()
@@ -35,6 +35,4 @@ async def get_users(message: Message):
         users_lines.append(line)
 
     users_message = "\n\n".join(users_lines)
-
-    # Xabar jo‘natish
     await message.answer(header+users_message, parse_mode="HTML")

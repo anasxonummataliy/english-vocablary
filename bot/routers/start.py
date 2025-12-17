@@ -5,10 +5,9 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message
 from aiogram.enums import ChatAction
 from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from dotenv import load_dotenv
-from bot.database.session import get_async_context_session
+from bot.database.session import get_async_session_context
 from bot.routers.keyboard import level_keyboard
 from bot.database.models.users import User
 
@@ -18,7 +17,7 @@ router = Router()
 
 @router.message(CommandStart())
 async def start_handler(message: Message, bot: Bot):
-    async with get_async_context_session() as session:
+    async with get_async_session_context() as session:
         stmt = select(User).where(User.tg_id == message.from_user.id)
         result = await session.execute(stmt)
         db_user = result.scalar_one_or_none()

@@ -7,10 +7,10 @@ from aiogram import Bot, Dispatcher
 from aiogram.types import BotCommandScopeAllPrivateChats, BotCommandScopeChat
 from dotenv import load_dotenv
 
-from bot.middleware.middleware import IsJoinChannelMiddleware
+from bot.middleware.channel import IsJoinChannelMiddleware
 from bot.routers import user_router
+from bot.middleware.channel import router as middleware_router
 from bot.admin import admin_router 
-from bot.middleware.middleware import router as middleware_router
 
 from bot.admin.commands import admin_commands
 from bot.routers.user_commands import user_command
