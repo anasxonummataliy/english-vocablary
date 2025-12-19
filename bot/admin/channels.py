@@ -10,7 +10,7 @@ from bot.database.session import get_async_session_context
 
 
 class AddChannelStates(StatesGroup):
-    channel = State()
+    channel_link = State()
 
 
 router = Router()
@@ -28,14 +28,14 @@ async def get_channels(message: Message):
     await message.answer(channels)
 
 
-@router.message(Command("/add_channel"))
+@router.message(Command("add_channel"))
 async def add_channel(message: Message, state: FSMContext):
-    await state.set_state(AddChannelStates.channel)
+    await state.set_state(AddChannelStates.channel_link)
     await message.answer("Qo'shmoqchi bo'lgan kanalingiz id sini kiriting : ")
 
 
-@router.message(AddChannelStates.channel)
+@router.message(AddChannelStates.channel_link)
 async def channel_state(message: Message, state: FSMContext, bot: Bot):
     channel_id = await message.text
     result = await bot.get_chat(channel_id)
-    await message.answer("...")
+    print(result)
