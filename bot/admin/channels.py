@@ -35,9 +35,14 @@ async def get_channels(message: Message):
     await message.answer(text)
 
 
+@router.message(Command("cancel"))
+async def cancel(message: Message, state: FSMContext):
+    await state.clear()
+    await message.answer("❌ Amal bekor qilindi.")
+
+
 @router.message(Command("add_channel"))
 async def add_channel(message: Message, state: FSMContext):
-    await state.set_state(AddChannelStates.channel_link)
     await state.set_state(AddChannelStates.channel_link)
     await message.answer(
         "Avval botni kanalga admin qiling❗️\n"
