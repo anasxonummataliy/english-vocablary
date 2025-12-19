@@ -9,7 +9,6 @@ from aiogram.utils.markdown import hbold, hcode, text
 from bot.database.models.users import User
 from bot.database.session import get_async_session_context
 
-
 router = Router()
 
 
@@ -35,4 +34,4 @@ async def get_users(message: Message):
         users_lines.append(line)
 
     users_message = "\n\n".join(users_lines)
-    await message.answer(header+users_message, parse_mode="HTML")
+    await message.answer(header + users_message, parse_mode="HTML")
