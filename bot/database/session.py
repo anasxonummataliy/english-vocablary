@@ -1,6 +1,7 @@
 from functools import cache
 from contextlib import asynccontextmanager
 
+from sqlalchemy import create_engine
 from sqlalchemy.ext.asyncio import (
     AsyncSession,
     async_sessionmaker,
@@ -15,6 +16,15 @@ def get_async_engine():
     return create_async_engine(
         url=settings.db_url, pool_size=3, max_overflow=5, future=True
     )
+
+
+@cache
+def get_sync_engine():
+    sync_url = settings.db_url.replace(
+        'sqlite+aiosqlite://',
+        'sqlite:///'
+    )
+    return create_engine(sync_url, pool_pre_ping=True)
 
 
 @cache
