@@ -1,12 +1,12 @@
 from aiogram.types import BotCommand
 
 admin_commands = [
-    BotCommand(command='/start', description='Boshlash🏁'),
-    BotCommand(command='/statistics', description='User list📚'),
-    BotCommand(command='/channels', description='Channel list📢'),
-    BotCommand(command='/add_channel', description="Majburiy kanal qo'shish➕"),
-    BotCommand(command='/broadcast', description='Hamma userlar uchun xabar yuborish📢'),
-    BotCommand(command='/reply', description='Bitta userga xabar yuborish'),
-    BotCommand(command='/cancel', description='State tozalash'),
-    BotCommand(command='/users', description='Userlar')
+    BotCommand(command='/start', description='🏁 Botni ishga tushirish'),
+    BotCommand(command='/statistics', description='📊 Bot statistikasi'),
+    BotCommand(command='/users', description='👥 Foydalanuvchilar ro\'yxati'),
+    BotCommand(command='/broadcast', description='📢 Ommaviy xabar yuborish'),
+    BotCommand(command='/reply', description='💬 Userga xabar yuborish'),
+    BotCommand(command='/channels', description='📺 Kanallar ro\'yxati'),
+    BotCommand(command='/add_channel', description='➕ Majburiy kanal qo\'shish'),
+    BotCommand(command='/cancel', description='❌ Bekor qilish'),
 ]
