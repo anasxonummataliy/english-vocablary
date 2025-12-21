@@ -1,9 +1,7 @@
-from aiogram.filters import Command
-
 from aiogram import Router
 from sqlalchemy import select
 from aiogram.types import Message
-from sqlalchemy.ext.asyncio import AsyncSession
+from aiogram.filters import Command
 from aiogram.utils.markdown import hbold, hcode, text
 
 from bot.database.models.users import User

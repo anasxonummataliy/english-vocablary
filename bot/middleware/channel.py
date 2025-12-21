@@ -93,3 +93,4 @@ async def check_subscription(callback: CallbackQuery, bot: Bot):
             "Endi botdan foydalanishingiz mumkin!"
         )
         await callback.answer()
+
