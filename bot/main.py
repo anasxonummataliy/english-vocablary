@@ -8,6 +8,7 @@ from aiogram.types import BotCommandScopeAllPrivateChats, BotCommandScopeChat
 from dotenv import load_dotenv
 
 from bot.middleware.channel import IsJoinChannelMiddleware
+from bot.middleware.user_activity import UserActivityMiddleware
 from bot.routers import user_router
 from bot.middleware.channel import router as middleware_router
 from bot.admin import admin_router 
@@ -39,6 +40,7 @@ async def shotdown_message(bot: Bot) -> None:
 async def main() -> None:
     dp.include_router(admin_router)
     dp.message.middleware(IsJoinChannelMiddleware())
+    dp.message.middleware(UserActivityMiddleware())
     dp.include_router(middleware_router)
     dp.include_router(user_router)
     await dp.start_polling(bot)
