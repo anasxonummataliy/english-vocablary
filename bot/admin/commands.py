@@ -8,5 +8,5 @@ admin_commands = [
     BotCommand(command='/reply', description='💬 Userga xabar yuborish'),
     BotCommand(command='/channels', description='📺 Kanallar ro\'yxati'),
     BotCommand(command='/add_channel', description='➕ Majburiy kanal qo\'shish'),
-    BotCommand(command='/cancel', description='❌ Bekor qilish'),
+    BotCommand(command='/clear', description='❌ Stateni tozalash'),
 ]
