@@ -32,7 +32,7 @@ async def section_elem(message: Message):
     text += f"📊 Jami: {len(ALL_UNITS)} ta unit mavjud"
 
     keyboard = await create_units_keyboard(current_page, total_pages, page_data)
-    loading_msg.delete()
+    await loading_msg.delete()
     await message.answer(text, reply_markup=keyboard, parse_mode="HTML")
 
 
