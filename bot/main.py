@@ -40,8 +40,8 @@ async def shotdown_message(bot: Bot) -> None:
 async def main() -> None:
     dp.message.middleware(IsJoinChannelMiddleware())
     dp.message.middleware(UserActivityMiddleware())
-    dp.include_router(admin_router)
     dp.include_router(middleware_router)
+    dp.include_router(admin_router)
     dp.include_router(user_router)
     await dp.start_polling(bot)
 
