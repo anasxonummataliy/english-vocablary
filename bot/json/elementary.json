@@ -1,0 +1,89 @@
+{
+    "elementary": {
+        "unit_1_learning_vocabular": [
+            {
+                "word": "vocabulary",
+                "translation_uz": "lug'at boyligi",
+                "example": "You need to learn new vocabulary every day."
+            },
+            {
+                "word": "definition",
+                "translation_uz": "ta'rif",
+                "example": "Check the definition in a dictionary."
+            },
+            {
+                "word": "phrase",
+                "translation_uz": "ibora",
+                "example": "'Good morning' is a common phrase."
+            }
+        ],
+        "unit_2_the_family": [
+            {
+                "word": "parents",
+                "translation_uz": "ota-ona",
+                "example": "My parents live in Tashkent."
+            },
+            {
+                "word": "siblings",
+                "translation_uz": "aka-uka/opa-singillar",
+                "example": "Do you have any siblings?"
+            },
+            {
+                "word": "relatives",
+                "translation_uz": "qarindoshlar",
+                "example": "All my relatives came to the wedding."
+            }
+        ],
+        "unit_3_birth_marriage_and_death": [
+            {
+                "word": "born",
+                "translation_uz": "tug'ilgan",
+                "example": "I was born in 1995."
+            },
+            {
+                "word": "married",
+                "translation_uz": "uylangan/turmushga chiqqan",
+                "example": "They got married last year."
+            },
+            {
+                "word": "wedding",
+                "translation_uz": "to'y",
+                "example": "The wedding was beautiful."
+            }
+        ],
+        "unit_4_parts_of_the_body": [
+            {
+                "word": "shoulder",
+                "translation_uz": "elka",
+                "example": "He touched my shoulder."
+            },
+            {
+                "word": "knee",
+                "translation_uz": "tizza",
+                "example": "I hurt my knee playing football."
+            },
+            {
+                "word": "elbow",
+                "translation_uz": "tirsak",
+                "example": "My elbow is sore."
+            }
+        ],
+        "unit_5_clothes": [
+            {
+                "word": "jacket",
+                "translation_uz": "kurtka/pidjak",
+                "example": "Put on your jacket, it's cold."
+            },
+            {
+                "word": "shirt",
+                "translation_uz": "ko'ylak (erkaklar)",
+                "example": "He is wearing a white shirt."
+            },
+            {
+                "word": "shoes",
+                "translation_uz": "poyabzal",
+                "example": "Take off your shoes inside."
+            }
+        ]
+    }
+}
