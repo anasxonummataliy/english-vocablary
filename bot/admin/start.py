@@ -4,6 +4,7 @@ from aiogram import Bot, Router
 
 router = Router()
 
+
 @router.message(CommandStart())
 async def start_handler(message: Message):
     await message.answer(f"Salom {message.from_user.first_name}, Ahvolingiz yaxshimi?")
@@ -11,4 +12,4 @@ async def start_handler(message: Message):
 
 @router.message()
 async def message_handler(message: Message):
-    await message.answer('Mavjud bo\'lmagan command!')
+    await message.answer("Mavjud bo'lmagan command!")

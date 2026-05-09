@@ -18,7 +18,7 @@ async def cancel_admin(message: Message, state: FSMContext):
     await message.answer("❌ Bekor qilindi")
 
 
-@router.message(Command('reply'))
+@router.message(Command("reply"))
 async def reply_message(message: Message, state: FSMContext):
     await message.answer("Yubormoqchi bo'lgan foydalanuvchi idsini kiriting.❗️")
     await state.set_state(ReplyMessage.id)
@@ -31,7 +31,7 @@ async def user_id_handler(message: Message, state: FSMContext):
         await message.answer(
             f"✅ User ID: <code>{user_id}</code>\n\n"
             f"Endi xabar matnini yuboring: \n(Bekor qilish uchun /cancel)",
-            parse_mode="HTML"
+            parse_mode="HTML",
         )
         await state.update_data(id=int(message.text))
         await state.set_state(ReplyMessage.message_to_user)
@@ -42,16 +42,12 @@ async def user_id_handler(message: Message, state: FSMContext):
 @router.message(ReplyMessage.message_to_user)
 async def message_to_user(message: Message, bot: Bot, state: FSMContext):
     data = await state.get_data()
-    user_id = (data.get('id'))
+    user_id = data.get("id")
     try:
-        await bot.send_message(
-            user_id,
-            f"📨 Admin javobi:\n\n{message.text}"
-        )
+        await bot.send_message(user_id, f"📨 Admin javobi:\n\n{message.text}")
         await message.answer(
-            f"✅ Xabar yuborildi!\n"
-            f"User ID: <code>{user_id}</code>",
-            parse_mode="HTML"
+            f"✅ Xabar yuborildi!\n" f"User ID: <code>{user_id}</code>",
+            parse_mode="HTML",
         )
     except Exception as e:
         await message.answer(f"❌ Xatolik: {str(e)}")

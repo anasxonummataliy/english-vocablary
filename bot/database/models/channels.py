@@ -11,5 +11,4 @@ class Channel(Base):
     channel_link: Mapped[str] = mapped_column(String, nullable=True)
     channel_username: Mapped[str] = mapped_column(String, nullable=True)
     channel_title: Mapped[str] = mapped_column(String, nullable=False)
-    is_active :Mapped[bool] = mapped_column(Boolean, default=True)
-    
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)

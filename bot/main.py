@@ -40,6 +40,5 @@ async def start_bot() -> None:
     await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
 
 
-
 if __name__ == "__main__":
     asyncio.run(start_bot())

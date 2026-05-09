@@ -20,7 +20,7 @@ async def get_users(message: Message):
             await message.answer("Hali foydalanuvchilar yo'q.")
             return
     users_lines = []
-    header = 'USERS\n\n'
+    header = "USERS\n\n"
     for i, user in enumerate(users, start=1):
         line = text(
             hcode(f"ID: {user.id}"),
