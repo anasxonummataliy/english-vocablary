@@ -10,9 +10,6 @@ router = Router()
 
 
 async def get_unit_words(level: str, unit_id: int) -> list | None:
-    """
-    JSON fayldan berilgan level va unit_id bo'yicha so'zlar ro'yxatini qaytaradi.
-    """
     file_path = f"data/{level}.json"
 
     if not os.path.exists(file_path):
@@ -29,9 +26,7 @@ async def get_unit_words(level: str, unit_id: int) -> list | None:
 
 
 async def get_unit_info(level: str, unit_id: int) -> dict | None:
-    """
-    Unit sarlavhasi va mavzusini qaytaradi.
-    """
+
     file_path = f"data/{level}.json"
 
     if not os.path.exists(file_path):
@@ -51,11 +46,6 @@ async def get_unit_info(level: str, unit_id: int) -> dict | None:
 
 
 def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) -> str:
-    """
-    So'zlar ro'yxatini chiroyli HTML formatga o'giradi.
-    Har bir so'z uchun: word, transcription, part_of_speech,
-    uzbek manosi, inglizcha tavsif va misol ko'rsatiladi.
-    """
     level_display = level.capitalize()
 
     text = (
@@ -80,7 +70,6 @@ def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) ->
             f"   ✏️ <i>{example}</i>\n"
         )
 
-        # So'nggi so'zdan keyin ajratgich qo'yilmaydi
         if i < len(words):
             text += f"\n{'─' * 18}\n\n"
 
@@ -89,10 +78,6 @@ def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) ->
 
 @router.callback_query(F.data.startswith("words_"))
 async def show_words_handler(callback: CallbackQuery, redis: Redis):
-    """
-    Tanlangan unit so'zlarini ko'rsatadi.
-    Callback data format: words_{unit_id}
-    """
     raw_data = callback.data.removeprefix("words_").strip()
 
     try:
@@ -111,12 +96,10 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         )
         return
 
-    # Redis bytes → str, faqat harf-raqam qoldirib kichik harfga o'tkazamiz
     if isinstance(raw_level, bytes):
         raw_level = raw_level.decode()
     clean_level = "".join(filter(str.isalnum, raw_level)).lower()
 
-    # Unit ma'lumotlari va so'zlarni parallel olamiz
     unit_info = await get_unit_info(clean_level, unit_id)
     words = await get_unit_words(clean_level, unit_id)
 
