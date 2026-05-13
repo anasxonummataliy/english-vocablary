@@ -1,12 +1,13 @@
 from aiogram import Router
 
-from bot.routers.start import router as start
-from bot.routers.help import router as help
-from bot.routers.message_to_admin import router as message_to_admin
+from .start import router as start
+from .help import router as help
+from .message_to_admin import router as message_to_admin
 from bot.filters.admin import isAdmin
-from bot.routers.level import router as level
+from .level import router as level
+from .get_words import router as get_words
 
 
 user_router = Router()
 user_router.message.filter(~isAdmin())
-user_router.include_routers(level, message_to_admin, help, start)
+user_router.include_routers(get_words, level, message_to_admin, help, start)

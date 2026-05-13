@@ -15,6 +15,13 @@ class Settings(BaseSettings):
     postgres_host: str = os.getenv("POSTGRES_HOST")
     postgres_port: int = os.getenv("POSTGRES_PORT")
 
+    redis_host: str = os.getenv("REDIS_HOST", "localhost")
+    redis_port: int = int(os.getenv("REDIS_PORT", 6379))
+
+    @property
+    def redis_url(self) -> str:
+        return f"redis://{self.redis_host}:{self.redis_port}/0"
+
     @property
     def postgres_dsn(self) -> str:
         return (

@@ -1,0 +1,1036 @@
+{
+    "book": "English Vocabulary in Use",
+    "level": "Elementary",
+    "units": [
+        {
+            "unit": 1,
+            "title": "Classroom Language",
+            "topic": "Words and phrases used in the classroom every day",
+            "words": [
+                {
+                    "id": "u1_1",
+                    "word": "board",
+                    "transcription": "/bɔːrd/",
+                    "part_of_speech": "noun",
+                    "description": "A large flat surface on the wall where a teacher writes with chalk or a marker",
+                    "example": "The teacher wrote the new words on the board."
+                },
+                {
+                    "id": "u1_2",
+                    "word": "notebook",
+                    "transcription": "/ˈnoʊtbʊk/",
+                    "part_of_speech": "noun",
+                    "description": "A small book with blank or lined pages used for writing notes",
+                    "example": "Write the vocabulary in your notebook."
+                },
+                {
+                    "id": "u1_3",
+                    "word": "textbook",
+                    "transcription": "/ˈtekstbʊk/",
+                    "part_of_speech": "noun",
+                    "description": "A book used for studying a particular subject at school or college",
+                    "example": "Open your textbook to page 12."
+                },
+                {
+                    "id": "u1_4",
+                    "word": "dictionary",
+                    "transcription": "/ˈdɪkʃəneri/",
+                    "part_of_speech": "noun",
+                    "description": "A book or digital tool that explains the meaning of words in a language",
+                    "example": "Use a dictionary to find the meaning of new words."
+                },
+                {
+                    "id": "u1_5",
+                    "word": "pen",
+                    "transcription": "/pɛn/",
+                    "part_of_speech": "noun",
+                    "description": "A writing tool that uses ink to write on paper",
+                    "example": "Can I borrow your pen? I need to sign something."
+                },
+                {
+                    "id": "u1_6",
+                    "word": "pencil",
+                    "transcription": "/ˈpɛnsəl/",
+                    "part_of_speech": "noun",
+                    "description": "A thin wooden stick with a dark centre used for writing or drawing that can be erased",
+                    "example": "Draw the diagram with a pencil so you can erase mistakes."
+                },
+                {
+                    "id": "u1_7",
+                    "word": "homework",
+                    "transcription": "/ˈhoʊmwɜːrk/",
+                    "part_of_speech": "noun",
+                    "description": "School work that a student is given to do at home, not in class",
+                    "example": "The teacher gave us homework to do for tomorrow."
+                },
+                {
+                    "id": "u1_8",
+                    "word": "exercise",
+                    "transcription": "/ˈeksərsaɪz/",
+                    "part_of_speech": "noun",
+                    "description": "A set of questions or tasks done to practise a skill",
+                    "example": "Do exercise 3 on page 25 for homework."
+                },
+                {
+                    "id": "u1_9",
+                    "word": "repeat",
+                    "transcription": "/rɪˈpiːt/",
+                    "part_of_speech": "verb",
+                    "description": "To say or do something again",
+                    "example": "Please repeat that — I didn't hear you."
+                },
+                {
+                    "id": "u1_10",
+                    "word": "understand",
+                    "transcription": "/ˌʌndərˈstænd/",
+                    "part_of_speech": "verb",
+                    "description": "To know the meaning of something; to comprehend",
+                    "example": "Do you understand the grammar rule?"
+                },
+                {
+                    "id": "u1_11",
+                    "word": "correct",
+                    "transcription": "/kəˈrekt/",
+                    "part_of_speech": "adjective / verb",
+                    "description": "Right or accurate; or to fix a mistake",
+                    "example": "That answer is correct! / The teacher will correct your essays."
+                },
+                {
+                    "id": "u1_12",
+                    "word": "mistake",
+                    "transcription": "/mɪˈsteɪk/",
+                    "part_of_speech": "noun",
+                    "description": "Something that is wrong or done incorrectly",
+                    "example": "Everyone makes mistakes when learning a language."
+                }
+            ]
+        },
+        {
+            "unit": 2,
+            "title": "Countries and Nationalities",
+            "topic": "Names of countries, languages spoken, and how to describe where people come from",
+            "words": [
+                {
+                    "id": "u2_1",
+                    "word": "country",
+                    "transcription": "/ˈkʌntri/",
+                    "part_of_speech": "noun",
+                    "description": "A nation with its own government and borders, e.g. France, Japan, Brazil",
+                    "example": "Which country are you from?"
+                },
+                {
+                    "id": "u2_2",
+                    "word": "nationality",
+                    "transcription": "/ˌnæʃəˈnæləti/",
+                    "part_of_speech": "noun",
+                    "description": "The status of belonging to a particular country",
+                    "example": "My nationality is Uzbek — I am from Uzbekistan."
+                },
+                {
+                    "id": "u2_3",
+                    "word": "language",
+                    "transcription": "/ˈlæŋɡwɪdʒ/",
+                    "part_of_speech": "noun",
+                    "description": "A system of words and grammar used by people of a country or community to communicate",
+                    "example": "The official language of Brazil is Portuguese."
+                },
+                {
+                    "id": "u2_4",
+                    "word": "capital",
+                    "transcription": "/ˈkæpɪtəl/",
+                    "part_of_speech": "noun",
+                    "description": "The most important city in a country where the government is based",
+                    "example": "London is the capital of England."
+                },
+                {
+                    "id": "u2_5",
+                    "word": "continent",
+                    "transcription": "/ˈkɒntɪnənt/",
+                    "part_of_speech": "noun",
+                    "description": "One of the seven large land masses on Earth: Africa, Asia, Europe, North America, South America, Australia, Antarctica",
+                    "example": "Uzbekistan is in the continent of Asia."
+                },
+                {
+                    "id": "u2_6",
+                    "word": "abroad",
+                    "transcription": "/əˈbrɔːd/",
+                    "part_of_speech": "adverb",
+                    "description": "In or to a foreign country, outside your own country",
+                    "example": "She went abroad to study English in the UK."
+                },
+                {
+                    "id": "u2_7",
+                    "word": "passport",
+                    "transcription": "/ˈpæspɔːrt/",
+                    "part_of_speech": "noun",
+                    "description": "An official document that proves your identity and nationality when travelling to other countries",
+                    "example": "You need a passport to travel abroad."
+                },
+                {
+                    "id": "u2_8",
+                    "word": "foreign",
+                    "transcription": "/ˈfɒrən/",
+                    "part_of_speech": "adjective",
+                    "description": "Belonging to or coming from a country that is not your own",
+                    "example": "She speaks two foreign languages: English and French."
+                },
+                {
+                    "id": "u2_9",
+                    "word": "population",
+                    "transcription": "/ˌpɒpjʊˈleɪʃən/",
+                    "part_of_speech": "noun",
+                    "description": "The total number of people who live in a particular place",
+                    "example": "The population of Uzbekistan is about 36 million."
+                },
+                {
+                    "id": "u2_10",
+                    "word": "citizen",
+                    "transcription": "/ˈsɪtɪzən/",
+                    "part_of_speech": "noun",
+                    "description": "A person who legally belongs to a country and has rights there",
+                    "example": "She became a citizen of the United States after living there for years."
+                },
+                {
+                    "id": "u2_11",
+                    "word": "border",
+                    "transcription": "/ˈbɔːrdər/",
+                    "part_of_speech": "noun",
+                    "description": "The line that separates one country or region from another",
+                    "example": "Uzbekistan shares a border with Kazakhstan."
+                },
+                {
+                    "id": "u2_12",
+                    "word": "native",
+                    "transcription": "/ˈneɪtɪv/",
+                    "part_of_speech": "adjective",
+                    "description": "Relating to the place where you were born or grew up",
+                    "example": "Uzbek is my native language."
+                }
+            ]
+        },
+        {
+            "unit": 3,
+            "title": "The Family",
+            "topic": "Words for family members and relationships between people",
+            "words": [
+                {
+                    "id": "u3_1",
+                    "word": "parents",
+                    "transcription": "/ˈpeərənts/",
+                    "part_of_speech": "noun (plural)",
+                    "description": "Your mother and father together",
+                    "example": "My parents are both teachers."
+                },
+                {
+                    "id": "u3_2",
+                    "word": "sibling",
+                    "transcription": "/ˈsɪblɪŋ/",
+                    "part_of_speech": "noun",
+                    "description": "A brother or sister",
+                    "example": "I have two siblings — one brother and one sister."
+                },
+                {
+                    "id": "u3_3",
+                    "word": "grandparents",
+                    "transcription": "/ˈɡrændpeərənts/",
+                    "part_of_speech": "noun (plural)",
+                    "description": "The parents of your mother or father",
+                    "example": "I visit my grandparents every weekend."
+                },
+                {
+                    "id": "u3_4",
+                    "word": "uncle",
+                    "transcription": "/ˈʌŋkəl/",
+                    "part_of_speech": "noun",
+                    "description": "The brother of your mother or father, or the husband of your aunt",
+                    "example": "My uncle lives in another city."
+                },
+                {
+                    "id": "u3_5",
+                    "word": "aunt",
+                    "transcription": "/ɑːnt/",
+                    "part_of_speech": "noun",
+                    "description": "The sister of your mother or father, or the wife of your uncle",
+                    "example": "My aunt makes the best food."
+                },
+                {
+                    "id": "u3_6",
+                    "word": "cousin",
+                    "transcription": "/ˈkʌzən/",
+                    "part_of_speech": "noun",
+                    "description": "The child of your aunt or uncle",
+                    "example": "I have five cousins on my mother's side."
+                },
+                {
+                    "id": "u3_7",
+                    "word": "nephew",
+                    "transcription": "/ˈnevjuː/",
+                    "part_of_speech": "noun",
+                    "description": "The son of your brother or sister",
+                    "example": "My nephew is four years old."
+                },
+                {
+                    "id": "u3_8",
+                    "word": "niece",
+                    "transcription": "/niːs/",
+                    "part_of_speech": "noun",
+                    "description": "The daughter of your brother or sister",
+                    "example": "My niece started school this year."
+                },
+                {
+                    "id": "u3_9",
+                    "word": "husband",
+                    "transcription": "/ˈhʌzbənd/",
+                    "part_of_speech": "noun",
+                    "description": "A man who is married; the male partner in a marriage",
+                    "example": "Her husband works as an engineer."
+                },
+                {
+                    "id": "u3_10",
+                    "word": "wife",
+                    "transcription": "/waɪf/",
+                    "part_of_speech": "noun",
+                    "description": "A woman who is married; the female partner in a marriage",
+                    "example": "His wife is a doctor."
+                },
+                {
+                    "id": "u3_11",
+                    "word": "only child",
+                    "transcription": "/ˌoʊnli ˈtʃaɪld/",
+                    "part_of_speech": "noun phrase",
+                    "description": "A child who has no brothers or sisters",
+                    "example": "He is an only child, so he grew up without siblings."
+                },
+                {
+                    "id": "u3_12",
+                    "word": "relative",
+                    "transcription": "/ˈrelətɪv/",
+                    "part_of_speech": "noun",
+                    "description": "A member of your family; someone related to you by blood or marriage",
+                    "example": "We have relatives living in many different cities."
+                }
+            ]
+        },
+        {
+            "unit": 4,
+            "title": "Jobs and Occupations",
+            "topic": "Common words for different kinds of work and the places where people work",
+            "words": [
+                {
+                    "id": "u4_1",
+                    "word": "doctor",
+                    "transcription": "/ˈdɒktər/",
+                    "part_of_speech": "noun",
+                    "description": "A person who is trained in medicine and treats people who are sick or injured",
+                    "example": "The doctor told me to rest and drink plenty of water."
+                },
+                {
+                    "id": "u4_2",
+                    "word": "nurse",
+                    "transcription": "/nɜːrs/",
+                    "part_of_speech": "noun",
+                    "description": "A person trained to care for sick or injured people, often working in hospitals",
+                    "example": "The nurse checked my blood pressure every morning."
+                },
+                {
+                    "id": "u4_3",
+                    "word": "teacher",
+                    "transcription": "/ˈtiːtʃər/",
+                    "part_of_speech": "noun",
+                    "description": "A person whose job is to educate students in a school or other setting",
+                    "example": "My English teacher is very patient and helpful."
+                },
+                {
+                    "id": "u4_4",
+                    "word": "engineer",
+                    "transcription": "/ˌendʒɪˈnɪər/",
+                    "part_of_speech": "noun",
+                    "description": "A person who designs and builds machines, structures, or systems",
+                    "example": "She works as a software engineer at a tech company."
+                },
+                {
+                    "id": "u4_5",
+                    "word": "lawyer",
+                    "transcription": "/ˈlɔːjər/",
+                    "part_of_speech": "noun",
+                    "description": "A person who is trained in law and helps people with legal problems",
+                    "example": "We hired a lawyer to help us with the contract."
+                },
+                {
+                    "id": "u4_6",
+                    "word": "chef",
+                    "transcription": "/ʃef/",
+                    "part_of_speech": "noun",
+                    "description": "A professional cook who works in a restaurant or hotel kitchen",
+                    "example": "The chef at this restaurant makes amazing food."
+                },
+                {
+                    "id": "u4_7",
+                    "word": "pilot",
+                    "transcription": "/ˈpaɪlət/",
+                    "part_of_speech": "noun",
+                    "description": "A person who is trained to fly an aircraft",
+                    "example": "The pilot landed the plane safely in bad weather."
+                },
+                {
+                    "id": "u4_8",
+                    "word": "journalist",
+                    "transcription": "/ˈdʒɜːrnəlɪst/",
+                    "part_of_speech": "noun",
+                    "description": "A person who writes or reports news for newspapers, TV, radio, or online",
+                    "example": "The journalist wrote an article about the new law."
+                },
+                {
+                    "id": "u4_9",
+                    "word": "architect",
+                    "transcription": "/ˈɑːrkɪtekt/",
+                    "part_of_speech": "noun",
+                    "description": "A person who designs buildings and oversees their construction",
+                    "example": "The architect designed a beautiful new library."
+                },
+                {
+                    "id": "u4_10",
+                    "word": "accountant",
+                    "transcription": "/əˈkaʊntənt/",
+                    "part_of_speech": "noun",
+                    "description": "A person who manages financial records and taxes for businesses or individuals",
+                    "example": "Our accountant handles all the company's finances."
+                },
+                {
+                    "id": "u4_11",
+                    "word": "salary",
+                    "transcription": "/ˈsæləri/",
+                    "part_of_speech": "noun",
+                    "description": "A fixed amount of money paid to an employee regularly, usually monthly",
+                    "example": "She earns a good salary at her new job."
+                },
+                {
+                    "id": "u4_12",
+                    "word": "unemployed",
+                    "transcription": "/ˌʌnɪmˈplɔɪd/",
+                    "part_of_speech": "adjective",
+                    "description": "Not having a job; without paid work",
+                    "example": "He was unemployed for six months before finding a new job."
+                }
+            ]
+        },
+        {
+            "unit": 5,
+            "title": "The Body",
+            "topic": "Names of the main parts of the human body, both external and related actions",
+            "words": [
+                {
+                    "id": "u5_1",
+                    "word": "head",
+                    "transcription": "/hɛd/",
+                    "part_of_speech": "noun",
+                    "description": "The top part of the body containing the brain, eyes, nose, mouth, and ears",
+                    "example": "She shook her head to say no."
+                },
+                {
+                    "id": "u5_2",
+                    "word": "shoulder",
+                    "transcription": "/ˈʃoʊldər/",
+                    "part_of_speech": "noun",
+                    "description": "The joint connecting the arm to the upper body; the area between the neck and the arm",
+                    "example": "He carried the bag over his shoulder."
+                },
+                {
+                    "id": "u5_3",
+                    "word": "elbow",
+                    "transcription": "/ˈɛlboʊ/",
+                    "part_of_speech": "noun",
+                    "description": "The joint in the middle of the arm where it bends",
+                    "example": "I bumped my elbow on the table."
+                },
+                {
+                    "id": "u5_4",
+                    "word": "wrist",
+                    "transcription": "/rɪst/",
+                    "part_of_speech": "noun",
+                    "description": "The joint that connects the hand to the lower arm",
+                    "example": "She wears a watch on her wrist."
+                },
+                {
+                    "id": "u5_5",
+                    "word": "thumb",
+                    "transcription": "/θʌm/",
+                    "part_of_speech": "noun",
+                    "description": "The short thick finger at the side of the hand, separate from the other four fingers",
+                    "example": "He gave a thumbs-up to show everything was OK."
+                },
+                {
+                    "id": "u5_6",
+                    "word": "knee",
+                    "transcription": "/niː/",
+                    "part_of_speech": "noun",
+                    "description": "The joint in the middle of the leg that allows it to bend",
+                    "example": "She hurt her knee while playing football."
+                },
+                {
+                    "id": "u5_7",
+                    "word": "ankle",
+                    "transcription": "/ˈæŋkəl/",
+                    "part_of_speech": "noun",
+                    "description": "The joint that connects the foot to the lower leg",
+                    "example": "He twisted his ankle when he fell."
+                },
+                {
+                    "id": "u5_8",
+                    "word": "chin",
+                    "transcription": "/tʃɪn/",
+                    "part_of_speech": "noun",
+                    "description": "The part of the face below the mouth and above the neck",
+                    "example": "She rested her chin on her hand while thinking."
+                },
+                {
+                    "id": "u5_9",
+                    "word": "forehead",
+                    "transcription": "/ˈfɔːrhɛd/",
+                    "part_of_speech": "noun",
+                    "description": "The flat part of the face above the eyebrows and below the hairline",
+                    "example": "She had a headache and rubbed her forehead."
+                },
+                {
+                    "id": "u5_10",
+                    "word": "cheek",
+                    "transcription": "/tʃiːk/",
+                    "part_of_speech": "noun",
+                    "description": "Either side of the face below the eyes",
+                    "example": "The baby had round, pink cheeks."
+                },
+                {
+                    "id": "u5_11",
+                    "word": "lips",
+                    "transcription": "/lɪps/",
+                    "part_of_speech": "noun (plural)",
+                    "description": "The two soft edges around the opening of the mouth",
+                    "example": "Drink water if your lips feel dry."
+                },
+                {
+                    "id": "u5_12",
+                    "word": "chest",
+                    "transcription": "/tʃɛst/",
+                    "part_of_speech": "noun",
+                    "description": "The front of the body between the neck and the stomach; contains the heart and lungs",
+                    "example": "The doctor listened to his chest with a stethoscope."
+                }
+            ]
+        },
+        {
+            "unit": 6,
+            "title": "Clothes",
+            "topic": "Types of clothing, accessories, and words for describing what people wear",
+            "words": [
+                {
+                    "id": "u6_1",
+                    "word": "jacket",
+                    "transcription": "/ˈdʒækɪt/",
+                    "part_of_speech": "noun",
+                    "description": "A short coat with sleeves, worn over other clothes",
+                    "example": "Take a jacket — it will be cold tonight."
+                },
+                {
+                    "id": "u6_2",
+                    "word": "trousers",
+                    "transcription": "/ˈtraʊzərz/",
+                    "part_of_speech": "noun (plural)",
+                    "description": "A piece of clothing that covers the lower body with separate legs; called 'pants' in American English",
+                    "example": "He wore black trousers to the interview."
+                },
+                {
+                    "id": "u6_3",
+                    "word": "shirt",
+                    "transcription": "/ʃɜːrt/",
+                    "part_of_speech": "noun",
+                    "description": "A piece of clothing for the upper body with a collar and buttons, usually worn by men",
+                    "example": "He always wears a white shirt to work."
+                },
+                {
+                    "id": "u6_4",
+                    "word": "blouse",
+                    "transcription": "/blaʊs/",
+                    "part_of_speech": "noun",
+                    "description": "A loose shirt typically worn by women",
+                    "example": "She wore a silk blouse with her skirt."
+                },
+                {
+                    "id": "u6_5",
+                    "word": "skirt",
+                    "transcription": "/skɜːrt/",
+                    "part_of_speech": "noun",
+                    "description": "A piece of clothing worn by women and girls that hangs from the waist down",
+                    "example": "She wore a long skirt to the party."
+                },
+                {
+                    "id": "u6_6",
+                    "word": "dress",
+                    "transcription": "/drɛs/",
+                    "part_of_speech": "noun",
+                    "description": "A one-piece garment for women or girls that covers the body from the shoulders to below the waist",
+                    "example": "She bought a beautiful red dress for the wedding."
+                },
+                {
+                    "id": "u6_7",
+                    "word": "suit",
+                    "transcription": "/suːt/",
+                    "part_of_speech": "noun",
+                    "description": "A set of matching jacket and trousers (or skirt) worn for formal occasions",
+                    "example": "He wore a dark blue suit to the job interview."
+                },
+                {
+                    "id": "u6_8",
+                    "word": "trainers",
+                    "transcription": "/ˈtreɪnərz/",
+                    "part_of_speech": "noun (plural)",
+                    "description": "Comfortable sports shoes, called 'sneakers' in American English",
+                    "example": "I wear trainers when I go to the gym."
+                },
+                {
+                    "id": "u6_9",
+                    "word": "boots",
+                    "transcription": "/buːts/",
+                    "part_of_speech": "noun (plural)",
+                    "description": "Strong shoes that cover the foot and ankle, sometimes higher up the leg",
+                    "example": "She wears boots in winter to keep her feet warm."
+                },
+                {
+                    "id": "u6_10",
+                    "word": "scarf",
+                    "transcription": "/skɑːrf/",
+                    "part_of_speech": "noun",
+                    "description": "A long piece of cloth worn around the neck or head for warmth or style",
+                    "example": "He wrapped a scarf around his neck on the cold day."
+                },
+                {
+                    "id": "u6_11",
+                    "word": "gloves",
+                    "transcription": "/ɡlʌvz/",
+                    "part_of_speech": "noun (plural)",
+                    "description": "Coverings for the hands with separate parts for each finger, worn for warmth or protection",
+                    "example": "Don't forget your gloves — it's freezing outside."
+                },
+                {
+                    "id": "u6_12",
+                    "word": "belt",
+                    "transcription": "/bɛlt/",
+                    "part_of_speech": "noun",
+                    "description": "A strip of leather or cloth worn around the waist to hold up trousers or as decoration",
+                    "example": "His trousers were too big, so he wore a belt."
+                }
+            ]
+        },
+        {
+            "unit": 7,
+            "title": "Food and Drink",
+            "topic": "Common food items, drinks, and vocabulary for eating and cooking",
+            "words": [
+                {
+                    "id": "u7_1",
+                    "word": "bread",
+                    "transcription": "/brɛd/",
+                    "part_of_speech": "noun",
+                    "description": "A basic food made from flour and water and baked in an oven; a staple in many countries",
+                    "example": "She bought fresh bread from the bakery."
+                },
+                {
+                    "id": "u7_2",
+                    "word": "butter",
+                    "transcription": "/ˈbʌtər/",
+                    "part_of_speech": "noun",
+                    "description": "A soft yellow fat made from cream, spread on bread or used in cooking",
+                    "example": "He spread butter on his toast."
+                },
+                {
+                    "id": "u7_3",
+                    "word": "cheese",
+                    "transcription": "/tʃiːz/",
+                    "part_of_speech": "noun",
+                    "description": "A solid food made from milk, available in many different types and flavours",
+                    "example": "She put cheese and tomato in her sandwich."
+                },
+                {
+                    "id": "u7_4",
+                    "word": "vegetables",
+                    "transcription": "/ˈvedʒtəbəlz/",
+                    "part_of_speech": "noun (plural)",
+                    "description": "Plants or parts of plants eaten as food, such as carrots, onions, and tomatoes",
+                    "example": "Try to eat more vegetables every day."
+                },
+                {
+                    "id": "u7_5",
+                    "word": "fruit",
+                    "transcription": "/fruːt/",
+                    "part_of_speech": "noun",
+                    "description": "The sweet, fleshy product of a plant, eaten as food; e.g. apples, bananas, oranges",
+                    "example": "She had fruit and yoghurt for breakfast."
+                },
+                {
+                    "id": "u7_6",
+                    "word": "meat",
+                    "transcription": "/miːt/",
+                    "part_of_speech": "noun",
+                    "description": "The flesh of animals eaten as food, such as beef, chicken, or lamb",
+                    "example": "He doesn't eat meat — he's a vegetarian."
+                },
+                {
+                    "id": "u7_7",
+                    "word": "rice",
+                    "transcription": "/raɪs/",
+                    "part_of_speech": "noun",
+                    "description": "Small white or brown grains from a plant, cooked and eaten as a staple food in many countries",
+                    "example": "In Uzbekistan, rice is used to make plov."
+                },
+                {
+                    "id": "u7_8",
+                    "word": "soup",
+                    "transcription": "/suːp/",
+                    "part_of_speech": "noun",
+                    "description": "A liquid food made by cooking meat or vegetables in water or stock",
+                    "example": "She made tomato soup for lunch."
+                },
+                {
+                    "id": "u7_9",
+                    "word": "juice",
+                    "transcription": "/dʒuːs/",
+                    "part_of_speech": "noun",
+                    "description": "A drink made from the liquid extracted from fruit or vegetables",
+                    "example": "I drink orange juice every morning."
+                },
+                {
+                    "id": "u7_10",
+                    "word": "snack",
+                    "transcription": "/snæk/",
+                    "part_of_speech": "noun",
+                    "description": "A small amount of food eaten between main meals",
+                    "example": "I had an apple as a snack between classes."
+                },
+                {
+                    "id": "u7_11",
+                    "word": "recipe",
+                    "transcription": "/ˈresɪpi/",
+                    "part_of_speech": "noun",
+                    "description": "A set of instructions for preparing a particular food dish, listing ingredients and steps",
+                    "example": "Can you share the recipe for this cake?"
+                },
+                {
+                    "id": "u7_12",
+                    "word": "delicious",
+                    "transcription": "/dɪˈlɪʃəs/",
+                    "part_of_speech": "adjective",
+                    "description": "Having a very pleasant taste or smell; extremely good to eat",
+                    "example": "This samsa is absolutely delicious!"
+                }
+            ]
+        },
+        {
+            "unit": 8,
+            "title": "Colors",
+            "topic": "Basic and advanced color words, and how to use them to describe things",
+            "words": [
+                {
+                    "id": "u8_1",
+                    "word": "red",
+                    "transcription": "/rɛd/",
+                    "part_of_speech": "adjective / noun",
+                    "description": "The color of blood or fire; a warm, strong primary color",
+                    "example": "She wore a red dress to the party."
+                },
+                {
+                    "id": "u8_2",
+                    "word": "blue",
+                    "transcription": "/bluː/",
+                    "part_of_speech": "adjective / noun",
+                    "description": "The color of the sky on a clear day or the ocean; a cool primary color",
+                    "example": "He has bright blue eyes."
+                },
+                {
+                    "id": "u8_3",
+                    "word": "green",
+                    "transcription": "/ɡriːn/",
+                    "part_of_speech": "adjective / noun",
+                    "description": "The color of grass and leaves; associated with nature",
+                    "example": "The park is full of green trees."
+                },
+                {
+                    "id": "u8_4",
+                    "word": "yellow",
+                    "transcription": "/ˈjɛloʊ/",
+                    "part_of_speech": "adjective / noun",
+                    "description": "A bright warm color like the sun or ripe bananas",
+                    "example": "Sunflowers are bright yellow."
+                },
+                {
+                    "id": "u8_5",
+                    "word": "orange",
+                    "transcription": "/ˈɒrɪndʒ/",
+                    "part_of_speech": "adjective / noun",
+                    "description": "A warm color between red and yellow, like the fruit of the same name",
+                    "example": "The autumn leaves turned orange."
+                },
+                {
+                    "id": "u8_6",
+                    "word": "purple",
+                    "transcription": "/ˈpɜːrpəl/",
+                    "part_of_speech": "adjective / noun",
+                    "description": "A color made by mixing red and blue; often associated with royalty",
+                    "example": "She painted the wall purple."
+                },
+                {
+                    "id": "u8_7",
+                    "word": "brown",
+                    "transcription": "/braʊn/",
+                    "part_of_speech": "adjective / noun",
+                    "description": "A dark warm color like chocolate, wood, or earth",
+                    "example": "He has brown hair and brown eyes."
+                },
+                {
+                    "id": "u8_8",
+                    "word": "grey",
+                    "transcription": "/ɡreɪ/",
+                    "part_of_speech": "adjective / noun",
+                    "description": "A neutral color between black and white, like clouds on an overcast day",
+                    "example": "It was a grey, cloudy morning."
+                },
+                {
+                    "id": "u8_9",
+                    "word": "white",
+                    "transcription": "/waɪt/",
+                    "part_of_speech": "adjective / noun",
+                    "description": "The lightest color, the color of snow or milk; the opposite of black",
+                    "example": "The walls in the hospital are white."
+                },
+                {
+                    "id": "u8_10",
+                    "word": "black",
+                    "transcription": "/blæk/",
+                    "part_of_speech": "adjective / noun",
+                    "description": "The darkest color, absorbing all light; the opposite of white",
+                    "example": "He always wears black clothes."
+                },
+                {
+                    "id": "u8_11",
+                    "word": "light",
+                    "transcription": "/laɪt/",
+                    "part_of_speech": "adjective",
+                    "description": "Used before a color to mean a pale, not strong version of that color",
+                    "example": "She wore a light blue blouse."
+                },
+                {
+                    "id": "u8_12",
+                    "word": "dark",
+                    "transcription": "/dɑːrk/",
+                    "part_of_speech": "adjective",
+                    "description": "Used before a color to mean a deep, strong version of that color",
+                    "example": "He was wearing dark green trousers."
+                }
+            ]
+        },
+        {
+            "unit": 9,
+            "title": "Days, Months and Time",
+            "topic": "Days of the week, months of the year, and expressions for talking about time",
+            "words": [
+                {
+                    "id": "u9_1",
+                    "word": "weekday",
+                    "transcription": "/ˈwiːkdeɪ/",
+                    "part_of_speech": "noun",
+                    "description": "Any day of the week from Monday to Friday, when people usually work or study",
+                    "example": "The library is open every weekday from 9am to 6pm."
+                },
+                {
+                    "id": "u9_2",
+                    "word": "weekend",
+                    "transcription": "/ˌwiːkˈɛnd/",
+                    "part_of_speech": "noun",
+                    "description": "Saturday and Sunday, when most people do not work",
+                    "example": "What did you do at the weekend?"
+                },
+                {
+                    "id": "u9_3",
+                    "word": "yesterday",
+                    "transcription": "/ˈjɛstərdeɪ/",
+                    "part_of_speech": "adverb / noun",
+                    "description": "The day before today",
+                    "example": "I was tired yesterday, so I went to bed early."
+                },
+                {
+                    "id": "u9_4",
+                    "word": "tomorrow",
+                    "transcription": "/təˈmɒroʊ/",
+                    "part_of_speech": "adverb / noun",
+                    "description": "The day after today",
+                    "example": "We have an English test tomorrow."
+                },
+                {
+                    "id": "u9_5",
+                    "word": "fortnight",
+                    "transcription": "/ˈfɔːrtnaɪt/",
+                    "part_of_speech": "noun",
+                    "description": "A period of two weeks (14 days); commonly used in British English",
+                    "example": "I'll see you in a fortnight."
+                },
+                {
+                    "id": "u9_6",
+                    "word": "century",
+                    "transcription": "/ˈsentʃəri/",
+                    "part_of_speech": "noun",
+                    "description": "A period of 100 years",
+                    "example": "We are living in the 21st century."
+                },
+                {
+                    "id": "u9_7",
+                    "word": "decade",
+                    "transcription": "/ˈdɛkeɪd/",
+                    "part_of_speech": "noun",
+                    "description": "A period of ten years",
+                    "example": "A lot has changed in the last decade."
+                },
+                {
+                    "id": "u9_8",
+                    "word": "noon",
+                    "transcription": "/nuːn/",
+                    "part_of_speech": "noun",
+                    "description": "12 o'clock in the middle of the day; midday",
+                    "example": "We had lunch at noon."
+                },
+                {
+                    "id": "u9_9",
+                    "word": "midnight",
+                    "transcription": "/ˈmɪdnaɪt/",
+                    "part_of_speech": "noun",
+                    "description": "12 o'clock at night; the middle of the night",
+                    "example": "The party went on until midnight."
+                },
+                {
+                    "id": "u9_10",
+                    "word": "dawn",
+                    "transcription": "/dɔːn/",
+                    "part_of_speech": "noun",
+                    "description": "The time of day when light first appears; the beginning of the morning",
+                    "example": "The farmer woke up at dawn to start work."
+                },
+                {
+                    "id": "u9_11",
+                    "word": "quarterly",
+                    "transcription": "/ˈkwɔːrtərli/",
+                    "part_of_speech": "adjective / adverb",
+                    "description": "Happening four times a year, once every three months",
+                    "example": "The company publishes a quarterly report."
+                },
+                {
+                    "id": "u9_12",
+                    "word": "annual",
+                    "transcription": "/ˈænjuəl/",
+                    "part_of_speech": "adjective",
+                    "description": "Happening once every year",
+                    "example": "The school holds an annual sports day in June."
+                }
+            ]
+        },
+        {
+            "unit": 10,
+            "title": "The Home",
+            "topic": "Rooms of a house, furniture, and objects found in the home",
+            "words": [
+                {
+                    "id": "u10_1",
+                    "word": "living room",
+                    "transcription": "/ˈlɪvɪŋ ruːm/",
+                    "part_of_speech": "noun",
+                    "description": "The main room in a home used for relaxing, watching TV, and spending time with family",
+                    "example": "We usually watch TV in the living room in the evening."
+                },
+                {
+                    "id": "u10_2",
+                    "word": "bedroom",
+                    "transcription": "/ˈbɛdruːm/",
+                    "part_of_speech": "noun",
+                    "description": "A room in a house used for sleeping",
+                    "example": "Their house has three bedrooms."
+                },
+                {
+                    "id": "u10_3",
+                    "word": "kitchen",
+                    "transcription": "/ˈkɪtʃɪn/",
+                    "part_of_speech": "noun",
+                    "description": "The room in a house where food is prepared and cooked",
+                    "example": "She was cooking in the kitchen when I arrived."
+                },
+                {
+                    "id": "u10_4",
+                    "word": "bathroom",
+                    "transcription": "/ˈbæθruːm/",
+                    "part_of_speech": "noun",
+                    "description": "A room with a bath or shower, sink, and usually a toilet",
+                    "example": "Can I use your bathroom?"
+                },
+                {
+                    "id": "u10_5",
+                    "word": "ceiling",
+                    "transcription": "/ˈsiːlɪŋ/",
+                    "part_of_speech": "noun",
+                    "description": "The upper interior surface of a room; the part above your head when inside a building",
+                    "example": "The ceiling in the old house was very high."
+                },
+                {
+                    "id": "u10_6",
+                    "word": "floor",
+                    "transcription": "/flɔːr/",
+                    "part_of_speech": "noun",
+                    "description": "The lower surface of a room that you walk on",
+                    "example": "The floor is wet — be careful!"
+                },
+                {
+                    "id": "u10_7",
+                    "word": "stairs",
+                    "transcription": "/stɛərz/",
+                    "part_of_speech": "noun (plural)",
+                    "description": "A series of steps inside a building that allow you to move between floors",
+                    "example": "Take the stairs — the lift is broken."
+                },
+                {
+                    "id": "u10_8",
+                    "word": "furniture",
+                    "transcription": "/ˈfɜːrnɪtʃər/",
+                    "part_of_speech": "noun (uncountable)",
+                    "description": "Large moveable objects in a room such as tables, chairs, beds, and wardrobes",
+                    "example": "They bought new furniture for their apartment."
+                },
+                {
+                    "id": "u10_9",
+                    "word": "curtains",
+                    "transcription": "/ˈkɜːrtənz/",
+                    "part_of_speech": "noun (plural)",
+                    "description": "Pieces of fabric hung over windows to block light or provide privacy",
+                    "example": "She opened the curtains to let the sunlight in."
+                },
+                {
+                    "id": "u10_10",
+                    "word": "wardrobe",
+                    "transcription": "/ˈwɔːrdroʊb/",
+                    "part_of_speech": "noun",
+                    "description": "A large piece of furniture with doors used for storing clothes",
+                    "example": "He hung his suits in the wardrobe."
+                },
+                {
+                    "id": "u10_11",
+                    "word": "shelf",
+                    "transcription": "/ʃɛlf/",
+                    "part_of_speech": "noun",
+                    "description": "A flat board fixed to a wall or inside a cupboard, used for storing things",
+                    "example": "The books are on the shelf above the desk."
+                },
+                {
+                    "id": "u10_12",
+                    "word": "balcony",
+                    "transcription": "/ˈbælkəni/",
+                    "part_of_speech": "noun",
+                    "description": "A platform with a railing outside an upper floor of a building",
+                    "example": "We had breakfast on the balcony every morning."
+                }
+            ]
+        }
+    ]
+}
