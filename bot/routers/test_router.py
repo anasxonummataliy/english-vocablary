@@ -75,7 +75,6 @@ async def start_test_by_mode(callback: CallbackQuery, redis: Redis):
         )
         return
 
-    # Test holatini tayyorlash
     random.shuffle(words)
     test_data = {
         "mode": mode,
@@ -85,12 +84,10 @@ async def start_test_by_mode(callback: CallbackQuery, redis: Redis):
         "score": 0,
     }
 
-    # Redisga saqlash (30 daqiqa muddat bilan)
     await redis.set(f"test_state:{user_id}", json.dumps(test_data), ex=1800)
     await send_question(callback, test_data)
 
 
-# 3. Savolni ekranga chiqarish funksiyasi
 async def send_question(callback: CallbackQuery, test_data: dict):
     idx = test_data["current_index"]
     mode = test_data["mode"]
@@ -110,16 +107,14 @@ async def send_question(callback: CallbackQuery, test_data: dict):
         correct = q["word"]
         all_variants = [w["word"] for w in test_data["questions"]]
 
-    # Variantlarni shakllantirish (1 to'g'ri + 3 noto'g'ri)
     wrong_options = [v for v in all_variants if v != correct]
-    # Agar unitda so'z kam bo'lsa xato bermasligi uchun min() ishlatamiz
+
     options = random.sample(wrong_options, min(3, len(wrong_options))) + [correct]
     random.shuffle(options)
 
     ikb = InlineKeyboardBuilder()
     for opt in options:
-        # callback_data: ans_Tanlangan_To'g'ri_UnitID
-        # Telegram callback_data limiti 64 byte, shuning uchun ID ni qisqa saqlaymiz
+
         ikb.row(
             InlineKeyboardButton(
                 text=opt, callback_data=f"ans_{opt[:20]}_{correct[:20]}"
@@ -132,7 +127,6 @@ async def send_question(callback: CallbackQuery, test_data: dict):
     )
 
 
-# 4. Javobni tekshirish
 @router.callback_query(F.data.startswith("ans_"))
 async def check_answer(callback: CallbackQuery, redis: Redis):
     user_id = callback.from_user.id
@@ -159,7 +153,7 @@ async def check_answer(callback: CallbackQuery, redis: Redis):
         await redis.set(f"test_state:{user_id}", json.dumps(data), ex=1800)
         await send_question(callback, data)
     else:
-        # Test natijasi
+
         score = data["score"]
         total = len(data["questions"])
         unit_id = data["unit_id"]
@@ -176,7 +170,7 @@ async def check_answer(callback: CallbackQuery, redis: Redis):
                 ),
                 InlineKeyboardButton(
                     text="📕 Unitlar ro'yxati", callback_data="back_to_units"
-                ),  # bu callbackni o'zingizga moslang
+                ),
             )
             .as_markup(),
             parse_mode="HTML",
