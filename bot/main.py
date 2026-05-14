@@ -33,6 +33,7 @@ async def start_bot(bot: Bot):
 
 async def start_bot() -> None:
     await bot.delete_webhook(drop_pending_updates=True)
+    print(os.getenv("WEBHOOK_URL"))
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
     await bot.set_webhook(
         url=os.getenv("WEBHOOK_URL") or "",
