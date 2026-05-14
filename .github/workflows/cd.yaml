@@ -3,20 +3,36 @@ name: Deploy
 on:
   push:
     branches:
-      - "main"
+      - main
 
 permissions:
   contents: read
-  packages: read
+  packages: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy to Server
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build image
+        run: |
+          docker build -t ghcr.io/${{ github.repository }}:latest .
+
+      - name: Push image
+        run: |
+          docker push ghcr.io/${{ github.repository }}:latest
+
+      - name: Deploy to server
         uses: appleboy/ssh-action@v1.1.0
         with:
           host: ${{ secrets.SERVER_HOST }}
@@ -24,17 +40,13 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             set -e
-            echo "🔹 Navigating to project folder..."
+
             cd english-vocablary
 
-            echo "🔹 Logging in to GitHub Container Registry..."
-            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ secrets.SERVER_USER }} --password-stdin
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-            echo "🔹 Pulling latest image..."
             docker-compose pull
 
-            echo "🔹 Restarting containers..."
             docker-compose down
-            docker-compose up -d
 
-            echo "✅ Deployment completed successfully!"
+            docker-compose up -d
