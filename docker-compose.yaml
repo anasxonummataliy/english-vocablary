@@ -1,6 +1,6 @@
 services:
   bot:
-    image: ghcr.io/anasxonummataliy/english-vocab:latest
+    image: ghcr.io/anasxonummataliy/english-vocablary:latest
     container_name: english_vocablary
     dns:
       - 8.8.8.8
