@@ -1,4 +1,4 @@
-name: Re-Deploy templify-api
+name: Deploy
 
 on:
   push:
@@ -7,12 +7,11 @@ on:
 
 permissions:
   contents: read
-  packages: read  
+  packages: read
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -24,14 +23,17 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            set -e  
+            set -e
             echo "🔹 Navigating to project folder..."
             cd ~/english_vocab
+
+            echo "🔹 Logging in to GitHub Container Registry..."
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ secrets.SERVER_USER }} --password-stdin
 
             echo "🔹 Pulling latest image..."
             docker-compose pull
 
-            echo "🔹 Running containers..."
+            echo "🔹 Restarting containers..."
             docker-compose down
             docker-compose up -d
 

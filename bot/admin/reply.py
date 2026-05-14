@@ -1,15 +1,11 @@
-from aiogram import Router, Bot
+import re
+from aiogram import Router, Bot, F
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
-from aiogram.fsm.state import StatesGroup, State
 from aiogram.types import Message
 
+
 router = Router()
-
-
-class ReplyMessage(StatesGroup):
-    id = State()
-    message_to_user = State()
 
 
 @router.message(Command("cancel"))
@@ -18,41 +14,26 @@ async def cancel_admin(message: Message, state: FSMContext):
     await message.answer("❌ Bekor qilindi")
 
 
-@router.message(Command('reply'))
-async def reply_message(message: Message, state: FSMContext):
-    await message.answer("Yubormoqchi bo'lgan foydalanuvchi idsini kiriting.❗️")
-    await state.set_state(ReplyMessage.id)
+@router.message(F.reply_to_message)
+async def reply_to_user(message: Message, bot: Bot):
+    replied = message.reply_to_message
+    if not replied or not replied.text:
+        return
 
+    match = re.search(
+        r"ID:\s*`?(\d+)`?|ID:</b>\s*<code>(\d+)</code>|ID: (\d+)", replied.text
+    )
+    if not match:
+        return
 
-@router.message(ReplyMessage.id)
-async def user_id_handler(message: Message, state: FSMContext):
-    try:
-        user_id = int(message.text)
-        await message.answer(
-            f"✅ User ID: <code>{user_id}</code>\n\n"
-            f"Endi xabar matnini yuboring: \n(Bekor qilish uchun /cancel)",
-            parse_mode="HTML"
-        )
-        await state.update_data(id=int(message.text))
-        await state.set_state(ReplyMessage.message_to_user)
-    except ValueError:
-        await message.answer("❌ Noto'g'ri format! Faqat raqam yuboring.")
+    user_id = int(match.group(1) or match.group(2) or match.group(3))
 
-
-@router.message(ReplyMessage.message_to_user)
-async def message_to_user(message: Message, bot: Bot, state: FSMContext):
-    data = await state.get_data()
-    user_id = (data.get('id'))
     try:
         await bot.send_message(
             user_id,
-            f"📨 Admin javobi:\n\n{message.text}"
+            f"📩 <b>Admin javobi:</b>\n\n{message.text}",
+            parse_mode="HTML",
         )
-        await message.answer(
-            f"✅ Xabar yuborildi!\n"
-            f"User ID: <code>{user_id}</code>",
-            parse_mode="HTML"
-        )
+        await message.answer("✅ Foydalanuvchiga yuborildi!")
     except Exception as e:
-        await message.answer(f"❌ Xatolik: {str(e)}")
-    await state.clear()
+        await message.answer(f"❌ Yuborib bo'lmadi: {e}")

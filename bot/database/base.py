@@ -1,6 +1,12 @@
 from bot.database.session import get_async_engine
 from sqlalchemy import Column, DateTime, func
 from sqlalchemy.orm import DeclarativeBase, declared_attr
+from redis.asyncio import Redis
+from bot.core.config import settings
+
+redis_client = Redis(
+    host=settings.redis_host, port=settings.redis_port, decode_responses=True
+)
 
 
 class Base(DeclarativeBase):

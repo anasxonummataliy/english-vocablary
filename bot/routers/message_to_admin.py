@@ -6,9 +6,11 @@ from aiogram.fsm.state import StatesGroup, State
 from aiogram.filters import Command
 from aiogram.enums import ChatAction
 from dotenv import load_dotenv
+
 load_dotenv()
 router = Router()
 ADMIN = int(os.getenv("ADMIN"))
+
 
 class MessageToAdmin(StatesGroup):
     message = State()

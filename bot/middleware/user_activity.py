@@ -5,6 +5,7 @@ from sqlalchemy import select
 from bot.database.models.users import User
 from bot.database.session import get_async_session_context
 
+
 class UserActivityMiddleware(BaseMiddleware):
     async def __call__(self, handler, event: types.Message, data):
         if isinstance(event, types.Message) and event.from_user:

@@ -18,7 +18,7 @@ class MsgToUser(StatesGroup):
     message_to_user = State()
 
 
-@router.message(Command('broadcast'))
+@router.message(Command("broadcast"))
 async def broadcast(message: Message, state: FSMContext):
     async with get_async_session_context() as session:
         stmt = select(User)

@@ -8,22 +8,19 @@ from sqlalchemy.ext.asyncio import (
     create_async_engine,
 )
 
-from bot.config import settings
+from bot.core.config import settings
 
 
 @cache
 def get_async_engine():
     return create_async_engine(
-        url=settings.db_url, pool_size=3, max_overflow=5, future=True
+        url=settings.postgres_dsn, pool_size=3, max_overflow=5, future=True
     )
 
 
 @cache
 def get_sync_engine():
-    sync_url = settings.db_url.replace(
-        'sqlite+aiosqlite://',
-        'sqlite:///'
-    )
+    sync_url = settings.db_url.replace("postgresql+asyncpg//", "postgresql//")
     return create_engine(sync_url, pool_pre_ping=True)
 
 

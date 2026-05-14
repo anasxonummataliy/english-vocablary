@@ -5,7 +5,51 @@ services:
     env_file:
       - .env
     ports:
-      - "8000:8007"
+      - "8000:8000"
     command: uvicorn api.main:app --host 0.0.0.0 --port 8000
+    restart: always
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - app-network
 
+  postgres:
+    image: postgres:16
+    container_name: english_vocab_db
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+    restart: always
 
+  redis:
+    image: redis:7-alpine
+    container_name: english_vocab_redis
+    restart: always
+    networks:
+      - app-network
+    volumes:
+      - redisdata:/data
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: english_vocab_ngrok
+    restart: always
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    command: http bot:8000 --domain=${NGROK_DOMAIN}
+    networks:
+      - app-network
+    depends_on:
+      - bot
+
+volumes:
+  pgdata:
+  redisdata:
+
+networks:
+  app-network:
+    driver: bridge

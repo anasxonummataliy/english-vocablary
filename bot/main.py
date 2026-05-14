@@ -26,9 +26,20 @@ CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 ADMIN = int(os.getenv("ADMIN"))
 
 
+@dp.startup()
+async def start_bot(bot: Bot):
+    await bot.send_message(ADMIN, "Bot started ✅")
+
+
 async def start_bot() -> None:
+    await bot.delete_webhook(drop_pending_updates=True)
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-    await bot.set_webhook(os.getenv("WEBHOOK_URL") or "")
+    await bot.set_webhook(
+        url=os.getenv("WEBHOOK_URL") or "",
+        allowed_updates=dp.resolve_used_update_types(),
+        drop_pending_updates=True,
+        max_connections=40,
+    )
     logging.info(f"{await bot.get_webhook_info()}")
     dp.message.middleware(IsJoinChannelMiddleware())
     dp.message.middleware(UserActivityMiddleware())
@@ -38,7 +49,6 @@ async def start_bot() -> None:
     await create_db_and_tables()
     await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
     await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
-
 
 
 if __name__ == "__main__":
