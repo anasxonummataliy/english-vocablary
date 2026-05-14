@@ -14,7 +14,7 @@ router = Router()
 TIMER_SECONDS = 10
 MAX_SKIPS = 2
 
-# user_id → asyncio.Task
+
 timeout_tasks: dict[int, asyncio.Task] = {}
 
 
@@ -32,7 +32,6 @@ def _cancel_timeout(user_id: int):
         print(f"[DEBUG] Timeout bekor qilindi → User {user_id}")
 
 
-# ==================== TEST TURINI TANLASH ====================
 @router.callback_query(F.data.startswith("test_"))
 async def test_type_selection(callback: CallbackQuery):
     unit_id = callback.data.replace("test_", "")
@@ -97,7 +96,7 @@ async def start_test_by_mode(callback: CallbackQuery, redis: Redis, bot: Bot):
     test_data = {
         "mode": mode,
         "unit_id": unit_id_str,
-        "questions": words[:10],
+        "questions": words,  # unitdagi barcha so'zlar
         "current_index": 0,
         "score": 0,
         "skips": 0,
@@ -114,7 +113,6 @@ async def start_test_by_mode(callback: CallbackQuery, redis: Redis, bot: Bot):
 
 # ==================== SAVOL YUBORISH ====================
 async def send_quiz_poll(bot: Bot, user_id: int, test_data: dict, redis: Redis):
-    _cancel_timeout(user_id)
 
     if test_data.get("paused"):
         return
@@ -171,11 +169,6 @@ async def send_quiz_poll(bot: Bot, user_id: int, test_data: dict, redis: Redis):
     test_data["poll_id"] = pid
     await redis.set(f"test_state:{user_id}", json.dumps(test_data), ex=3600)
 
-    print(
-        f"[DEBUG] Savol yuborildi → User {user_id} | "
-        f"Index {idx+1}/{total} | Poll {pid} | Skips={test_data['skips']}"
-    )
-
     task = asyncio.create_task(
         _check_after_timeout(bot, user_id, idx, pid, redis, chat_id)
     )
@@ -204,13 +197,6 @@ async def _check_after_timeout(
         current_poll = str(data.get("poll_id", ""))
         is_paused = data.get("paused", False)
 
-        print(
-            f"[DEBUG] Timeout tekshiruvi → User {user_id} | "
-            f"expected={expected_index}, current={current_idx} | "
-            f"poll_match={current_poll == expected_poll_id} | "
-            f"skips={data['skips']} | paused={is_paused}"
-        )
-
         if is_paused:
             return
 
@@ -226,13 +212,8 @@ async def _check_after_timeout(
         data["skips"] += 1
         data["current_index"] += 1
 
-        print(
-            f"[DEBUG] Javob berilmadi! Skips={data['skips']}, "
-            f"Index {expected_index} → {data['current_index']}"
-        )
-
         if data["skips"] >= MAX_SKIPS:
-            print(f"[DEBUG] MAX_SKIPS={MAX_SKIPS} yetdi! Pauza boshlandi...")
+
             data["paused"] = True
             await redis.set(f"test_state:{user_id}", json.dumps(data), ex=3600)
             await _send_pause(bot, chat_id, data)
@@ -293,31 +274,19 @@ async def on_poll_answer(poll_answer: PollAnswer, redis: Redis, bot: Bot):
 
     if is_correct:
         data["score"] += 1
-        data["skips"] = 0
-    else:
-        data["skips"] += 1
+
+    # Har qanday javobda (to'g'ri yoki noto'g'ri) skips nollanadi
+    # Pauza faqat javob BERILMAGAN hollarda (timeout) ishga tushadi
+    data["skips"] = 0
 
     data["current_index"] += 1
-
-    print(
-        f"[POLL ANSWER] User {user_id} | Poll {poll_id} | "
-        f"{'✅ To\'g\'ri' if is_correct else '❌ Noto\'g\'ri'} | "
-        f"Score={data['score']} | Skips={data['skips']} | Index={data['current_index']}"
-    )
 
     await redis.delete(f"poll_user:{poll_id}")
     await redis.delete(f"poll_correct_idx:{poll_id}")
     await redis.set(f"test_state:{user_id}", json.dumps(data), ex=3600)
 
-    # Noto'g'ri javobda MAX_SKIPS yetdimi?
-    if data["skips"] >= MAX_SKIPS and data["current_index"] < len(data["questions"]):
-        print(
-            f"[DEBUG] MAX_SKIPS={MAX_SKIPS} yetdi (noto'g'ri javob)! Pauza boshlandi..."
-        )
-        data["paused"] = True
-        await redis.set(f"test_state:{user_id}", json.dumps(data), ex=3600)
-        await _send_pause(bot, data["chat_id"], data)
-        return
+    # Pauza faqat timeout orqali ishga tushadi (ketma-ket javobsiz qolish)
+    # Noto'g'ri javob pauza qilmaydi
 
     await _next_step(bot, user_id, data, redis)
 
@@ -331,7 +300,7 @@ async def _next_step(bot: Bot, user_id: int, data: dict, redis: Redis):
 
 # ==================== PAUZA ====================
 async def _send_pause(bot: Bot, chat_id: int, data: dict):
-    print("[DEBUG] === PAUZA MENYUSI YUBORILDI ===")
+
     ikb = InlineKeyboardBuilder()
     ikb.row(InlineKeyboardButton(text="▶️ Davom ettirish", callback_data="resume_test"))
     ikb.row(
