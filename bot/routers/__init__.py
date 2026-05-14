@@ -7,10 +7,11 @@ from bot.filters.admin import isAdmin
 from .level import router as level
 from .get_words import router as get_words
 from .test_router import router as test_router
+from .review import router as review_router
 
 
 user_router = Router()
 user_router.message.filter(~isAdmin())
 user_router.include_routers(
-    test_router, get_words, level, message_to_admin, help, start
+    review_router, test_router, get_words, level, message_to_admin, help, start
 )
