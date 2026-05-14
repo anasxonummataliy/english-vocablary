@@ -2,6 +2,9 @@ services:
   bot:
     image: ghcr.io/anasxonummataliy/english-vocab:latest
     container_name: english_vocab
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     env_file:
       - .env
     ports:
