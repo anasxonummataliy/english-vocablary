@@ -17,14 +17,24 @@ services:
   postgres:
     image: postgres:16
     container_name: english_vocab_db
-    env_file:
-      - .env
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    networks:
-      - app-network
     restart: always
 
+    env_file:
+      - .env
+
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+
+    networks:
+      - app-network
   redis:
     image: redis:7-alpine
     container_name: english_vocab_redis
@@ -34,21 +44,10 @@ services:
     volumes:
       - redisdata:/data
 
-  ngrok:
-    image: ngrok/ngrok:latest
-    container_name: english_vocab_ngrok
-    restart: always
-    environment:
-      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
-    command: http bot:8000 --domain=${NGROK_DOMAIN}
-    networks:
-      - app-network
-    depends_on:
-      - bot
-
 volumes:
   pgdata:
   redisdata:
+
 
 networks:
   app-network:
