@@ -1,1156 +1,2209 @@
 {
-    "book": "English Vocabulary in Use",
-    "level": "Elementary",
-    "units": [
+  "book": "English Vocabulary in Use Elementary",
+  "edition": "Third Edition 2017",
+  "units": [
+    {
+      "unit": 1,
+      "title": "The family",
+      "topic": "Family members and relationships",
+      "words": [
         {
-            "unit": 1,
-            "title": "Classroom Language",
-            "topic": "Words and phrases used in the classroom every day",
-            "words": [
-                {
-                    "id": "u1_1",
-                    "word": "board",
-                    "transcription": "/bɔːrd/",
-                    "part_of_speech": "noun",
-                    "uzbek": "doska, taxta",
-                    "description": "A large flat surface on the wall where a teacher writes with chalk or a marker",
-                    "example": "The teacher wrote the new words on the board."
-                },
-                {
-                    "id": "u1_2",
-                    "word": "notebook",
-                    "transcription": "/ˈnoʊtbʊk/",
-                    "part_of_speech": "noun",
-                    "uzbek": "daftar",
-                    "description": "A small book with blank or lined pages used for writing notes",
-                    "example": "Write the vocabulary in your notebook."
-                },
-                {
-                    "id": "u1_3",
-                    "word": "textbook",
-                    "transcription": "/ˈtekstbʊk/",
-                    "part_of_speech": "noun",
-                    "uzbek": "darslik, o'quv kitobi",
-                    "description": "A book used for studying a particular subject at school or college",
-                    "example": "Open your textbook to page 12."
-                },
-                {
-                    "id": "u1_4",
-                    "word": "dictionary",
-                    "transcription": "/ˈdɪkʃəneri/",
-                    "part_of_speech": "noun",
-                    "uzbek": "lug'at",
-                    "description": "A book or digital tool that explains the meaning of words in a language",
-                    "example": "Use a dictionary to find the meaning of new words."
-                },
-                {
-                    "id": "u1_5",
-                    "word": "pen",
-                    "transcription": "/pɛn/",
-                    "part_of_speech": "noun",
-                    "uzbek": "ruchka, siyohli qalam",
-                    "description": "A writing tool that uses ink to write on paper",
-                    "example": "Can I borrow your pen? I need to sign something."
-                },
-                {
-                    "id": "u1_6",
-                    "word": "pencil",
-                    "transcription": "/ˈpɛnsəl/",
-                    "part_of_speech": "noun",
-                    "uzbek": "qalamcha (o'chirgichli)",
-                    "description": "A thin wooden stick with a dark centre used for writing or drawing that can be erased",
-                    "example": "Draw the diagram with a pencil so you can erase mistakes."
-                },
-                {
-                    "id": "u1_7",
-                    "word": "homework",
-                    "transcription": "/ˈhoʊmwɜːrk/",
-                    "part_of_speech": "noun",
-                    "uzbek": "uy vazifasi",
-                    "description": "School work that a student is given to do at home, not in class",
-                    "example": "The teacher gave us homework to do for tomorrow."
-                },
-                {
-                    "id": "u1_8",
-                    "word": "exercise",
-                    "transcription": "/ˈeksərsaɪz/",
-                    "part_of_speech": "noun",
-                    "uzbek": "mashq, topshiriq",
-                    "description": "A set of questions or tasks done to practise a skill",
-                    "example": "Do exercise 3 on page 25 for homework."
-                },
-                {
-                    "id": "u1_9",
-                    "word": "repeat",
-                    "transcription": "/rɪˈpiːt/",
-                    "part_of_speech": "verb",
-                    "uzbek": "takrorlamoq, qayta aytmoq",
-                    "description": "To say or do something again",
-                    "example": "Please repeat that — I didn't hear you."
-                },
-                {
-                    "id": "u1_10",
-                    "word": "understand",
-                    "transcription": "/ˌʌndərˈstænd/",
-                    "part_of_speech": "verb",
-                    "uzbek": "tushunmoq, anglamoq",
-                    "description": "To know the meaning of something; to comprehend",
-                    "example": "Do you understand the grammar rule?"
-                },
-                {
-                    "id": "u1_11",
-                    "word": "correct",
-                    "transcription": "/kəˈrekt/",
-                    "part_of_speech": "adjective / verb",
-                    "uzbek": "to'g'ri; tuzatmoq",
-                    "description": "Right or accurate; or to fix a mistake",
-                    "example": "That answer is correct! / The teacher will correct your essays."
-                },
-                {
-                    "id": "u1_12",
-                    "word": "mistake",
-                    "transcription": "/mɪˈsteɪk/",
-                    "part_of_speech": "noun",
-                    "uzbek": "xato, yanglishish",
-                    "description": "Something that is wrong or done incorrectly",
-                    "example": "Everyone makes mistakes when learning a language."
-                }
-            ]
+          "id": "u1_1",
+          "word": "mother",
+          "transcription": "/ˈmʌðər/",
+          "part_of_speech": "noun",
+          "uzbek": "ona",
+          "description": "A woman who has children; the female parent",
+          "example": "My mother works as a teacher."
         },
         {
-            "unit": 2,
-            "title": "Countries and Nationalities",
-            "topic": "Names of countries, languages spoken, and how to describe where people come from",
-            "words": [
-                {
-                    "id": "u2_1",
-                    "word": "country",
-                    "transcription": "/ˈkʌntri/",
-                    "part_of_speech": "noun",
-                    "uzbek": "mamlakat, davlat",
-                    "description": "A nation with its own government and borders, e.g. France, Japan, Brazil",
-                    "example": "Which country are you from?"
-                },
-                {
-                    "id": "u2_2",
-                    "word": "nationality",
-                    "transcription": "/ˌnæʃəˈnæləti/",
-                    "part_of_speech": "noun",
-                    "uzbek": "millat, fuqarolik",
-                    "description": "The status of belonging to a particular country",
-                    "example": "My nationality is Uzbek — I am from Uzbekistan."
-                },
-                {
-                    "id": "u2_3",
-                    "word": "language",
-                    "transcription": "/ˈlæŋɡwɪdʒ/",
-                    "part_of_speech": "noun",
-                    "uzbek": "til, lison",
-                    "description": "A system of words and grammar used by people of a country or community to communicate",
-                    "example": "The official language of Brazil is Portuguese."
-                },
-                {
-                    "id": "u2_4",
-                    "word": "capital",
-                    "transcription": "/ˈkæpɪtəl/",
-                    "part_of_speech": "noun",
-                    "uzbek": "poytaxt",
-                    "description": "The most important city in a country where the government is based",
-                    "example": "London is the capital of England."
-                },
-                {
-                    "id": "u2_5",
-                    "word": "continent",
-                    "transcription": "/ˈkɒntɪnənt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "qit'a, materik",
-                    "description": "One of the seven large land masses on Earth: Africa, Asia, Europe, North America, South America, Australia, Antarctica",
-                    "example": "Uzbekistan is in the continent of Asia."
-                },
-                {
-                    "id": "u2_6",
-                    "word": "abroad",
-                    "transcription": "/əˈbrɔːd/",
-                    "part_of_speech": "adverb",
-                    "uzbek": "chet elda, xorijda",
-                    "description": "In or to a foreign country, outside your own country",
-                    "example": "She went abroad to study English in the UK."
-                },
-                {
-                    "id": "u2_7",
-                    "word": "passport",
-                    "transcription": "/ˈpæspɔːrt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "pasport",
-                    "description": "An official document that proves your identity and nationality when travelling to other countries",
-                    "example": "You need a passport to travel abroad."
-                },
-                {
-                    "id": "u2_8",
-                    "word": "foreign",
-                    "transcription": "/ˈfɒrən/",
-                    "part_of_speech": "adjective",
-                    "uzbek": "xorijiy, chet el",
-                    "description": "Belonging to or coming from a country that is not your own",
-                    "example": "She speaks two foreign languages: English and French."
-                },
-                {
-                    "id": "u2_9",
-                    "word": "population",
-                    "transcription": "/ˌpɒpjʊˈleɪʃən/",
-                    "part_of_speech": "noun",
-                    "uzbek": "aholi, xalq soni",
-                    "description": "The total number of people who live in a particular place",
-                    "example": "The population of Uzbekistan is about 36 million."
-                },
-                {
-                    "id": "u2_10",
-                    "word": "citizen",
-                    "transcription": "/ˈsɪtɪzən/",
-                    "part_of_speech": "noun",
-                    "uzbek": "fuqaro",
-                    "description": "A person who legally belongs to a country and has rights there",
-                    "example": "She became a citizen of the United States after living there for years."
-                },
-                {
-                    "id": "u2_11",
-                    "word": "border",
-                    "transcription": "/ˈbɔːrdər/",
-                    "part_of_speech": "noun",
-                    "uzbek": "chegara",
-                    "description": "The line that separates one country or region from another",
-                    "example": "Uzbekistan shares a border with Kazakhstan."
-                },
-                {
-                    "id": "u2_12",
-                    "word": "native",
-                    "transcription": "/ˈneɪtɪv/",
-                    "part_of_speech": "adjective",
-                    "uzbek": "ona (til), tug'ma, mahalliy",
-                    "description": "Relating to the place where you were born or grew up",
-                    "example": "Uzbek is my native language."
-                }
-            ]
+          "id": "u1_2",
+          "word": "father",
+          "transcription": "/ˈfɑːðər/",
+          "part_of_speech": "noun",
+          "uzbek": "ota",
+          "description": "A man who has children; the male parent",
+          "example": "My father is a doctor."
         },
         {
-            "unit": 3,
-            "title": "The Family",
-            "topic": "Words for family members and relationships between people",
-            "words": [
-                {
-                    "id": "u3_1",
-                    "word": "parents",
-                    "transcription": "/ˈpeərənts/",
-                    "part_of_speech": "noun (plural)",
-                    "uzbek": "ota-ona",
-                    "description": "Your mother and father together",
-                    "example": "My parents are both teachers."
-                },
-                {
-                    "id": "u3_2",
-                    "word": "sibling",
-                    "transcription": "/ˈsɪblɪŋ/",
-                    "part_of_speech": "noun",
-                    "uzbek": "aka-uka yoki opa-singil",
-                    "description": "A brother or sister",
-                    "example": "I have two siblings — one brother and one sister."
-                },
-                {
-                    "id": "u3_3",
-                    "word": "grandparents",
-                    "transcription": "/ˈɡrændpeərənts/",
-                    "part_of_speech": "noun (plural)",
-                    "uzbek": "bobo va buvi",
-                    "description": "The parents of your mother or father",
-                    "example": "I visit my grandparents every weekend."
-                },
-                {
-                    "id": "u3_4",
-                    "word": "uncle",
-                    "transcription": "/ˈʌŋkəl/",
-                    "part_of_speech": "noun",
-                    "uzbek": "amaki (otaning akasi/ukasi), tog'a (onaning akasi/ukasi)",
-                    "description": "The brother of your mother or father, or the husband of your aunt",
-                    "example": "My uncle lives in another city."
-                },
-                {
-                    "id": "u3_5",
-                    "word": "aunt",
-                    "transcription": "/ɑːnt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "amma (otaning opasi/singlisi), xola (onaning opasi/singlisi)",
-                    "description": "The sister of your mother or father, or the wife of your uncle",
-                    "example": "My aunt makes the best food."
-                },
-                {
-                    "id": "u3_6",
-                    "word": "cousin",
-                    "transcription": "/ˈkʌzən/",
-                    "part_of_speech": "noun",
-                    "uzbek": "amakivachcha, xolavacha, tog'avacha",
-                    "description": "The child of your aunt or uncle",
-                    "example": "I have five cousins on my mother's side."
-                },
-                {
-                    "id": "u3_7",
-                    "word": "nephew",
-                    "transcription": "/ˈnevjuː/",
-                    "part_of_speech": "noun",
-                    "uzbek": "jiyani (o'g'il)",
-                    "description": "The son of your brother or sister",
-                    "example": "My nephew is four years old."
-                },
-                {
-                    "id": "u3_8",
-                    "word": "niece",
-                    "transcription": "/niːs/",
-                    "part_of_speech": "noun",
-                    "uzbek": "jiyani (qiz)",
-                    "description": "The daughter of your brother or sister",
-                    "example": "My niece started school this year."
-                },
-                {
-                    "id": "u3_9",
-                    "word": "husband",
-                    "transcription": "/ˈhʌzbənd/",
-                    "part_of_speech": "noun",
-                    "uzbek": "er, turmush o'rtoq (erkak)",
-                    "description": "A man who is married; the male partner in a marriage",
-                    "example": "Her husband works as an engineer."
-                },
-                {
-                    "id": "u3_10",
-                    "word": "wife",
-                    "transcription": "/waɪf/",
-                    "part_of_speech": "noun",
-                    "uzbek": "xotin, turmush o'rtoq (ayol)",
-                    "description": "A woman who is married; the female partner in a marriage",
-                    "example": "His wife is a doctor."
-                },
-                {
-                    "id": "u3_11",
-                    "word": "only child",
-                    "transcription": "/ˌoʊnli ˈtʃaɪld/",
-                    "part_of_speech": "noun phrase",
-                    "uzbek": "yagona farzand",
-                    "description": "A child who has no brothers or sisters",
-                    "example": "He is an only child, so he grew up without siblings."
-                },
-                {
-                    "id": "u3_12",
-                    "word": "relative",
-                    "transcription": "/ˈrelətɪv/",
-                    "part_of_speech": "noun",
-                    "uzbek": "qarindosh, yaqin",
-                    "description": "A member of your family; someone related to you by blood or marriage",
-                    "example": "We have relatives living in many different cities."
-                }
-            ]
+          "id": "u1_3",
+          "word": "son",
+          "transcription": "/sʌn/",
+          "part_of_speech": "noun",
+          "uzbek": "o'g'il farzand",
+          "description": "A male child in relation to his parents",
+          "example": "They have one son and two daughters."
         },
         {
-            "unit": 4,
-            "title": "Jobs and Occupations",
-            "topic": "Common words for different kinds of work and the places where people work",
-            "words": [
-                {
-                    "id": "u4_1",
-                    "word": "doctor",
-                    "transcription": "/ˈdɒktər/",
-                    "part_of_speech": "noun",
-                    "uzbek": "shifokor, doktor",
-                    "description": "A person who is trained in medicine and treats people who are sick or injured",
-                    "example": "The doctor told me to rest and drink plenty of water."
-                },
-                {
-                    "id": "u4_2",
-                    "word": "nurse",
-                    "transcription": "/nɜːrs/",
-                    "part_of_speech": "noun",
-                    "uzbek": "hamshira, tibbiy xodim",
-                    "description": "A person trained to care for sick or injured people, often working in hospitals",
-                    "example": "The nurse checked my blood pressure every morning."
-                },
-                {
-                    "id": "u4_3",
-                    "word": "teacher",
-                    "transcription": "/ˈtiːtʃər/",
-                    "part_of_speech": "noun",
-                    "uzbek": "o'qituvchi, muallim",
-                    "description": "A person whose job is to educate students in a school or other setting",
-                    "example": "My English teacher is very patient and helpful."
-                },
-                {
-                    "id": "u4_4",
-                    "word": "engineer",
-                    "transcription": "/ˌendʒɪˈnɪər/",
-                    "part_of_speech": "noun",
-                    "uzbek": "muhandis",
-                    "description": "A person who designs and builds machines, structures, or systems",
-                    "example": "She works as a software engineer at a tech company."
-                },
-                {
-                    "id": "u4_5",
-                    "word": "lawyer",
-                    "transcription": "/ˈlɔːjər/",
-                    "part_of_speech": "noun",
-                    "uzbek": "yurist, advokat",
-                    "description": "A person who is trained in law and helps people with legal problems",
-                    "example": "We hired a lawyer to help us with the contract."
-                },
-                {
-                    "id": "u4_6",
-                    "word": "chef",
-                    "transcription": "/ʃef/",
-                    "part_of_speech": "noun",
-                    "uzbek": "oshpaz, bosh oshpaz",
-                    "description": "A professional cook who works in a restaurant or hotel kitchen",
-                    "example": "The chef at this restaurant makes amazing food."
-                },
-                {
-                    "id": "u4_7",
-                    "word": "pilot",
-                    "transcription": "/ˈpaɪlət/",
-                    "part_of_speech": "noun",
-                    "uzbek": "uchuvchi, pilot",
-                    "description": "A person who is trained to fly an aircraft",
-                    "example": "The pilot landed the plane safely in bad weather."
-                },
-                {
-                    "id": "u4_8",
-                    "word": "journalist",
-                    "transcription": "/ˈdʒɜːrnəlɪst/",
-                    "part_of_speech": "noun",
-                    "uzbek": "jurnalist, muxbir",
-                    "description": "A person who writes or reports news for newspapers, TV, radio, or online",
-                    "example": "The journalist wrote an article about the new law."
-                },
-                {
-                    "id": "u4_9",
-                    "word": "architect",
-                    "transcription": "/ˈɑːrkɪtekt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "arxitektor, me'mor",
-                    "description": "A person who designs buildings and oversees their construction",
-                    "example": "The architect designed a beautiful new library."
-                },
-                {
-                    "id": "u4_10",
-                    "word": "accountant",
-                    "transcription": "/əˈkaʊntənt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "buxgalter, hisobchi",
-                    "description": "A person who manages financial records and taxes for businesses or individuals",
-                    "example": "Our accountant handles all the company's finances."
-                },
-                {
-                    "id": "u4_11",
-                    "word": "salary",
-                    "transcription": "/ˈsæləri/",
-                    "part_of_speech": "noun",
-                    "uzbek": "maosh, oylik",
-                    "description": "A fixed amount of money paid to an employee regularly, usually monthly",
-                    "example": "She earns a good salary at her new job."
-                },
-                {
-                    "id": "u4_12",
-                    "word": "unemployed",
-                    "transcription": "/ˌʌnɪmˈplɔɪd/",
-                    "part_of_speech": "adjective",
-                    "uzbek": "ishsiz, band bo'lmagan",
-                    "description": "Not having a job; without paid work",
-                    "example": "He was unemployed for six months before finding a new job."
-                }
-            ]
+          "id": "u1_4",
+          "word": "daughter",
+          "transcription": "/ˈdɔːtər/",
+          "part_of_speech": "noun",
+          "uzbek": "qiz farzand",
+          "description": "A female child in relation to her parents",
+          "example": "Karen is Anne and Ivan's daughter."
         },
         {
-            "unit": 5,
-            "title": "The Body",
-            "topic": "Names of the main parts of the human body, both external and related actions",
-            "words": [
-                {
-                    "id": "u5_1",
-                    "word": "head",
-                    "transcription": "/hɛd/",
-                    "part_of_speech": "noun",
-                    "uzbek": "bosh",
-                    "description": "The top part of the body containing the brain, eyes, nose, mouth, and ears",
-                    "example": "She shook her head to say no."
-                },
-                {
-                    "id": "u5_2",
-                    "word": "shoulder",
-                    "transcription": "/ˈʃoʊldər/",
-                    "part_of_speech": "noun",
-                    "uzbek": "yelka, elkachi",
-                    "description": "The joint connecting the arm to the upper body; the area between the neck and the arm",
-                    "example": "He carried the bag over his shoulder."
-                },
-                {
-                    "id": "u5_3",
-                    "word": "elbow",
-                    "transcription": "/ˈɛlboʊ/",
-                    "part_of_speech": "noun",
-                    "uzbek": "tirsak",
-                    "description": "The joint in the middle of the arm where it bends",
-                    "example": "I bumped my elbow on the table."
-                },
-                {
-                    "id": "u5_4",
-                    "word": "wrist",
-                    "transcription": "/rɪst/",
-                    "part_of_speech": "noun",
-                    "uzbek": "bilek, qo'l bilagi",
-                    "description": "The joint that connects the hand to the lower arm",
-                    "example": "She wears a watch on her wrist."
-                },
-                {
-                    "id": "u5_5",
-                    "word": "thumb",
-                    "transcription": "/θʌm/",
-                    "part_of_speech": "noun",
-                    "uzbek": "bosh barmoq (qo'l)",
-                    "description": "The short thick finger at the side of the hand, separate from the other four fingers",
-                    "example": "He gave a thumbs-up to show everything was OK."
-                },
-                {
-                    "id": "u5_6",
-                    "word": "knee",
-                    "transcription": "/niː/",
-                    "part_of_speech": "noun",
-                    "uzbek": "tizza",
-                    "description": "The joint in the middle of the leg that allows it to bend",
-                    "example": "She hurt her knee while playing football."
-                },
-                {
-                    "id": "u5_7",
-                    "word": "ankle",
-                    "transcription": "/ˈæŋkəl/",
-                    "part_of_speech": "noun",
-                    "uzbek": "to'piq, oyoq bilagi",
-                    "description": "The joint that connects the foot to the lower leg",
-                    "example": "He twisted his ankle when he fell."
-                },
-                {
-                    "id": "u5_8",
-                    "word": "chin",
-                    "transcription": "/tʃɪn/",
-                    "part_of_speech": "noun",
-                    "uzbek": "iyak",
-                    "description": "The part of the face below the mouth and above the neck",
-                    "example": "She rested her chin on her hand while thinking."
-                },
-                {
-                    "id": "u5_9",
-                    "word": "forehead",
-                    "transcription": "/ˈfɔːrhɛd/",
-                    "part_of_speech": "noun",
-                    "uzbek": "peshona",
-                    "description": "The flat part of the face above the eyebrows and below the hairline",
-                    "example": "She had a headache and rubbed her forehead."
-                },
-                {
-                    "id": "u5_10",
-                    "word": "cheek",
-                    "transcription": "/tʃiːk/",
-                    "part_of_speech": "noun",
-                    "uzbek": "yonoq, lunjak",
-                    "description": "Either side of the face below the eyes",
-                    "example": "The baby had round, pink cheeks."
-                },
-                {
-                    "id": "u5_11",
-                    "word": "lips",
-                    "transcription": "/lɪps/",
-                    "part_of_speech": "noun (plural)",
-                    "uzbek": "lablar",
-                    "description": "The two soft edges around the opening of the mouth",
-                    "example": "Drink water if your lips feel dry."
-                },
-                {
-                    "id": "u5_12",
-                    "word": "chest",
-                    "transcription": "/tʃɛst/",
-                    "part_of_speech": "noun",
-                    "uzbek": "ko'krak, ko'krak qafasi",
-                    "description": "The front of the body between the neck and the stomach; contains the heart and lungs",
-                    "example": "The doctor listened to his chest with a stethoscope."
-                }
-            ]
+          "id": "u1_5",
+          "word": "brother",
+          "transcription": "/ˈbrʌðər/",
+          "part_of_speech": "noun",
+          "uzbek": "aka yoki uka",
+          "description": "A boy or man with the same parents as you",
+          "example": "Jack is Karen's brother."
         },
         {
-            "unit": 6,
-            "title": "Clothes",
-            "topic": "Types of clothing, accessories, and words for describing what people wear",
-            "words": [
-                {
-                    "id": "u6_1",
-                    "word": "jacket",
-                    "transcription": "/ˈdʒækɪt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "kurtka, kurta",
-                    "description": "A short coat with sleeves, worn over other clothes",
-                    "example": "Take a jacket — it will be cold tonight."
-                },
-                {
-                    "id": "u6_2",
-                    "word": "trousers",
-                    "transcription": "/ˈtraʊzərz/",
-                    "part_of_speech": "noun (plural)",
-                    "uzbek": "shim",
-                    "description": "A piece of clothing that covers the lower body with separate legs; called 'pants' in American English",
-                    "example": "He wore black trousers to the interview."
-                },
-                {
-                    "id": "u6_3",
-                    "word": "shirt",
-                    "transcription": "/ʃɜːrt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "ko'ylak (erkaklar uchun)",
-                    "description": "A piece of clothing for the upper body with a collar and buttons, usually worn by men",
-                    "example": "He always wears a white shirt to work."
-                },
-                {
-                    "id": "u6_4",
-                    "word": "blouse",
-                    "transcription": "/blaʊs/",
-                    "part_of_speech": "noun",
-                    "uzbek": "bluzka, ayollar ko'ylagi",
-                    "description": "A loose shirt typically worn by women",
-                    "example": "She wore a silk blouse with her skirt."
-                },
-                {
-                    "id": "u6_5",
-                    "word": "skirt",
-                    "transcription": "/skɜːrt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "yubka",
-                    "description": "A piece of clothing worn by women and girls that hangs from the waist down",
-                    "example": "She wore a long skirt to the party."
-                },
-                {
-                    "id": "u6_6",
-                    "word": "dress",
-                    "transcription": "/drɛs/",
-                    "part_of_speech": "noun",
-                    "uzbek": "ko'ylak (to'liq, ayollar uchun), libos",
-                    "description": "A one-piece garment for women or girls that covers the body from the shoulders to below the waist",
-                    "example": "She bought a beautiful red dress for the wedding."
-                },
-                {
-                    "id": "u6_7",
-                    "word": "suit",
-                    "transcription": "/suːt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "kostyum, to'plam kiyim",
-                    "description": "A set of matching jacket and trousers (or skirt) worn for formal occasions",
-                    "example": "He wore a dark blue suit to the job interview."
-                },
-                {
-                    "id": "u6_8",
-                    "word": "trainers",
-                    "transcription": "/ˈtreɪnərz/",
-                    "part_of_speech": "noun (plural)",
-                    "uzbek": "krossovka, sport poyabzali",
-                    "description": "Comfortable sports shoes, called 'sneakers' in American English",
-                    "example": "I wear trainers when I go to the gym."
-                },
-                {
-                    "id": "u6_9",
-                    "word": "boots",
-                    "transcription": "/buːts/",
-                    "part_of_speech": "noun (plural)",
-                    "uzbek": "etik, baland poyabzal",
-                    "description": "Strong shoes that cover the foot and ankle, sometimes higher up the leg",
-                    "example": "She wears boots in winter to keep her feet warm."
-                },
-                {
-                    "id": "u6_10",
-                    "word": "scarf",
-                    "transcription": "/skɑːrf/",
-                    "part_of_speech": "noun",
-                    "uzbek": "sharf, ro'mol",
-                    "description": "A long piece of cloth worn around the neck or head for warmth or style",
-                    "example": "He wrapped a scarf around his neck on the cold day."
-                },
-                {
-                    "id": "u6_11",
-                    "word": "gloves",
-                    "transcription": "/ɡlʌvz/",
-                    "part_of_speech": "noun (plural)",
-                    "uzbek": "qo'lqop",
-                    "description": "Coverings for the hands with separate parts for each finger, worn for warmth or protection",
-                    "example": "Don't forget your gloves — it's freezing outside."
-                },
-                {
-                    "id": "u6_12",
-                    "word": "belt",
-                    "transcription": "/bɛlt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "kamar, belbog'",
-                    "description": "A strip of leather or cloth worn around the waist to hold up trousers or as decoration",
-                    "example": "His trousers were too big, so he wore a belt."
-                }
-            ]
+          "id": "u1_6",
+          "word": "sister",
+          "transcription": "/ˈsɪstər/",
+          "part_of_speech": "noun",
+          "uzbek": "opa yoki singil",
+          "description": "A girl or woman with the same parents as you",
+          "example": "Karen is Jack's sister."
         },
         {
-            "unit": 7,
-            "title": "Food and Drink",
-            "topic": "Common food items, drinks, and vocabulary for eating and cooking",
-            "words": [
-                {
-                    "id": "u7_1",
-                    "word": "bread",
-                    "transcription": "/brɛd/",
-                    "part_of_speech": "noun",
-                    "uzbek": "non",
-                    "description": "A basic food made from flour and water and baked in an oven; a staple in many countries",
-                    "example": "She bought fresh bread from the bakery."
-                },
-                {
-                    "id": "u7_2",
-                    "word": "butter",
-                    "transcription": "/ˈbʌtər/",
-                    "part_of_speech": "noun",
-                    "uzbek": "sariyog'",
-                    "description": "A soft yellow fat made from cream, spread on bread or used in cooking",
-                    "example": "He spread butter on his toast."
-                },
-                {
-                    "id": "u7_3",
-                    "word": "cheese",
-                    "transcription": "/tʃiːz/",
-                    "part_of_speech": "noun",
-                    "uzbek": "pishloq",
-                    "description": "A solid food made from milk, available in many different types and flavours",
-                    "example": "She put cheese and tomato in her sandwich."
-                },
-                {
-                    "id": "u7_4",
-                    "word": "vegetables",
-                    "transcription": "/ˈvedʒtəbəlz/",
-                    "part_of_speech": "noun (plural)",
-                    "uzbek": "sabzavotlar",
-                    "description": "Plants or parts of plants eaten as food, such as carrots, onions, and tomatoes",
-                    "example": "Try to eat more vegetables every day."
-                },
-                {
-                    "id": "u7_5",
-                    "word": "fruit",
-                    "transcription": "/fruːt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "meva",
-                    "description": "The sweet, fleshy product of a plant, eaten as food; e.g. apples, bananas, oranges",
-                    "example": "She had fruit and yoghurt for breakfast."
-                },
-                {
-                    "id": "u7_6",
-                    "word": "meat",
-                    "transcription": "/miːt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "go'sht",
-                    "description": "The flesh of animals eaten as food, such as beef, chicken, or lamb",
-                    "example": "He doesn't eat meat — he's a vegetarian."
-                },
-                {
-                    "id": "u7_7",
-                    "word": "rice",
-                    "transcription": "/raɪs/",
-                    "part_of_speech": "noun",
-                    "uzbek": "guruch, sholi",
-                    "description": "Small white or brown grains from a plant, cooked and eaten as a staple food in many countries",
-                    "example": "In Uzbekistan, rice is used to make plov."
-                },
-                {
-                    "id": "u7_8",
-                    "word": "soup",
-                    "transcription": "/suːp/",
-                    "part_of_speech": "noun",
-                    "uzbek": "sho'rva",
-                    "description": "A liquid food made by cooking meat or vegetables in water or stock",
-                    "example": "She made tomato soup for lunch."
-                },
-                {
-                    "id": "u7_9",
-                    "word": "juice",
-                    "transcription": "/dʒuːs/",
-                    "part_of_speech": "noun",
-                    "uzbek": "sharbat, meva suvi",
-                    "description": "A drink made from the liquid extracted from fruit or vegetables",
-                    "example": "I drink orange juice every morning."
-                },
-                {
-                    "id": "u7_10",
-                    "word": "snack",
-                    "transcription": "/snæk/",
-                    "part_of_speech": "noun",
-                    "uzbek": "yengil taom, oraliq ovqat",
-                    "description": "A small amount of food eaten between main meals",
-                    "example": "I had an apple as a snack between classes."
-                },
-                {
-                    "id": "u7_11",
-                    "word": "recipe",
-                    "transcription": "/ˈresɪpi/",
-                    "part_of_speech": "noun",
-                    "uzbek": "retsept, taom tayyorlash usuli",
-                    "description": "A set of instructions for preparing a particular food dish, listing ingredients and steps",
-                    "example": "Can you share the recipe for this cake?"
-                },
-                {
-                    "id": "u7_12",
-                    "word": "delicious",
-                    "transcription": "/dɪˈlɪʃəs/",
-                    "part_of_speech": "adjective",
-                    "uzbek": "mazali, lazzatli",
-                    "description": "Having a very pleasant taste or smell; extremely good to eat",
-                    "example": "This samsa is absolutely delicious!"
-                }
-            ]
+          "id": "u1_7",
+          "word": "husband",
+          "transcription": "/ˈhʌzbənd/",
+          "part_of_speech": "noun",
+          "uzbek": "er, turmush o'rtoq (erkak)",
+          "description": "A man who is married; the male partner in a marriage",
+          "example": "Ivan is Anne's husband."
         },
         {
-            "unit": 8,
-            "title": "Colors",
-            "topic": "Basic and advanced color words, and how to use them to describe things",
-            "words": [
-                {
-                    "id": "u8_1",
-                    "word": "red",
-                    "transcription": "/rɛd/",
-                    "part_of_speech": "adjective / noun",
-                    "uzbek": "qizil",
-                    "description": "The color of blood or fire; a warm, strong primary color",
-                    "example": "She wore a red dress to the party."
-                },
-                {
-                    "id": "u8_2",
-                    "word": "blue",
-                    "transcription": "/bluː/",
-                    "part_of_speech": "adjective / noun",
-                    "uzbek": "ko'k, moviy",
-                    "description": "The color of the sky on a clear day or the ocean; a cool primary color",
-                    "example": "He has bright blue eyes."
-                },
-                {
-                    "id": "u8_3",
-                    "word": "green",
-                    "transcription": "/ɡriːn/",
-                    "part_of_speech": "adjective / noun",
-                    "uzbek": "yashil",
-                    "description": "The color of grass and leaves; associated with nature",
-                    "example": "The park is full of green trees."
-                },
-                {
-                    "id": "u8_4",
-                    "word": "yellow",
-                    "transcription": "/ˈjɛloʊ/",
-                    "part_of_speech": "adjective / noun",
-                    "uzbek": "sariq",
-                    "description": "A bright warm color like the sun or ripe bananas",
-                    "example": "Sunflowers are bright yellow."
-                },
-                {
-                    "id": "u8_5",
-                    "word": "orange",
-                    "transcription": "/ˈɒrɪndʒ/",
-                    "part_of_speech": "adjective / noun",
-                    "uzbek": "to'q sariq, apelsin rangi",
-                    "description": "A warm color between red and yellow, like the fruit of the same name",
-                    "example": "The autumn leaves turned orange."
-                },
-                {
-                    "id": "u8_6",
-                    "word": "purple",
-                    "transcription": "/ˈpɜːrpəl/",
-                    "part_of_speech": "adjective / noun",
-                    "uzbek": "binafsha rangi, to'q qizg'ish-ko'k",
-                    "description": "A color made by mixing red and blue; often associated with royalty",
-                    "example": "She painted the wall purple."
-                },
-                {
-                    "id": "u8_7",
-                    "word": "brown",
-                    "transcription": "/braʊn/",
-                    "part_of_speech": "adjective / noun",
-                    "uzbek": "jigarrang, qo'ng'ir",
-                    "description": "A dark warm color like chocolate, wood, or earth",
-                    "example": "He has brown hair and brown eyes."
-                },
-                {
-                    "id": "u8_8",
-                    "word": "grey",
-                    "transcription": "/ɡreɪ/",
-                    "part_of_speech": "adjective / noun",
-                    "uzbek": "kulrang, bo'z",
-                    "description": "A neutral color between black and white, like clouds on an overcast day",
-                    "example": "It was a grey, cloudy morning."
-                },
-                {
-                    "id": "u8_9",
-                    "word": "white",
-                    "transcription": "/waɪt/",
-                    "part_of_speech": "adjective / noun",
-                    "uzbek": "oq",
-                    "description": "The lightest color, the color of snow or milk; the opposite of black",
-                    "example": "The walls in the hospital are white."
-                },
-                {
-                    "id": "u8_10",
-                    "word": "black",
-                    "transcription": "/blæk/",
-                    "part_of_speech": "adjective / noun",
-                    "uzbek": "qora",
-                    "description": "The darkest color, absorbing all light; the opposite of white",
-                    "example": "He always wears black clothes."
-                },
-                {
-                    "id": "u8_11",
-                    "word": "light",
-                    "transcription": "/laɪt/",
-                    "part_of_speech": "adjective",
-                    "uzbek": "och (rang), yorug'",
-                    "description": "Used before a color to mean a pale, not strong version of that color",
-                    "example": "She wore a light blue blouse."
-                },
-                {
-                    "id": "u8_12",
-                    "word": "dark",
-                    "transcription": "/dɑːrk/",
-                    "part_of_speech": "adjective",
-                    "uzbek": "to'q (rang), qorong'u",
-                    "description": "Used before a color to mean a deep, strong version of that color",
-                    "example": "He was wearing dark green trousers."
-                }
-            ]
+          "id": "u1_8",
+          "word": "wife",
+          "transcription": "/waɪf/",
+          "part_of_speech": "noun",
+          "uzbek": "xotin, turmush o'rtoq (ayol)",
+          "description": "A woman who is married; the female partner in a marriage",
+          "example": "Anne is Ivan's wife."
         },
         {
-            "unit": 9,
-            "title": "Days, Months and Time",
-            "topic": "Days of the week, months of the year, and expressions for talking about time",
-            "words": [
-                {
-                    "id": "u9_1",
-                    "word": "weekday",
-                    "transcription": "/ˈwiːkdeɪ/",
-                    "part_of_speech": "noun",
-                    "uzbek": "ish kuni (dushanba–juma)",
-                    "description": "Any day of the week from Monday to Friday, when people usually work or study",
-                    "example": "The library is open every weekday from 9am to 6pm."
-                },
-                {
-                    "id": "u9_2",
-                    "word": "weekend",
-                    "transcription": "/ˌwiːkˈɛnd/",
-                    "part_of_speech": "noun",
-                    "uzbek": "dam olish kunlari (shanba-yakshanba)",
-                    "description": "Saturday and Sunday, when most people do not work",
-                    "example": "What did you do at the weekend?"
-                },
-                {
-                    "id": "u9_3",
-                    "word": "yesterday",
-                    "transcription": "/ˈjɛstərdeɪ/",
-                    "part_of_speech": "adverb / noun",
-                    "uzbek": "kecha",
-                    "description": "The day before today",
-                    "example": "I was tired yesterday, so I went to bed early."
-                },
-                {
-                    "id": "u9_4",
-                    "word": "tomorrow",
-                    "transcription": "/təˈmɒroʊ/",
-                    "part_of_speech": "adverb / noun",
-                    "uzbek": "ertaga",
-                    "description": "The day after today",
-                    "example": "We have an English test tomorrow."
-                },
-                {
-                    "id": "u9_5",
-                    "word": "fortnight",
-                    "transcription": "/ˈfɔːrtnaɪt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "ikki hafta, o'n to'rt kun",
-                    "description": "A period of two weeks (14 days); commonly used in British English",
-                    "example": "I'll see you in a fortnight."
-                },
-                {
-                    "id": "u9_6",
-                    "word": "century",
-                    "transcription": "/ˈsentʃəri/",
-                    "part_of_speech": "noun",
-                    "uzbek": "asr, yuz yil",
-                    "description": "A period of 100 years",
-                    "example": "We are living in the 21st century."
-                },
-                {
-                    "id": "u9_7",
-                    "word": "decade",
-                    "transcription": "/ˈdɛkeɪd/",
-                    "part_of_speech": "noun",
-                    "uzbek": "o'n yil",
-                    "description": "A period of ten years",
-                    "example": "A lot has changed in the last decade."
-                },
-                {
-                    "id": "u9_8",
-                    "word": "noon",
-                    "transcription": "/nuːn/",
-                    "part_of_speech": "noun",
-                    "uzbek": "tush payti, peshin (soat 12:00)",
-                    "description": "12 o'clock in the middle of the day; midday",
-                    "example": "We had lunch at noon."
-                },
-                {
-                    "id": "u9_9",
-                    "word": "midnight",
-                    "transcription": "/ˈmɪdnaɪt/",
-                    "part_of_speech": "noun",
-                    "uzbek": "yarim tun (soat 00:00)",
-                    "description": "12 o'clock at night; the middle of the night",
-                    "example": "The party went on until midnight."
-                },
-                {
-                    "id": "u9_10",
-                    "word": "dawn",
-                    "transcription": "/dɔːn/",
-                    "part_of_speech": "noun",
-                    "uzbek": "tong, sahar",
-                    "description": "The time of day when light first appears; the beginning of the morning",
-                    "example": "The farmer woke up at dawn to start work."
-                },
-                {
-                    "id": "u9_11",
-                    "word": "quarterly",
-                    "transcription": "/ˈkwɔːrtərli/",
-                    "part_of_speech": "adjective / adverb",
-                    "uzbek": "choraklik, har uch oyda bir marta",
-                    "description": "Happening four times a year, once every three months",
-                    "example": "The company publishes a quarterly report."
-                },
-                {
-                    "id": "u9_12",
-                    "word": "annual",
-                    "transcription": "/ˈænjuəl/",
-                    "part_of_speech": "adjective",
-                    "uzbek": "yillik, har yilgi",
-                    "description": "Happening once every year",
-                    "example": "The school holds an annual sports day in June."
-                }
-            ]
+          "id": "u1_9",
+          "word": "parents",
+          "transcription": "/ˈpeərənts/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "ota-ona",
+          "description": "Your mother and father together",
+          "example": "Anne and Ivan are Karen and Jack's parents."
         },
         {
-            "unit": 10,
-            "title": "The Home",
-            "topic": "Rooms of a house, furniture, and objects found in the home",
-            "words": [
-                {
-                    "id": "u10_1",
-                    "word": "living room",
-                    "transcription": "/ˈlɪvɪŋ ruːm/",
-                    "part_of_speech": "noun",
-                    "uzbek": "mehmonxona, yashash xonasi",
-                    "description": "The main room in a home used for relaxing, watching TV, and spending time with family",
-                    "example": "We usually watch TV in the living room in the evening."
-                },
-                {
-                    "id": "u10_2",
-                    "word": "bedroom",
-                    "transcription": "/ˈbɛdruːm/",
-                    "part_of_speech": "noun",
-                    "uzbek": "yotoqxona",
-                    "description": "A room in a house used for sleeping",
-                    "example": "Their house has three bedrooms."
-                },
-                {
-                    "id": "u10_3",
-                    "word": "kitchen",
-                    "transcription": "/ˈkɪtʃɪn/",
-                    "part_of_speech": "noun",
-                    "uzbek": "oshxona",
-                    "description": "The room in a house where food is prepared and cooked",
-                    "example": "She was cooking in the kitchen when I arrived."
-                },
-                {
-                    "id": "u10_4",
-                    "word": "bathroom",
-                    "transcription": "/ˈbæθruːm/",
-                    "part_of_speech": "noun",
-                    "uzbek": "hammom, vanna xonasi",
-                    "description": "A room with a bath or shower, sink, and usually a toilet",
-                    "example": "Can I use your bathroom?"
-                },
-                {
-                    "id": "u10_5",
-                    "word": "ceiling",
-                    "transcription": "/ˈsiːlɪŋ/",
-                    "part_of_speech": "noun",
-                    "uzbek": "shift, potolok",
-                    "description": "The upper interior surface of a room; the part above your head when inside a building",
-                    "example": "The ceiling in the old house was very high."
-                },
-                {
-                    "id": "u10_6",
-                    "word": "floor",
-                    "transcription": "/flɔːr/",
-                    "part_of_speech": "noun",
-                    "uzbek": "pol, zamin",
-                    "description": "The lower surface of a room that you walk on",
-                    "example": "The floor is wet — be careful!"
-                },
-                {
-                    "id": "u10_7",
-                    "word": "stairs",
-                    "transcription": "/stɛərz/",
-                    "part_of_speech": "noun (plural)",
-                    "uzbek": "zinapoya, pillapoya",
-                    "description": "A series of steps inside a building that allow you to move between floors",
-                    "example": "Take the stairs — the lift is broken."
-                },
-                {
-                    "id": "u10_8",
-                    "word": "furniture",
-                    "transcription": "/ˈfɜːrnɪtʃər/",
-                    "part_of_speech": "noun (uncountable)",
-                    "uzbek": "mebel",
-                    "description": "Large moveable objects in a room such as tables, chairs, beds, and wardrobes",
-                    "example": "They bought new furniture for their apartment."
-                },
-                {
-                    "id": "u10_9",
-                    "word": "curtains",
-                    "transcription": "/ˈkɜːrtənz/",
-                    "part_of_speech": "noun (plural)",
-                    "uzbek": "parda",
-                    "description": "Pieces of fabric hung over windows to block light or provide privacy",
-                    "example": "She opened the curtains to let the sunlight in."
-                },
-                {
-                    "id": "u10_10",
-                    "word": "wardrobe",
-                    "transcription": "/ˈwɔːrdroʊb/",
-                    "part_of_speech": "noun",
-                    "uzbek": "kiyim shkafi, garderob",
-                    "description": "A large piece of furniture with doors used for storing clothes",
-                    "example": "He hung his suits in the wardrobe."
-                },
-                {
-                    "id": "u10_11",
-                    "word": "shelf",
-                    "transcription": "/ʃɛlf/",
-                    "part_of_speech": "noun",
-                    "uzbek": "tokcha, javon",
-                    "description": "A flat board fixed to a wall or inside a cupboard, used for storing things",
-                    "example": "The books are on the shelf above the desk."
-                },
-                {
-                    "id": "u10_12",
-                    "word": "balcony",
-                    "transcription": "/ˈbælkəni/",
-                    "part_of_speech": "noun",
-                    "uzbek": "balkon",
-                    "description": "A platform with a railing outside an upper floor of a building",
-                    "example": "We had breakfast on the balcony every morning."
-                }
-            ]
+          "id": "u1_10",
+          "word": "children",
+          "transcription": "/ˈtʃɪldrən/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "bolalar, farzandlar",
+          "description": "The sons and daughters of a person",
+          "example": "They have two children: Karen and Jack."
+        },
+        {
+          "id": "u1_11",
+          "word": "grandfather",
+          "transcription": "/ˈɡrændfɑːðər/",
+          "part_of_speech": "noun",
+          "uzbek": "bobo",
+          "description": "The father of your mother or father",
+          "example": "Henry is Karen and Jack's grandfather."
+        },
+        {
+          "id": "u1_12",
+          "word": "grandmother",
+          "transcription": "/ˈɡrændmʌðər/",
+          "part_of_speech": "noun",
+          "uzbek": "buvi, momo",
+          "description": "The mother of your mother or father",
+          "example": "Diana is their grandmother."
+        },
+        {
+          "id": "u1_13",
+          "word": "grandparents",
+          "transcription": "/ˈɡrændpeərənts/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "bobo va buvi",
+          "description": "The parents of your mother or father",
+          "example": "Henry and Diana are the grandparents."
+        },
+        {
+          "id": "u1_14",
+          "word": "grandson",
+          "transcription": "/ˈɡrænsʌn/",
+          "part_of_speech": "noun",
+          "uzbek": "nevara (o'g'il)",
+          "description": "The son of your son or daughter",
+          "example": "Jack is Henry and Diana's grandson."
+        },
+        {
+          "id": "u1_15",
+          "word": "granddaughter",
+          "transcription": "/ˈɡrændɔːtər/",
+          "part_of_speech": "noun",
+          "uzbek": "nevara (qiz)",
+          "description": "The daughter of your son or daughter",
+          "example": "Karen is Henry and Diana's granddaughter."
+        },
+        {
+          "id": "u1_16",
+          "word": "uncle",
+          "transcription": "/ˈʌŋkəl/",
+          "part_of_speech": "noun",
+          "uzbek": "amaki (otaning akasi/ukasi), tog'a (onaning akasi/ukasi)",
+          "description": "The brother of your mother or father",
+          "example": "George is Karen and Jack's uncle."
+        },
+        {
+          "id": "u1_17",
+          "word": "aunt",
+          "transcription": "/ɑːnt/",
+          "part_of_speech": "noun",
+          "uzbek": "amma (otaning opasi/singlisi), xola (onaning opasi/singlisi)",
+          "description": "The sister of your mother or father",
+          "example": "Amelia and Meena are Karen and Jack's aunts."
+        },
+        {
+          "id": "u1_18",
+          "word": "nephew",
+          "transcription": "/ˈnevjuː/",
+          "part_of_speech": "noun",
+          "uzbek": "jiyani (o'g'il)",
+          "description": "The son of your brother or sister",
+          "example": "Jack is their nephew."
+        },
+        {
+          "id": "u1_19",
+          "word": "niece",
+          "transcription": "/niːs/",
+          "part_of_speech": "noun",
+          "uzbek": "jiyani (qiz)",
+          "description": "The daughter of your brother or sister",
+          "example": "Karen is their niece."
+        },
+        {
+          "id": "u1_20",
+          "word": "cousin",
+          "transcription": "/ˈkʌzən/",
+          "part_of_speech": "noun",
+          "uzbek": "amakivachcha, tog'avacha, xolavacha",
+          "description": "The child of your aunt or uncle",
+          "example": "Kavita and Ravi are Karen and Jack's cousins."
+        },
+        {
+          "id": "u1_21",
+          "word": "relatives",
+          "transcription": "/ˈrelətɪvz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "qarindoshlar, yaqinlar",
+          "description": "Members of your family; people related to you",
+          "example": "We have relatives living in many different cities."
+        },
+        {
+          "id": "u1_22",
+          "word": "an only child",
+          "transcription": "/ən ˌoʊnli ˈtʃaɪld/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "yagona farzand",
+          "description": "A child who has no brothers or sisters",
+          "example": "Have you got any brothers and sisters? No, I am an only child."
         }
-    ]
+      ]
+    },
+    {
+      "unit": 2,
+      "title": "Birth, marriage and death",
+      "topic": "Life events: being born, getting married, and dying",
+      "words": [
+        {
+          "id": "u2_1",
+          "word": "have a baby",
+          "transcription": "/hæv ə ˈbeɪbi/",
+          "part_of_speech": "verb phrase",
+          "uzbek": "farzand ko'rmoq, tug'moq",
+          "description": "To give birth to a child",
+          "example": "Anna had a baby yesterday."
+        },
+        {
+          "id": "u2_2",
+          "word": "be born",
+          "transcription": "/biː bɔːrn/",
+          "part_of_speech": "verb phrase",
+          "uzbek": "tug'ilmoq",
+          "description": "To come into the world at birth",
+          "example": "He was born at 1.15 yesterday morning."
+        },
+        {
+          "id": "u2_3",
+          "word": "weigh",
+          "transcription": "/weɪ/",
+          "part_of_speech": "verb",
+          "uzbek": "vazn tortmoq",
+          "description": "To have a particular weight",
+          "example": "The baby weighed 3 kilograms."
+        },
+        {
+          "id": "u2_4",
+          "word": "birthday",
+          "transcription": "/ˈbɜːrθdeɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "tug'ilgan kun",
+          "description": "The anniversary of the day you were born",
+          "example": "His grandfather's birthday is June 16th."
+        },
+        {
+          "id": "u2_5",
+          "word": "call",
+          "transcription": "/kɔːl/",
+          "part_of_speech": "verb",
+          "uzbek": "ism qo'ymoq",
+          "description": "To give someone a particular name",
+          "example": "They are going to call him John, after his grandfather."
+        },
+        {
+          "id": "u2_6",
+          "word": "single",
+          "transcription": "/ˈsɪŋɡəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "bo'ydoq, turmush qurmagan",
+          "description": "Not married; without a partner",
+          "example": "If you do not have a partner, you are single."
+        },
+        {
+          "id": "u2_7",
+          "word": "married",
+          "transcription": "/ˈmærid/",
+          "part_of_speech": "adjective",
+          "uzbek": "turmush qurgan",
+          "description": "Having a husband or wife",
+          "example": "If you have a husband or wife, you are married."
+        },
+        {
+          "id": "u2_8",
+          "word": "get married",
+          "transcription": "/ɡet ˈmærid/",
+          "part_of_speech": "verb phrase",
+          "uzbek": "turmush qurmoq, uylanmoq",
+          "description": "To become husband and wife in a ceremony",
+          "example": "Harry and Sarah got married in 2001."
+        },
+        {
+          "id": "u2_9",
+          "word": "wedding",
+          "transcription": "/ˈwedɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "to'y, nikoh marosimi",
+          "description": "A ceremony where two people get married",
+          "example": "The wedding was a beautiful ceremony."
+        },
+        {
+          "id": "u2_10",
+          "word": "bride",
+          "transcription": "/braɪd/",
+          "part_of_speech": "noun",
+          "uzbek": "kelin (to'ydagi)",
+          "description": "A woman on her wedding day",
+          "example": "The bride wore a beautiful white dress."
+        },
+        {
+          "id": "u2_11",
+          "word": "groom",
+          "transcription": "/ɡruːm/",
+          "part_of_speech": "noun",
+          "uzbek": "kuyov (to'ydagi)",
+          "description": "A man on his wedding day",
+          "example": "The groom waited nervously at the altar."
+        },
+        {
+          "id": "u2_12",
+          "word": "honeymoon",
+          "transcription": "/ˈhʌnimuːn/",
+          "part_of_speech": "noun",
+          "uzbek": "asal oyi (to'ydan keyin sayohat)",
+          "description": "A holiday taken by a newly married couple after the wedding",
+          "example": "They went on their honeymoon to Italy."
+        },
+        {
+          "id": "u2_13",
+          "word": "widowed",
+          "transcription": "/ˈwɪdoʊd/",
+          "part_of_speech": "adjective",
+          "uzbek": "beva (eri yoki xotini vafot etgan)",
+          "description": "Having lost your husband or wife through death",
+          "example": "If your husband or wife dies, you are widowed."
+        },
+        {
+          "id": "u2_14",
+          "word": "separated",
+          "transcription": "/ˈsɛpəreɪtɪd/",
+          "part_of_speech": "adjective",
+          "uzbek": "ajralgan (rasman emas)",
+          "description": "Living apart from your husband or wife but not yet divorced",
+          "example": "If your marriage breaks up, you are separated or divorced."
+        },
+        {
+          "id": "u2_15",
+          "word": "divorced",
+          "transcription": "/dɪˈvɔːrst/",
+          "part_of_speech": "adjective",
+          "uzbek": "ajrashgan (rasman)",
+          "description": "No longer legally married",
+          "example": "The marriage has legally ended — they are divorced."
+        },
+        {
+          "id": "u2_16",
+          "word": "ill",
+          "transcription": "/ɪl/",
+          "part_of_speech": "adjective",
+          "uzbek": "kasal, og'riq",
+          "description": "Not well; sick",
+          "example": "Then Harry became ill."
+        },
+        {
+          "id": "u2_17",
+          "word": "die",
+          "transcription": "/daɪ/",
+          "part_of_speech": "verb",
+          "uzbek": "vafot etmoq, o'lmoq",
+          "description": "To stop living",
+          "example": "He died last year."
+        },
+        {
+          "id": "u2_18",
+          "word": "die of",
+          "transcription": "/daɪ ɒv/",
+          "part_of_speech": "verb phrase",
+          "uzbek": "...dan vafot etmoq",
+          "description": "To die as a result of a particular cause or illness",
+          "example": "He died of a heart attack."
+        },
+        {
+          "id": "u2_19",
+          "word": "dead",
+          "transcription": "/ded/",
+          "part_of_speech": "adjective",
+          "uzbek": "vafot etgan, o'lik",
+          "description": "No longer alive. Note: say 'Harry is dead' NOT 'Harry is died'",
+          "example": "Harry is dead."
+        },
+        {
+          "id": "u2_20",
+          "word": "funeral",
+          "transcription": "/ˈfjuːnərəl/",
+          "part_of_speech": "noun",
+          "uzbek": "dafn marosimi, janoza",
+          "description": "A ceremony held after someone dies before burial or cremation",
+          "example": "The funeral was attended by many friends and family."
+        },
+        {
+          "id": "u2_21",
+          "word": "heart attack",
+          "transcription": "/ˈhɑːrt ətæk/",
+          "part_of_speech": "noun",
+          "uzbek": "yurak xuruji",
+          "description": "A sudden serious medical condition where the heart stops working normally",
+          "example": "My father had a heart attack last year."
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "title": "Parts of the body",
+      "topic": "Names of the main parts of the human body",
+      "words": [
+        {
+          "id": "u3_1",
+          "word": "hair",
+          "transcription": "/heər/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "soch",
+          "description": "The thin threads growing from the skin on your head. Used as singular: 'My hair is long' NOT 'My hairs are long'",
+          "example": "My hair is very long — I must cut it soon."
+        },
+        {
+          "id": "u3_2",
+          "word": "eye",
+          "transcription": "/aɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "ko'z",
+          "description": "One of the two organs in your face that you use to see",
+          "example": "She has blue eyes."
+        },
+        {
+          "id": "u3_3",
+          "word": "nose",
+          "transcription": "/noʊz/",
+          "part_of_speech": "noun",
+          "uzbek": "burun",
+          "description": "The part of your face above your mouth used for smelling and breathing",
+          "example": "He broke his nose playing football."
+        },
+        {
+          "id": "u3_4",
+          "word": "tooth / teeth",
+          "transcription": "/tuːθ/ /tiːθ/",
+          "part_of_speech": "noun",
+          "uzbek": "tish / tishlar",
+          "description": "The hard white objects in your mouth. Singular: tooth, plural: teeth",
+          "example": "Brush your teeth twice a day."
+        },
+        {
+          "id": "u3_5",
+          "word": "mouth",
+          "transcription": "/maʊθ/",
+          "part_of_speech": "noun",
+          "uzbek": "og'iz",
+          "description": "The opening in your face used for eating and speaking",
+          "example": "Open your mouth and say 'ah'."
+        },
+        {
+          "id": "u3_6",
+          "word": "ear",
+          "transcription": "/ɪər/",
+          "part_of_speech": "noun",
+          "uzbek": "quloq",
+          "description": "One of the two organs on the sides of your head that you use to hear",
+          "example": "She wore earrings on her ears."
+        },
+        {
+          "id": "u3_7",
+          "word": "lip",
+          "transcription": "/lɪp/",
+          "part_of_speech": "noun",
+          "uzbek": "lab",
+          "description": "Either of the two soft edges around the opening of the mouth",
+          "example": "He has thin lips."
+        },
+        {
+          "id": "u3_8",
+          "word": "neck",
+          "transcription": "/nɛk/",
+          "part_of_speech": "noun",
+          "uzbek": "bo'yin",
+          "description": "The part of the body connecting the head to the shoulders",
+          "example": "She wore a scarf around her neck."
+        },
+        {
+          "id": "u3_9",
+          "word": "shoulder",
+          "transcription": "/ˈʃoʊldər/",
+          "part_of_speech": "noun",
+          "uzbek": "yelka",
+          "description": "The joint connecting the arm to the upper body",
+          "example": "He carried the bag over his shoulder."
+        },
+        {
+          "id": "u3_10",
+          "word": "nail",
+          "transcription": "/neɪl/",
+          "part_of_speech": "noun",
+          "uzbek": "tirnoq",
+          "description": "The hard thin covering at the end of your fingers and toes",
+          "example": "She painted her nails red."
+        },
+        {
+          "id": "u3_11",
+          "word": "thumb",
+          "transcription": "/θʌm/",
+          "part_of_speech": "noun",
+          "uzbek": "bosh barmoq (qo'l)",
+          "description": "The short thick finger at the side of your hand, separate from the other four",
+          "example": "He gave a thumbs-up to say everything was OK."
+        },
+        {
+          "id": "u3_12",
+          "word": "finger",
+          "transcription": "/ˈfɪŋɡər/",
+          "part_of_speech": "noun",
+          "uzbek": "barmoq (qo'l)",
+          "description": "One of the four long thin parts at the end of your hand",
+          "example": "She wore a ring on her finger."
+        },
+        {
+          "id": "u3_13",
+          "word": "hand",
+          "transcription": "/hænd/",
+          "part_of_speech": "noun",
+          "uzbek": "qo'l (kaft)",
+          "description": "The part at the end of your arm including fingers and thumb",
+          "example": "Wash your hands before eating."
+        },
+        {
+          "id": "u3_14",
+          "word": "arm",
+          "transcription": "/ɑːrm/",
+          "part_of_speech": "noun",
+          "uzbek": "qo'l (bilakdan yelkagacha)",
+          "description": "The long part of your body from shoulder to hand",
+          "example": "She broke her arm in the accident."
+        },
+        {
+          "id": "u3_15",
+          "word": "leg",
+          "transcription": "/lɛɡ/",
+          "part_of_speech": "noun",
+          "uzbek": "oyoq (sondan tovongacha)",
+          "description": "One of the two long parts of your body used for walking",
+          "example": "She hurt her leg playing sport."
+        },
+        {
+          "id": "u3_16",
+          "word": "knee",
+          "transcription": "/niː/",
+          "part_of_speech": "noun",
+          "uzbek": "tizza",
+          "description": "The joint in the middle of the leg that allows it to bend",
+          "example": "She hurt her knee while running."
+        },
+        {
+          "id": "u3_17",
+          "word": "foot / feet",
+          "transcription": "/fʊt/ /fiːt/",
+          "part_of_speech": "noun",
+          "uzbek": "oyoq (panja) / oyoq panjalari",
+          "description": "The part at the bottom of your leg that you stand on. Singular: foot, plural: feet",
+          "example": "My feet are sore after walking all day."
+        },
+        {
+          "id": "u3_18",
+          "word": "toe",
+          "transcription": "/toʊ/",
+          "part_of_speech": "noun",
+          "uzbek": "barmoq (oyoq)",
+          "description": "One of the five parts at the end of your foot",
+          "example": "He broke his toe."
+        },
+        {
+          "id": "u3_19",
+          "word": "chest",
+          "transcription": "/tʃɛst/",
+          "part_of_speech": "noun",
+          "uzbek": "ko'krak, ko'krak qafasi",
+          "description": "The front of the body between the neck and the stomach; contains the heart and lungs",
+          "example": "The doctor listened to his chest with a stethoscope."
+        },
+        {
+          "id": "u3_20",
+          "word": "stomach",
+          "transcription": "/ˈstʌmək/",
+          "part_of_speech": "noun",
+          "uzbek": "qorin, oshqozon",
+          "description": "The organ in your body that digests food; also the area below the chest",
+          "example": "I have a pain in my stomach."
+        },
+        {
+          "id": "u3_21",
+          "word": "back",
+          "transcription": "/bæk/",
+          "part_of_speech": "noun",
+          "uzbek": "orqa, bel",
+          "description": "The rear part of your body from shoulders to hips",
+          "example": "He has a bad back from sitting all day."
+        },
+        {
+          "id": "u3_22",
+          "word": "side",
+          "transcription": "/saɪd/",
+          "part_of_speech": "noun",
+          "uzbek": "yon (tana)",
+          "description": "Either of the two parts of the body between the chest and the hip",
+          "example": "I have a pain in my side."
+        },
+        {
+          "id": "u3_23",
+          "word": "waist",
+          "transcription": "/weɪst/",
+          "part_of_speech": "noun",
+          "uzbek": "bel (ingichka qism)",
+          "description": "The narrow part of your body between your chest and hips",
+          "example": "She has a very slim waist."
+        },
+        {
+          "id": "u3_24",
+          "word": "hip",
+          "transcription": "/hɪp/",
+          "part_of_speech": "noun",
+          "uzbek": "son, dumba",
+          "description": "The area on each side of the body between the waist and the top of the leg",
+          "example": "She fell and broke her hip."
+        },
+        {
+          "id": "u3_25",
+          "word": "skin",
+          "transcription": "/skɪn/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "teri",
+          "description": "The outer covering of the human body",
+          "example": "We have skin covering our bodies."
+        },
+        {
+          "id": "u3_26",
+          "word": "heart",
+          "transcription": "/hɑːrt/",
+          "part_of_speech": "noun",
+          "uzbek": "yurak",
+          "description": "The organ inside your chest that pumps blood around your body",
+          "example": "The heart beats about 70 times a minute."
+        },
+        {
+          "id": "u3_27",
+          "word": "brain",
+          "transcription": "/breɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "miya",
+          "description": "The organ inside your head that controls thought, memory and feeling",
+          "example": "The human brain is very complex."
+        },
+        {
+          "id": "u3_28",
+          "word": "blood",
+          "transcription": "/blʌd/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "qon",
+          "description": "The red liquid that flows through your body",
+          "example": "He lost a lot of blood in the accident."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "title": "Clothes",
+      "topic": "Types of clothing, accessories, and verbs for wearing clothes",
+      "words": [
+        {
+          "id": "u4_1",
+          "word": "coat",
+          "transcription": "/koʊt/",
+          "part_of_speech": "noun",
+          "uzbek": "palto",
+          "description": "A long warm piece of clothing worn over other clothes outdoors",
+          "example": "Take a coat — it will be cold tonight."
+        },
+        {
+          "id": "u4_2",
+          "word": "jacket",
+          "transcription": "/ˈdʒækɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "kurtka, kurta",
+          "description": "A short coat with sleeves, worn over other clothes",
+          "example": "She wore a green jacket to the meeting."
+        },
+        {
+          "id": "u4_3",
+          "word": "shirt",
+          "transcription": "/ʃɜːrt/",
+          "part_of_speech": "noun",
+          "uzbek": "ko'ylak (erkaklar uchun)",
+          "description": "A piece of clothing for the upper body with a collar and buttons",
+          "example": "He always wears a white shirt to work."
+        },
+        {
+          "id": "u4_4",
+          "word": "T-shirt",
+          "transcription": "/ˈtiːʃɜːrt/",
+          "part_of_speech": "noun",
+          "uzbek": "futbolka, mayka",
+          "description": "A simple shirt with short sleeves and no collar or buttons",
+          "example": "He wore a blue T-shirt and jeans."
+        },
+        {
+          "id": "u4_5",
+          "word": "sweater / jumper",
+          "transcription": "/ˈswɛtər/ /ˈdʒʌmpər/",
+          "part_of_speech": "noun",
+          "uzbek": "sviter, jumper",
+          "description": "A warm knitted piece of clothing for the upper body",
+          "example": "She put on a sweater because it was cold."
+        },
+        {
+          "id": "u4_6",
+          "word": "dress",
+          "transcription": "/drɛs/",
+          "part_of_speech": "noun",
+          "uzbek": "ko'ylak (to'liq, ayollar uchun)",
+          "description": "A one-piece garment for women covering the body from shoulders downward",
+          "example": "She bought a beautiful red dress for the wedding."
+        },
+        {
+          "id": "u4_7",
+          "word": "skirt",
+          "transcription": "/skɜːrt/",
+          "part_of_speech": "noun",
+          "uzbek": "yubka",
+          "description": "A piece of clothing worn by women that hangs from the waist down",
+          "example": "She wore a long skirt to the party."
+        },
+        {
+          "id": "u4_8",
+          "word": "trousers",
+          "transcription": "/ˈtraʊzərz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "shim",
+          "description": "A piece of clothing covering the lower body with separate legs; 'pants' in American English. Always plural",
+          "example": "He wore black trousers to the interview."
+        },
+        {
+          "id": "u4_9",
+          "word": "jeans",
+          "transcription": "/dʒiːnz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "jinsi shim",
+          "description": "Trousers made from denim. Always plural",
+          "example": "She always wears jeans at the weekend."
+        },
+        {
+          "id": "u4_10",
+          "word": "shorts",
+          "transcription": "/ʃɔːrts/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "shim (qisqa)",
+          "description": "Short trousers ending above or at the knee. Always plural",
+          "example": "He wore shorts on the beach."
+        },
+        {
+          "id": "u4_11",
+          "word": "tights",
+          "transcription": "/taɪts/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "kolgotkа",
+          "description": "A tight covering for the legs and lower body, worn by women. Always plural",
+          "example": "She wore black tights with her skirt."
+        },
+        {
+          "id": "u4_12",
+          "word": "suit",
+          "transcription": "/suːt/",
+          "part_of_speech": "noun",
+          "uzbek": "kostyum",
+          "description": "A set of matching jacket and trousers worn for formal occasions",
+          "example": "He wore a dark blue suit to the job interview."
+        },
+        {
+          "id": "u4_13",
+          "word": "hat",
+          "transcription": "/hæt/",
+          "part_of_speech": "noun",
+          "uzbek": "shlyapa, bosh kiyim",
+          "description": "A covering worn on the head, usually with a brim",
+          "example": "She wore a big red hat to the party."
+        },
+        {
+          "id": "u4_14",
+          "word": "scarf",
+          "transcription": "/skɑːrf/",
+          "part_of_speech": "noun",
+          "uzbek": "sharf, ro'mol",
+          "description": "A long piece of cloth worn around the neck or head for warmth or style",
+          "example": "He wrapped a scarf around his neck on the cold day."
+        },
+        {
+          "id": "u4_15",
+          "word": "gloves",
+          "transcription": "/ɡlʌvz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "qo'lqop",
+          "description": "Coverings for the hands with separate parts for each finger. Always plural",
+          "example": "Don't forget your gloves — it's freezing outside."
+        },
+        {
+          "id": "u4_16",
+          "word": "shoes",
+          "transcription": "/ʃuːz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "poyabzal, tuflya",
+          "description": "Coverings for the feet. Always plural",
+          "example": "She bought new shoes for the party."
+        },
+        {
+          "id": "u4_17",
+          "word": "trainers",
+          "transcription": "/ˈtreɪnərz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "krossovka, sport poyabzali",
+          "description": "Comfortable sports shoes; called 'sneakers' in American English",
+          "example": "I wear trainers when I go to the gym."
+        },
+        {
+          "id": "u4_18",
+          "word": "boots",
+          "transcription": "/buːts/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "etik, baland poyabzal",
+          "description": "Strong shoes that cover the foot and ankle or higher up the leg",
+          "example": "She wears boots in winter to keep her feet warm."
+        },
+        {
+          "id": "u4_19",
+          "word": "socks",
+          "transcription": "/sɒks/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "paypoq",
+          "description": "Soft coverings for your feet, worn inside shoes. Always plural",
+          "example": "He always wears white socks."
+        },
+        {
+          "id": "u4_20",
+          "word": "belt",
+          "transcription": "/bɛlt/",
+          "part_of_speech": "noun",
+          "uzbek": "kamar, belbog'",
+          "description": "A strip of leather or cloth worn around the waist to hold up trousers",
+          "example": "His trousers were too big, so he wore a belt."
+        },
+        {
+          "id": "u4_21",
+          "word": "tie",
+          "transcription": "/taɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "galstuk",
+          "description": "A long piece of cloth worn around the neck, usually by men for formal occasions",
+          "example": "He wore a tie to the business meeting."
+        },
+        {
+          "id": "u4_22",
+          "word": "watch",
+          "transcription": "/wɒtʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "qo'l soati",
+          "description": "A small clock worn on the wrist",
+          "example": "He looked at his watch and realised he was late."
+        },
+        {
+          "id": "u4_23",
+          "word": "ring",
+          "transcription": "/rɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "uzuk, halqa",
+          "description": "A circular piece of jewellery worn on a finger",
+          "example": "She wore a gold ring on her left hand."
+        },
+        {
+          "id": "u4_24",
+          "word": "glasses",
+          "transcription": "/ˈɡlɑːsɪz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "ko'zoynak",
+          "description": "Lenses in a frame worn over the eyes to help you see better. Always plural",
+          "example": "She wears glasses for reading."
+        },
+        {
+          "id": "u4_25",
+          "word": "sunglasses",
+          "transcription": "/ˈsʌnɡlɑːsɪz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "quyosh ko'zoynak",
+          "description": "Dark glasses worn to protect your eyes from bright sunlight. Always plural",
+          "example": "Don't forget your sunglasses at the beach."
+        },
+        {
+          "id": "u4_26",
+          "word": "handbag",
+          "transcription": "/ˈhændbæɡ/",
+          "part_of_speech": "noun",
+          "uzbek": "ayollar sumkasi",
+          "description": "A bag carried by women for personal belongings",
+          "example": "She's carrying a suitcase and a handbag."
+        },
+        {
+          "id": "u4_27",
+          "word": "umbrella",
+          "transcription": "/ʌmˈbrɛlə/",
+          "part_of_speech": "noun",
+          "uzbek": "soyabon, zontik",
+          "description": "A device with a circular canopy on a stick used as protection from rain",
+          "example": "You carry a bag and an umbrella."
+        },
+        {
+          "id": "u4_28",
+          "word": "wear",
+          "transcription": "/weər/",
+          "part_of_speech": "verb",
+          "uzbek": "kiymoq (badanda bo'lmoq)",
+          "description": "To have clothing or accessories on your body. Note: you WEAR clothes but CARRY bags",
+          "example": "Naomi is wearing a long blue coat."
+        },
+        {
+          "id": "u4_29",
+          "word": "put on",
+          "transcription": "/pʊt ɒn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "kiyib olmoq",
+          "description": "To place clothing on your body. Note: 'put clothes ON' not 'put off'",
+          "example": "In the morning you get dressed or put your clothes on."
+        },
+        {
+          "id": "u4_30",
+          "word": "take off",
+          "transcription": "/teɪk ɒf/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "yechmoq, echib olmoq",
+          "description": "To remove clothing from your body. Note: 'take clothes OFF' not 'take off clothes'",
+          "example": "At night you get undressed or take your clothes off."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "title": "Describing people",
+      "topic": "Words for describing height, weight, hair, face and age",
+      "words": [
+        {
+          "id": "u5_1",
+          "word": "tall",
+          "transcription": "/tɔːl/",
+          "part_of_speech": "adjective",
+          "uzbek": "baland bo'yli",
+          "description": "Having greater than average height. Note: say 'People are tall' NOT 'People are high'",
+          "example": "Bettina Schwenke is a very tall woman."
+        },
+        {
+          "id": "u5_2",
+          "word": "short",
+          "transcription": "/ʃɔːrt/",
+          "part_of_speech": "adjective",
+          "uzbek": "past bo'yli, kichik",
+          "description": "Having less than average height",
+          "example": "Tom Jakes is quite short."
+        },
+        {
+          "id": "u5_3",
+          "word": "medium height",
+          "transcription": "/ˈmiːdiəm haɪt/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "o'rtacha bo'y",
+          "description": "Neither tall nor short; average height",
+          "example": "If you aren't tall or short, you are of medium height."
+        },
+        {
+          "id": "u5_4",
+          "word": "slim",
+          "transcription": "/slɪm/",
+          "part_of_speech": "adjective",
+          "uzbek": "ozg'in, ingichka (munosib so'z)",
+          "description": "Thin in an attractive, healthy way. More polite than 'thin'",
+          "example": "Agata Sanchez is really slim."
+        },
+        {
+          "id": "u5_5",
+          "word": "thin",
+          "transcription": "/θɪn/",
+          "part_of_speech": "adjective",
+          "uzbek": "ozg'in, ingichka",
+          "description": "Having little fat on the body; not fat",
+          "example": "I was very thin when I was in hospital."
+        },
+        {
+          "id": "u5_6",
+          "word": "overweight",
+          "transcription": "/ˌoʊvərˈweɪt/",
+          "part_of_speech": "adjective",
+          "uzbek": "to'la, vazni ortiqcha",
+          "description": "Heavier than is considered healthy",
+          "example": "The doctor said I am overweight."
+        },
+        {
+          "id": "u5_7",
+          "word": "fat",
+          "transcription": "/fæt/",
+          "part_of_speech": "adjective",
+          "uzbek": "semiz, to'la",
+          "description": "Having too much flesh on the body. Note: it is not polite to say this to someone",
+          "example": "Their cat is very fat. It needs to go on a diet."
+        },
+        {
+          "id": "u5_8",
+          "word": "dark skin",
+          "transcription": "/dɑːrk skɪn/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "to'q rangli teri",
+          "description": "Having a darker skin colour",
+          "example": "Suri has dark skin and dark hair."
+        },
+        {
+          "id": "u5_9",
+          "word": "fair skin",
+          "transcription": "/feər skɪn/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "och rangli teri",
+          "description": "Having a light, pale skin colour",
+          "example": "Polly has fair skin and blonde hair."
+        },
+        {
+          "id": "u5_10",
+          "word": "blonde / fair hair",
+          "transcription": "/blɒnd/ /feər heər/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "sariq soch",
+          "description": "Light yellow coloured hair. Note: say 'blonde/dark hair' NOT 'blonde/dark hairs'",
+          "example": "Polly has blonde hair and fair skin."
+        },
+        {
+          "id": "u5_11",
+          "word": "dark hair",
+          "transcription": "/dɑːrk heər/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "qora soch, to'q soch",
+          "description": "Black or very dark brown hair",
+          "example": "Suri has dark skin and dark hair."
+        },
+        {
+          "id": "u5_12",
+          "word": "beard",
+          "transcription": "/bɪərd/",
+          "part_of_speech": "noun",
+          "uzbek": "soqol",
+          "description": "Hair growing on a man's chin and cheeks",
+          "example": "Ben has a beard and long hair."
+        },
+        {
+          "id": "u5_13",
+          "word": "moustache",
+          "transcription": "/məˈstɑːʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "mo'ylov",
+          "description": "Hair grown on the upper lip",
+          "example": "Luca has a moustache and short hair."
+        },
+        {
+          "id": "u5_14",
+          "word": "beautiful",
+          "transcription": "/ˈbjuːtɪfəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "go'zal, chiroyli (ayol uchun)",
+          "description": "Very attractive; usually used for women. 'My mother is a very beautiful woman'",
+          "example": "My mother is a very beautiful woman."
+        },
+        {
+          "id": "u5_15",
+          "word": "good-looking",
+          "transcription": "/ˌɡʊd ˈlʊkɪŋ/",
+          "part_of_speech": "adjective",
+          "uzbek": "ko'rkam, chiroyli (erkak uchun)",
+          "description": "Attractive in appearance; usually used for men",
+          "example": "My dad's a very good-looking man."
+        },
+        {
+          "id": "u5_16",
+          "word": "pretty",
+          "transcription": "/ˈprɪti/",
+          "part_of_speech": "adjective",
+          "uzbek": "chiroyli, yoqimli (qizlar va ayollar uchun)",
+          "description": "Attractive; usually used for girls or women",
+          "example": "My sister is very pretty."
+        },
+        {
+          "id": "u5_17",
+          "word": "ugly",
+          "transcription": "/ˈʌɡli/",
+          "part_of_speech": "adjective",
+          "uzbek": "xunuk, ko'rimsiz",
+          "description": "Not attractive; the opposite of beautiful or good-looking",
+          "example": "Bob's an ugly man."
+        },
+        {
+          "id": "u5_18",
+          "word": "average-looking",
+          "transcription": "/ˈævərɪdʒ ˈlʊkɪŋ/",
+          "part_of_speech": "adjective",
+          "uzbek": "o'rtacha ko'rinishli",
+          "description": "Neither attractive nor unattractive; ordinary looking",
+          "example": "I'm not ugly or beautiful, I'm just average-looking!"
+        },
+        {
+          "id": "u5_19",
+          "word": "old",
+          "transcription": "/oʊld/",
+          "part_of_speech": "adjective",
+          "uzbek": "keksa, qari",
+          "description": "Having lived for a long time; not young",
+          "example": "My grandmother is 97. She's very old."
+        },
+        {
+          "id": "u5_20",
+          "word": "young",
+          "transcription": "/jʌŋ/",
+          "part_of_speech": "adjective",
+          "uzbek": "yosh, navqiron",
+          "description": "Having lived for a short time; not old",
+          "example": "My sister is 14. She's young."
+        },
+        {
+          "id": "u5_21",
+          "word": "middle-aged",
+          "transcription": "/ˌmɪdəl ˈeɪdʒd/",
+          "part_of_speech": "adjective",
+          "uzbek": "o'rta yoshli (40-60 yosh atrofida)",
+          "description": "Between about 40 and 60 years old",
+          "example": "My father is 56. He's middle-aged."
+        },
+        {
+          "id": "u5_22",
+          "word": "elderly",
+          "transcription": "/ˈɛldərli/",
+          "part_of_speech": "adjective",
+          "uzbek": "keksa (munosib so'z)",
+          "description": "Old; a polite word for old people",
+          "example": "This hospital is for elderly people."
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "title": "Health and illness",
+      "topic": "Words for health conditions, common illnesses, and wellbeing",
+      "words": [
+        {
+          "id": "u6_1",
+          "word": "very well",
+          "transcription": "/ˈveri wɛl/",
+          "part_of_speech": "phrase",
+          "uzbek": "juda yaxshi (sog'liq haqida)",
+          "description": "In a very healthy and good state",
+          "example": "I'm very well, thanks."
+        },
+        {
+          "id": "u6_2",
+          "word": "fine",
+          "transcription": "/faɪn/",
+          "part_of_speech": "adjective",
+          "uzbek": "yaxshi, normal (sog'liq haqida)",
+          "description": "Feeling good and healthy",
+          "example": "I'm fine, thanks."
+        },
+        {
+          "id": "u6_3",
+          "word": "don't feel very well",
+          "transcription": "/doʊnt fiːl ˈveri wɛl/",
+          "part_of_speech": "phrase",
+          "uzbek": "o'zimni yaxshi his qilmayapman",
+          "description": "To feel slightly ill or not fully healthy",
+          "example": "I don't feel very well. I must go home and rest."
+        },
+        {
+          "id": "u6_4",
+          "word": "feel ill",
+          "transcription": "/fiːl ɪl/",
+          "part_of_speech": "phrase",
+          "uzbek": "kasal his qilmoq",
+          "description": "To feel sick with an illness",
+          "example": "I feel ill. Can you get a doctor, please?"
+        },
+        {
+          "id": "u6_5",
+          "word": "sick",
+          "transcription": "/sɪk/",
+          "part_of_speech": "adjective",
+          "uzbek": "ko'ngli aynigan, kasal",
+          "description": "Feeling like you want to vomit; also used to mean ill in American English",
+          "example": "That fish was bad. I think I'm going to be sick!"
+        },
+        {
+          "id": "u6_6",
+          "word": "headache",
+          "transcription": "/ˈhɛdeɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "bosh og'rig'i",
+          "description": "A continuous pain in your head",
+          "example": "Have you got an aspirin? I've got a headache."
+        },
+        {
+          "id": "u6_7",
+          "word": "toothache",
+          "transcription": "/ˈtuːθeɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "tish og'rig'i",
+          "description": "A pain in one or more of your teeth",
+          "example": "I've got toothache. I need to go to the dentist."
+        },
+        {
+          "id": "u6_8",
+          "word": "cold",
+          "transcription": "/koʊld/",
+          "part_of_speech": "noun",
+          "uzbek": "shamollash, tumov",
+          "description": "A common illness causing a runny nose and sore throat",
+          "example": "I'm going to bed with a hot drink. I've got a cold."
+        },
+        {
+          "id": "u6_9",
+          "word": "dentist",
+          "transcription": "/ˈdɛntɪst/",
+          "part_of_speech": "noun",
+          "uzbek": "tish shifokori, stomatolog",
+          "description": "A doctor who treats your teeth and mouth",
+          "example": "I've got toothache. I need to go to the dentist."
+        },
+        {
+          "id": "u6_10",
+          "word": "hay fever",
+          "transcription": "/ˈheɪ ˌfiːvər/",
+          "part_of_speech": "noun",
+          "uzbek": "o't isitmasi (alleriya)",
+          "description": "An allergy to pollen causing sneezing and watery eyes",
+          "example": "I get hay fever every summer from flowers and grass."
+        },
+        {
+          "id": "u6_11",
+          "word": "sneeze",
+          "transcription": "/sniːz/",
+          "part_of_speech": "verb",
+          "uzbek": "aksirmoq",
+          "description": "To suddenly blow air out of your nose and mouth uncontrollably",
+          "example": "I sneeze all day because of hay fever."
+        },
+        {
+          "id": "u6_12",
+          "word": "asthma",
+          "transcription": "/ˈæzmə/",
+          "part_of_speech": "noun",
+          "uzbek": "astma (nafas kasalligi)",
+          "description": "A condition that makes it difficult to breathe",
+          "example": "My little brother has asthma; sometimes he can't breathe."
+        },
+        {
+          "id": "u6_13",
+          "word": "mosquito",
+          "transcription": "/məˈskiːtoʊ/",
+          "part_of_speech": "noun",
+          "uzbek": "chivin, pashsha",
+          "description": "A small flying insect that bites and can spread diseases",
+          "example": "In some countries, mosquitoes can give people malaria."
+        },
+        {
+          "id": "u6_14",
+          "word": "malaria",
+          "transcription": "/məˈleəriə/",
+          "part_of_speech": "noun",
+          "uzbek": "bezgak kasalligi",
+          "description": "A serious disease spread by mosquitoes in tropical countries",
+          "example": "The drinking water was bad, and many children had cholera."
+        },
+        {
+          "id": "u6_15",
+          "word": "cancer",
+          "transcription": "/ˈkænsər/",
+          "part_of_speech": "noun",
+          "uzbek": "saraton kasalligi",
+          "description": "A serious disease caused by cells growing in an uncontrolled way",
+          "example": "Every year cancer kills many people who smoke."
+        },
+        {
+          "id": "u6_16",
+          "word": "hospital",
+          "transcription": "/ˈhɒspɪtəl/",
+          "part_of_speech": "noun",
+          "uzbek": "kasalxona, shifoxona",
+          "description": "A building where sick or injured people receive medical treatment",
+          "example": "My father went to hospital when he had a heart attack."
+        },
+        {
+          "id": "u6_17",
+          "word": "heart attack",
+          "transcription": "/ˈhɑːrt ətæk/",
+          "part_of_speech": "noun",
+          "uzbek": "yurak xuruji",
+          "description": "A sudden serious condition where the heart stops working normally. Note: 'had a heart attack' NOT 'got a heart attack'",
+          "example": "My father had a heart attack."
+        },
+        {
+          "id": "u6_18",
+          "word": "have a healthy diet",
+          "transcription": "/hæv ə ˈhɛlθi ˈdaɪət/",
+          "part_of_speech": "phrase",
+          "uzbek": "sog'lom ovqatlanmoq",
+          "description": "To eat food that is good for your health",
+          "example": "Do you have a healthy diet? Yes, I eat lots of fruit and vegetables."
+        },
+        {
+          "id": "u6_19",
+          "word": "exercise",
+          "transcription": "/ˈɛksərsaɪz/",
+          "part_of_speech": "noun / verb",
+          "uzbek": "jismoniy mashq qilmoq",
+          "description": "Physical activity done to keep the body fit and healthy",
+          "example": "Do you exercise? Yes, I like swimming, jogging and cycling."
+        },
+        {
+          "id": "u6_20",
+          "word": "good for you",
+          "transcription": "/ɡʊd fər juː/",
+          "part_of_speech": "phrase",
+          "uzbek": "sog'liq uchun foydali",
+          "description": "Beneficial for your health",
+          "example": "Swimming, jogging and cycling are really good for you."
+        },
+        {
+          "id": "u6_21",
+          "word": "stressed",
+          "transcription": "/strɛst/",
+          "part_of_speech": "adjective",
+          "uzbek": "stressda, asabi ta'ta bo'lgan",
+          "description": "Feeling worried and anxious because of problems or too much work",
+          "example": "I feel stressed! I need to relax more."
+        },
+        {
+          "id": "u6_22",
+          "word": "relax",
+          "transcription": "/rɪˈlæks/",
+          "part_of_speech": "verb",
+          "uzbek": "dam olmoq, bo'shashmoq",
+          "description": "To become calm and free from stress",
+          "example": "You need to relax more and don't panic about work."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "title": "Feelings",
+      "topic": "Words for emotions, preferences and desires",
+      "words": [
+        {
+          "id": "u7_1",
+          "word": "love",
+          "transcription": "/lʌv/",
+          "part_of_speech": "verb",
+          "uzbek": "sevmoq, juda yaxshi ko'rmoq",
+          "description": "To feel very strong liking or affection; the strongest positive feeling (++)",
+          "example": "I love my family and my best friend."
+        },
+        {
+          "id": "u7_2",
+          "word": "like",
+          "transcription": "/laɪk/",
+          "part_of_speech": "verb",
+          "uzbek": "yoqtirmoq, yaxshi ko'rmoq",
+          "description": "To find something pleasant or enjoyable (+)",
+          "example": "I like my job."
+        },
+        {
+          "id": "u7_3",
+          "word": "don't like",
+          "transcription": "/doʊnt laɪk/",
+          "part_of_speech": "verb phrase",
+          "uzbek": "yoqtirmaslik, yaxshi ko'rmaslik",
+          "description": "To not enjoy or find something pleasant (-)",
+          "example": "I don't like horror films."
+        },
+        {
+          "id": "u7_4",
+          "word": "hate",
+          "transcription": "/heɪt/",
+          "part_of_speech": "verb",
+          "uzbek": "yomon ko'rmoq, nafratlanmoq",
+          "description": "To have a very strong feeling of dislike (--)",
+          "example": "I hate spiders."
+        },
+        {
+          "id": "u7_5",
+          "word": "happy",
+          "transcription": "/ˈhæpi/",
+          "part_of_speech": "adjective",
+          "uzbek": "xursand, baxtli",
+          "description": "Feeling pleasure and satisfaction; not sad. Note: 'happy about' or 'happy for' NOT 'happy for'",
+          "example": "I am very happy about your news."
+        },
+        {
+          "id": "u7_6",
+          "word": "sad",
+          "transcription": "/sæd/",
+          "part_of_speech": "adjective",
+          "uzbek": "xafa, g'amgin",
+          "description": "Feeling unhappy or sorrowful",
+          "example": "He was sad when his dog died."
+        },
+        {
+          "id": "u7_7",
+          "word": "angry",
+          "transcription": "/ˈæŋɡri/",
+          "part_of_speech": "adjective",
+          "uzbek": "g'azablangan, xafa bo'lgan",
+          "description": "Feeling or showing strong displeasure",
+          "example": "She was very angry when she heard the news."
+        },
+        {
+          "id": "u7_8",
+          "word": "upset",
+          "transcription": "/ʌpˈsɛt/",
+          "part_of_speech": "adjective",
+          "uzbek": "xafa bo'lgan, ranjigan",
+          "description": "Feeling unhappy and worried because something bad has happened",
+          "example": "He was upset when his friend didn't call."
+        },
+        {
+          "id": "u7_9",
+          "word": "cold",
+          "transcription": "/koʊld/",
+          "part_of_speech": "adjective",
+          "uzbek": "sovuq his qilmoq",
+          "description": "Feeling a low temperature; needing warmth",
+          "example": "I'm cold. Can you turn the heating on?"
+        },
+        {
+          "id": "u7_10",
+          "word": "hot",
+          "transcription": "/hɒt/",
+          "part_of_speech": "adjective",
+          "uzbek": "issiq his qilmoq",
+          "description": "Feeling very warm; feeling too much heat",
+          "example": "I'm hot. Can you open a window?"
+        },
+        {
+          "id": "u7_11",
+          "word": "thirsty",
+          "transcription": "/ˈθɜːrsti/",
+          "part_of_speech": "adjective",
+          "uzbek": "chanqoq, suvsagan",
+          "description": "Feeling the need to drink water or other liquids",
+          "example": "I'm thirsty. Can I have some water, please?"
+        },
+        {
+          "id": "u7_12",
+          "word": "hungry",
+          "transcription": "/ˈhʌŋɡri/",
+          "part_of_speech": "adjective",
+          "uzbek": "och, qorni ochgan",
+          "description": "Feeling the need to eat food",
+          "example": "I'm hungry. When is dinner?"
+        },
+        {
+          "id": "u7_13",
+          "word": "well",
+          "transcription": "/wɛl/",
+          "part_of_speech": "adjective",
+          "uzbek": "sog'-salomat, yaxshi (sog'liq)",
+          "description": "In good health; feeling healthy",
+          "example": "He's very well, thanks."
+        },
+        {
+          "id": "u7_14",
+          "word": "ill",
+          "transcription": "/ɪl/",
+          "part_of_speech": "adjective",
+          "uzbek": "kasal",
+          "description": "Not feeling healthy; sick",
+          "example": "She looks ill. She should see a doctor."
+        },
+        {
+          "id": "u7_15",
+          "word": "tired",
+          "transcription": "/ˈtaɪərd/",
+          "part_of_speech": "adjective",
+          "uzbek": "charchagan, holdan toygan",
+          "description": "Feeling a need to rest or sleep; lacking energy",
+          "example": "I'm very tired. I need to sleep."
+        },
+        {
+          "id": "u7_16",
+          "word": "surprised",
+          "transcription": "/sərˈpraɪzd/",
+          "part_of_speech": "adjective",
+          "uzbek": "hayron bo'lgan, ajablangan",
+          "description": "Feeling astonishment at something unexpected",
+          "example": "She was surprised when she saw him at the party."
+        },
+        {
+          "id": "u7_17",
+          "word": "prefer",
+          "transcription": "/prɪˈfɜːr/",
+          "part_of_speech": "verb",
+          "uzbek": "afzal ko'rmoq",
+          "description": "To like one thing more than another",
+          "example": "I prefer coffee to tea. (= I like coffee more than I like tea.)"
+        },
+        {
+          "id": "u7_18",
+          "word": "hope",
+          "transcription": "/hoʊp/",
+          "part_of_speech": "verb",
+          "uzbek": "umid qilmoq",
+          "description": "To want something to happen and believe it might. Note: 'I hope to do' or 'I hope that' NOT 'I hope doing'",
+          "example": "I hope to do well in my exam."
+        },
+        {
+          "id": "u7_19",
+          "word": "want",
+          "transcription": "/wɒnt/",
+          "part_of_speech": "verb",
+          "uzbek": "xohlamoq, istamoq",
+          "description": "To feel a desire for something. Note: 'I want you to help me' NOT 'I want that you help me'",
+          "example": "I want a new car. I want to buy a new car."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "title": "Conversations 1: Greetings and wishes",
+      "topic": "Everyday greetings, farewells, and special occasion expressions",
+      "words": [
+        {
+          "id": "u8_1",
+          "word": "good morning",
+          "transcription": "/ɡʊd ˈmɔːrnɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "xayrli tong",
+          "description": "A greeting used from waking up until midday (about 12pm)",
+          "example": "Good morning! How are you today?"
+        },
+        {
+          "id": "u8_2",
+          "word": "good afternoon",
+          "transcription": "/ɡʊd ˌæftərˈnuːn/",
+          "part_of_speech": "phrase",
+          "uzbek": "xayrli kun (tushdan keyin)",
+          "description": "A greeting used from midday until about 6pm",
+          "example": "Good afternoon, can I help you?"
+        },
+        {
+          "id": "u8_3",
+          "word": "good evening",
+          "transcription": "/ɡʊd ˈiːvnɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "xayrli kech",
+          "description": "A greeting used in the evening, from about 6pm onwards",
+          "example": "Good evening, welcome to the restaurant."
+        },
+        {
+          "id": "u8_4",
+          "word": "goodbye",
+          "transcription": "/ˌɡʊdˈbaɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "xayr, ko'rishguncha",
+          "description": "What you say when you leave someone or end a conversation",
+          "example": "Goodbye! See you tomorrow."
+        },
+        {
+          "id": "u8_5",
+          "word": "see you soon",
+          "transcription": "/siː juː suːn/",
+          "part_of_speech": "phrase",
+          "uzbek": "tez orada ko'rishamiz (noformal)",
+          "description": "An informal farewell used when you expect to see someone again soon",
+          "example": "Goodbye! See you soon!"
+        },
+        {
+          "id": "u8_6",
+          "word": "goodnight",
+          "transcription": "/ˌɡʊdˈnaɪt/",
+          "part_of_speech": "phrase",
+          "uzbek": "yaxshi tun, xayr (kech vaqt)",
+          "description": "What you say when someone goes to bed. Note: only say goodnight when LEAVING, not when arriving somewhere",
+          "example": "Goodnight! Sleep well."
+        },
+        {
+          "id": "u8_7",
+          "word": "please",
+          "transcription": "/pliːz/",
+          "part_of_speech": "adverb",
+          "uzbek": "iltimos, marhamat",
+          "description": "Used when making a polite request",
+          "example": "Can I have a coffee, please?"
+        },
+        {
+          "id": "u8_8",
+          "word": "thank you / thanks",
+          "transcription": "/ˈθæŋk juː/ /θæŋks/",
+          "part_of_speech": "phrase",
+          "uzbek": "rahmat, tashakkur",
+          "description": "What you say when someone does something nice for you",
+          "example": "Thank you for your help."
+        },
+        {
+          "id": "u8_9",
+          "word": "cheers",
+          "transcription": "/tʃɪərz/",
+          "part_of_speech": "phrase",
+          "uzbek": "rahmat (noformal, inglizcha)",
+          "description": "An informal British way to say thank you",
+          "example": "Cheers! Thanks for buying the coffee."
+        },
+        {
+          "id": "u8_10",
+          "word": "excuse me",
+          "transcription": "/ɪkˈskjuːz miː/",
+          "part_of_speech": "phrase",
+          "uzbek": "kechirasiz (e'tiborni jalb qilish uchun)",
+          "description": "Used to politely get someone's attention or to pass by someone",
+          "example": "Excuse me, can you tell me the way to the station?"
+        },
+        {
+          "id": "u8_11",
+          "word": "sorry",
+          "transcription": "/ˈsɒri/",
+          "part_of_speech": "phrase",
+          "uzbek": "kechirasiz, uzr (xato uchun)",
+          "description": "Used to apologise when you have done something wrong",
+          "example": "Sorry! I didn't mean to bump into you."
+        },
+        {
+          "id": "u8_12",
+          "word": "bless you",
+          "transcription": "/blɛs juː/",
+          "part_of_speech": "phrase",
+          "uzbek": "(aksirganidan keyin) sog' bo'ling",
+          "description": "What you say when someone sneezes",
+          "example": "Achoo! — Bless you! — Thank you."
+        },
+        {
+          "id": "u8_13",
+          "word": "Happy Birthday",
+          "transcription": "/ˈhæpi ˈbɜːrθdeɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "Tug'ilgan kuningiz muborak!",
+          "description": "What you say to someone on their birthday. Note: say 'Happy Birthday' NOT 'Congratulations'",
+          "example": "Happy Birthday! How old are you today?"
+        },
+        {
+          "id": "u8_14",
+          "word": "Happy / Merry Christmas",
+          "transcription": "/ˈhæpi / ˈmɛri ˈkrɪsməs/",
+          "part_of_speech": "phrase",
+          "uzbek": "Rojdestvo bilan tabriklayman!",
+          "description": "What you say at Christmas time",
+          "example": "Happy Christmas! Are you spending it with family?"
+        },
+        {
+          "id": "u8_15",
+          "word": "Happy New Year",
+          "transcription": "/ˈhæpi njuː jɪər/",
+          "part_of_speech": "phrase",
+          "uzbek": "Yangi yil muborak!",
+          "description": "What you say on or around New Year's Day",
+          "example": "Happy New Year! I hope this year is a good one."
+        },
+        {
+          "id": "u8_16",
+          "word": "Good luck",
+          "transcription": "/ɡʊd lʌk/",
+          "part_of_speech": "phrase",
+          "uzbek": "Omad tilayman!",
+          "description": "What you say when someone is about to do something difficult like an exam",
+          "example": "Good luck with your exam tomorrow!"
+        },
+        {
+          "id": "u8_17",
+          "word": "Congratulations",
+          "transcription": "/kənˌɡrætʃʊˈleɪʃənz/",
+          "part_of_speech": "phrase",
+          "uzbek": "Tabriklayman! Muborak!",
+          "description": "What you say when someone has achieved something special or done something well in an exam or had a baby",
+          "example": "Congratulations! I heard you passed your exam."
+        },
+        {
+          "id": "u8_18",
+          "word": "Well done",
+          "transcription": "/wɛl dʌn/",
+          "part_of_speech": "phrase",
+          "uzbek": "Barakalla! Zo'r ish qilding!",
+          "description": "What you say to praise someone who has done something well",
+          "example": "Well done! That was an excellent presentation."
+        }
+      ]
+    },
+    {
+      "unit": 9,
+      "title": "Conversations 2: Useful words and expressions",
+      "topic": "Common words and expressions used in everyday conversation",
+      "words": [
+        {
+          "id": "u9_1",
+          "word": "actually",
+          "transcription": "/ˈæktʃuəli/",
+          "part_of_speech": "adverb",
+          "uzbek": "aslida, haqiqatda",
+          "description": "In reality; used to say what is really true. Note: in English means 'in reality' NOT 'now' — it is a false friend in some languages",
+          "example": "People say bad things about her, but she's actually very nice."
+        },
+        {
+          "id": "u9_2",
+          "word": "really",
+          "transcription": "/ˈriːəli/",
+          "part_of_speech": "adverb",
+          "uzbek": "haqiqatan ham, juda",
+          "description": "Very; used to emphasise something",
+          "example": "The book is really good."
+        },
+        {
+          "id": "u9_3",
+          "word": "else",
+          "transcription": "/ɛls/",
+          "part_of_speech": "adverb",
+          "uzbek": "boshqa, yana",
+          "description": "In addition to or different from what has been said",
+          "example": "Do you want to buy anything else? Or go somewhere else?"
+        },
+        {
+          "id": "u9_4",
+          "word": "around",
+          "transcription": "/əˈraʊnd/",
+          "part_of_speech": "adverb / preposition",
+          "uzbek": "taxminan, atrofida",
+          "description": "Approximately; about a particular number or time",
+          "example": "I'll meet you at around 6 o'clock."
+        },
+        {
+          "id": "u9_5",
+          "word": "anyway",
+          "transcription": "/ˈɛniweɪ/",
+          "part_of_speech": "adverb",
+          "uzbek": "baribir, har holda; xullas",
+          "description": "Used to give a reason, or to return to an earlier subject in conversation",
+          "example": "I'll drive you home anyway. — Anyway, as I said, I woke up very late today."
+        },
+        {
+          "id": "u9_6",
+          "word": "Why don't we...",
+          "transcription": "/waɪ doʊnt wiː/",
+          "part_of_speech": "phrase",
+          "uzbek": "Nega biz ... qilmasak? (taklif)",
+          "description": "Used to make a suggestion to a group. Note: 'Why don't we go...' NOT 'Why don't we going...'",
+          "example": "Why don't we go to the cinema this evening?"
+        },
+        {
+          "id": "u9_7",
+          "word": "Let's...",
+          "transcription": "/lɛts/",
+          "part_of_speech": "phrase",
+          "uzbek": "Keling ... qilaylik (taklif)",
+          "description": "Used to suggest doing something together. Note: 'Let's go...' NOT 'Let's going...'",
+          "example": "Let's go and see a film and then have a meal."
+        },
+        {
+          "id": "u9_8",
+          "word": "How about / What about",
+          "transcription": "/haʊ əˈbaʊt/ /wɒt əˈbaʊt/",
+          "part_of_speech": "phrase",
+          "uzbek": "... haqida nima deysan? / ... bo'lsa-chi?",
+          "description": "Used to make a suggestion or ask someone's opinion. Note: 'How about going...' NOT 'How about go...'",
+          "example": "How about the new Angelina Jolie film?"
+        },
+        {
+          "id": "u9_9",
+          "word": "I don't mind",
+          "transcription": "/aɪ doʊnt maɪnd/",
+          "part_of_speech": "phrase",
+          "uzbek": "Menga farqi yo'q, baribir",
+          "description": "It is the same to me; I have no preference",
+          "example": "I don't mind. It's up to you."
+        },
+        {
+          "id": "u9_10",
+          "word": "It's up to you",
+          "transcription": "/ɪts ʌp tə juː/",
+          "part_of_speech": "phrase",
+          "uzbek": "Siz hal qiling, sizga bog'liq",
+          "description": "You can decide; it is your choice",
+          "example": "I don't mind. It's up to you."
+        },
+        {
+          "id": "u9_11",
+          "word": "Oh dear!",
+          "transcription": "/oʊ dɪər/",
+          "part_of_speech": "exclamation",
+          "uzbek": "Voy! Ne balo! (hayrat yoki xafa bo'lganda)",
+          "description": "Used when you are surprised or disappointed about something",
+          "example": "Oh dear! Was your boss angry?"
+        },
+        {
+          "id": "u9_12",
+          "word": "it doesn't matter",
+          "transcription": "/ɪt ˈdʌznt ˈmætər/",
+          "part_of_speech": "phrase",
+          "uzbek": "muhim emas, ahamiyati yo'q",
+          "description": "It is not important; don't worry about it",
+          "example": "I forgot to bring your book. Oh, it doesn't matter. I don't need it."
+        },
+        {
+          "id": "u9_13",
+          "word": "What a pity!",
+          "transcription": "/wɒt ə ˈpɪti/",
+          "part_of_speech": "exclamation",
+          "uzbek": "Qanday achinarli!",
+          "description": "Used when you are disappointed or sorry about something",
+          "example": "I'm sorry, but I can't come to your party. What a pity!"
+        },
+        {
+          "id": "u9_14",
+          "word": "Hurry up!",
+          "transcription": "/ˈhʌri ʌp/",
+          "part_of_speech": "phrase",
+          "uzbek": "Shoshiling! Tez bo'ling!",
+          "description": "Used to tell someone to be quick",
+          "example": "Hurry up! The taxi's here."
+        },
+        {
+          "id": "u9_15",
+          "word": "Look out! / Be careful!",
+          "transcription": "/lʊk aʊt/ /biː ˈkeərfəl/",
+          "part_of_speech": "phrase",
+          "uzbek": "Ehtiyot bo'ling!",
+          "description": "Used to warn someone about danger",
+          "example": "Look out! There's a car coming."
+        },
+        {
+          "id": "u9_16",
+          "word": "Absolutely!",
+          "transcription": "/ˈæbsəluːtli/",
+          "part_of_speech": "adverb",
+          "uzbek": "Albatta! Mutlaqo to'g'ri! (kuchli roziliк)",
+          "description": "Used when you agree strongly with a suggestion or statement",
+          "example": "Absolutely! What about getting her a scarf?"
+        },
+        {
+          "id": "u9_17",
+          "word": "I agree",
+          "transcription": "/aɪ əˈɡriː/",
+          "part_of_speech": "phrase",
+          "uzbek": "Roziman, qo'shilaman. Note: 'I agree' NOT 'I am agree'",
+          "description": "Used to say you have the same opinion. Note: NOT 'I am agree'",
+          "example": "I agree. Let's go shopping this afternoon."
+        },
+        {
+          "id": "u9_18",
+          "word": "Well done!",
+          "transcription": "/wɛl dʌn/",
+          "part_of_speech": "phrase",
+          "uzbek": "Barakalla! Zo'r!",
+          "description": "Used to praise someone who has done something well",
+          "example": "I passed my exam! Well done!"
+        }
+      ]
+    },
+    {
+      "unit": 10,
+      "title": "Food and drink",
+      "topic": "Common food items, fast food, fruit, vegetables, and drinks",
+      "words": [
+        {
+          "id": "u10_1",
+          "word": "bread",
+          "transcription": "/brɛd/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "non",
+          "description": "A basic food made from flour and water, baked in an oven. Note: 'some bread' NOT 'a bread'",
+          "example": "Would you like some bread?"
+        },
+        {
+          "id": "u10_2",
+          "word": "rice",
+          "transcription": "/raɪs/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "guruch, sholi",
+          "description": "Small white or brown grains cooked and eaten as a staple food",
+          "example": "I love sushi because I love rice."
+        },
+        {
+          "id": "u10_3",
+          "word": "pasta",
+          "transcription": "/ˈpæstə/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "makaron, pasta",
+          "description": "An Italian food made from flour and water in various shapes such as spaghetti",
+          "example": "Pasta is good for you, but don't eat too much!"
+        },
+        {
+          "id": "u10_4",
+          "word": "salt",
+          "transcription": "/sɔːlt/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "tuz",
+          "description": "A white mineral used to flavour food",
+          "example": "I always put salt on my chips, but not pepper."
+        },
+        {
+          "id": "u10_5",
+          "word": "pepper",
+          "transcription": "/ˈpɛpər/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "qalampir (ziravorat)",
+          "description": "A hot spicy powder used to flavour food",
+          "example": "I always put salt on my chips, but not pepper."
+        },
+        {
+          "id": "u10_6",
+          "word": "meat",
+          "transcription": "/miːt/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "go'sht",
+          "description": "The flesh of animals eaten as food, such as beef, chicken or lamb",
+          "example": "My sister never eats meat or fish. She's vegetarian."
+        },
+        {
+          "id": "u10_7",
+          "word": "fish",
+          "transcription": "/fɪʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "baliq (ovqat sifatida)",
+          "description": "A sea or river animal used as food",
+          "example": "My sister never eats meat or fish."
+        },
+        {
+          "id": "u10_8",
+          "word": "vegetarian",
+          "transcription": "/ˌvɛdʒɪˈteəriən/",
+          "part_of_speech": "noun / adjective",
+          "uzbek": "vegetarian (go'sht yemaslik)",
+          "description": "A person who does not eat meat or fish",
+          "example": "She's vegetarian, so she doesn't eat meat or fish."
+        },
+        {
+          "id": "u10_9",
+          "word": "sugar",
+          "transcription": "/ˈʃʊɡər/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "shakar",
+          "description": "A sweet white or brown substance used to sweeten food and drinks",
+          "example": "Do you take sugar in tea or coffee?"
+        },
+        {
+          "id": "u10_10",
+          "word": "tea",
+          "transcription": "/tiː/",
+          "part_of_speech": "noun",
+          "uzbek": "choy",
+          "description": "A hot drink made from dried leaves of the tea plant",
+          "example": "Do you take sugar in your tea?"
+        },
+        {
+          "id": "u10_11",
+          "word": "coffee",
+          "transcription": "/ˈkɒfi/",
+          "part_of_speech": "noun",
+          "uzbek": "qahva",
+          "description": "A hot drink made from roasted coffee beans",
+          "example": "I have a cup of coffee every morning."
+        },
+        {
+          "id": "u10_12",
+          "word": "hamburger",
+          "transcription": "/ˈhæmbɜːrɡər/",
+          "part_of_speech": "noun",
+          "uzbek": "gamburger",
+          "description": "A cooked patty of minced beef served in a bread roll",
+          "example": "I eat hamburgers when I don't have much time."
+        },
+        {
+          "id": "u10_13",
+          "word": "hot dog",
+          "transcription": "/ˈhɒt dɒɡ/",
+          "part_of_speech": "noun",
+          "uzbek": "hot-dog",
+          "description": "A cooked sausage served in a long bread roll",
+          "example": "I eat hot dogs and pizzas when I don't have much time."
+        },
+        {
+          "id": "u10_14",
+          "word": "pizza",
+          "transcription": "/ˈpiːtsə/",
+          "part_of_speech": "noun",
+          "uzbek": "pitsa",
+          "description": "An Italian dish of flat bread covered with tomato, cheese and toppings",
+          "example": "I eat hamburgers, hot dogs and pizzas when I don't have much time."
+        },
+        {
+          "id": "u10_15",
+          "word": "fish and chips",
+          "transcription": "/fɪʃ ænd tʃɪps/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "baliq va qovurilgan kartoshka (ingliz taomi)",
+          "description": "A traditional British meal of fried fish with fried potato chips",
+          "example": "Fish and chips is popular in Britain, Australia and New Zealand."
+        },
+        {
+          "id": "u10_16",
+          "word": "fruit",
+          "transcription": "/fruːt/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "meva",
+          "description": "The sweet product of a plant. Note: 'fruit' is uncountable — 'I love fruit' NOT 'I love fruits'",
+          "example": "Fruit is also good for you."
+        },
+        {
+          "id": "u10_17",
+          "word": "vegetables",
+          "transcription": "/ˈvɛdʒtəbəlz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "sabzavotlar",
+          "description": "Plants or parts of plants eaten as food such as carrots and onions",
+          "example": "Vegetables are good for you."
+        },
+        {
+          "id": "u10_18",
+          "word": "carrots",
+          "transcription": "/ˈkærəts/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "sabzi",
+          "description": "Long orange root vegetables",
+          "example": "Carrots, beans, potatoes and peas are all vegetables."
+        },
+        {
+          "id": "u10_19",
+          "word": "beans",
+          "transcription": "/biːnz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "loviya, fasol",
+          "description": "Small seeds inside a pod, eaten as a vegetable",
+          "example": "Carrots, beans, potatoes and peas are all vegetables."
+        },
+        {
+          "id": "u10_20",
+          "word": "potatoes",
+          "transcription": "/pəˈteɪtoʊz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "kartoshka",
+          "description": "Round starchy vegetables that grow underground",
+          "example": "She made soup with potatoes, tomatoes and onions."
+        },
+        {
+          "id": "u10_21",
+          "word": "tomatoes",
+          "transcription": "/təˈmɑːtoʊz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "pomidor",
+          "description": "Red round fruit usually used as a vegetable in cooking",
+          "example": "She put cheese and tomato in her sandwich."
+        },
+        {
+          "id": "u10_22",
+          "word": "peas",
+          "transcription": "/piːz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "no'xat, yashil no'xat",
+          "description": "Small round green seeds eaten as a vegetable",
+          "example": "Carrots, beans, potatoes and peas are all vegetables."
+        },
+        {
+          "id": "u10_23",
+          "word": "onions",
+          "transcription": "/ˈʌnjənz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "piyoz",
+          "description": "Round vegetables with a strong taste, used in cooking",
+          "example": "The soup has onions, garlic and mushrooms in it."
+        },
+        {
+          "id": "u10_24",
+          "word": "garlic",
+          "transcription": "/ˈɡɑːrlɪk/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "sarimsoq piyoz",
+          "description": "A plant with a strong smell and taste, used in cooking",
+          "example": "The soup has onions, garlic and mushrooms in it."
+        },
+        {
+          "id": "u10_25",
+          "word": "mushrooms",
+          "transcription": "/ˈmʌʃruːmz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "qo'ziqorin, zamburug'",
+          "description": "A type of fungus eaten as a vegetable",
+          "example": "The soup has onions, garlic and mushrooms in it."
+        },
+        {
+          "id": "u10_26",
+          "word": "apple",
+          "transcription": "/ˈæpəl/",
+          "part_of_speech": "noun",
+          "uzbek": "olma",
+          "description": "A round fruit, red, yellow or green, with a sweet or sour taste",
+          "example": "An apple a day keeps the doctor away."
+        },
+        {
+          "id": "u10_27",
+          "word": "orange",
+          "transcription": "/ˈɒrɪndʒ/",
+          "part_of_speech": "noun",
+          "uzbek": "apelsin",
+          "description": "A round orange citrus fruit with a sweet juice",
+          "example": "I drink orange juice every morning."
+        },
+        {
+          "id": "u10_28",
+          "word": "banana",
+          "transcription": "/bəˈnɑːnə/",
+          "part_of_speech": "noun",
+          "uzbek": "banan",
+          "description": "A long curved yellow fruit",
+          "example": "She had a banana for a snack."
+        },
+        {
+          "id": "u10_29",
+          "word": "pear",
+          "transcription": "/peər/",
+          "part_of_speech": "noun",
+          "uzbek": "nok",
+          "description": "A sweet juicy fruit that is narrow at the top and wider at the bottom",
+          "example": "She ate a pear after lunch."
+        },
+        {
+          "id": "u10_30",
+          "word": "grapes",
+          "transcription": "/ɡreɪps/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "uzum",
+          "description": "Small round green or purple fruits that grow in bunches",
+          "example": "She bought a bunch of grapes."
+        },
+        {
+          "id": "u10_31",
+          "word": "strawberries",
+          "transcription": "/ˈstrɔːbrɪz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "qulupnay",
+          "description": "Small red sweet fruits",
+          "example": "I love strawberries and cream."
+        },
+        {
+          "id": "u10_32",
+          "word": "pineapple",
+          "transcription": "/ˈpaɪnæpəl/",
+          "part_of_speech": "noun",
+          "uzbek": "ananas",
+          "description": "A large tropical fruit with a rough brown skin and sweet yellow flesh",
+          "example": "She bought a pineapple from the market."
+        },
+        {
+          "id": "u10_33",
+          "word": "milk",
+          "transcription": "/mɪlk/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "sut",
+          "description": "A white liquid produced by cows and other animals, used as a drink",
+          "example": "Do you want milk in your tea?"
+        },
+        {
+          "id": "u10_34",
+          "word": "fruit juice",
+          "transcription": "/fruːt dʒuːs/",
+          "part_of_speech": "noun",
+          "uzbek": "meva sharbati",
+          "description": "A drink made from the liquid of crushed or squeezed fruit",
+          "example": "I drink orange juice every morning."
+        },
+        {
+          "id": "u10_35",
+          "word": "beer",
+          "transcription": "/bɪər/",
+          "part_of_speech": "noun",
+          "uzbek": "pivo",
+          "description": "An alcoholic drink made from grain",
+          "example": "He ordered a beer at the pub."
+        },
+        {
+          "id": "u10_36",
+          "word": "wine",
+          "transcription": "/waɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "vino, sharob",
+          "description": "An alcoholic drink made from grapes",
+          "example": "She drank a glass of wine with dinner."
+        },
+        {
+          "id": "u10_37",
+          "word": "mineral water",
+          "transcription": "/ˈmɪnərəl ˈwɔːtər/",
+          "part_of_speech": "noun",
+          "uzbek": "mineral suv",
+          "description": "Water from a natural spring, often sold in bottles",
+          "example": "I'll have a mineral water, please."
+        }
+      ]
+    }
+  ]
 }
