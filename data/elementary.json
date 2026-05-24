@@ -2204,6 +2204,2308 @@
           "example": "I'll have a mineral water, please."
         }
       ]
+    },
+    {
+      "unit": 11,
+      "title": "In the kitchen",
+      "topic": "Kitchen appliances, utensils, and things used for cooking and eating",
+      "words": [
+        {
+          "id": "u11_1",
+          "word": "fridge",
+          "transcription": "/frɪdʒ/",
+          "part_of_speech": "noun",
+          "uzbek": "muzlatgich, xolodilnik",
+          "description": "A machine that keeps food cold; short for refrigerator",
+          "example": "Put the milk in the fridge."
+        },
+        {
+          "id": "u11_2",
+          "word": "freezer",
+          "transcription": "/ˈfriːzər/",
+          "part_of_speech": "noun",
+          "uzbek": "muzlatgich (pastki bo'lim), moroz kamera",
+          "description": "A machine or compartment that freezes food at very low temperatures",
+          "example": "The ice cream is in the freezer."
+        },
+        {
+          "id": "u11_3",
+          "word": "microwave",
+          "transcription": "/ˈmaɪkrəweɪv/",
+          "part_of_speech": "noun",
+          "uzbek": "mikroto'lqinli pech",
+          "description": "An oven that heats food very quickly using microwaves",
+          "example": "Heat the soup in the microwave."
+        },
+        {
+          "id": "u11_4",
+          "word": "cooker",
+          "transcription": "/ˈkʊkər/",
+          "part_of_speech": "noun",
+          "uzbek": "plita (gaz yoki elektr)",
+          "description": "A device for cooking food with a hob and usually an oven",
+          "example": "She cooked the pasta on the cooker."
+        },
+        {
+          "id": "u11_5",
+          "word": "dishwasher",
+          "transcription": "/ˈdɪʃwɒʃər/",
+          "part_of_speech": "noun",
+          "uzbek": "idish yuvish mashinasi",
+          "description": "A machine that washes dishes automatically",
+          "example": "Put the plates in the dishwasher."
+        },
+        {
+          "id": "u11_6",
+          "word": "washing machine",
+          "transcription": "/ˈwɒʃɪŋ məˈʃiːn/",
+          "part_of_speech": "noun",
+          "uzbek": "kir yuvish mashinasi",
+          "description": "A machine that washes clothes",
+          "example": "Can you put this in the washing machine?"
+        },
+        {
+          "id": "u11_7",
+          "word": "sink",
+          "transcription": "/sɪŋk/",
+          "part_of_speech": "noun",
+          "uzbek": "o'tish joyi (suv oqadigan idish)",
+          "description": "A basin with taps fixed to a wall for washing hands and dishes",
+          "example": "Wash the cups in the sink."
+        },
+        {
+          "id": "u11_8",
+          "word": "tap",
+          "transcription": "/tæp/",
+          "part_of_speech": "noun",
+          "uzbek": "kran, jo'mrak",
+          "description": "A device that controls the flow of water from a pipe",
+          "example": "Turn the tap on to get water."
+        },
+        {
+          "id": "u11_9",
+          "word": "cupboard",
+          "transcription": "/ˈkʌbərd/",
+          "part_of_speech": "noun",
+          "uzbek": "shkaf (oshxona, devorga o'rnatilgan)",
+          "description": "A piece of furniture or space in a wall with a door, used for storing things",
+          "example": "The cups are in the cupboard."
+        },
+        {
+          "id": "u11_10",
+          "word": "shelf",
+          "transcription": "/ʃɛlf/",
+          "part_of_speech": "noun",
+          "uzbek": "tokcha, javon",
+          "description": "A flat board fixed to a wall or inside a cupboard for storing things",
+          "example": "The books are on the shelf above the desk."
+        },
+        {
+          "id": "u11_11",
+          "word": "bin",
+          "transcription": "/bɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "axlat qutisi",
+          "description": "A container for putting rubbish in",
+          "example": "Put the empty packet in the bin."
+        },
+        {
+          "id": "u11_12",
+          "word": "worktop",
+          "transcription": "/ˈwɜːrktɒp/",
+          "part_of_speech": "noun",
+          "uzbek": "ish yuzasi (oshxonada)",
+          "description": "The flat surface in a kitchen where food is prepared",
+          "example": "Leave the bread on the worktop."
+        },
+        {
+          "id": "u11_13",
+          "word": "saucepan",
+          "transcription": "/ˈsɔːspæn/",
+          "part_of_speech": "noun",
+          "uzbek": "qozon (tutqichli, kichik)",
+          "description": "A deep metal pot with a handle used for cooking on the hob",
+          "example": "Boil the water in a saucepan."
+        },
+        {
+          "id": "u11_14",
+          "word": "frying pan",
+          "transcription": "/ˈfraɪɪŋ pæn/",
+          "part_of_speech": "noun",
+          "uzbek": "qovurish idishi, tava",
+          "description": "A flat pan with a long handle used for frying food",
+          "example": "Fry the eggs in a frying pan."
+        },
+        {
+          "id": "u11_15",
+          "word": "teapot",
+          "transcription": "/ˈtiːpɒt/",
+          "part_of_speech": "noun",
+          "uzbek": "choynak",
+          "description": "A pot with a spout used for making and serving tea",
+          "example": "She made a pot of tea in the teapot."
+        },
+        {
+          "id": "u11_16",
+          "word": "tea towel",
+          "transcription": "/ˈtiː ˌtaʊəl/",
+          "part_of_speech": "noun",
+          "uzbek": "idish artish sochig'i",
+          "description": "A cloth used for drying dishes and hands in the kitchen",
+          "example": "Use the tea towel to dry the plates."
+        },
+        {
+          "id": "u11_17",
+          "word": "coffee maker",
+          "transcription": "/ˈkɒfi ˌmeɪkər/",
+          "part_of_speech": "noun",
+          "uzbek": "qahva qaynatgich",
+          "description": "A machine used to brew coffee",
+          "example": "She turns on the coffee maker every morning."
+        },
+        {
+          "id": "u11_18",
+          "word": "kitchen roll",
+          "transcription": "/ˈkɪtʃɪn roʊl/",
+          "part_of_speech": "noun",
+          "uzbek": "qog'oz sochiq (oshxona uchun)",
+          "description": "A roll of thick absorbent paper used for cleaning in the kitchen",
+          "example": "She tore a piece of kitchen roll to clean up the spill."
+        },
+        {
+          "id": "u11_19",
+          "word": "cloth",
+          "transcription": "/klɒθ/",
+          "part_of_speech": "noun",
+          "uzbek": "latta, artish matosi",
+          "description": "A piece of fabric used for cleaning or covering surfaces",
+          "example": "Wipe the table with a cloth."
+        },
+        {
+          "id": "u11_20",
+          "word": "washing-up liquid",
+          "transcription": "/ˈwɒʃɪŋ ʌp ˈlɪkwɪd/",
+          "part_of_speech": "noun",
+          "uzbek": "idish yuvish vositasi (suyuq)",
+          "description": "Liquid soap used for washing dishes by hand",
+          "example": "Put some washing-up liquid on the sponge."
+        },
+        {
+          "id": "u11_21",
+          "word": "plate",
+          "transcription": "/pleɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "tovoq, lagan",
+          "description": "A flat round dish used for eating or serving food",
+          "example": "Put your dinner on the plate."
+        },
+        {
+          "id": "u11_22",
+          "word": "bowl",
+          "transcription": "/boʊl/",
+          "part_of_speech": "noun",
+          "uzbek": "piyola, kosa",
+          "description": "A round deep dish used for eating food like soup or cereal",
+          "example": "She ate a bowl of soup."
+        },
+        {
+          "id": "u11_23",
+          "word": "cup",
+          "transcription": "/kʌp/",
+          "part_of_speech": "noun",
+          "uzbek": "chashka, finjon",
+          "description": "A small container with a handle used for drinking hot drinks",
+          "example": "She drank a cup of tea."
+        },
+        {
+          "id": "u11_24",
+          "word": "mug",
+          "transcription": "/mʌɡ/",
+          "part_of_speech": "noun",
+          "uzbek": "katta chashka (tutqichli)",
+          "description": "A large cup with straight sides and a handle",
+          "example": "He drinks coffee from a big mug."
+        },
+        {
+          "id": "u11_25",
+          "word": "glass",
+          "transcription": "/ɡlɑːs/",
+          "part_of_speech": "noun",
+          "uzbek": "stakan, qadah",
+          "description": "A container made of glass used for cold drinks",
+          "example": "Can I have a glass of water?"
+        },
+        {
+          "id": "u11_26",
+          "word": "knife",
+          "transcription": "/naɪf/",
+          "part_of_speech": "noun",
+          "uzbek": "pichoq (oshxona)",
+          "description": "A tool with a sharp blade used for cutting food",
+          "example": "Use a knife to cut the bread."
+        },
+        {
+          "id": "u11_27",
+          "word": "fork",
+          "transcription": "/fɔːrk/",
+          "part_of_speech": "noun",
+          "uzbek": "sanchqi",
+          "description": "A tool with prongs used for picking up and eating food",
+          "example": "Use a fork to eat your pasta."
+        },
+        {
+          "id": "u11_28",
+          "word": "spoon",
+          "transcription": "/spuːn/",
+          "part_of_speech": "noun",
+          "uzbek": "qoshiq",
+          "description": "A tool with a round bowl used for eating liquid food or stirring",
+          "example": "Use a spoon for the soup."
+        },
+        {
+          "id": "u11_29",
+          "word": "chopsticks",
+          "transcription": "/ˈtʃɒpstɪks/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "tayoqchalar (xitoy qoshig'i)",
+          "description": "Two thin sticks used for eating food in Asian countries",
+          "example": "Can you eat with chopsticks?"
+        },
+        {
+          "id": "u11_30",
+          "word": "cook",
+          "transcription": "/kʊk/",
+          "part_of_speech": "verb",
+          "uzbek": "pishirmoq, taom tayyorlamoq",
+          "description": "To prepare food by heating it",
+          "example": "You can cook some rice."
+        },
+        {
+          "id": "u11_31",
+          "word": "dry",
+          "transcription": "/draɪ/",
+          "part_of_speech": "verb",
+          "uzbek": "artmoq, quritmoq",
+          "description": "To remove water from something by rubbing or leaving in air",
+          "example": "You can dry the plates with the tea towel."
+        }
+      ]
+    },
+    {
+      "unit": 12,
+      "title": "In the bedroom and bathroom",
+      "topic": "Furniture and objects in bedrooms and bathrooms, and daily routines",
+      "words": [
+        {
+          "id": "u12_1",
+          "word": "bed",
+          "transcription": "/bɛd/",
+          "part_of_speech": "noun",
+          "uzbek": "karavot, to'shak",
+          "description": "A piece of furniture for sleeping on",
+          "example": "Emma goes to bed at 11 o'clock."
+        },
+        {
+          "id": "u12_2",
+          "word": "bedside lamp",
+          "transcription": "/ˈbɛdsaɪd læmp/",
+          "part_of_speech": "noun",
+          "uzbek": "tungi chiroq (karavot yonidagi)",
+          "description": "A small lamp placed on the table next to your bed",
+          "example": "She reads by the bedside lamp."
+        },
+        {
+          "id": "u12_3",
+          "word": "alarm clock",
+          "transcription": "/əˈlɑːrm klɒk/",
+          "part_of_speech": "noun",
+          "uzbek": "budilnik, signalli soat",
+          "description": "A clock that makes a sound to wake you up at a set time",
+          "example": "She wakes up when her alarm clock rings."
+        },
+        {
+          "id": "u12_4",
+          "word": "pyjamas",
+          "transcription": "/pəˈdʒɑːməz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "pijama (uyqu kiyimi)",
+          "description": "Loose comfortable clothing worn for sleeping. Always plural",
+          "example": "She gets undressed and puts on her pyjamas."
+        },
+        {
+          "id": "u12_5",
+          "word": "dressing table",
+          "transcription": "/ˈdrɛsɪŋ ˌteɪbəl/",
+          "part_of_speech": "noun",
+          "uzbek": "tualet stoli (ko'zguli)",
+          "description": "A table with a mirror used for doing your hair and make-up",
+          "example": "She sits at the dressing table to do her hair."
+        },
+        {
+          "id": "u12_6",
+          "word": "chest of drawers",
+          "transcription": "/tʃɛst əv drɔːrz/",
+          "part_of_speech": "noun",
+          "uzbek": "tortmali shkaf",
+          "description": "A piece of furniture with several drawers for storing clothes",
+          "example": "His T-shirts are in the chest of drawers."
+        },
+        {
+          "id": "u12_7",
+          "word": "mirror",
+          "transcription": "/ˈmɪrər/",
+          "part_of_speech": "noun",
+          "uzbek": "ko'zgu, oyna",
+          "description": "A glass surface that reflects your image so you can see yourself",
+          "example": "She looked in the mirror before leaving."
+        },
+        {
+          "id": "u12_8",
+          "word": "wardrobe",
+          "transcription": "/ˈwɔːrdroʊb/",
+          "part_of_speech": "noun",
+          "uzbek": "kiyim shkafi, garderob",
+          "description": "A large piece of furniture with doors for hanging and storing clothes",
+          "example": "He hung his suits in the wardrobe."
+        },
+        {
+          "id": "u12_9",
+          "word": "bedside table",
+          "transcription": "/ˈbɛdsaɪd ˌteɪbəl/",
+          "part_of_speech": "noun",
+          "uzbek": "tungi stol (karavot yonidagi)",
+          "description": "A small table placed next to the bed",
+          "example": "She put her book on the bedside table."
+        },
+        {
+          "id": "u12_10",
+          "word": "comb",
+          "transcription": "/koʊm/",
+          "part_of_speech": "noun",
+          "uzbek": "taroq",
+          "description": "A flat piece of plastic or metal with thin teeth for arranging hair",
+          "example": "He runs a comb through his hair each morning."
+        },
+        {
+          "id": "u12_11",
+          "word": "hairbrush",
+          "transcription": "/ˈheərbrʌʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "soch cho'tkasi",
+          "description": "A brush with a handle used for smoothing and styling hair",
+          "example": "She brushes her hair with a hairbrush."
+        },
+        {
+          "id": "u12_12",
+          "word": "shower",
+          "transcription": "/ˈʃaʊər/",
+          "part_of_speech": "noun",
+          "uzbek": "dush",
+          "description": "A device that sprays water over you for washing your body",
+          "example": "She has a shower every morning."
+        },
+        {
+          "id": "u12_13",
+          "word": "soap",
+          "transcription": "/soʊp/",
+          "part_of_speech": "noun",
+          "uzbek": "sovun",
+          "description": "A substance used with water for washing your body or hands",
+          "example": "Wash your hands with soap."
+        },
+        {
+          "id": "u12_14",
+          "word": "shampoo",
+          "transcription": "/ʃæmˈpuː/",
+          "part_of_speech": "noun",
+          "uzbek": "shampun",
+          "description": "A liquid soap used for washing hair",
+          "example": "She uses shampoo to wash her hair."
+        },
+        {
+          "id": "u12_15",
+          "word": "shower gel",
+          "transcription": "/ˈʃaʊər dʒɛl/",
+          "part_of_speech": "noun",
+          "uzbek": "dush geli, yuvinish uchun gel",
+          "description": "A liquid soap used in the shower for washing the body",
+          "example": "He uses shower gel when he has a shower."
+        },
+        {
+          "id": "u12_16",
+          "word": "toothpaste",
+          "transcription": "/ˈtuːθpeɪst/",
+          "part_of_speech": "noun",
+          "uzbek": "tish pastasi",
+          "description": "A substance put on a toothbrush to clean teeth",
+          "example": "She puts toothpaste on her toothbrush."
+        },
+        {
+          "id": "u12_17",
+          "word": "toothbrush",
+          "transcription": "/ˈtuːθbrʌʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "tish cho'tkasi",
+          "description": "A small brush used for cleaning teeth",
+          "example": "She cleans her teeth with a toothbrush."
+        },
+        {
+          "id": "u12_18",
+          "word": "razor",
+          "transcription": "/ˈreɪzər/",
+          "part_of_speech": "noun",
+          "uzbek": "ustara, jilet",
+          "description": "A sharp instrument used for shaving",
+          "example": "He uses a razor to shave in the morning."
+        },
+        {
+          "id": "u12_19",
+          "word": "toilet",
+          "transcription": "/ˈtɔɪlət/",
+          "part_of_speech": "noun",
+          "uzbek": "hojatxona, tualet",
+          "description": "A bowl with a seat used for getting rid of body waste",
+          "example": "The toilet is in the bathroom."
+        },
+        {
+          "id": "u12_20",
+          "word": "basin",
+          "transcription": "/ˈbeɪsən/",
+          "part_of_speech": "noun",
+          "uzbek": "lavabo, yuvingich",
+          "description": "A bowl fixed to the wall in a bathroom for washing your hands and face",
+          "example": "Wash your face in the basin."
+        },
+        {
+          "id": "u12_21",
+          "word": "towel",
+          "transcription": "/ˈtaʊəl/",
+          "part_of_speech": "noun",
+          "uzbek": "sochiq",
+          "description": "A piece of absorbent cloth used for drying yourself after washing",
+          "example": "She dried herself with a towel after the shower."
+        },
+        {
+          "id": "u12_22",
+          "word": "wake up",
+          "transcription": "/weɪk ʌp/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "uyg'onmoq",
+          "description": "To stop sleeping; to become conscious",
+          "example": "She wakes up when her alarm clock rings."
+        },
+        {
+          "id": "u12_23",
+          "word": "get up",
+          "transcription": "/ɡɛt ʌp/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "o'rnidan turmoq",
+          "description": "To get out of bed and start the day",
+          "example": "She gets up and goes downstairs."
+        },
+        {
+          "id": "u12_24",
+          "word": "have a shower",
+          "transcription": "/hæv ə ˈʃaʊər/",
+          "part_of_speech": "phrase",
+          "uzbek": "dush qabul qilmoq",
+          "description": "To wash yourself under a shower",
+          "example": "She has a shower and cleans her teeth."
+        },
+        {
+          "id": "u12_25",
+          "word": "get dressed",
+          "transcription": "/ɡɛt drɛst/",
+          "part_of_speech": "phrase",
+          "uzbek": "kiyinmoq",
+          "description": "To put on your clothes",
+          "example": "She has a shower and gets dressed."
+        },
+        {
+          "id": "u12_26",
+          "word": "get undressed",
+          "transcription": "/ɡɛt ʌnˈdrɛst/",
+          "part_of_speech": "phrase",
+          "uzbek": "yechinmoq",
+          "description": "To take off your clothes",
+          "example": "She gets undressed and gets into bed."
+        },
+        {
+          "id": "u12_27",
+          "word": "go to bed",
+          "transcription": "/ɡoʊ tə bɛd/",
+          "part_of_speech": "phrase",
+          "uzbek": "yotmoq (uxlash uchun)",
+          "description": "To get into bed in order to sleep",
+          "example": "Emma goes to bed at 11 o'clock."
+        },
+        {
+          "id": "u12_28",
+          "word": "fall asleep",
+          "transcription": "/fɔːl əˈsliːp/",
+          "part_of_speech": "phrase",
+          "uzbek": "uxlab qolmoq",
+          "description": "To start sleeping",
+          "example": "She turns off the light and falls asleep."
+        },
+        {
+          "id": "u12_29",
+          "word": "goes upstairs",
+          "transcription": "/ɡoʊz ˈʌpsteərz/",
+          "part_of_speech": "phrase",
+          "uzbek": "yuqoriga ko'tarilmoq (zinadan)",
+          "description": "To move to a higher floor of a building",
+          "example": "She goes upstairs to her bedroom."
+        },
+        {
+          "id": "u12_30",
+          "word": "goes downstairs",
+          "transcription": "/ɡoʊz ˈdaʊnsteərz/",
+          "part_of_speech": "phrase",
+          "uzbek": "pastga tushmoq (zinadan)",
+          "description": "To move to a lower floor of a building",
+          "example": "She goes downstairs to the kitchen for breakfast."
+        }
+      ]
+    },
+    {
+      "unit": 13,
+      "title": "In the living room",
+      "topic": "Furniture and objects in the living room, and related verbs",
+      "words": [
+        {
+          "id": "u13_1",
+          "word": "bookshelf / bookshelves",
+          "transcription": "/ˈbʊkʃɛlf/ /ˈbʊkʃɛlvz/",
+          "part_of_speech": "noun",
+          "uzbek": "kitob javoni",
+          "description": "A shelf or set of shelves for storing books. Singular: bookshelf, plural: bookshelves",
+          "example": "The books are on the bookshelf in the living room."
+        },
+        {
+          "id": "u13_2",
+          "word": "sofa",
+          "transcription": "/ˈsoʊfə/",
+          "part_of_speech": "noun",
+          "uzbek": "divan, sofa",
+          "description": "A long comfortable seat with a back and arms, for two or more people",
+          "example": "We sit on the sofa when we watch TV."
+        },
+        {
+          "id": "u13_3",
+          "word": "armchair",
+          "transcription": "/ˈɑːrmtʃeər/",
+          "part_of_speech": "noun",
+          "uzbek": "kreslo (qo'l qo'yadigan)",
+          "description": "A large comfortable chair with supports for your arms",
+          "example": "Grandpa always sits in the armchair."
+        },
+        {
+          "id": "u13_4",
+          "word": "chair",
+          "transcription": "/tʃeər/",
+          "part_of_speech": "noun",
+          "uzbek": "stul",
+          "description": "A separate seat for one person, with a back",
+          "example": "Please pull up a chair and sit down."
+        },
+        {
+          "id": "u13_5",
+          "word": "table",
+          "transcription": "/ˈteɪbəl/",
+          "part_of_speech": "noun",
+          "uzbek": "stol",
+          "description": "A piece of furniture with a flat top and legs",
+          "example": "The remote control is on the table."
+        },
+        {
+          "id": "u13_6",
+          "word": "coffee table",
+          "transcription": "/ˈkɒfi ˌteɪbəl/",
+          "part_of_speech": "noun",
+          "uzbek": "past stol (mehmonxona uchun)",
+          "description": "A small low table in front of the sofa in a living room",
+          "example": "She put her coffee cup on the coffee table."
+        },
+        {
+          "id": "u13_7",
+          "word": "TV",
+          "transcription": "/ˌtiː ˈviː/",
+          "part_of_speech": "noun",
+          "uzbek": "televizor",
+          "description": "A device with a screen that shows moving pictures and sound; television",
+          "example": "Every evening I watch television."
+        },
+        {
+          "id": "u13_8",
+          "word": "remote control",
+          "transcription": "/rɪˈmoʊt kənˈtroʊl/",
+          "part_of_speech": "noun",
+          "uzbek": "pult (masofadan boshqarish)",
+          "description": "A device used to operate a TV or other electronics from a distance",
+          "example": "Can you pass me the remote control? I want to turn on the TV."
+        },
+        {
+          "id": "u13_9",
+          "word": "lamp",
+          "transcription": "/læmp/",
+          "part_of_speech": "noun",
+          "uzbek": "chiroq, lampa",
+          "description": "A device that produces light, usually electric",
+          "example": "She turned on the lamp to read."
+        },
+        {
+          "id": "u13_10",
+          "word": "light switch",
+          "transcription": "/laɪt swɪtʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "yoritgich tugmasi",
+          "description": "A switch on the wall used to turn lights on or off",
+          "example": "The light switch is on the wall by the door."
+        },
+        {
+          "id": "u13_11",
+          "word": "picture",
+          "transcription": "/ˈpɪktʃər/",
+          "part_of_speech": "noun",
+          "uzbek": "rasm, surat (devor uchun)",
+          "description": "A painting or photograph displayed on the wall",
+          "example": "There are beautiful pictures on the walls."
+        },
+        {
+          "id": "u13_12",
+          "word": "window",
+          "transcription": "/ˈwɪndoʊ/",
+          "part_of_speech": "noun",
+          "uzbek": "deraza",
+          "description": "An opening in a wall covered with glass to let in light and air",
+          "example": "Open the window — it's hot in here."
+        },
+        {
+          "id": "u13_13",
+          "word": "curtains",
+          "transcription": "/ˈkɜːrtənz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "parda",
+          "description": "Pieces of fabric hung at windows to block light and give privacy. Always plural",
+          "example": "She opened the curtains to let in the morning sunlight."
+        },
+        {
+          "id": "u13_14",
+          "word": "carpet",
+          "transcription": "/ˈkɑːrpɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "gilam (pol uchun, butun xona)",
+          "description": "A thick fabric covering for the whole floor of a room",
+          "example": "The carpet in the living room is red."
+        },
+        {
+          "id": "u13_15",
+          "word": "rug",
+          "transcription": "/rʌɡ/",
+          "part_of_speech": "noun",
+          "uzbek": "kichik gilam",
+          "description": "A small carpet that covers only part of a floor",
+          "example": "There is a rug in front of the sofa."
+        },
+        {
+          "id": "u13_16",
+          "word": "phone",
+          "transcription": "/foʊn/",
+          "part_of_speech": "noun",
+          "uzbek": "telefon",
+          "description": "A device used for making and receiving calls",
+          "example": "The phone is on the table."
+        },
+        {
+          "id": "u13_17",
+          "word": "socket",
+          "transcription": "/ˈsɒkɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "rozetka (elektr)",
+          "description": "A device fixed in the wall where you plug in electrical equipment",
+          "example": "Plug the lamp into the socket."
+        },
+        {
+          "id": "u13_18",
+          "word": "hi-fi",
+          "transcription": "/ˈhaɪ faɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "musiqa markazi, stereo",
+          "description": "High quality sound equipment for playing music",
+          "example": "He listens to music on his hi-fi."
+        },
+        {
+          "id": "u13_19",
+          "word": "light",
+          "transcription": "/laɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "chiroq, yoritgich (shiftdagi)",
+          "description": "An electric lamp fixed to the ceiling or wall of a room",
+          "example": "Can you turn the light on? It's getting dark."
+        },
+        {
+          "id": "u13_20",
+          "word": "watch television",
+          "transcription": "/wɒtʃ ˈtɛlɪvɪʒən/",
+          "part_of_speech": "phrase",
+          "uzbek": "televizor ko'rmoq",
+          "description": "To view programmes on TV. Note: 'watch TV' NOT 'see TV'",
+          "example": "Every evening I watch television."
+        },
+        {
+          "id": "u13_21",
+          "word": "listen to the radio",
+          "transcription": "/ˈlɪsən tə ðə ˈreɪdioʊ/",
+          "part_of_speech": "phrase",
+          "uzbek": "radio tinglаmoq",
+          "description": "To hear programmes broadcast on the radio. Note: 'listen to the radio' NOT 'hear the radio'",
+          "example": "Sometimes I listen to the radio or listen to music."
+        },
+        {
+          "id": "u13_22",
+          "word": "close the curtains",
+          "transcription": "/kloʊz ðə ˈkɜːrtənz/",
+          "part_of_speech": "phrase",
+          "uzbek": "pardani yopmoq",
+          "description": "To pull the curtains across the window to block light",
+          "example": "It's getting dark. Can you close the curtains, please?"
+        },
+        {
+          "id": "u13_23",
+          "word": "switch the light on",
+          "transcription": "/swɪtʃ ðə laɪt ɒn/",
+          "part_of_speech": "phrase",
+          "uzbek": "chiroqni yoqmoq",
+          "description": "To turn on a light using a switch",
+          "example": "OK. And I'll switch the light on."
+        },
+        {
+          "id": "u13_24",
+          "word": "turn the TV on",
+          "transcription": "/tɜːrn ðə ˌtiːˈviː ɒn/",
+          "part_of_speech": "phrase",
+          "uzbek": "televizorni yoqmoq",
+          "description": "To start operating the television",
+          "example": "Thanks. Now can you turn the radio off and pass me the remote control? I want to turn on the TV."
+        },
+        {
+          "id": "u13_25",
+          "word": "furniture",
+          "transcription": "/ˈfɜːrnɪtʃər/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "mebel",
+          "description": "Large moveable objects in a room such as tables, chairs and sofas. Note: 'furniture IS white' NOT 'furniture ARE white'",
+          "example": "The furniture in my room is white."
+        }
+      ]
+    },
+    {
+      "unit": 14,
+      "title": "Jobs",
+      "topic": "Types of jobs and places where people work",
+      "words": [
+        {
+          "id": "u14_1",
+          "word": "doctor",
+          "transcription": "/ˈdɒktər/",
+          "part_of_speech": "noun",
+          "uzbek": "shifokor, doktor",
+          "description": "A person trained in medicine who treats sick or injured people",
+          "example": "The doctor told me to rest for a week."
+        },
+        {
+          "id": "u14_2",
+          "word": "teacher",
+          "transcription": "/ˈtiːtʃər/",
+          "part_of_speech": "noun",
+          "uzbek": "o'qituvchi, muallim",
+          "description": "A person whose job is to educate students in a school or other setting",
+          "example": "My English teacher is very patient."
+        },
+        {
+          "id": "u14_3",
+          "word": "nurse",
+          "transcription": "/nɜːrs/",
+          "part_of_speech": "noun",
+          "uzbek": "hamshira, tibbiy xodim",
+          "description": "A person trained to care for sick or injured people in hospitals",
+          "example": "The nurse checked my blood pressure every morning."
+        },
+        {
+          "id": "u14_4",
+          "word": "mechanic",
+          "transcription": "/mɪˈkænɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "mexanik, avtomexanik",
+          "description": "A person who repairs machines, especially cars and engines",
+          "example": "The mechanic fixed my car in two hours."
+        },
+        {
+          "id": "u14_5",
+          "word": "secretary",
+          "transcription": "/ˈsɛkrəteri/",
+          "part_of_speech": "noun",
+          "uzbek": "kotib, kotiba",
+          "description": "A person who works in an office doing typing, filing and administrative tasks",
+          "example": "She works as a secretary in a law firm."
+        },
+        {
+          "id": "u14_6",
+          "word": "shop assistant",
+          "transcription": "/ʃɒp əˈsɪstənt/",
+          "part_of_speech": "noun",
+          "uzbek": "do'kon sotuvchisi",
+          "description": "A person who serves and helps customers in a shop",
+          "example": "The shop assistant helped me find the right size."
+        },
+        {
+          "id": "u14_7",
+          "word": "hairdresser",
+          "transcription": "/ˈheərdrɛsər/",
+          "part_of_speech": "noun",
+          "uzbek": "sartarosh (soch qirquvchi)",
+          "description": "A person who cuts and styles hair, usually in a salon",
+          "example": "I want to work in a beauty salon as a hairdresser."
+        },
+        {
+          "id": "u14_8",
+          "word": "engineer",
+          "transcription": "/ˌɛndʒɪˈnɪər/",
+          "part_of_speech": "noun",
+          "uzbek": "muhandis",
+          "description": "A person who designs and builds machines, structures or systems",
+          "example": "She works as a software engineer at a tech company."
+        },
+        {
+          "id": "u14_9",
+          "word": "farmer",
+          "transcription": "/ˈfɑːrmər/",
+          "part_of_speech": "noun",
+          "uzbek": "dehqon, fermer",
+          "description": "A person who owns or manages a farm and grows food or raises animals",
+          "example": "The farmer lives on a farm and works in the fields."
+        },
+        {
+          "id": "u14_10",
+          "word": "police officer",
+          "transcription": "/pəˈliːs ˌɒfɪsər/",
+          "part_of_speech": "noun",
+          "uzbek": "politsiyachi",
+          "description": "A member of the police force who maintains law and order",
+          "example": "The police officer stopped the car."
+        },
+        {
+          "id": "u14_11",
+          "word": "traffic warden",
+          "transcription": "/ˈtræfɪk ˌwɔːrdən/",
+          "part_of_speech": "noun",
+          "uzbek": "yo'l nazoratchi (to'xtash joyi)",
+          "description": "A person whose job is to check that cars are parked legally",
+          "example": "The traffic warden gave me a parking ticket."
+        },
+        {
+          "id": "u14_12",
+          "word": "librarian",
+          "transcription": "/laɪˈbreəriən/",
+          "part_of_speech": "noun",
+          "uzbek": "kutubxonachi",
+          "description": "A person who works in a library helping people find books and information",
+          "example": "The librarian helped me find the book I needed."
+        },
+        {
+          "id": "u14_13",
+          "word": "bank clerk",
+          "transcription": "/bæŋk klɜːrk/",
+          "part_of_speech": "noun",
+          "uzbek": "bank xodimi, kassir",
+          "description": "A person who works in a bank dealing with customers' accounts and transactions",
+          "example": "The bank clerk processed my transaction quickly."
+        },
+        {
+          "id": "u14_14",
+          "word": "waiter",
+          "transcription": "/ˈweɪtər/",
+          "part_of_speech": "noun",
+          "uzbek": "ofitsiant (erkak)",
+          "description": "A man who serves food and drinks in a restaurant",
+          "example": "I'm a waiter. I work in a restaurant."
+        },
+        {
+          "id": "u14_15",
+          "word": "taxi driver",
+          "transcription": "/ˈtæksi ˌdraɪvər/",
+          "part_of_speech": "noun",
+          "uzbek": "taksi haydovchi",
+          "description": "A person who drives a taxi and transports passengers for payment",
+          "example": "I'm a taxi driver. I like my job."
+        },
+        {
+          "id": "u14_16",
+          "word": "job",
+          "transcription": "/dʒɒb/",
+          "part_of_speech": "noun",
+          "uzbek": "ish, kasb",
+          "description": "A regular paid position of employment",
+          "example": "What's your job? I'm a waiter."
+        },
+        {
+          "id": "u14_17",
+          "word": "work",
+          "transcription": "/wɜːrk/",
+          "part_of_speech": "noun / verb",
+          "uzbek": "ish (joy), ishlamoq",
+          "description": "The place or activity where you earn money",
+          "example": "Where do you work? I work in an office."
+        },
+        {
+          "id": "u14_18",
+          "word": "factory",
+          "transcription": "/ˈfæktəri/",
+          "part_of_speech": "noun",
+          "uzbek": "zavod, fabrika",
+          "description": "A building where goods are manufactured or assembled",
+          "example": "My dad works in a factory which makes car parts."
+        },
+        {
+          "id": "u14_19",
+          "word": "shop",
+          "transcription": "/ʃɒp/",
+          "part_of_speech": "noun",
+          "uzbek": "do'kon",
+          "description": "A place where goods are sold to customers",
+          "example": "I worked in a shop at the weekends when I was a student."
+        },
+        {
+          "id": "u14_20",
+          "word": "office",
+          "transcription": "/ˈɒfɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "ofis, idora",
+          "description": "A room or building where people work at desks doing administrative tasks",
+          "example": "I work in an office. Sometimes it's boring."
+        },
+        {
+          "id": "u14_21",
+          "word": "hospital",
+          "transcription": "/ˈhɒspɪtəl/",
+          "part_of_speech": "noun",
+          "uzbek": "kasalxona, shifoxona",
+          "description": "A building where sick or injured people receive medical treatment",
+          "example": "I'd like to work in a children's hospital."
+        },
+        {
+          "id": "u14_22",
+          "word": "restaurant",
+          "transcription": "/ˈrɛstərɒnt/",
+          "part_of_speech": "noun",
+          "uzbek": "restoran",
+          "description": "A place where people pay to eat meals",
+          "example": "I'm a waiter. I work in a restaurant."
+        },
+        {
+          "id": "u14_23",
+          "word": "beauty salon",
+          "transcription": "/ˈbjuːti ˌsæloʊn/",
+          "part_of_speech": "noun",
+          "uzbek": "go'zallik saloni",
+          "description": "A place where people go to have their hair cut and beauty treatments",
+          "example": "I want to work in a beauty salon as a hairdresser."
+        }
+      ]
+    },
+    {
+      "unit": 15,
+      "title": "At school and university",
+      "topic": "School subjects, classroom objects, and education vocabulary",
+      "words": [
+        {
+          "id": "u15_1",
+          "word": "English",
+          "transcription": "/ˈɪŋɡlɪʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "ingliz tili (fan sifatida)",
+          "description": "The English language studied as a school subject",
+          "example": "She's very good at English."
+        },
+        {
+          "id": "u15_2",
+          "word": "maths",
+          "transcription": "/mæθs/",
+          "part_of_speech": "noun",
+          "uzbek": "matematika",
+          "description": "The study of numbers, shapes and patterns (mathematics)",
+          "example": "A maths teacher teaches maths. Her students study maths."
+        },
+        {
+          "id": "u15_3",
+          "word": "history",
+          "transcription": "/ˈhɪstəri/",
+          "part_of_speech": "noun",
+          "uzbek": "tarix (fan)",
+          "description": "The study of events that happened in the past",
+          "example": "We study the First World War in history."
+        },
+        {
+          "id": "u15_4",
+          "word": "geography",
+          "transcription": "/dʒiˈɒɡrəfi/",
+          "part_of_speech": "noun",
+          "uzbek": "geografiya (fan)",
+          "description": "The study of the Earth's surface, countries, climate and natural features",
+          "example": "We learn about mountains and rivers in geography."
+        },
+        {
+          "id": "u15_5",
+          "word": "biology",
+          "transcription": "/baɪˈɒlədʒi/",
+          "part_of_speech": "noun",
+          "uzbek": "biologiya (fan)",
+          "description": "The scientific study of living things — plants, animals and people",
+          "example": "We study plants and animals in biology."
+        },
+        {
+          "id": "u15_6",
+          "word": "art",
+          "transcription": "/ɑːrt/",
+          "part_of_speech": "noun",
+          "uzbek": "tasviriy san'at (fan)",
+          "description": "The subject where you draw, paint and create visual works",
+          "example": "She loves art and wants to be a painter."
+        },
+        {
+          "id": "u15_7",
+          "word": "chemistry",
+          "transcription": "/ˈkɛmɪstri/",
+          "part_of_speech": "noun",
+          "uzbek": "kimyo (fan)",
+          "description": "The scientific study of substances and how they react with each other",
+          "example": "We did experiments in chemistry class."
+        },
+        {
+          "id": "u15_8",
+          "word": "physics",
+          "transcription": "/ˈfɪzɪks/",
+          "part_of_speech": "noun",
+          "uzbek": "fizika (fan)",
+          "description": "The science that studies matter, energy, forces and motion",
+          "example": "Physics is difficult but very interesting."
+        },
+        {
+          "id": "u15_9",
+          "word": "music",
+          "transcription": "/ˈmjuːzɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "musiqa (fan)",
+          "description": "The subject where you learn to play instruments or sing",
+          "example": "She plays violin in music class."
+        },
+        {
+          "id": "u15_10",
+          "word": "PE (physical education)",
+          "transcription": "/ˌpiː ˈiː/",
+          "part_of_speech": "noun",
+          "uzbek": "jismoniy tarbiya (fan)",
+          "description": "School lessons about sport, exercise and physical fitness",
+          "example": "We play football in PE."
+        },
+        {
+          "id": "u15_11",
+          "word": "ICT (information communication technology)",
+          "transcription": "/ˌaɪ siː ˈtiː/",
+          "part_of_speech": "noun",
+          "uzbek": "informatika va axborot texnologiyalari",
+          "description": "The study of computers and information technology",
+          "example": "We learn to use computers in ICT."
+        },
+        {
+          "id": "u15_12",
+          "word": "modern languages",
+          "transcription": "/ˈmɒdərn ˈlæŋɡwɪdʒɪz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "zamonaviy tillar (fan)",
+          "description": "The study of foreign languages such as French, Spanish or German",
+          "example": "She studies French and Spanish as modern languages."
+        },
+        {
+          "id": "u15_13",
+          "word": "board",
+          "transcription": "/bɔːrd/",
+          "part_of_speech": "noun",
+          "uzbek": "doska, taxta",
+          "description": "A large flat surface on a classroom wall where the teacher writes",
+          "example": "The teacher wrote the new words on the board."
+        },
+        {
+          "id": "u15_14",
+          "word": "noticeboard",
+          "transcription": "/ˈnoʊtɪsbɔːrd/",
+          "part_of_speech": "noun",
+          "uzbek": "e'lonlar taxtasi",
+          "description": "A board on a wall where notices and information are pinned up",
+          "example": "She pinned the announcement on the noticeboard."
+        },
+        {
+          "id": "u15_15",
+          "word": "pencil",
+          "transcription": "/ˈpɛnsəl/",
+          "part_of_speech": "noun",
+          "uzbek": "qalam (o'chirgichli)",
+          "description": "A thin wooden stick with a dark centre used for writing that can be erased",
+          "example": "Draw the diagram with a pencil so you can erase mistakes."
+        },
+        {
+          "id": "u15_16",
+          "word": "pen",
+          "transcription": "/pɛn/",
+          "part_of_speech": "noun",
+          "uzbek": "ruchka, qalamcha (siyohli)",
+          "description": "A writing instrument that uses ink",
+          "example": "Can I borrow your pen? I need to sign this."
+        },
+        {
+          "id": "u15_17",
+          "word": "notebook",
+          "transcription": "/ˈnoʊtbʊk/",
+          "part_of_speech": "noun",
+          "uzbek": "daftar",
+          "description": "A small book with blank or lined pages used for writing notes",
+          "example": "Write the vocabulary in your notebook."
+        },
+        {
+          "id": "u15_18",
+          "word": "textbook",
+          "transcription": "/ˈtɛkstbʊk/",
+          "part_of_speech": "noun",
+          "uzbek": "darslik, o'quv kitobi",
+          "description": "A book used for studying a particular subject at school or college",
+          "example": "Open your textbook to page 12."
+        },
+        {
+          "id": "u15_19",
+          "word": "rubber",
+          "transcription": "/ˈrʌbər/",
+          "part_of_speech": "noun",
+          "uzbek": "o'chirg'ich (qalam uchun)",
+          "description": "A piece of rubber used to remove pencil marks; called 'eraser' in American English",
+          "example": "Can I borrow your rubber? I made a mistake."
+        },
+        {
+          "id": "u15_20",
+          "word": "pencil sharpener",
+          "transcription": "/ˈpɛnsəl ˌʃɑːrpənər/",
+          "part_of_speech": "noun",
+          "uzbek": "qalam qayraydigan asbob",
+          "description": "A device for sharpening the point of a pencil",
+          "example": "My pencil is blunt. Do you have a pencil sharpener?"
+        },
+        {
+          "id": "u15_21",
+          "word": "ruler",
+          "transcription": "/ˈruːlər/",
+          "part_of_speech": "noun",
+          "uzbek": "chizg'ich",
+          "description": "A flat straight instrument used for measuring and drawing straight lines",
+          "example": "Use a ruler to draw a straight line."
+        },
+        {
+          "id": "u15_22",
+          "word": "desk",
+          "transcription": "/dɛsk/",
+          "part_of_speech": "noun",
+          "uzbek": "parta, ish stoli",
+          "description": "A table at which students sit to study or work",
+          "example": "Sit at your desk and open your books."
+        },
+        {
+          "id": "u15_23",
+          "word": "whiteboard",
+          "transcription": "/ˈwaɪtbɔːrd/",
+          "part_of_speech": "noun",
+          "uzbek": "oq doska (markerli)",
+          "description": "A white shiny board you write on with special pens that can be erased",
+          "example": "The teacher drew a diagram on the whiteboard."
+        },
+        {
+          "id": "u15_24",
+          "word": "computer",
+          "transcription": "/kəmˈpjuːtər/",
+          "part_of_speech": "noun",
+          "uzbek": "kompyuter",
+          "description": "An electronic machine for storing and processing information",
+          "example": "Students learn to use computers at school."
+        },
+        {
+          "id": "u15_25",
+          "word": "drawing pin",
+          "transcription": "/ˈdrɔːɪŋ pɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "qadoq (devorga yopishtirish uchun)",
+          "description": "A short pin with a flat head used for fixing paper to boards",
+          "example": "She used a drawing pin to put the poster on the noticeboard."
+        },
+        {
+          "id": "u15_26",
+          "word": "piece of paper",
+          "transcription": "/piːs əv ˈpeɪpər/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "qog'oz varaq",
+          "description": "A single sheet of paper for writing on",
+          "example": "Write your answers on a piece of paper."
+        },
+        {
+          "id": "u15_27",
+          "word": "go to school",
+          "transcription": "/ɡoʊ tə skuːl/",
+          "part_of_speech": "phrase",
+          "uzbek": "maktabga bormoq",
+          "description": "To attend school as a student",
+          "example": "Children go to school and students go to university."
+        },
+        {
+          "id": "u15_28",
+          "word": "do homework",
+          "transcription": "/duː ˈhoʊmwɜːrk/",
+          "part_of_speech": "phrase",
+          "uzbek": "uy vazifasini bajarmoq",
+          "description": "To complete school work at home. Note: 'do homework' NOT 'make homework'",
+          "example": "After school, students do homework."
+        },
+        {
+          "id": "u15_29",
+          "word": "pass an exam",
+          "transcription": "/pɑːs ən ɪɡˈzæm/",
+          "part_of_speech": "phrase",
+          "uzbek": "imtihondan o'tmoq",
+          "description": "To succeed in an examination",
+          "example": "You hope to pass your exams."
+        },
+        {
+          "id": "u15_30",
+          "word": "fail an exam",
+          "transcription": "/feɪl ən ɪɡˈzæm/",
+          "part_of_speech": "phrase",
+          "uzbek": "imtihondan yiqilmoq",
+          "description": "To be unsuccessful in an examination",
+          "example": "You don't want to fail your exams."
+        },
+        {
+          "id": "u15_31",
+          "word": "get a degree",
+          "transcription": "/ɡɛt ə dɪˈɡriː/",
+          "part_of_speech": "phrase",
+          "uzbek": "diplom olmoq (oliy ta'lim)",
+          "description": "To complete a university course and receive a formal qualification",
+          "example": "If you pass your final exams at university, you get a degree."
+        }
+      ]
+    },
+    {
+      "unit": 16,
+      "title": "Communications",
+      "topic": "Letters, email, internet, telephones, and mobile devices",
+      "words": [
+        {
+          "id": "u16_1",
+          "word": "letter",
+          "transcription": "/ˈlɛtər/",
+          "part_of_speech": "noun",
+          "uzbek": "xat (pochta)",
+          "description": "A written message sent by post to someone",
+          "example": "She wrote a letter to her friend in Paris."
+        },
+        {
+          "id": "u16_2",
+          "word": "address",
+          "transcription": "/əˈdrɛs/",
+          "part_of_speech": "noun",
+          "uzbek": "manzil, adres",
+          "description": "The details of where someone lives, used for sending letters",
+          "example": "What's your address? I want to send you a letter."
+        },
+        {
+          "id": "u16_3",
+          "word": "stamp",
+          "transcription": "/stæmp/",
+          "part_of_speech": "noun",
+          "uzbek": "pochta markasi",
+          "description": "A small piece of paper stuck on a letter to show that postage has been paid",
+          "example": "Don't forget to put a stamp on the envelope."
+        },
+        {
+          "id": "u16_4",
+          "word": "envelope",
+          "transcription": "/ˈɛnvəloʊp/",
+          "part_of_speech": "noun",
+          "uzbek": "konvert",
+          "description": "A flat paper container for a letter",
+          "example": "Put the letter in the envelope before you post it."
+        },
+        {
+          "id": "u16_5",
+          "word": "date",
+          "transcription": "/deɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "sana, kun",
+          "description": "The day, month and year written on a letter or document",
+          "example": "Don't forget to write the date on your letter."
+        },
+        {
+          "id": "u16_6",
+          "word": "letter box",
+          "transcription": "/ˈlɛtər bɒks/",
+          "part_of_speech": "noun",
+          "uzbek": "pochta qutisi",
+          "description": "A box fixed to a post or wall where letters are posted and collected",
+          "example": "She dropped the letter in the letter box."
+        },
+        {
+          "id": "u16_7",
+          "word": "post",
+          "transcription": "/poʊst/",
+          "part_of_speech": "verb",
+          "uzbek": "pochta orqali yubormoq",
+          "description": "To send a letter or package by mail",
+          "example": "Don't forget to post the letters."
+        },
+        {
+          "id": "u16_8",
+          "word": "computer",
+          "transcription": "/kəmˈpjuːtər/",
+          "part_of_speech": "noun",
+          "uzbek": "kompyuter",
+          "description": "An electronic machine used for processing information and accessing the internet",
+          "example": "Olivia gets a lot of emails from New York."
+        },
+        {
+          "id": "u16_9",
+          "word": "screen",
+          "transcription": "/skriːn/",
+          "part_of_speech": "noun",
+          "uzbek": "ekran, monitor",
+          "description": "The flat display part of a computer or phone",
+          "example": "The screen of his computer is very large."
+        },
+        {
+          "id": "u16_10",
+          "word": "keyboard",
+          "transcription": "/ˈkiːbɔːrd/",
+          "part_of_speech": "noun",
+          "uzbek": "klaviatura",
+          "description": "The set of keys used to type on a computer",
+          "example": "She types very fast on the keyboard."
+        },
+        {
+          "id": "u16_11",
+          "word": "mouse",
+          "transcription": "/maʊs/",
+          "part_of_speech": "noun",
+          "uzbek": "sichqoncha (kompyuter)",
+          "description": "A small device moved by hand to control a cursor on a computer screen",
+          "example": "Use the mouse to click on the icon."
+        },
+        {
+          "id": "u16_12",
+          "word": "laptop",
+          "transcription": "/ˈlæptɒp/",
+          "part_of_speech": "noun",
+          "uzbek": "noutbuk, laptop",
+          "description": "A portable computer that can be used on your lap or anywhere",
+          "example": "She works on her laptop at home."
+        },
+        {
+          "id": "u16_13",
+          "word": "memory stick",
+          "transcription": "/ˈmɛməri stɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "flesh karta, USB disk",
+          "description": "A small portable device for storing computer data",
+          "example": "Save the file on a memory stick."
+        },
+        {
+          "id": "u16_14",
+          "word": "email",
+          "transcription": "/ˈiːmeɪl/",
+          "part_of_speech": "noun / verb",
+          "uzbek": "elektron pochta, email",
+          "description": "An electronic message sent over the internet",
+          "example": "Olivia gets a lot of emails from New York."
+        },
+        {
+          "id": "u16_15",
+          "word": "email address",
+          "transcription": "/ˈiːmeɪl əˌdrɛs/",
+          "part_of_speech": "noun",
+          "uzbek": "email manzili",
+          "description": "A unique address used to send and receive emails",
+          "example": "What's your email address? It's Moll at C-U-P dot com."
+        },
+        {
+          "id": "u16_16",
+          "word": "online",
+          "transcription": "/ˌɒnˈlaɪn/",
+          "part_of_speech": "adjective / adverb",
+          "uzbek": "onlayn, internet orqali",
+          "description": "Connected to or available through the internet",
+          "example": "You have to be careful what information you give people online."
+        },
+        {
+          "id": "u16_17",
+          "word": "mobile (phone)",
+          "transcription": "/ˈmoʊbaɪl foʊn/",
+          "part_of_speech": "noun",
+          "uzbek": "mobil telefon, uyali telefon",
+          "description": "A portable telephone that can be used anywhere",
+          "example": "What's your mobile number?"
+        },
+        {
+          "id": "u16_18",
+          "word": "telephone",
+          "transcription": "/ˈtɛlɪfoʊn/",
+          "part_of_speech": "noun",
+          "uzbek": "telefon (statsionar)",
+          "description": "A device for communicating by voice over a distance",
+          "example": "The telephone was ringing when I arrived home."
+        },
+        {
+          "id": "u16_19",
+          "word": "phone box",
+          "transcription": "/foʊn bɒks/",
+          "part_of_speech": "noun",
+          "uzbek": "telefon budkasi",
+          "description": "A small public enclosure containing a pay telephone",
+          "example": "There's a phone box on the corner of the street."
+        },
+        {
+          "id": "u16_20",
+          "word": "mobile device",
+          "transcription": "/ˈmoʊbaɪl dɪˈvaɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "mobil qurilma (telefon, planshet)",
+          "description": "A portable electronic device such as a smartphone or tablet",
+          "example": "I always take my mobile device with me."
+        },
+        {
+          "id": "u16_21",
+          "word": "phone call",
+          "transcription": "/foʊn kɔːl/",
+          "part_of_speech": "noun",
+          "uzbek": "telefon qo'ng'irog'i",
+          "description": "An act of speaking to someone by telephone",
+          "example": "Juan makes a lot of phone calls every day."
+        },
+        {
+          "id": "u16_22",
+          "word": "phone number",
+          "transcription": "/foʊn ˈnʌmbər/",
+          "part_of_speech": "noun",
+          "uzbek": "telefon raqami",
+          "description": "The number you dial to make a phone call to someone",
+          "example": "What's your phone number? 066530718."
+        },
+        {
+          "id": "u16_23",
+          "word": "voicemail",
+          "transcription": "/ˈvɔɪsmeɪl/",
+          "part_of_speech": "noun",
+          "uzbek": "ovozli xabar (javobgir mashina)",
+          "description": "A recorded message left when someone does not answer their phone",
+          "example": "He's not answering his phone. I'll leave a voicemail."
+        },
+        {
+          "id": "u16_24",
+          "word": "text (message)",
+          "transcription": "/tɛkst ˈmɛsɪdʒ/",
+          "part_of_speech": "noun / verb",
+          "uzbek": "SMS xabar; SMS yubormoq",
+          "description": "A short written message sent by mobile phone; to send such a message",
+          "example": "I'll text him. / Send him a text message."
+        },
+        {
+          "id": "u16_25",
+          "word": "speak to",
+          "transcription": "/spiːk tə/",
+          "part_of_speech": "phrase",
+          "uzbek": "bilan gaplashmoq (telefonda)",
+          "description": "To communicate with someone, especially on the phone",
+          "example": "Hello. It's Nick here. Can I speak to Ahmed, please?"
+        },
+        {
+          "id": "u16_26",
+          "word": "call back",
+          "transcription": "/kɔːl bæk/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "qayta qo'ng'iroq qilmoq",
+          "description": "To phone someone again or to return their phone call",
+          "example": "Could you just tell him I called? I'll call back later."
+        }
+      ]
+    },
+    {
+      "unit": 17,
+      "title": "Your phone",
+      "topic": "Parts of a smartphone and vocabulary for using it",
+      "words": [
+        {
+          "id": "u17_1",
+          "word": "camera",
+          "transcription": "/ˈkæmərə/",
+          "part_of_speech": "noun",
+          "uzbek": "kamera (telefondagi)",
+          "description": "The part of a smartphone used for taking photos and videos",
+          "example": "The camera on this phone takes excellent photos."
+        },
+        {
+          "id": "u17_2",
+          "word": "screen",
+          "transcription": "/skriːn/",
+          "part_of_speech": "noun",
+          "uzbek": "ekran (telefon)",
+          "description": "The touchscreen display area of a phone",
+          "example": "The screen of his phone is very large."
+        },
+        {
+          "id": "u17_3",
+          "word": "apps",
+          "transcription": "/æps/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "ilovalar, dasturlar (telefon)",
+          "description": "Short for applications; programs downloaded onto a smartphone",
+          "example": "There are many useful apps on my phone."
+        },
+        {
+          "id": "u17_4",
+          "word": "power button",
+          "transcription": "/ˈpaʊər ˈbʌtən/",
+          "part_of_speech": "noun",
+          "uzbek": "quvvat tugmasi (yoqish/o'chirish)",
+          "description": "The button used to turn the phone on or off",
+          "example": "Press the power button to turn the phone on."
+        },
+        {
+          "id": "u17_5",
+          "word": "phone case",
+          "transcription": "/foʊn keɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "telefon qopqog'i, chexol",
+          "description": "A protective cover for a smartphone",
+          "example": "She bought a pink phone case for her new phone."
+        },
+        {
+          "id": "u17_6",
+          "word": "charger",
+          "transcription": "/ˈtʃɑːrdʒər/",
+          "part_of_speech": "noun",
+          "uzbek": "zaryadlovchi, o'zgartkish",
+          "description": "A device used to recharge the battery of a phone",
+          "example": "My phone is dead. Where's the charger?"
+        },
+        {
+          "id": "u17_7",
+          "word": "battery",
+          "transcription": "/ˈbætəri/",
+          "part_of_speech": "noun",
+          "uzbek": "akkumulyator, batareya",
+          "description": "The component that stores electrical power for the phone",
+          "example": "The battery is flat. I need to charge my phone."
+        },
+        {
+          "id": "u17_8",
+          "word": "SIM card",
+          "transcription": "/sɪm kɑːrd/",
+          "part_of_speech": "noun",
+          "uzbek": "SIM karta",
+          "description": "A small card inside a phone that stores your phone number and connects you to a network",
+          "example": "You need to put a SIM card in your new phone."
+        },
+        {
+          "id": "u17_9",
+          "word": "selfie",
+          "transcription": "/ˈsɛlfi/",
+          "part_of_speech": "noun",
+          "uzbek": "selfie (o'zini suratga olish)",
+          "description": "A photo you take of yourself, usually with a smartphone held at arm's length",
+          "example": "Ramesh takes a lot of selfies and posts them online."
+        },
+        {
+          "id": "u17_10",
+          "word": "voicemail",
+          "transcription": "/ˈvɔɪsmeɪl/",
+          "part_of_speech": "noun",
+          "uzbek": "ovozli xabar",
+          "description": "A recorded message left on a phone when no one answers",
+          "example": "Lisa didn't answer, so I left a voicemail."
+        },
+        {
+          "id": "u17_11",
+          "word": "text",
+          "transcription": "/tɛkst/",
+          "part_of_speech": "verb",
+          "uzbek": "SMS yubormoq",
+          "description": "To send a short written message using a mobile phone",
+          "example": "Can you text me the address of the restaurant?"
+        },
+        {
+          "id": "u17_12",
+          "word": "message",
+          "transcription": "/ˈmɛsɪdʒ/",
+          "part_of_speech": "noun",
+          "uzbek": "xabar (telefon)",
+          "description": "A piece of written or spoken communication sent to someone",
+          "example": "I've just got a message from Andy."
+        },
+        {
+          "id": "u17_13",
+          "word": "download an app",
+          "transcription": "/ˌdaʊnloʊd ən æp/",
+          "part_of_speech": "phrase",
+          "uzbek": "ilova yuklab olmoq",
+          "description": "To copy an application from the internet to your phone",
+          "example": "You can download an app with a dictionary to help you."
+        },
+        {
+          "id": "u17_14",
+          "word": "call",
+          "transcription": "/kɔːl/",
+          "part_of_speech": "verb",
+          "uzbek": "qo'ng'iroq qilmoq",
+          "description": "To phone someone; to make a telephone call",
+          "example": "While she was on holiday, Kelly called her family every day."
+        },
+        {
+          "id": "u17_15",
+          "word": "locked",
+          "transcription": "/lɒkt/",
+          "part_of_speech": "adjective",
+          "uzbek": "qulflangan (telefon ekrani)",
+          "description": "A phone screen that is secured and requires a code or gesture to open",
+          "example": "It's locked. What's the PIN?"
+        },
+        {
+          "id": "u17_16",
+          "word": "PIN",
+          "transcription": "/pɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "PIN kod, maxfiy raqam",
+          "description": "Personal Identification Number; a secret number used to unlock a phone or use a bank card",
+          "example": "You don't need a PIN to unlock it. Just swipe the screen."
+        },
+        {
+          "id": "u17_17",
+          "word": "swipe",
+          "transcription": "/swaɪp/",
+          "part_of_speech": "verb",
+          "uzbek": "surmoq (ekranda)",
+          "description": "To move your finger smoothly across a touchscreen",
+          "example": "Just swipe the screen left to right to unlock it."
+        },
+        {
+          "id": "u17_18",
+          "word": "save",
+          "transcription": "/seɪv/",
+          "part_of_speech": "verb",
+          "uzbek": "saqlаmoq (fayl, rasm)",
+          "description": "To store data, photos or files on a device",
+          "example": "I can't save any new photos. My phone memory is full."
+        },
+        {
+          "id": "u17_19",
+          "word": "delete",
+          "transcription": "/dɪˈliːt/",
+          "part_of_speech": "verb",
+          "uzbek": "o'chirmoq (fayl, rasm, xabar)",
+          "description": "To permanently remove data, photos or messages from a device",
+          "example": "Your phone memory is full. You need to delete some photos."
+        },
+        {
+          "id": "u17_20",
+          "word": "memory",
+          "transcription": "/ˈmɛməri/",
+          "part_of_speech": "noun",
+          "uzbek": "xotira (telefon xotirasi)",
+          "description": "The storage space on a phone for saving photos, apps and data",
+          "example": "Your phone memory is full."
+        }
+      ]
+    },
+    {
+      "unit": 18,
+      "title": "Holidays",
+      "topic": "Types of holidays, transport, and things needed for travelling",
+      "words": [
+        {
+          "id": "u18_1",
+          "word": "holiday",
+          "transcription": "/ˈhɒlɪdeɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "ta'til, sayohat",
+          "description": "A period of time when you travel somewhere or rest away from home and work",
+          "example": "We had a lovely holiday in Egypt in 2014."
+        },
+        {
+          "id": "u18_2",
+          "word": "on holiday",
+          "transcription": "/ɒn ˈhɒlɪdeɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "ta'tilda, sayohatda",
+          "description": "Currently away from work or study for leisure",
+          "example": "I'm not working next week. I'm on holiday."
+        },
+        {
+          "id": "u18_3",
+          "word": "go on holiday",
+          "transcription": "/ɡoʊ ɒn ˈhɒlɪdeɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "ta'tilga chiqmoq, sayohatga bormoq",
+          "description": "To leave home to travel somewhere for leisure",
+          "example": "Are you going on holiday this summer?"
+        },
+        {
+          "id": "u18_4",
+          "word": "package holiday",
+          "transcription": "/ˈpækɪdʒ ˌhɒlɪdeɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "to'liq xizmat ko'rsatish bilan ta'til (parvoz va mehmonxona birgа)",
+          "description": "A holiday where flights and accommodation are booked and paid for together",
+          "example": "We're going on a package holiday to Hong Kong."
+        },
+        {
+          "id": "u18_5",
+          "word": "camping",
+          "transcription": "/ˈkæmpɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "lagerda yashash, chodir tikib yashash",
+          "description": "Spending time outdoors sleeping in a tent",
+          "example": "I want to go camping this year — I'll sleep in a tent."
+        },
+        {
+          "id": "u18_6",
+          "word": "walking holiday",
+          "transcription": "/ˈwɔːkɪŋ ˌhɒlɪdeɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "piyoda sayohat ta'tili",
+          "description": "A holiday spent walking in the countryside or mountains",
+          "example": "I'm going on a walking holiday in the Alps."
+        },
+        {
+          "id": "u18_7",
+          "word": "coach tour",
+          "transcription": "/koʊtʃ tʊər/",
+          "part_of_speech": "noun",
+          "uzbek": "avtobus sayohati (qulay avtobus bilan)",
+          "description": "A holiday where you travel by a comfortable bus visiting many places",
+          "example": "A coach tour is an easy way to go on holiday."
+        },
+        {
+          "id": "u18_8",
+          "word": "winter holiday",
+          "transcription": "/ˈwɪntər ˌhɒlɪdeɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "qishki ta'til",
+          "description": "A holiday taken during the winter months, often for skiing",
+          "example": "We're going to have a winter holiday this year."
+        },
+        {
+          "id": "u18_9",
+          "word": "by plane",
+          "transcription": "/baɪ pleɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "samolyot bilan",
+          "description": "Travelling using an aircraft as transport",
+          "example": "Are you flying to France? Are you going by plane?"
+        },
+        {
+          "id": "u18_10",
+          "word": "by train",
+          "transcription": "/baɪ treɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "poyezd bilan",
+          "description": "Travelling using a train as transport",
+          "example": "No, we're going by train."
+        },
+        {
+          "id": "u18_11",
+          "word": "by car",
+          "transcription": "/baɪ kɑːr/",
+          "part_of_speech": "phrase",
+          "uzbek": "mashina bilan",
+          "description": "Travelling using a car as transport",
+          "example": "We drove there by car."
+        },
+        {
+          "id": "u18_12",
+          "word": "by ferry",
+          "transcription": "/baɪ ˈfɛri/",
+          "part_of_speech": "phrase",
+          "uzbek": "parom bilan",
+          "description": "Travelling on a boat that makes regular crossings of water",
+          "example": "No, we're going by ferry."
+        },
+        {
+          "id": "u18_13",
+          "word": "by coach",
+          "transcription": "/baɪ koʊtʃ/",
+          "part_of_speech": "phrase",
+          "uzbek": "avtobus bilan (uzoq masofa)",
+          "description": "Travelling using a long-distance comfortable bus",
+          "example": "We went by coach — it was cheaper than the train."
+        },
+        {
+          "id": "u18_14",
+          "word": "passport",
+          "transcription": "/ˈpæspɔːrt/",
+          "part_of_speech": "noun",
+          "uzbek": "pasport",
+          "description": "An official document proving your identity used for international travel",
+          "example": "You need a passport to travel to another country."
+        },
+        {
+          "id": "u18_15",
+          "word": "visa",
+          "transcription": "/ˈviːzə/",
+          "part_of_speech": "noun",
+          "uzbek": "viza",
+          "description": "An official stamp or document in your passport allowing you to enter a country",
+          "example": "A visa is a stamp that you need in your passport to go to some countries."
+        },
+        {
+          "id": "u18_16",
+          "word": "tickets",
+          "transcription": "/ˈtɪkɪts/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "chiptalar, biletlar",
+          "description": "Documents allowing you to travel on transport or enter a place",
+          "example": "Don't forget your tickets."
+        },
+        {
+          "id": "u18_17",
+          "word": "currency",
+          "transcription": "/ˈkɜːrənsi/",
+          "part_of_speech": "noun",
+          "uzbek": "valyuta, pul birligi",
+          "description": "The money used in a particular country",
+          "example": "Bring some currency — the money of the country you are going to."
+        },
+        {
+          "id": "u18_18",
+          "word": "luggage",
+          "transcription": "/ˈlʌɡɪdʒ/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "yuk, bagaj",
+          "description": "The bags and suitcases you take with you when travelling. Note: uncountable — NOT 'luggages'",
+          "example": "Your luggage, e.g. a suitcase or a rucksack."
+        },
+        {
+          "id": "u18_19",
+          "word": "suitcase",
+          "transcription": "/ˈsuːtkeɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "chemodan",
+          "description": "A large rectangular bag with a handle used for carrying clothes when travelling",
+          "example": "She packed her suitcase the night before the trip."
+        },
+        {
+          "id": "u18_20",
+          "word": "rucksack",
+          "transcription": "/ˈrʌksæk/",
+          "part_of_speech": "noun",
+          "uzbek": "ryukzak, orqa sumka",
+          "description": "A large bag carried on the back, used for walking or travelling",
+          "example": "He carried his camping equipment in a rucksack."
+        },
+        {
+          "id": "u18_21",
+          "word": "try the local food",
+          "transcription": "/traɪ ðə ˈloʊkəl fuːd/",
+          "part_of_speech": "phrase",
+          "uzbek": "mahalliy taomni tatib ko'rmoq",
+          "description": "To eat the traditional food of the country or place you are visiting",
+          "example": "We want to try the local food and enjoy the nightlife."
+        },
+        {
+          "id": "u18_22",
+          "word": "Have a great time!",
+          "transcription": "/hæv ə ɡreɪt taɪm/",
+          "part_of_speech": "phrase",
+          "uzbek": "Yaxshi vaqt o'tkaz!",
+          "description": "A wish for someone to enjoy themselves on their trip or holiday",
+          "example": "Have a great time! And send me a postcard!"
+        },
+        {
+          "id": "u18_23",
+          "word": "postcard",
+          "transcription": "/ˈpoʊstkɑːrd/",
+          "part_of_speech": "noun",
+          "uzbek": "pochta kartochkasi, otkritka",
+          "description": "A card with a picture on the front, sent as a greeting from a holiday destination",
+          "example": "Send me a postcard from your holiday!"
+        }
+      ]
+    },
+    {
+      "unit": 19,
+      "title": "Shops and shopping",
+      "topic": "Types of shops, signs in shops, and shopping expressions",
+      "words": [
+        {
+          "id": "u19_1",
+          "word": "butcher's",
+          "transcription": "/ˈbʊtʃərz/",
+          "part_of_speech": "noun",
+          "uzbek": "go'sht do'koni",
+          "description": "A shop that sells meat; also the name of the person who sells or prepares meat",
+          "example": "I'm going to the butcher's to get a chicken."
+        },
+        {
+          "id": "u19_2",
+          "word": "post office",
+          "transcription": "/poʊst ˈɒfɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "pochta bo'limi",
+          "description": "A building where you can post letters, buy stamps and collect parcels",
+          "example": "I need to go to the post office to send a parcel."
+        },
+        {
+          "id": "u19_3",
+          "word": "supermarket",
+          "transcription": "/ˈsuːpərmɑːrkɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "supermarket",
+          "description": "A large self-service shop selling food and household goods",
+          "example": "I'll get everything we need from the supermarket."
+        },
+        {
+          "id": "u19_4",
+          "word": "bookshop",
+          "transcription": "/ˈbʊkʃɒp/",
+          "part_of_speech": "noun",
+          "uzbek": "kitob do'koni",
+          "description": "A shop that sells books",
+          "example": "I bought this novel at the bookshop on the high street."
+        },
+        {
+          "id": "u19_5",
+          "word": "baker's",
+          "transcription": "/ˈbeɪkərz/",
+          "part_of_speech": "noun",
+          "uzbek": "non do'koni, novvoyxona",
+          "description": "A shop that sells bread and cakes; also the person who makes bread",
+          "example": "She bought fresh bread from the baker's."
+        },
+        {
+          "id": "u19_6",
+          "word": "department store",
+          "transcription": "/dɪˈpɑːrtmənt stɔːr/",
+          "part_of_speech": "noun",
+          "uzbek": "univermag (katta do'kon)",
+          "description": "A large shop divided into departments selling many types of goods — clothes, furniture, food, toys etc",
+          "example": "A department store is a large shop which sells a lot of different things."
+        },
+        {
+          "id": "u19_7",
+          "word": "chemist's",
+          "transcription": "/ˈkɛmɪsts/",
+          "part_of_speech": "noun",
+          "uzbek": "dorixona, apteka",
+          "description": "A shop that sells medicines, cosmetics and beauty products; called 'pharmacy' in American English",
+          "example": "I need to go to the chemist's to get my medicine."
+        },
+        {
+          "id": "u19_8",
+          "word": "newsagent's",
+          "transcription": "/ˈnjuːzeɪdʒənts/",
+          "part_of_speech": "noun",
+          "uzbek": "gazeta-jurnal do'koni",
+          "description": "A shop that sells newspapers, magazines, sweets and cigarettes",
+          "example": "I'm going to the newsagent's to get a paper."
+        },
+        {
+          "id": "u19_9",
+          "word": "gift shop",
+          "transcription": "/ɡɪft ʃɒp/",
+          "part_of_speech": "noun",
+          "uzbek": "sovg'alar do'koni",
+          "description": "A shop that sells souvenirs and items suitable for giving as presents",
+          "example": "She bought a souvenir at the gift shop."
+        },
+        {
+          "id": "u19_10",
+          "word": "ground floor",
+          "transcription": "/ɡraʊnd flɔːr/",
+          "part_of_speech": "noun",
+          "uzbek": "birinchi qavat (inglizcha hisobda)",
+          "description": "The lowest floor of a building, at street level",
+          "example": "The food section is on the ground floor."
+        },
+        {
+          "id": "u19_11",
+          "word": "first floor",
+          "transcription": "/fɜːrst flɔːr/",
+          "part_of_speech": "noun",
+          "uzbek": "ikkinchi qavat (inglizcha hisobda)",
+          "description": "The floor above the ground floor in British English",
+          "example": "Women's Wear is on the first floor."
+        },
+        {
+          "id": "u19_12",
+          "word": "basement",
+          "transcription": "/ˈbeɪsmənt/",
+          "part_of_speech": "noun",
+          "uzbek": "er osti qavat, yerto'la",
+          "description": "A floor below the ground level of a building",
+          "example": "The electricals and food sections are in the basement."
+        },
+        {
+          "id": "u19_13",
+          "word": "OPEN / CLOSED",
+          "transcription": "/ˈoʊpən/ /kloʊzd/",
+          "part_of_speech": "adjective",
+          "uzbek": "OCHIQ / YOPIQ (do'kon belgisi)",
+          "description": "Signs on shop doors showing whether the shop is open or closed for business",
+          "example": "The sign on the door said CLOSED so I couldn't get in."
+        },
+        {
+          "id": "u19_14",
+          "word": "PUSH / PULL",
+          "transcription": "/pʊʃ/ /pʊl/",
+          "part_of_speech": "verb / sign",
+          "uzbek": "ITARING / TORTING (eshik belgisi)",
+          "description": "Signs on doors telling you whether to push or pull to open them",
+          "example": "The sign on the door said PUSH, so I pushed it open."
+        },
+        {
+          "id": "u19_15",
+          "word": "try on",
+          "transcription": "/traɪ ɒn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "kiyib ko'rmoq (do'konda)",
+          "description": "To put on clothing to see if it fits or suits you before buying it",
+          "example": "Can I try this shirt on? Have you got a bigger size?"
+        },
+        {
+          "id": "u19_16",
+          "word": "cost",
+          "transcription": "/kɒst/",
+          "part_of_speech": "verb",
+          "uzbek": "turmoq (narxi)",
+          "description": "To have a particular price",
+          "example": "How much does it cost? It costs £22."
+        },
+        {
+          "id": "u19_17",
+          "word": "pay",
+          "transcription": "/peɪ/",
+          "part_of_speech": "verb",
+          "uzbek": "to'lamoq",
+          "description": "To give money in exchange for goods or services",
+          "example": "Can I pay by cheque?"
+        },
+        {
+          "id": "u19_18",
+          "word": "credit card",
+          "transcription": "/ˈkrɛdɪt kɑːrd/",
+          "part_of_speech": "noun",
+          "uzbek": "kredit karta",
+          "description": "A plastic card used to pay for goods now and pay the bill later",
+          "example": "No, credit card, debit card or cash, please."
+        },
+        {
+          "id": "u19_19",
+          "word": "cash",
+          "transcription": "/kæʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "naqd pul",
+          "description": "Physical money in the form of notes and coins",
+          "example": "Can I pay by cash? — Yes, of course."
+        },
+        {
+          "id": "u19_20",
+          "word": "note",
+          "transcription": "/noʊt/",
+          "part_of_speech": "noun",
+          "uzbek": "banknotа, qog'oz pul",
+          "description": "A piece of paper money",
+          "example": "I only have a £50 note. I don't have any change."
+        },
+        {
+          "id": "u19_21",
+          "word": "change",
+          "transcription": "/tʃeɪndʒ/",
+          "part_of_speech": "noun",
+          "uzbek": "qaytim (pul)",
+          "description": "The money returned to you when you pay more than the price of something",
+          "example": "I only have a £50 note. I don't have any change."
+        },
+        {
+          "id": "u19_22",
+          "word": "receipt",
+          "transcription": "/rɪˈsiːt/",
+          "part_of_speech": "noun",
+          "uzbek": "kvitansiya, chek",
+          "description": "A piece of paper proving that you have paid for something",
+          "example": "Here's your receipt. Would you like a bag?"
+        }
+      ]
+    },
+    {
+      "unit": 20,
+      "title": "Online shopping",
+      "topic": "Vocabulary for shopping on the internet",
+      "words": [
+        {
+          "id": "u20_1",
+          "word": "shop online",
+          "transcription": "/ʃɒp ˈɒnlaɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "internet orqali xarid qilmoq",
+          "description": "To buy goods using the internet",
+          "example": "Lisa likes to shop online because it's quick and easy."
+        },
+        {
+          "id": "u20_2",
+          "word": "reviews",
+          "transcription": "/rɪˈvjuːz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "sharhlar, izohlar (mahsulot haqida)",
+          "description": "Written opinions about a product or service from customers who have used or bought it",
+          "example": "Reading online reviews can help you choose what to buy."
+        },
+        {
+          "id": "u20_3",
+          "word": "basket",
+          "transcription": "/ˈbɑːskɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "savat (onlayn do'kon)",
+          "description": "The virtual container where you place items when shopping online before paying",
+          "example": "Click 'Add to basket' to buy the item."
+        },
+        {
+          "id": "u20_4",
+          "word": "delivery",
+          "transcription": "/dɪˈlɪvəri/",
+          "part_of_speech": "noun",
+          "uzbek": "yetkazib berish, dostavka",
+          "description": "The process of bringing goods to your home after ordering them online",
+          "example": "If you are not at home to receive the delivery, we will take it to the post office."
+        },
+        {
+          "id": "u20_5",
+          "word": "add to basket",
+          "transcription": "/æd tə ˈbɑːskɪt/",
+          "part_of_speech": "phrase",
+          "uzbek": "savatga qo'shmoq",
+          "description": "To click the button to select an item you want to buy when shopping online",
+          "example": "Click 'Add to basket' to select the item."
+        },
+        {
+          "id": "u20_6",
+          "word": "checkout",
+          "transcription": "/ˈtʃɛkaʊt/",
+          "part_of_speech": "noun / verb",
+          "uzbek": "to'lov qilish (onlayn do'konda)",
+          "description": "The final stage of an online purchase where you pay for your items",
+          "example": "Go to checkout to complete your order."
+        },
+        {
+          "id": "u20_7",
+          "word": "credit card",
+          "transcription": "/ˈkrɛdɪt kɑːrd/",
+          "part_of_speech": "noun",
+          "uzbek": "kredit karta (onlayn to'lov uchun)",
+          "description": "A card for making payments online or in shops",
+          "example": "Most people pay for their online shopping with credit cards."
+        },
+        {
+          "id": "u20_8",
+          "word": "order",
+          "transcription": "/ˈɔːrdər/",
+          "part_of_speech": "noun",
+          "uzbek": "buyurtma",
+          "description": "A request to buy goods; a purchase made online or in a shop",
+          "example": "Your order number is 5624890."
+        },
+        {
+          "id": "u20_9",
+          "word": "order number",
+          "transcription": "/ˈɔːrdər ˈnʌmbər/",
+          "part_of_speech": "noun",
+          "uzbek": "buyurtma raqami",
+          "description": "A unique reference number given to each online purchase",
+          "example": "Please quote your order number in any enquiries."
+        },
+        {
+          "id": "u20_10",
+          "word": "size",
+          "transcription": "/saɪz/",
+          "part_of_speech": "noun",
+          "uzbek": "o'lcham, razmer",
+          "description": "The measurement of something, especially clothes; e.g. small, medium, large",
+          "example": "What size is this T-shirt? Small, medium or large?"
+        },
+        {
+          "id": "u20_11",
+          "word": "price",
+          "transcription": "/praɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "narx, baho",
+          "description": "The amount of money something costs",
+          "example": "The price of the T-shirt is £6.99."
+        },
+        {
+          "id": "u20_12",
+          "word": "colour",
+          "transcription": "/ˈkʌlər/",
+          "part_of_speech": "noun",
+          "uzbek": "rang",
+          "description": "The visual quality of something such as blue, red or green; used when choosing items online",
+          "example": "Available in three colours: white, blue and red."
+        },
+        {
+          "id": "u20_13",
+          "word": "next day delivery",
+          "transcription": "/nɛkst deɪ dɪˈlɪvəri/",
+          "part_of_speech": "noun",
+          "uzbek": "ertangi kun yetkazib berish",
+          "description": "A service where goods are delivered to you the day after you order them",
+          "example": "Next Day Delivery costs £5.99."
+        },
+        {
+          "id": "u20_14",
+          "word": "free delivery",
+          "transcription": "/friː dɪˈlɪvəri/",
+          "part_of_speech": "noun",
+          "uzbek": "bepul yetkazib berish",
+          "description": "A service where goods are delivered to you at no extra cost",
+          "example": "Free Delivery takes 3-5 days."
+        },
+        {
+          "id": "u20_15",
+          "word": "post code",
+          "transcription": "/poʊst koʊd/",
+          "part_of_speech": "noun",
+          "uzbek": "pochta indeksi",
+          "description": "A code at the end of a postal address that helps sort mail; called 'zip code' in the US",
+          "example": "A post code is a long number or mix of letters at the end of your address."
+        },
+        {
+          "id": "u20_16",
+          "word": "delete this item",
+          "transcription": "/dɪˈliːt ðɪs ˈaɪtəm/",
+          "part_of_speech": "phrase",
+          "uzbek": "bu mahsulotni o'chirmoq (savatdan)",
+          "description": "To remove a product from your online shopping basket",
+          "example": "Click 'Delete this item' to remove it from your basket."
+        },
+        {
+          "id": "u20_17",
+          "word": "delivery address",
+          "transcription": "/dɪˈlɪvəri əˈdrɛs/",
+          "part_of_speech": "noun",
+          "uzbek": "yetkazib berish manzili",
+          "description": "The address where you want your online order to be sent",
+          "example": "Please fill in your delivery address carefully."
+        }
+      ]
     }
   ]
 }
