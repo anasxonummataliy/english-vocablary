@@ -11,7 +11,7 @@ from bot.routers.level import section_selection_handler
 
 router = Router()
 
-TIMER_SECONDS = 10
+TIMER_SECONDS = 15
 MAX_SKIPS = 2
 
 
