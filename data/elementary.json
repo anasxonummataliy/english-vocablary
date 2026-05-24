@@ -4506,6 +4506,2047 @@
           "example": "Please fill in your delivery address carefully."
         }
       ]
+    },
+    {
+      "unit": 21,
+      "title": "In a hotel",
+      "topic": "Hotel vocabulary, rooms, and useful expressions",
+      "words": [
+        {
+          "id": "u21_1",
+          "word": "reception",
+          "transcription": "/rɪˈsɛpʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "resepshn, qabul joyi",
+          "description": "The desk or area in a hotel where guests check in and out and get help",
+          "example": "Please go to reception when you arrive."
+        },
+        {
+          "id": "u21_2",
+          "word": "lift",
+          "transcription": "/lɪft/",
+          "part_of_speech": "noun",
+          "uzbek": "lift",
+          "description": "A machine that carries people between floors of a building; 'elevator' in American English",
+          "example": "Your room is on the first floor. Take the lift."
+        },
+        {
+          "id": "u21_3",
+          "word": "key",
+          "transcription": "/kiː/",
+          "part_of_speech": "noun",
+          "uzbek": "kalit (xona kaliti)",
+          "description": "A metal or plastic card used to open a hotel room door",
+          "example": "Here is your key. Your room is on the third floor."
+        },
+        {
+          "id": "u21_4",
+          "word": "bill",
+          "transcription": "/bɪl/",
+          "part_of_speech": "noun",
+          "uzbek": "hisob, schyot",
+          "description": "A document showing how much money you owe for your hotel stay",
+          "example": "Can I have the bill, please?"
+        },
+        {
+          "id": "u21_5",
+          "word": "luggage",
+          "transcription": "/ˈlʌɡɪdʒ/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "yuk, bagaj",
+          "description": "The bags and cases you bring with you to the hotel",
+          "example": "Would you like some help with your luggage?"
+        },
+        {
+          "id": "u21_6",
+          "word": "form",
+          "transcription": "/fɔːrm/",
+          "part_of_speech": "noun",
+          "uzbek": "anketa, to'ldirish uchun blank",
+          "description": "A document you fill in with your personal details when checking in",
+          "example": "Can you fill in this form, please?"
+        },
+        {
+          "id": "u21_7",
+          "word": "single room",
+          "transcription": "/ˈsɪŋɡəl ruːm/",
+          "part_of_speech": "noun",
+          "uzbek": "bir kishilik xona",
+          "description": "A hotel room with a single bed for one person",
+          "example": "Do you have a single room available?"
+        },
+        {
+          "id": "u21_8",
+          "word": "double room",
+          "transcription": "/ˈdʌbəl ruːm/",
+          "part_of_speech": "noun",
+          "uzbek": "ikki kishilik xona (katta karavot bilan)",
+          "description": "A hotel room with a double bed for two people",
+          "example": "I'd like a double room for two nights."
+        },
+        {
+          "id": "u21_9",
+          "word": "reservation",
+          "transcription": "/ˌrɛzərˈveɪʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "bron, oldindan buyurtma",
+          "description": "A booking made in advance to guarantee a hotel room",
+          "example": "I have a reservation. My name is Smith."
+        },
+        {
+          "id": "u21_10",
+          "word": "room with a view",
+          "transcription": "/ruːm wɪð ə vjuː/",
+          "part_of_speech": "phrase",
+          "uzbek": "manzarali xona",
+          "description": "A hotel room that looks out onto something attractive like the sea or mountains",
+          "example": "We'd like a room with a view of the sea."
+        },
+        {
+          "id": "u21_11",
+          "word": "check out",
+          "transcription": "/tʃɛk aʊt/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "chiqib ketmoq (mehmonxonadan)",
+          "description": "To pay your bill and leave the hotel at the end of your stay",
+          "example": "Can I check out, please?"
+        },
+        {
+          "id": "u21_12",
+          "word": "room service",
+          "transcription": "/ruːm ˈsɜːrvɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "xonaga taom yetkazib berish",
+          "description": "Food and drinks delivered directly to your hotel room",
+          "example": "Can I order room service?"
+        },
+        {
+          "id": "u21_13",
+          "word": "wake-up call",
+          "transcription": "/ˈweɪk ʌp kɔːl/",
+          "part_of_speech": "noun",
+          "uzbek": "uyg'otish uchun qo'ng'iroq",
+          "description": "A phone call from hotel reception to wake you at a specific time",
+          "example": "Can I have a wake-up call at 6.30, please?"
+        },
+        {
+          "id": "u21_14",
+          "word": "hairdryer",
+          "transcription": "/ˈheərˌdraɪər/",
+          "part_of_speech": "noun",
+          "uzbek": "soch quritgich, fen",
+          "description": "An electric device for drying hair with hot air",
+          "example": "Is there a hairdryer in the room?"
+        },
+        {
+          "id": "u21_15",
+          "word": "mini-bar",
+          "transcription": "/ˈmɪni bɑːr/",
+          "part_of_speech": "noun",
+          "uzbek": "mini-bar (xonadagi kichik muzlatgich)",
+          "description": "A small fridge in a hotel room stocked with drinks and snacks for purchase",
+          "example": "The room has a mini-bar with cold drinks."
+        },
+        {
+          "id": "u21_16",
+          "word": "fill in this form",
+          "transcription": "/fɪl ɪn ðɪs fɔːrm/",
+          "part_of_speech": "phrase",
+          "uzbek": "blankni to'ldirmoq",
+          "description": "To write the required information in the spaces on a form",
+          "example": "Can you fill in this form, please?"
+        },
+        {
+          "id": "u21_17",
+          "word": "sign your name",
+          "transcription": "/saɪn jɔːr neɪm/",
+          "part_of_speech": "phrase",
+          "uzbek": "imzo qo'ymoq",
+          "description": "To write your name as a signature",
+          "example": "Sign your name here, please."
+        },
+        {
+          "id": "u21_18",
+          "word": "check your bill",
+          "transcription": "/tʃɛk jɔːr bɪl/",
+          "part_of_speech": "phrase",
+          "uzbek": "hisobni tekshirmoq",
+          "description": "To look carefully at the bill to make sure it is correct",
+          "example": "Please check your bill to make sure it is correct."
+        },
+        {
+          "id": "u21_19",
+          "word": "on the first floor",
+          "transcription": "/ɒn ðə fɜːrst flɔːr/",
+          "part_of_speech": "phrase",
+          "uzbek": "ikkinchi qavatda (inglizcha hisobda)",
+          "description": "Located on the floor above the ground floor",
+          "example": "Your room is on the first floor."
+        },
+        {
+          "id": "u21_20",
+          "word": "over there",
+          "transcription": "/ˌoʊvər ˈðeər/",
+          "part_of_speech": "phrase",
+          "uzbek": "u yerda, narida",
+          "description": "At a place some distance away that you can point to",
+          "example": "The lift is over there."
+        }
+      ]
+    },
+    {
+      "unit": 22,
+      "title": "Eating out",
+      "topic": "Places to eat, restaurant vocabulary and ordering food",
+      "words": [
+        {
+          "id": "u22_1",
+          "word": "café",
+          "transcription": "/kæˈfeɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "kafe",
+          "description": "A small restaurant where you can have coffee, tea, snacks and sometimes meals",
+          "example": "You can have a cup of tea or coffee and a snack at a café."
+        },
+        {
+          "id": "u22_2",
+          "word": "restaurant",
+          "transcription": "/ˈrɛstərɒnt/",
+          "part_of_speech": "noun",
+          "uzbek": "restoran",
+          "description": "A place where you pay to eat full meals; usually more expensive than a café",
+          "example": "We went to a restaurant for dinner."
+        },
+        {
+          "id": "u22_3",
+          "word": "bar / pub",
+          "transcription": "/bɑːr/ /pʌb/",
+          "part_of_speech": "noun",
+          "uzbek": "bar / pub",
+          "description": "Places where alcohol and soft drinks are served; you can usually eat snacks or meals there too",
+          "example": "Bars and pubs serve alcohol and soft drinks."
+        },
+        {
+          "id": "u22_4",
+          "word": "fast food restaurant",
+          "transcription": "/fɑːst fuːd ˈrɛstərɒnt/",
+          "part_of_speech": "noun",
+          "uzbek": "tez ovqatlanish joyi",
+          "description": "A restaurant where you get quick hot meals like burgers and chips",
+          "example": "You can get a quick hot meal at a fast food restaurant."
+        },
+        {
+          "id": "u22_5",
+          "word": "take-away",
+          "transcription": "/ˈteɪk əweɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "olib ketish uchun taom (restorandan)",
+          "description": "Food you buy at a restaurant and take home to eat",
+          "example": "I don't want to cook tonight. Let's get a take-away."
+        },
+        {
+          "id": "u22_6",
+          "word": "menu",
+          "transcription": "/ˈmɛnjuː/",
+          "part_of_speech": "noun",
+          "uzbek": "menyu",
+          "description": "A list of food and drinks available in a restaurant",
+          "example": "Can I see the menu, please?"
+        },
+        {
+          "id": "u22_7",
+          "word": "starters",
+          "transcription": "/ˈstɑːrtərz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "boshlanish taomlar (salatlar va boshqalar)",
+          "description": "Small dishes eaten at the beginning of a meal before the main course",
+          "example": "For starters, I'll have the soup of the day."
+        },
+        {
+          "id": "u22_8",
+          "word": "main course",
+          "transcription": "/meɪn kɔːrs/",
+          "part_of_speech": "noun",
+          "uzbek": "asosiy taom",
+          "description": "The largest and most important dish of a meal",
+          "example": "For the main course, I'd like the steak with chips."
+        },
+        {
+          "id": "u22_9",
+          "word": "dessert",
+          "transcription": "/dɪˈzɜːrt/",
+          "part_of_speech": "noun",
+          "uzbek": "shirinlik (ovqatdan keyin)",
+          "description": "A sweet food eaten at the end of a meal",
+          "example": "For dessert, I'll have the chocolate ice cream."
+        },
+        {
+          "id": "u22_10",
+          "word": "waiter",
+          "transcription": "/ˈweɪtər/",
+          "part_of_speech": "noun",
+          "uzbek": "ofitsiant (erkak)",
+          "description": "A man who serves food and drinks in a restaurant",
+          "example": "The waiter took our order."
+        },
+        {
+          "id": "u22_11",
+          "word": "Are you ready to order?",
+          "transcription": "/ɑːr juː ˈrɛdi tə ˈɔːrdər/",
+          "part_of_speech": "phrase",
+          "uzbek": "Buyurtma berishga tayyormisiz?",
+          "description": "What a waiter says when they come to take your food order",
+          "example": "Are you ready to order? Yes, I'd like the steak, please."
+        },
+        {
+          "id": "u22_12",
+          "word": "I'd like",
+          "transcription": "/aɪd laɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "Men ... xohlayman (iltimos)",
+          "description": "A polite way to order or ask for something in a restaurant",
+          "example": "I'd like the steak, please."
+        },
+        {
+          "id": "u22_13",
+          "word": "Would you like",
+          "transcription": "/wʊd juː laɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "Siz ... xohlaysizmi?",
+          "description": "A polite question asking what someone wants",
+          "example": "Would you like it with chips or new potatoes?"
+        },
+        {
+          "id": "u22_14",
+          "word": "rare / medium / well-done",
+          "transcription": "/reər/ /ˈmiːdiəm/ /ˌwɛl ˈdʌn/",
+          "part_of_speech": "adjective",
+          "uzbek": "kam pishgan / o'rtacha / to'liq pishgan (steak)",
+          "description": "Words describing how much a steak is cooked",
+          "example": "How would you like your steak — rare, medium or well-done?"
+        },
+        {
+          "id": "u22_15",
+          "word": "I'll have",
+          "transcription": "/aɪl hæv/",
+          "part_of_speech": "phrase",
+          "uzbek": "Men ... olaman (buyurtma berayotganda)",
+          "description": "A way to order food or drinks in a restaurant",
+          "example": "I'll have a coke, please."
+        },
+        {
+          "id": "u22_16",
+          "word": "Is everything all right?",
+          "transcription": "/ɪz ˈɛvriθɪŋ ɔːl raɪt/",
+          "part_of_speech": "phrase",
+          "uzbek": "Hammasi yaxshimi? (ofitsiantning savoli)",
+          "description": "What a waiter asks to check if you are happy with your food",
+          "example": "Is everything all right? Yes, it's delicious."
+        },
+        {
+          "id": "u22_17",
+          "word": "delicious",
+          "transcription": "/dɪˈlɪʃəs/",
+          "part_of_speech": "adjective",
+          "uzbek": "mazali, lazzatli",
+          "description": "Having a very pleasant taste; extremely good to eat",
+          "example": "Thank you, it's delicious."
+        },
+        {
+          "id": "u22_18",
+          "word": "Could I have the bill",
+          "transcription": "/kʊd aɪ hæv ðə bɪl/",
+          "part_of_speech": "phrase",
+          "uzbek": "Hisobni berasizmi?",
+          "description": "A polite way to ask for the bill at the end of a meal",
+          "example": "Could I have the bill, please?"
+        },
+        {
+          "id": "u22_19",
+          "word": "soft drinks",
+          "transcription": "/sɒft drɪŋks/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "alkogolsiz ichimliklar (sharbat, kola va boshqalar)",
+          "description": "Non-alcoholic drinks such as fruit juice and cola",
+          "example": "Bars and pubs serve alcohol and soft drinks."
+        },
+        {
+          "id": "u22_20",
+          "word": "vegetarian (v)",
+          "transcription": "/ˌvɛdʒɪˈteəriən/",
+          "part_of_speech": "adjective",
+          "uzbek": "vegetarian (go'shtsiz taom)",
+          "description": "A dish that does not contain meat or fish; shown on menus with (v)",
+          "example": "Vegetable curry (v) — this dish is vegetarian."
+        }
+      ]
+    },
+    {
+      "unit": 23,
+      "title": "Sports",
+      "topic": "Ball games, other sports, and sports vocabulary",
+      "words": [
+        {
+          "id": "u23_1",
+          "word": "football",
+          "transcription": "/ˈfʊtbɔːl/",
+          "part_of_speech": "noun",
+          "uzbek": "futbol",
+          "description": "A game played between two teams of 11 players who kick a round ball into a goal",
+          "example": "We play football. I play football every weekend."
+        },
+        {
+          "id": "u23_2",
+          "word": "rugby",
+          "transcription": "/ˈrʌɡbi/",
+          "part_of_speech": "noun",
+          "uzbek": "regbi",
+          "description": "A team sport played with an oval ball that can be carried or kicked",
+          "example": "We play rugby on the school pitch."
+        },
+        {
+          "id": "u23_3",
+          "word": "American football",
+          "transcription": "/əˈmɛrɪkən ˈfʊtbɔːl/",
+          "part_of_speech": "noun",
+          "uzbek": "amerikalik futbol",
+          "description": "A team sport popular in the USA, played with an oval ball and helmets",
+          "example": "American football is very popular in the USA."
+        },
+        {
+          "id": "u23_4",
+          "word": "basketball",
+          "transcription": "/ˈbɑːskɪtbɔːl/",
+          "part_of_speech": "noun",
+          "uzbek": "basketbol",
+          "description": "A game where two teams try to throw a ball through a high hoop",
+          "example": "We play basketball on the basketball court."
+        },
+        {
+          "id": "u23_5",
+          "word": "badminton",
+          "transcription": "/ˈbædmɪntən/",
+          "part_of_speech": "noun",
+          "uzbek": "badminton",
+          "description": "A game played with rackets and a shuttlecock over a net",
+          "example": "We play badminton on the badminton court."
+        },
+        {
+          "id": "u23_6",
+          "word": "baseball",
+          "transcription": "/ˈbeɪsbɔːl/",
+          "part_of_speech": "noun",
+          "uzbek": "beysbol",
+          "description": "An American sport played with a bat and ball between two teams of nine players",
+          "example": "Baseball is very popular in the United States."
+        },
+        {
+          "id": "u23_7",
+          "word": "tennis",
+          "transcription": "/ˈtɛnɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "tennis",
+          "description": "A game played with rackets and a ball over a net on a court",
+          "example": "We play tennis on the tennis court."
+        },
+        {
+          "id": "u23_8",
+          "word": "volleyball",
+          "transcription": "/ˈvɒlibɔːl/",
+          "part_of_speech": "noun",
+          "uzbek": "voleybol",
+          "description": "A game where two teams hit a ball over a high net with their hands",
+          "example": "We play volleyball on the volleyball court."
+        },
+        {
+          "id": "u23_9",
+          "word": "table tennis",
+          "transcription": "/ˈteɪbəl ˌtɛnɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "stol tennisi, ping-pong",
+          "description": "A game like tennis but played on a table with small paddles and a light ball",
+          "example": "I play table tennis with my friends."
+        },
+        {
+          "id": "u23_10",
+          "word": "swimming",
+          "transcription": "/ˈswɪmɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "suzish (sport)",
+          "description": "The sport or activity of moving through water using your arms and legs",
+          "example": "I go swimming every morning."
+        },
+        {
+          "id": "u23_11",
+          "word": "running",
+          "transcription": "/ˈrʌnɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "yugurish (sport)",
+          "description": "The sport or activity of running for exercise or competition",
+          "example": "I go running every day."
+        },
+        {
+          "id": "u23_12",
+          "word": "sailing",
+          "transcription": "/ˈseɪlɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "yelkanli kemada suzish",
+          "description": "The sport or activity of travelling on water in a boat with sails",
+          "example": "I go sailing at the weekends."
+        },
+        {
+          "id": "u23_13",
+          "word": "motor racing",
+          "transcription": "/ˈmoʊtər ˌreɪsɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "avtomobil poyga musobaqasi",
+          "description": "The sport of racing cars at high speed on circuits",
+          "example": "I like motor racing best."
+        },
+        {
+          "id": "u23_14",
+          "word": "horse racing",
+          "transcription": "/ˈhɔːrs ˌreɪsɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "ot poygasi",
+          "description": "The sport of racing horses ridden by jockeys",
+          "example": "Horse racing is a popular sport in the UK."
+        },
+        {
+          "id": "u23_15",
+          "word": "judo / karate",
+          "transcription": "/ˈdʒuːdoʊ/ /kəˈrɑːti/",
+          "part_of_speech": "noun",
+          "uzbek": "judo / karate",
+          "description": "Martial arts sports. Note: use 'do' with these — 'She does judo'",
+          "example": "She does judo. He does karate."
+        },
+        {
+          "id": "u23_16",
+          "word": "snowboarding",
+          "transcription": "/ˈsnoʊbɔːrdɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "snoubording",
+          "description": "The sport of sliding down snow-covered slopes on a snowboard",
+          "example": "I went snowboarding last winter."
+        },
+        {
+          "id": "u23_17",
+          "word": "skiing",
+          "transcription": "/ˈskiːɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "chang'i sport",
+          "description": "The sport of sliding down snow-covered slopes on skis",
+          "example": "I went skiing last year."
+        },
+        {
+          "id": "u23_18",
+          "word": "kayaking",
+          "transcription": "/ˈkaɪækɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "kayaking (qayiqda suzish)",
+          "description": "The sport of paddling in a small narrow boat called a kayak",
+          "example": "I go kayaking on the river."
+        },
+        {
+          "id": "u23_19",
+          "word": "play",
+          "transcription": "/pleɪ/",
+          "part_of_speech": "verb",
+          "uzbek": "o'ynаmoq (sport)",
+          "description": "Used with ball games and some other sports: football, tennis, basketball etc",
+          "example": "Do you play football? I play tennis."
+        },
+        {
+          "id": "u23_20",
+          "word": "go",
+          "transcription": "/ɡoʊ/",
+          "part_of_speech": "verb",
+          "uzbek": "bormoq; ...bilan shug'ullanmoq (sport)",
+          "description": "Used with sports ending in -ing: swimming, running, skiing, sailing etc. Note: NOT judo and karate",
+          "example": "I go swimming. I go running every day."
+        },
+        {
+          "id": "u23_21",
+          "word": "do",
+          "transcription": "/duː/",
+          "part_of_speech": "verb",
+          "uzbek": "qilmoq (sport)",
+          "description": "Used with judo and karate",
+          "example": "She does judo. He does karate."
+        },
+        {
+          "id": "u23_22",
+          "word": "tennis court",
+          "transcription": "/ˈtɛnɪs kɔːrt/",
+          "part_of_speech": "noun",
+          "uzbek": "tennis maydoni",
+          "description": "The surface or area where tennis is played",
+          "example": "We play tennis on a tennis court."
+        },
+        {
+          "id": "u23_23",
+          "word": "football pitch",
+          "transcription": "/ˈfʊtbɔːl pɪtʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "futbol maydoni",
+          "description": "The grass area where football is played",
+          "example": "We play football on a football pitch."
+        },
+        {
+          "id": "u23_24",
+          "word": "swimming pool",
+          "transcription": "/ˈswɪmɪŋ puːl/",
+          "part_of_speech": "noun",
+          "uzbek": "suzish havzasi, basseyn",
+          "description": "An artificial pool of water used for swimming",
+          "example": "We swim in a swimming pool."
+        },
+        {
+          "id": "u23_25",
+          "word": "sports centre",
+          "transcription": "/spɔːrts ˈsɛntər/",
+          "part_of_speech": "noun",
+          "uzbek": "sport markazi",
+          "description": "A building where many different sports and exercise activities can be done",
+          "example": "Many towns have a sports centre where you can do lots of different sports."
+        }
+      ]
+    },
+    {
+      "unit": 24,
+      "title": "Cinema",
+      "topic": "Types of films and cinema vocabulary",
+      "words": [
+        {
+          "id": "u24_1",
+          "word": "western",
+          "transcription": "/ˈwɛstərn/",
+          "part_of_speech": "noun",
+          "uzbek": "vestern (g'arb filmlar)",
+          "description": "A film set in the American West in the 19th century, usually with cowboys",
+          "example": "Do you like westerns? No, I like science fiction films best."
+        },
+        {
+          "id": "u24_2",
+          "word": "cartoon",
+          "transcription": "/kɑːrˈtuːn/",
+          "part_of_speech": "noun",
+          "uzbek": "multfilm",
+          "description": "An animated film, often made for children, with drawn or computer-generated characters",
+          "example": "The children watch cartoons on Saturday mornings."
+        },
+        {
+          "id": "u24_3",
+          "word": "horror film",
+          "transcription": "/ˈhɒrər fɪlm/",
+          "part_of_speech": "noun",
+          "uzbek": "dahshatli film",
+          "description": "A film designed to frighten you with scary and disturbing scenes",
+          "example": "If I see a horror film, I can't sleep."
+        },
+        {
+          "id": "u24_4",
+          "word": "comedy",
+          "transcription": "/ˈkɒmədi/",
+          "part_of_speech": "noun",
+          "uzbek": "komediya",
+          "description": "A funny film or TV show intended to make people laugh",
+          "example": "I love comedies because they make me laugh."
+        },
+        {
+          "id": "u24_5",
+          "word": "thriller",
+          "transcription": "/ˈθrɪlər/",
+          "part_of_speech": "noun",
+          "uzbek": "triller (hayajonly film)",
+          "description": "An exciting film with a lot of tension and suspense",
+          "example": "I like watching thrillers because they are exciting."
+        },
+        {
+          "id": "u24_6",
+          "word": "action film",
+          "transcription": "/ˈækʃən fɪlm/",
+          "part_of_speech": "noun",
+          "uzbek": "aksion film",
+          "description": "A film with a lot of exciting scenes, fighting and adventure",
+          "example": "The best action film I've seen was Jason Bourne."
+        },
+        {
+          "id": "u24_7",
+          "word": "science fiction film",
+          "transcription": "/ˈsaɪəns ˈfɪkʃən fɪlm/",
+          "part_of_speech": "noun",
+          "uzbek": "ilmiy-fantastik film",
+          "description": "A film set in the future or in space, often with robots or aliens",
+          "example": "No, I like science fiction films best."
+        },
+        {
+          "id": "u24_8",
+          "word": "musical",
+          "transcription": "/ˈmjuːzɪkəl/",
+          "part_of_speech": "noun",
+          "uzbek": "myuzikl (musiqa va raqs bilan film)",
+          "description": "A film or show where characters sing and dance to tell the story",
+          "example": "She loves musicals and knows all the songs."
+        },
+        {
+          "id": "u24_9",
+          "word": "romantic comedy",
+          "transcription": "/roʊˈmæntɪk ˈkɒmədi/",
+          "part_of_speech": "noun",
+          "uzbek": "romantik komediya, rom-kom",
+          "description": "A funny film about people falling in love; also called 'rom-com'",
+          "example": "She loves watching romantic comedies."
+        },
+        {
+          "id": "u24_10",
+          "word": "film star",
+          "transcription": "/fɪlm stɑːr/",
+          "part_of_speech": "noun",
+          "uzbek": "kino yulduzi",
+          "description": "A very famous and popular actor or actress in films",
+          "example": "Monica Bellucci is a film star."
+        },
+        {
+          "id": "u24_11",
+          "word": "director",
+          "transcription": "/dɪˈrɛktər/",
+          "part_of_speech": "noun",
+          "uzbek": "rejissyor, direktor",
+          "description": "The person who is in charge of making a film and tells the actors what to do",
+          "example": "I like films by Italian directors."
+        },
+        {
+          "id": "u24_12",
+          "word": "played",
+          "transcription": "/pleɪd/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "o'ynadi (aktyor sifatida)",
+          "description": "Acted the role of a character in a film or play",
+          "example": "Daniel Radcliffe played Harry Potter in the Harry Potter films."
+        },
+        {
+          "id": "u24_13",
+          "word": "was / were in",
+          "transcription": "/wɒz/ /wɜːr ɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "... filmida o'ynagan",
+          "description": "To appear as an actor in a film",
+          "example": "She was in the new James Bond film."
+        },
+        {
+          "id": "u24_14",
+          "word": "Have you seen",
+          "transcription": "/hæv juː siːn/",
+          "part_of_speech": "phrase",
+          "uzbek": "Ko'rdingizmi? (film haqida)",
+          "description": "Used to ask if someone has watched a particular film",
+          "example": "Have you seen the latest James Bond film?"
+        },
+        {
+          "id": "u24_15",
+          "word": "I loved it / I enjoyed it",
+          "transcription": "/aɪ lʌvd ɪt/ /aɪ ɪnˈdʒɔɪd ɪt/",
+          "part_of_speech": "phrase",
+          "uzbek": "Menga juda yoqdi",
+          "description": "Ways to say you liked a film very much",
+          "example": "Yes, I loved it / I enjoyed it."
+        },
+        {
+          "id": "u24_16",
+          "word": "boring",
+          "transcription": "/ˈbɔːrɪŋ/",
+          "part_of_speech": "adjective",
+          "uzbek": "zerikarli, qiziq bo'lmagan",
+          "description": "Not interesting; making you feel tired and uninterested",
+          "example": "Did you like the new Batman film? No, it was boring."
+        },
+        {
+          "id": "u24_17",
+          "word": "What's on at the cinema",
+          "transcription": "/wɒts ɒn æt ðə ˈsɪnəmə/",
+          "part_of_speech": "phrase",
+          "uzbek": "Kinoda nima ko'rsatilmoqda?",
+          "description": "A question asking which films are currently showing at the cinema",
+          "example": "What's on at the cinema this week?"
+        },
+        {
+          "id": "u24_18",
+          "word": "go to the cinema",
+          "transcription": "/ɡoʊ tə ðə ˈsɪnəmə/",
+          "part_of_speech": "phrase",
+          "uzbek": "kinoga bormoq",
+          "description": "To visit a cinema to watch a film. Note: 'go to the cinema' NOT 'go to cinema'",
+          "example": "Do you go to the cinema often? Yes, I go every week."
+        },
+        {
+          "id": "u24_19",
+          "word": "saw it on TV",
+          "transcription": "/sɔː ɪt ɒn ˌtiːˈviː/",
+          "part_of_speech": "phrase",
+          "uzbek": "televizorda ko'rdim",
+          "description": "Watched a film on television rather than at the cinema",
+          "example": "Have you seen the latest James Bond film? Yes, I saw it on TV."
+        }
+      ]
+    },
+    {
+      "unit": 25,
+      "title": "Free time at home",
+      "topic": "Hobbies and leisure activities at home",
+      "words": [
+        {
+          "id": "u25_1",
+          "word": "watch TV",
+          "transcription": "/wɒtʃ ˌtiːˈviː/",
+          "part_of_speech": "phrase",
+          "uzbek": "televizor ko'rmoq",
+          "description": "To view programmes on television. Note: 'watch TV' NOT 'see TV'",
+          "example": "I watch TV every evening."
+        },
+        {
+          "id": "u25_2",
+          "word": "programmes",
+          "transcription": "/ˈproʊɡræmz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "dasturlar (televizor yoki radio)",
+          "description": "Shows or broadcasts on TV or radio",
+          "example": "What programmes do you like best on TV?"
+        },
+        {
+          "id": "u25_3",
+          "word": "watch a DVD",
+          "transcription": "/wɒtʃ ə ˌdiː viː ˈdiː/",
+          "part_of_speech": "phrase",
+          "uzbek": "DVD ko'rmoq",
+          "description": "To watch a film or show recorded on a DVD disc",
+          "example": "At the weekend, we usually watch a DVD."
+        },
+        {
+          "id": "u25_4",
+          "word": "headphones",
+          "transcription": "/ˈhɛdfəʊnz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "quloqchin, naushnik",
+          "description": "A pair of small speakers worn over or in your ears for listening to music or audio",
+          "example": "I need some new headphones for my phone."
+        },
+        {
+          "id": "u25_5",
+          "word": "listen to music",
+          "transcription": "/ˈlɪsən tə ˈmjuːzɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "musiqa tinglаmoq",
+          "description": "To enjoy music through speakers or headphones",
+          "example": "I often listen to music on my phone when I'm relaxing."
+        },
+        {
+          "id": "u25_6",
+          "word": "listen to the radio",
+          "transcription": "/ˈlɪsən tə ðə ˈreɪdioʊ/",
+          "part_of_speech": "phrase",
+          "uzbek": "radio tinglаmoq",
+          "description": "To hear programmes broadcast on the radio",
+          "example": "Sometimes I listen to the radio in the morning."
+        },
+        {
+          "id": "u25_7",
+          "word": "play video games",
+          "transcription": "/pleɪ ˈvɪdioʊ ɡeɪmz/",
+          "part_of_speech": "phrase",
+          "uzbek": "video o'yinlar o'ynаmoq",
+          "description": "To play games on a console, computer or phone",
+          "example": "A lot of young people play video games every day."
+        },
+        {
+          "id": "u25_8",
+          "word": "download",
+          "transcription": "/ˈdaʊnloʊd/",
+          "part_of_speech": "verb",
+          "uzbek": "yuklab olmoq (internet orqali)",
+          "description": "To copy music, films or other content from the internet to your device",
+          "example": "I download music and films from the Internet."
+        },
+        {
+          "id": "u25_9",
+          "word": "chat to friends online",
+          "transcription": "/tʃæt tə frɛndz ˈɒnlaɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "do'stlar bilan internetda suhbatlashmoq",
+          "description": "To communicate with friends through social media or messaging apps",
+          "example": "I chat to my friends online every evening."
+        },
+        {
+          "id": "u25_10",
+          "word": "cooking",
+          "transcription": "/ˈkʊkɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "ovqat pishirish (hobbi)",
+          "description": "The activity of preparing and cooking food as a hobby",
+          "example": "I really like cooking."
+        },
+        {
+          "id": "u25_11",
+          "word": "gardening",
+          "transcription": "/ˈɡɑːrdnɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "bog'dorchilik (hobbi)",
+          "description": "The activity of growing and caring for plants in a garden",
+          "example": "Do you like gardening?"
+        },
+        {
+          "id": "u25_12",
+          "word": "grow flowers",
+          "transcription": "/ɡroʊ ˈflaʊərz/",
+          "part_of_speech": "phrase",
+          "uzbek": "gul o'stirmoq",
+          "description": "To plant and care for flowers in your garden",
+          "example": "We grow flowers and vegetables in our garden."
+        },
+        {
+          "id": "u25_13",
+          "word": "read novels",
+          "transcription": "/riːd ˈnɒvəlz/",
+          "part_of_speech": "phrase",
+          "uzbek": "roman o'qimoq",
+          "description": "To read long fiction books for pleasure",
+          "example": "I read novels — long stories. My sister likes comics."
+        },
+        {
+          "id": "u25_14",
+          "word": "comics",
+          "transcription": "/ˈkɒmɪks/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "komikslar (rasmli kitoblar)",
+          "description": "Books or magazines with stories told through pictures and speech bubbles",
+          "example": "My sister likes comics."
+        },
+        {
+          "id": "u25_15",
+          "word": "newspaper",
+          "transcription": "/ˈnjuːspeɪpər/",
+          "part_of_speech": "noun",
+          "uzbek": "gazeta",
+          "description": "A daily or weekly publication containing news, articles and advertisements",
+          "example": "Do you read a newspaper every day?"
+        },
+        {
+          "id": "u25_16",
+          "word": "magazine",
+          "transcription": "/ˌmæɡəˈziːn/",
+          "part_of_speech": "noun",
+          "uzbek": "jurnal",
+          "description": "A weekly or monthly publication with articles on various topics",
+          "example": "I like magazines about music and sport."
+        },
+        {
+          "id": "u25_17",
+          "word": "have friends round",
+          "transcription": "/hæv frɛndz raʊnd/",
+          "part_of_speech": "phrase",
+          "uzbek": "do'stlarni uyga taklif qilmoq",
+          "description": "To invite friends to visit your home",
+          "example": "We sometimes have friends round on Saturday evenings."
+        },
+        {
+          "id": "u25_18",
+          "word": "have friends to dinner",
+          "transcription": "/hæv frɛndz tə ˈdɪnər/",
+          "part_of_speech": "phrase",
+          "uzbek": "do'stlarni kechki ovqatga taklif qilmoq",
+          "description": "To invite friends to your home for an evening meal",
+          "example": "I often have friends to dinner."
+        },
+        {
+          "id": "u25_19",
+          "word": "comes to stay",
+          "transcription": "/kʌmz tə steɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "mehmon bo'lib kelmoq (bir necha kun)",
+          "description": "To visit someone and sleep at their home for one or more nights",
+          "example": "My best friend comes to stay sometimes."
+        },
+        {
+          "id": "u25_20",
+          "word": "talk on the phone",
+          "transcription": "/tɔːk ɒn ðə foʊn/",
+          "part_of_speech": "phrase",
+          "uzbek": "telefonda suhbatlashmoq",
+          "description": "To speak to someone using a telephone",
+          "example": "I talk to my friends on the phone every evening."
+        },
+        {
+          "id": "u25_21",
+          "word": "do nothing",
+          "transcription": "/duː ˈnʌθɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "hech narsa qilmaslik, dam olmoq",
+          "description": "To relax completely without any activity",
+          "example": "Sometimes I just do nothing."
+        },
+        {
+          "id": "u25_22",
+          "word": "have a sleep",
+          "transcription": "/hæv ə sliːp/",
+          "part_of_speech": "phrase",
+          "uzbek": "uxlab olmoq, dam olmoq",
+          "description": "To take a short sleep or nap during the day",
+          "example": "Grandpa likes to have a sleep after lunch."
+        }
+      ]
+    },
+    {
+      "unit": 26,
+      "title": "Music and musical instruments",
+      "topic": "Types of music, musical instruments, and related vocabulary",
+      "words": [
+        {
+          "id": "u26_1",
+          "word": "music",
+          "transcription": "/ˈmjuːzɪk/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "musiqa",
+          "description": "Sounds arranged in a pleasing way. Note: uncountable — 'fantastic music' NOT 'fantastic musics'",
+          "example": "The band played fantastic music for more than two hours."
+        },
+        {
+          "id": "u26_2",
+          "word": "musical",
+          "transcription": "/ˈmjuːzɪkəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "musiqiy",
+          "description": "Relating to music. Note: 'musical instruments' NOT 'music instruments'",
+          "example": "There is a shop that sells musical instruments."
+        },
+        {
+          "id": "u26_3",
+          "word": "musician",
+          "transcription": "/mjuːˈzɪʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "musiqachi, musiqa ijrochisi",
+          "description": "A person who plays a musical instrument or sings professionally",
+          "example": "My brother is a very good musician. He plays three instruments."
+        },
+        {
+          "id": "u26_4",
+          "word": "piano",
+          "transcription": "/piˈænoʊ/",
+          "part_of_speech": "noun",
+          "uzbek": "pianino, royal",
+          "description": "A large keyboard instrument with black and white keys played by pressing them",
+          "example": "She plays the piano beautifully."
+        },
+        {
+          "id": "u26_5",
+          "word": "cello",
+          "transcription": "/ˈtʃɛloʊ/",
+          "part_of_speech": "noun",
+          "uzbek": "violonchel",
+          "description": "A large stringed instrument played with a bow, held between the knees",
+          "example": "He plays the cello in the school orchestra."
+        },
+        {
+          "id": "u26_6",
+          "word": "guitar",
+          "transcription": "/ɡɪˈtɑːr/",
+          "part_of_speech": "noun",
+          "uzbek": "gitara",
+          "description": "A stringed instrument with a body and neck, played by plucking or strumming",
+          "example": "Krishnan is learning the guitar."
+        },
+        {
+          "id": "u26_7",
+          "word": "flute",
+          "transcription": "/fluːt/",
+          "part_of_speech": "noun",
+          "uzbek": "fleyta (nay)",
+          "description": "A wind instrument played by blowing across a hole at one end",
+          "example": "Mia is a very good flute-player."
+        },
+        {
+          "id": "u26_8",
+          "word": "violin",
+          "transcription": "/ˌvaɪəˈlɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "skripka",
+          "description": "A small stringed instrument played with a bow held under the chin",
+          "example": "Lucas is an excellent violinist."
+        },
+        {
+          "id": "u26_9",
+          "word": "trumpet",
+          "transcription": "/ˈtrʌmpɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "truba (musiqa asbobi)",
+          "description": "A brass wind instrument with a flared bell, played by blowing",
+          "example": "Nuria is a good trumpet-player."
+        },
+        {
+          "id": "u26_10",
+          "word": "clarinet",
+          "transcription": "/ˌklærɪˈnɛt/",
+          "part_of_speech": "noun",
+          "uzbek": "klarnet",
+          "description": "A wind instrument with a single reed, played by blowing into one end",
+          "example": "Ava plays the clarinet."
+        },
+        {
+          "id": "u26_11",
+          "word": "drums",
+          "transcription": "/drʌmz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "doira, baraban (to'plam)",
+          "description": "A percussion instrument played by hitting stretched skins with sticks. Always plural",
+          "example": "Her brother plays the drums."
+        },
+        {
+          "id": "u26_12",
+          "word": "play the piano / guitar",
+          "transcription": "/pleɪ ðə pɪˈænoʊ/",
+          "part_of_speech": "phrase",
+          "uzbek": "pianino / gitara chalmoq",
+          "description": "To perform on a musical instrument. Note: use 'the' with instruments — 'plays the guitar'",
+          "example": "Can you play a musical instrument?"
+        },
+        {
+          "id": "u26_13",
+          "word": "plays in an orchestra",
+          "transcription": "/pleɪz ɪn ən ˈɔːrkɪstrə/",
+          "part_of_speech": "phrase",
+          "uzbek": "orkestrda chalmoq",
+          "description": "To be a member of a large group of musicians who play together",
+          "example": "She plays in an orchestra."
+        },
+        {
+          "id": "u26_14",
+          "word": "has piano lessons",
+          "transcription": "/hæz pɪˈænoʊ ˈlɛsənz/",
+          "part_of_speech": "phrase",
+          "uzbek": "pianino darslarini olmoq",
+          "description": "To receive regular teaching from a music teacher on an instrument",
+          "example": "His friend Isabella has piano lessons."
+        },
+        {
+          "id": "u26_15",
+          "word": "classical music",
+          "transcription": "/ˈklæsɪkəl ˈmjuːzɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "klassik musiqa",
+          "description": "Serious traditional music composed by composers like Beethoven and Mozart. Note: 'classical music' NOT 'classic music'",
+          "example": "Charlotte loves classical music — for example, Beethoven and Mozart."
+        },
+        {
+          "id": "u26_16",
+          "word": "opera",
+          "transcription": "/ˈɒpərə/",
+          "part_of_speech": "noun",
+          "uzbek": "opera",
+          "description": "A type of musical performance where singers perform a dramatic story",
+          "example": "Harper can't stand opera. She prefers pop music."
+        },
+        {
+          "id": "u26_17",
+          "word": "pop music",
+          "transcription": "/pɒp ˈmjuːzɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "pop musiqa",
+          "description": "Popular modern music with a strong beat and simple melodies",
+          "example": "She prefers pop music."
+        },
+        {
+          "id": "u26_18",
+          "word": "folk music",
+          "transcription": "/foʊk ˈmjuːzɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "xalq musiqasi",
+          "description": "Traditional music from a particular country or region",
+          "example": "I like folk music, jazz and rock."
+        },
+        {
+          "id": "u26_19",
+          "word": "jazz",
+          "transcription": "/dʒæz/",
+          "part_of_speech": "noun",
+          "uzbek": "jazz musiqasi",
+          "description": "A style of music developed from blues and ragtime, known for improvisation",
+          "example": "I like folk music, jazz and rock."
+        },
+        {
+          "id": "u26_20",
+          "word": "rock",
+          "transcription": "/rɒk/",
+          "part_of_speech": "noun",
+          "uzbek": "rok musiqasi",
+          "description": "A type of loud popular music with a strong beat, usually with electric guitars",
+          "example": "I like folk music, jazz and rock."
+        },
+        {
+          "id": "u26_21",
+          "word": "band",
+          "transcription": "/bænd/",
+          "part_of_speech": "noun",
+          "uzbek": "musiqa guruhi",
+          "description": "A group of musicians who play together. Note: 'a band' NOT 'a music band'",
+          "example": "A band means a group of musicians."
+        },
+        {
+          "id": "u26_22",
+          "word": "concert",
+          "transcription": "/ˈkɒnsərt/",
+          "part_of_speech": "noun",
+          "uzbek": "konsert",
+          "description": "A live musical performance. Note: 'a concert' NOT 'a music concert'",
+          "example": "We're going to a concert tonight."
+        },
+        {
+          "id": "u26_23",
+          "word": "listen to music",
+          "transcription": "/ˈlɪsən tə ˈmjuːzɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "musiqa tinglаmoq",
+          "description": "To enjoy music through speakers or headphones",
+          "example": "I often listen to music on the train."
+        },
+        {
+          "id": "u26_24",
+          "word": "downloaded some new songs",
+          "transcription": "/ˌdaʊnloʊdɪd sʌm njuː sɒŋz/",
+          "part_of_speech": "phrase",
+          "uzbek": "yangi qo'shiqlar yuklab olmoq",
+          "description": "To copy songs from the internet to your device",
+          "example": "I downloaded some new songs yesterday."
+        }
+      ]
+    },
+    {
+      "unit": 27,
+      "title": "Countries and nationalities",
+      "topic": "Continents, countries, nationalities and languages",
+      "words": [
+        {
+          "id": "u27_1",
+          "word": "continent",
+          "transcription": "/ˈkɒntɪnənt/",
+          "part_of_speech": "noun",
+          "uzbek": "qit'a, materik",
+          "description": "One of the seven large land masses on Earth. Note: continents always begin with a capital letter",
+          "example": "Uzbekistan is in the continent of Asia."
+        },
+        {
+          "id": "u27_2",
+          "word": "North America",
+          "transcription": "/nɔːrθ əˈmɛrɪkə/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Shimoliy Amerika",
+          "description": "The continent that includes Canada, the USA and Mexico",
+          "example": "Canada and the USA are in North America."
+        },
+        {
+          "id": "u27_3",
+          "word": "South America",
+          "transcription": "/saʊθ əˈmɛrɪkə/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Janubiy Amerika",
+          "description": "The continent that includes Brazil, Argentina, Chile and other countries",
+          "example": "Brazil and Argentina are in South America."
+        },
+        {
+          "id": "u27_4",
+          "word": "Europe",
+          "transcription": "/ˈjʊərəp/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Yevropa",
+          "description": "The continent that includes the UK, Germany, France, Spain and other countries",
+          "example": "Germany, Italy and Spain are in Europe."
+        },
+        {
+          "id": "u27_5",
+          "word": "Asia",
+          "transcription": "/ˈeɪʒə/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Osiyo",
+          "description": "The largest continent, including China, India, Japan, Uzbekistan and others",
+          "example": "China, India and Japan are in Asia."
+        },
+        {
+          "id": "u27_6",
+          "word": "Africa",
+          "transcription": "/ˈæfrɪkə/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Afrika",
+          "description": "The second largest continent, including Egypt, Morocco and South Africa",
+          "example": "Egypt and Morocco are in Africa."
+        },
+        {
+          "id": "u27_7",
+          "word": "Australia",
+          "transcription": "/ɒˈstreɪliə/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Avstraliya (qit'a va mamlakat)",
+          "description": "Both a continent and a country in the southern hemisphere",
+          "example": "Australia and New Zealand are in Australia."
+        },
+        {
+          "id": "u27_8",
+          "word": "Antarctica",
+          "transcription": "/ænˈtɑːrktɪkə/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Antarktida",
+          "description": "The frozen continent around the South Pole",
+          "example": "Antarctica is the coldest continent on Earth."
+        },
+        {
+          "id": "u27_9",
+          "word": "nationality",
+          "transcription": "/ˌnæʃəˈnæləti/",
+          "part_of_speech": "noun",
+          "uzbek": "millat, fuqarolik",
+          "description": "The status of belonging to a particular country. Note: always begins with a capital letter",
+          "example": "My nationality is Uzbek — I am from Uzbekistan."
+        },
+        {
+          "id": "u27_10",
+          "word": "American",
+          "transcription": "/əˈmɛrɪkən/",
+          "part_of_speech": "adjective / noun",
+          "uzbek": "amerikalik",
+          "description": "Relating to or from the United States of America",
+          "example": "She is American. She comes from New York."
+        },
+        {
+          "id": "u27_11",
+          "word": "British",
+          "transcription": "/ˈbrɪtɪʃ/",
+          "part_of_speech": "adjective / noun",
+          "uzbek": "britaniyalik",
+          "description": "Relating to or from Great Britain (England, Scotland, Wales)",
+          "example": "He is British. He comes from London."
+        },
+        {
+          "id": "u27_12",
+          "word": "Chinese",
+          "transcription": "/ˌtʃaɪˈniːz/",
+          "part_of_speech": "adjective / noun",
+          "uzbek": "xitoylik",
+          "description": "Relating to or from China. Note: adjectives ending in -ese",
+          "example": "She is Chinese. She speaks Chinese."
+        },
+        {
+          "id": "u27_13",
+          "word": "Japanese",
+          "transcription": "/ˌdʒæpəˈniːz/",
+          "part_of_speech": "adjective / noun",
+          "uzbek": "yaponiyalik",
+          "description": "Relating to or from Japan. Note: adjectives ending in -ese",
+          "example": "He is Japanese. He speaks Japanese."
+        },
+        {
+          "id": "u27_14",
+          "word": "Spanish",
+          "transcription": "/ˈspænɪʃ/",
+          "part_of_speech": "adjective / noun",
+          "uzbek": "ispaniyalik",
+          "description": "Relating to or from Spain. Note: adjectives ending in -ish",
+          "example": "She is Spanish. She speaks Spanish."
+        },
+        {
+          "id": "u27_15",
+          "word": "French",
+          "transcription": "/frɛntʃ/",
+          "part_of_speech": "adjective / noun",
+          "uzbek": "fransuzlik",
+          "description": "Relating to or from France. Note: exception — does not end in -an, -ish or -ese",
+          "example": "He is French. He speaks French."
+        },
+        {
+          "id": "u27_16",
+          "word": "German",
+          "transcription": "/ˈdʒɜːrmən/",
+          "part_of_speech": "adjective / noun",
+          "uzbek": "nemislik",
+          "description": "Relating to or from Germany. Note: adjectives ending in -an",
+          "example": "She is German. She speaks German."
+        },
+        {
+          "id": "u27_17",
+          "word": "Brazilian",
+          "transcription": "/brəˈzɪliən/",
+          "part_of_speech": "adjective / noun",
+          "uzbek": "braziliyalik",
+          "description": "Relating to or from Brazil",
+          "example": "He is Brazilian. He speaks Portuguese."
+        },
+        {
+          "id": "u27_18",
+          "word": "language",
+          "transcription": "/ˈlæŋɡwɪdʒ/",
+          "part_of_speech": "noun",
+          "uzbek": "til, lison",
+          "description": "A system of communication used by people of a country or community",
+          "example": "The official language of Brazil is Portuguese."
+        },
+        {
+          "id": "u27_19",
+          "word": "Arabic",
+          "transcription": "/ˈærəbɪk/",
+          "part_of_speech": "noun / adjective",
+          "uzbek": "arab tili",
+          "description": "The language spoken in Arab countries. Note: the language is Arabic, not Arab",
+          "example": "She speaks Arabic. French, Spanish, Japanese and Thai share the language adjective."
+        },
+        {
+          "id": "u27_20",
+          "word": "capital letter",
+          "transcription": "/ˈkæpɪtəl ˈlɛtər/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "bosh harf",
+          "description": "An uppercase letter. Note: all nouns and adjectives for continents, countries and nationalities always begin with a capital letter",
+          "example": "All the nouns and adjectives for countries and nationalities begin with a capital letter."
+        }
+      ]
+    },
+    {
+      "unit": 28,
+      "title": "Weather",
+      "topic": "Types of weather, weather adjectives and useful expressions",
+      "words": [
+        {
+          "id": "u28_1",
+          "word": "sun",
+          "transcription": "/sʌn/",
+          "part_of_speech": "noun",
+          "uzbek": "quyosh",
+          "description": "The star that gives light and warmth to the Earth",
+          "example": "The sun is shining in Granada."
+        },
+        {
+          "id": "u28_2",
+          "word": "sunny",
+          "transcription": "/ˈsʌni/",
+          "part_of_speech": "adjective",
+          "uzbek": "quyoshli",
+          "description": "Having a lot of sunshine; bright and warm. Note: 'it's sunny' NOT 'it's sunning'",
+          "example": "It's a sunny day in Tokyo."
+        },
+        {
+          "id": "u28_3",
+          "word": "rain",
+          "transcription": "/reɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "yomg'ir",
+          "description": "Water that falls from clouds in the sky",
+          "example": "It can be very wet in London — carry an umbrella."
+        },
+        {
+          "id": "u28_4",
+          "word": "rainy",
+          "transcription": "/ˈreɪni/",
+          "part_of_speech": "adjective",
+          "uzbek": "yomg'irli",
+          "description": "Having a lot of rain",
+          "example": "It's a rainy day in London."
+        },
+        {
+          "id": "u28_5",
+          "word": "it's raining",
+          "transcription": "/ɪts ˈreɪnɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "yomg'ir yog'moqda",
+          "description": "The present continuous used to describe rain currently falling",
+          "example": "It's raining in Barcelona."
+        },
+        {
+          "id": "u28_6",
+          "word": "cloud",
+          "transcription": "/klaʊd/",
+          "part_of_speech": "noun",
+          "uzbek": "bulut",
+          "description": "A white or grey mass of water vapour floating in the sky",
+          "example": "There are dark clouds in the sky."
+        },
+        {
+          "id": "u28_7",
+          "word": "cloudy",
+          "transcription": "/ˈklaʊdi/",
+          "part_of_speech": "adjective",
+          "uzbek": "bulutli",
+          "description": "Having a lot of clouds in the sky; overcast. Note: 'it's cloudy' NOT 'it's clouding'",
+          "example": "It's a bit cloudy in Hong Kong today."
+        },
+        {
+          "id": "u28_8",
+          "word": "snow",
+          "transcription": "/snoʊ/",
+          "part_of_speech": "noun",
+          "uzbek": "qor",
+          "description": "White frozen water that falls from clouds in cold weather",
+          "example": "It's snowing in Moscow."
+        },
+        {
+          "id": "u28_9",
+          "word": "snowy",
+          "transcription": "/ˈsnoʊi/",
+          "part_of_speech": "adjective",
+          "uzbek": "qorli",
+          "description": "Covered with snow or having a lot of snow falling",
+          "example": "It's a snowy day in the mountains."
+        },
+        {
+          "id": "u28_10",
+          "word": "fog",
+          "transcription": "/fɒɡ/",
+          "part_of_speech": "noun",
+          "uzbek": "tuman",
+          "description": "Thick cloud close to the ground that makes it hard to see",
+          "example": "There is thick fog on the motorway."
+        },
+        {
+          "id": "u28_11",
+          "word": "foggy",
+          "transcription": "/ˈfɒɡi/",
+          "part_of_speech": "adjective",
+          "uzbek": "tumanli",
+          "description": "Having thick cloud close to the ground. Note: 'it's foggy' NOT 'it's fogging'",
+          "example": "It's foggy in Sydney."
+        },
+        {
+          "id": "u28_12",
+          "word": "wind",
+          "transcription": "/wɪnd/",
+          "part_of_speech": "noun",
+          "uzbek": "shamol",
+          "description": "Air moving quickly outdoors",
+          "example": "There is a strong wind blowing today."
+        },
+        {
+          "id": "u28_13",
+          "word": "windy",
+          "transcription": "/ˈwɪndi/",
+          "part_of_speech": "adjective",
+          "uzbek": "shamolли",
+          "description": "Having strong winds blowing. Note: 'it's windy' NOT 'it's winding'",
+          "example": "It's very windy on the coast."
+        },
+        {
+          "id": "u28_14",
+          "word": "thunder",
+          "transcription": "/ˈθʌndər/",
+          "part_of_speech": "noun",
+          "uzbek": "momaqaldiroq",
+          "description": "The loud sound heard after lightning during a storm",
+          "example": "I could hear thunder in the distance."
+        },
+        {
+          "id": "u28_15",
+          "word": "thundery",
+          "transcription": "/ˈθʌndəri/",
+          "part_of_speech": "adjective",
+          "uzbek": "momaqaldiroqli",
+          "description": "Having or likely to have thunder",
+          "example": "It's thundery weather today."
+        },
+        {
+          "id": "u28_16",
+          "word": "lightning",
+          "transcription": "/ˈlaɪtnɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "chaqmoq",
+          "description": "A bright flash of light in the sky during a storm. Note: no adjective form",
+          "example": "There was lightning and thunder all night."
+        },
+        {
+          "id": "u28_17",
+          "word": "hot",
+          "transcription": "/hɒt/",
+          "part_of_speech": "adjective",
+          "uzbek": "issiq (havo)",
+          "description": "Having a very high temperature",
+          "example": "It is very hot in Mexico — often 45 degrees in summer."
+        },
+        {
+          "id": "u28_18",
+          "word": "cold",
+          "transcription": "/koʊld/",
+          "part_of_speech": "adjective",
+          "uzbek": "sovuq (havo)",
+          "description": "Having a very low temperature",
+          "example": "It is very cold in the Arctic — often minus 50 degrees."
+        },
+        {
+          "id": "u28_19",
+          "word": "wet",
+          "transcription": "/wɛt/",
+          "part_of_speech": "adjective",
+          "uzbek": "yomg'irli, ho'l (havo)",
+          "description": "Having a lot of rain; not dry",
+          "example": "It can be very wet in London."
+        },
+        {
+          "id": "u28_20",
+          "word": "dry",
+          "transcription": "/draɪ/",
+          "part_of_speech": "adjective",
+          "uzbek": "quruq (havo)",
+          "description": "Having little or no rain",
+          "example": "It is very dry in the Sahara — it doesn't often rain there."
+        },
+        {
+          "id": "u28_21",
+          "word": "hurricane",
+          "transcription": "/ˈhʌrɪkeɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "dovul, to'fon",
+          "description": "A very strong violent storm with extremely fast winds",
+          "example": "A hurricane is a very strong wind."
+        },
+        {
+          "id": "u28_22",
+          "word": "storm",
+          "transcription": "/stɔːrm/",
+          "part_of_speech": "noun",
+          "uzbek": "bo'ron, kuchli yomg'ir",
+          "description": "A period of very bad weather with strong winds and heavy rain",
+          "example": "A storm is when there is a strong wind and rain together."
+        },
+        {
+          "id": "u28_23",
+          "word": "thunderstorm",
+          "transcription": "/ˈθʌndərstɔːrm/",
+          "part_of_speech": "noun",
+          "uzbek": "momaqaldiroqli bo'ron",
+          "description": "A storm with thunder, lightning, heavy rain and sometimes wind",
+          "example": "There was a terrible thunderstorm last night."
+        },
+        {
+          "id": "u28_24",
+          "word": "What's the weather like?",
+          "transcription": "/wɒts ðə ˈwɛðər laɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "Havo qanday?",
+          "description": "A question asking about current weather conditions",
+          "example": "What's the weather like in your country in June?"
+        },
+        {
+          "id": "u28_25",
+          "word": "the sun is shining",
+          "transcription": "/ðə sʌn ɪz ˈʃaɪnɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "quyosh chaqmoqda",
+          "description": "Used to describe bright sunny weather",
+          "example": "The sun is shining in Granada."
+        }
+      ]
+    },
+    {
+      "unit": 29,
+      "title": "In the town",
+      "topic": "Places in a town, notices, and asking for directions",
+      "words": [
+        {
+          "id": "u29_1",
+          "word": "train station / railway station",
+          "transcription": "/treɪn ˈsteɪʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "temir yo'l stantsiyasi, vokzal",
+          "description": "A place where trains stop to let people get on and off",
+          "example": "Train station — you can get a train here."
+        },
+        {
+          "id": "u29_2",
+          "word": "bus station",
+          "transcription": "/bʌs ˈsteɪʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "avtobus stantsiyasi",
+          "description": "A place where buses start and finish their journeys",
+          "example": "Bus station — you can get a bus here."
+        },
+        {
+          "id": "u29_3",
+          "word": "shopping centre",
+          "transcription": "/ˈʃɒpɪŋ ˌsɛntər/",
+          "part_of_speech": "noun",
+          "uzbek": "savdo markazi",
+          "description": "A large building or area with many shops inside",
+          "example": "Shopping centre — area of town with a lot of shops."
+        },
+        {
+          "id": "u29_4",
+          "word": "tourist information office",
+          "transcription": "/ˈtʊərɪst ˌɪnfəˈmeɪʃən ˌɒfɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "turist axborot markazi",
+          "description": "A place where visitors can get information about the local area",
+          "example": "Tourist information office — tourists can get information here."
+        },
+        {
+          "id": "u29_5",
+          "word": "museum",
+          "transcription": "/mjuːˈziːəm/",
+          "part_of_speech": "noun",
+          "uzbek": "muzey",
+          "description": "A building where interesting historical or artistic objects are kept and displayed",
+          "example": "Museum — you can see interesting old things here."
+        },
+        {
+          "id": "u29_6",
+          "word": "bank",
+          "transcription": "/bæŋk/",
+          "part_of_speech": "noun",
+          "uzbek": "bank",
+          "description": "A place where you can keep, borrow or exchange money",
+          "example": "Bank — you can change money here or get money from a cash machine."
+        },
+        {
+          "id": "u29_7",
+          "word": "post office",
+          "transcription": "/poʊst ˈɒfɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "pochta bo'limi",
+          "description": "A place where you can post letters and parcels",
+          "example": "Post office — you can post letters and parcels here."
+        },
+        {
+          "id": "u29_8",
+          "word": "library",
+          "transcription": "/ˈlaɪbrɛri/",
+          "part_of_speech": "noun",
+          "uzbek": "kutubxona",
+          "description": "A place where books and newspapers are kept and can be borrowed for free",
+          "example": "Library — you can read books and newspapers here."
+        },
+        {
+          "id": "u29_9",
+          "word": "town hall",
+          "transcription": "/taʊn hɔːl/",
+          "part_of_speech": "noun",
+          "uzbek": "shahar hokimiyati binosi",
+          "description": "The main local government building in a town",
+          "example": "Town hall — local government officers work here."
+        },
+        {
+          "id": "u29_10",
+          "word": "car park",
+          "transcription": "/kɑːr pɑːrk/",
+          "part_of_speech": "noun",
+          "uzbek": "avtoturargoh, parking",
+          "description": "An area or building where cars can be left temporarily",
+          "example": "Car park — you can park your car here."
+        },
+        {
+          "id": "u29_11",
+          "word": "pedestrian area",
+          "transcription": "/pɪˈdɛstriən ˌeəriə/",
+          "part_of_speech": "noun",
+          "uzbek": "piyodalar zonasi",
+          "description": "A part of town where only people on foot are allowed; no cars",
+          "example": "Pedestrian area — you can only walk here, you can't come here by car."
+        },
+        {
+          "id": "u29_12",
+          "word": "cash machine",
+          "transcription": "/kæʃ məˈʃiːn/",
+          "part_of_speech": "noun",
+          "uzbek": "bankomat, pul beruvchi avtomat",
+          "description": "A machine from which you can withdraw cash using a bank card",
+          "example": "Bank — you can change money here or get money from a cash machine."
+        },
+        {
+          "id": "u29_13",
+          "word": "EXIT",
+          "transcription": "/ˈɛɡzɪt/",
+          "part_of_speech": "noun / sign",
+          "uzbek": "CHIQISH",
+          "description": "A sign showing the way out of a building",
+          "example": "Follow the EXIT signs to leave the building."
+        },
+        {
+          "id": "u29_14",
+          "word": "Entrance",
+          "transcription": "/ˈɛntrəns/",
+          "part_of_speech": "noun / sign",
+          "uzbek": "KIRISH",
+          "description": "A sign at the way into a building",
+          "example": "The Entrance to the museum is on the left."
+        },
+        {
+          "id": "u29_15",
+          "word": "NO SMOKING",
+          "transcription": "/noʊ ˈsmoʊkɪŋ/",
+          "part_of_speech": "sign",
+          "uzbek": "CHEKISH TAQIQLANADI",
+          "description": "A sign prohibiting smoking in an area",
+          "example": "There is a NO SMOKING sign in the waiting room."
+        },
+        {
+          "id": "u29_16",
+          "word": "OUT OF ORDER",
+          "transcription": "/aʊt əv ˈɔːrdər/",
+          "part_of_speech": "sign",
+          "uzbek": "ISHLAMAYDI, BUZUQ",
+          "description": "A sign indicating that a machine is not working",
+          "example": "The lift is OUT OF ORDER. Please use the stairs."
+        },
+        {
+          "id": "u29_17",
+          "word": "Where is...?",
+          "transcription": "/weər ɪz/",
+          "part_of_speech": "phrase",
+          "uzbek": "... qayerda?",
+          "description": "A question asking for the location of a place",
+          "example": "Where is the bus station?"
+        },
+        {
+          "id": "u29_18",
+          "word": "Go left",
+          "transcription": "/ɡoʊ lɛft/",
+          "part_of_speech": "phrase",
+          "uzbek": "Chapga yuring",
+          "description": "An instruction to turn in the left direction",
+          "example": "Go left here and it's at the end of the road."
+        },
+        {
+          "id": "u29_19",
+          "word": "Take the first right",
+          "transcription": "/teɪk ðə fɜːrst raɪt/",
+          "part_of_speech": "phrase",
+          "uzbek": "Birinchi o'ngga buriling",
+          "description": "An instruction to turn right at the first junction",
+          "example": "Take the first right and then the second left."
+        },
+        {
+          "id": "u29_20",
+          "word": "Turn right",
+          "transcription": "/tɜːrn raɪt/",
+          "part_of_speech": "phrase",
+          "uzbek": "O'ngga buriling",
+          "description": "An instruction to turn in the right direction",
+          "example": "Turn right here. The entrance is on Market Street on the left."
+        },
+        {
+          "id": "u29_21",
+          "word": "on the left / on the right",
+          "transcription": "/ɒn ðə lɛft/ /ɒn ðə raɪt/",
+          "part_of_speech": "phrase",
+          "uzbek": "chapda / o'ngda",
+          "description": "Used to describe the position of something in relation to a road",
+          "example": "The entrance is on Market Street on the left."
+        },
+        {
+          "id": "u29_22",
+          "word": "at the end of the road",
+          "transcription": "/æt ðɪ ɛnd əv ðə roʊd/",
+          "part_of_speech": "phrase",
+          "uzbek": "ko'chaning oxirida",
+          "description": "Located at the far end of a street",
+          "example": "Go left here and it's at the end of the road."
+        },
+        {
+          "id": "u29_23",
+          "word": "on the other side of the road",
+          "transcription": "/ɒn ðɪ ˈʌðər saɪd əv ðə roʊd/",
+          "part_of_speech": "phrase",
+          "uzbek": "ko'chaning narigi tomonida",
+          "description": "On the opposite side of the street",
+          "example": "Can you tell me the way to the nearest bank? There's one on the other side of the road."
+        }
+      ]
+    },
+    {
+      "unit": 30,
+      "title": "In the countryside",
+      "topic": "Natural features, countryside vocabulary, and nature",
+      "words": [
+        {
+          "id": "u30_1",
+          "word": "countryside",
+          "transcription": "/ˈkʌntrisaɪd/",
+          "part_of_speech": "noun",
+          "uzbek": "qishloq joylari, tabiat",
+          "description": "Land outside towns and cities; rural areas with fields, farms and natural scenery. Note: 'I like walking in the countryside' NOT 'in the nature'",
+          "example": "The countryside and the country both mean 'not the city'."
+        },
+        {
+          "id": "u30_2",
+          "word": "mountains",
+          "transcription": "/ˈmaʊntɪnz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "tog'lar",
+          "description": "Very high areas of land with steep sides and peaks",
+          "example": "You can go walking or skiing in the mountains."
+        },
+        {
+          "id": "u30_3",
+          "word": "hills",
+          "transcription": "/hɪlz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "tepaliklar, do'ngliklar",
+          "description": "Areas of high land that are smaller and less steep than mountains",
+          "example": "The hills in the background are very beautiful."
+        },
+        {
+          "id": "u30_4",
+          "word": "forest",
+          "transcription": "/ˈfɒrɪst/",
+          "part_of_speech": "noun",
+          "uzbek": "o'rmon (katta)",
+          "description": "A large area of land covered with trees",
+          "example": "There is a large forest to the north of the town."
+        },
+        {
+          "id": "u30_5",
+          "word": "wood",
+          "transcription": "/wʊd/",
+          "part_of_speech": "noun",
+          "uzbek": "o'rmoncha (kichik)",
+          "description": "A small area of trees; smaller than a forest",
+          "example": "There is a small wood at the end of the village."
+        },
+        {
+          "id": "u30_6",
+          "word": "lake",
+          "transcription": "/leɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "ko'l",
+          "description": "A large area of water surrounded by land",
+          "example": "We went swimming in the lake."
+        },
+        {
+          "id": "u30_7",
+          "word": "river",
+          "transcription": "/ˈrɪvər/",
+          "part_of_speech": "noun",
+          "uzbek": "daryo",
+          "description": "A large natural flow of water that runs into the sea or a lake",
+          "example": "The river often floods after heavy rain."
+        },
+        {
+          "id": "u30_8",
+          "word": "fields",
+          "transcription": "/fiːldz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "dalalar, ekinzorlar",
+          "description": "Large areas of flat open land, usually used for farming",
+          "example": "A farmer lives on a farm and works in the fields."
+        },
+        {
+          "id": "u30_9",
+          "word": "path",
+          "transcription": "/pɑːθ/",
+          "part_of_speech": "noun",
+          "uzbek": "yo'lcha, piyoda yo'l",
+          "description": "A narrow track for people to walk along",
+          "example": "We followed the path through the woods."
+        },
+        {
+          "id": "u30_10",
+          "word": "country road",
+          "transcription": "/ˈkʌntri roʊd/",
+          "part_of_speech": "noun",
+          "uzbek": "qishloq yo'li, tog' yo'li",
+          "description": "A narrow road in the countryside",
+          "example": "Be careful driving on country roads — they are narrow."
+        },
+        {
+          "id": "u30_11",
+          "word": "village",
+          "transcription": "/ˈvɪlɪdʒ/",
+          "part_of_speech": "noun",
+          "uzbek": "qishloq, ovul",
+          "description": "A small community of houses and people, smaller than a town",
+          "example": "In the countryside, people usually live in a small town or village."
+        },
+        {
+          "id": "u30_12",
+          "word": "small town",
+          "transcription": "/smɔːl taʊn/",
+          "part_of_speech": "noun",
+          "uzbek": "kichik shahar",
+          "description": "A place smaller than a city but larger than a village, usually with about 6,000 people",
+          "example": "In the countryside, people usually live in a small town or village."
+        },
+        {
+          "id": "u30_13",
+          "word": "farm",
+          "transcription": "/fɑːrm/",
+          "part_of_speech": "noun",
+          "uzbek": "ferma, dehqon xo'jaligi",
+          "description": "An area of land with buildings where crops are grown and animals are kept",
+          "example": "A farmer lives on a farm and works in the fields."
+        },
+        {
+          "id": "u30_14",
+          "word": "farmer",
+          "transcription": "/ˈfɑːrmər/",
+          "part_of_speech": "noun",
+          "uzbek": "dehqon, fermer",
+          "description": "A person who owns or manages a farm",
+          "example": "A farmer lives on a farm and works in the fields."
+        },
+        {
+          "id": "u30_15",
+          "word": "cottage",
+          "transcription": "/ˈkɒtɪdʒ/",
+          "part_of_speech": "noun",
+          "uzbek": "kichik uy (qishloqdagi)",
+          "description": "A small house in a village or the countryside",
+          "example": "My friend lives in a cottage in the countryside."
+        },
+        {
+          "id": "u30_16",
+          "word": "nature",
+          "transcription": "/ˈneɪtʃər/",
+          "part_of_speech": "noun",
+          "uzbek": "tabiat",
+          "description": "Everything in the natural world including animals, birds, plants and landscapes. Note: 'I love nature' NOT 'I love the nature'",
+          "example": "Nature means everything in the natural world."
+        },
+        {
+          "id": "u30_17",
+          "word": "wildlife",
+          "transcription": "/ˈwaɪldlaɪf/",
+          "part_of_speech": "noun",
+          "uzbek": "yovvoyi tabiat (hayvonlar, qushlar va hasharotlar)",
+          "description": "Animals, birds, fish and insects living in their natural environment",
+          "example": "There is wonderful wildlife in the north of the country."
+        },
+        {
+          "id": "u30_18",
+          "word": "conservation area",
+          "transcription": "/ˌkɒnsəˈveɪʃən ˌeəriə/",
+          "part_of_speech": "noun",
+          "uzbek": "tabiatni muhofaza qilish hududi",
+          "description": "A place where wildlife and nature are officially protected",
+          "example": "Near the village there is a conservation area."
+        },
+        {
+          "id": "u30_19",
+          "word": "national park",
+          "transcription": "/ˈnæʃənəl pɑːrk/",
+          "part_of_speech": "noun",
+          "uzbek": "milliy bog'(park)",
+          "description": "A very large area of beautiful natural land protected by the government",
+          "example": "In the south of the country there is a national park."
+        },
+        {
+          "id": "u30_20",
+          "word": "have a picnic",
+          "transcription": "/hæv ə ˈpɪknɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "piknik qilmoq",
+          "description": "To eat a meal outdoors in the countryside or a park",
+          "example": "You can take food and drink and have a picnic."
+        },
+        {
+          "id": "u30_21",
+          "word": "go walking",
+          "transcription": "/ɡoʊ ˈwɔːkɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "sayr qilmoq, piyoda sayohat qilmoq",
+          "description": "To walk in the countryside for pleasure or exercise",
+          "example": "You can go walking or skiing in the mountains."
+        }
+      ]
     }
   ]
 }
