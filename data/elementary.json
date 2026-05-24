@@ -6547,6 +6547,2074 @@
           "example": "You can go walking or skiing in the mountains."
         }
       ]
+    },
+    {
+      "unit": 31,
+      "title": "Animals",
+      "topic": "Farm animals, wild animals, pets and related vocabulary",
+      "words": [
+        {
+          "id": "u31_1",
+          "word": "horse",
+          "transcription": "/hɔːrs/",
+          "part_of_speech": "noun",
+          "uzbek": "ot",
+          "description": "A large animal with four legs used for riding or pulling heavy loads",
+          "example": "Take your dog for a walk every day."
+        },
+        {
+          "id": "u31_2",
+          "word": "cow",
+          "transcription": "/kaʊ/",
+          "part_of_speech": "noun",
+          "uzbek": "sigir",
+          "description": "A large female farm animal kept for milk and meat (beef)",
+          "example": "The cow produces milk, leather and meat."
+        },
+        {
+          "id": "u31_3",
+          "word": "sheep",
+          "transcription": "/ʃiːp/",
+          "part_of_speech": "noun",
+          "uzbek": "qo'y (singular va plural bir xil)",
+          "description": "A farm animal kept for wool and meat (lamb). Singular and plural are the same",
+          "example": "Sheep produce wool and meat (lamb)."
+        },
+        {
+          "id": "u31_4",
+          "word": "pig",
+          "transcription": "/pɪɡ/",
+          "part_of_speech": "noun",
+          "uzbek": "cho'chqa",
+          "description": "A farm animal with a pink body kept for meat (pork, bacon, ham)",
+          "example": "Pigs produce pork, bacon and ham."
+        },
+        {
+          "id": "u31_5",
+          "word": "chicken / hen",
+          "transcription": "/ˈtʃɪkɪn/ /hɛn/",
+          "part_of_speech": "noun",
+          "uzbek": "tovuq / (urg'ochi) tovuq",
+          "description": "A common farm bird kept for eggs and meat. 'Hen' is the female",
+          "example": "Chickens produce eggs and meat."
+        },
+        {
+          "id": "u31_6",
+          "word": "goat",
+          "transcription": "/ɡoʊt/",
+          "part_of_speech": "noun",
+          "uzbek": "echki",
+          "description": "A farm animal similar to a sheep, kept for milk and meat",
+          "example": "Goats produce milk and meat."
+        },
+        {
+          "id": "u31_7",
+          "word": "foal",
+          "transcription": "/foʊl/",
+          "part_of_speech": "noun",
+          "uzbek": "toy (ot bolasi)",
+          "description": "A baby horse",
+          "example": "The baby horse is called a foal."
+        },
+        {
+          "id": "u31_8",
+          "word": "calf",
+          "transcription": "/kɑːf/",
+          "part_of_speech": "noun",
+          "uzbek": "buzoq (sigir bolasi)",
+          "description": "A baby cow",
+          "example": "The baby cow is called a calf."
+        },
+        {
+          "id": "u31_9",
+          "word": "lamb",
+          "transcription": "/læm/",
+          "part_of_speech": "noun",
+          "uzbek": "qo'zichoq (qo'y bolasi)",
+          "description": "A baby sheep; also the meat from a young sheep",
+          "example": "The baby sheep is called a lamb."
+        },
+        {
+          "id": "u31_10",
+          "word": "piglet",
+          "transcription": "/ˈpɪɡlɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "cho'chqa bolasi",
+          "description": "A baby pig",
+          "example": "The baby pig is called a piglet."
+        },
+        {
+          "id": "u31_11",
+          "word": "chick",
+          "transcription": "/tʃɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "jo'ja (tovuq bolasi)",
+          "description": "A baby chicken",
+          "example": "The baby chicken is called a chick."
+        },
+        {
+          "id": "u31_12",
+          "word": "elephant",
+          "transcription": "/ˈɛlɪfənt/",
+          "part_of_speech": "noun",
+          "uzbek": "fil",
+          "description": "The largest land animal, with a long trunk and big ears, from Africa and Asia",
+          "example": "Elephants are the largest land animals."
+        },
+        {
+          "id": "u31_13",
+          "word": "monkey",
+          "transcription": "/ˈmʌŋki/",
+          "part_of_speech": "noun",
+          "uzbek": "maymun",
+          "description": "A wild animal with a long tail that lives in trees in tropical regions",
+          "example": "We saw monkeys in the jungle."
+        },
+        {
+          "id": "u31_14",
+          "word": "tiger",
+          "transcription": "/ˈtaɪɡər/",
+          "part_of_speech": "noun",
+          "uzbek": "yo'lbars",
+          "description": "A large wild cat with orange and black stripes, from Asia",
+          "example": "Tigers are endangered animals."
+        },
+        {
+          "id": "u31_15",
+          "word": "lion",
+          "transcription": "/ˈlaɪən/",
+          "part_of_speech": "noun",
+          "uzbek": "sher",
+          "description": "A large wild cat that lives in Africa, known as the king of animals",
+          "example": "Lions live in Africa."
+        },
+        {
+          "id": "u31_16",
+          "word": "giraffe",
+          "transcription": "/dʒɪˈrɑːf/",
+          "part_of_speech": "noun",
+          "uzbek": "jirafa",
+          "description": "A very tall African animal with a very long neck and brown spots",
+          "example": "Giraffes are the tallest animals in the world."
+        },
+        {
+          "id": "u31_17",
+          "word": "snake",
+          "transcription": "/sneɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "ilon",
+          "description": "A reptile with a long thin body and no legs",
+          "example": "Some snakes are poisonous."
+        },
+        {
+          "id": "u31_18",
+          "word": "cat",
+          "transcription": "/kæt/",
+          "part_of_speech": "noun",
+          "uzbek": "mushuk",
+          "description": "A small furry animal kept as a pet",
+          "example": "Do you have any pets? Yes, I have a cat."
+        },
+        {
+          "id": "u31_19",
+          "word": "dog",
+          "transcription": "/dɒɡ/",
+          "part_of_speech": "noun",
+          "uzbek": "it, kuchuk",
+          "description": "A common animal kept as a pet, known as man's best friend",
+          "example": "Take your dog for a walk every day."
+        },
+        {
+          "id": "u31_20",
+          "word": "fish",
+          "transcription": "/fɪʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "baliq (uy hayvoni)",
+          "description": "An animal that lives in water, sometimes kept as a pet in a tank",
+          "example": "She keeps fish in a tank at home."
+        },
+        {
+          "id": "u31_21",
+          "word": "rabbit",
+          "transcription": "/ˈræbɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "quyon",
+          "description": "A small furry animal with long ears, kept as a pet or living in the wild",
+          "example": "She has a pet rabbit."
+        },
+        {
+          "id": "u31_22",
+          "word": "parrot",
+          "transcription": "/ˈpærət/",
+          "part_of_speech": "noun",
+          "uzbek": "to'ti qush",
+          "description": "A brightly coloured tropical bird that can be taught to copy human speech",
+          "example": "A parrot is a bird. He keeps a parrot as a pet."
+        },
+        {
+          "id": "u31_23",
+          "word": "tortoise",
+          "transcription": "/ˈtɔːrtəs/",
+          "part_of_speech": "noun",
+          "uzbek": "toshbaqa (quruqlikda yashaydigan)",
+          "description": "A slow-moving reptile with a hard shell, kept as a pet",
+          "example": "A tortoise lives for a very long time."
+        },
+        {
+          "id": "u31_24",
+          "word": "bird",
+          "transcription": "/bɜːrd/",
+          "part_of_speech": "noun",
+          "uzbek": "qush",
+          "description": "An animal with feathers and wings that can usually fly",
+          "example": "A parrot is a bird."
+        },
+        {
+          "id": "u31_25",
+          "word": "pets",
+          "transcription": "/pɛts/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "uy hayvonlari",
+          "description": "Animals kept in the home for companionship and pleasure",
+          "example": "Do you have any pets?"
+        },
+        {
+          "id": "u31_26",
+          "word": "feed your animals",
+          "transcription": "/fiːd jɔːr ˈænɪməlz/",
+          "part_of_speech": "phrase",
+          "uzbek": "hayvonlarni boqmoq",
+          "description": "To give food to pets or farm animals",
+          "example": "You must feed your animals and give them water every day."
+        },
+        {
+          "id": "u31_27",
+          "word": "take your dog for a walk",
+          "transcription": "/teɪk jɔːr dɒɡ fər ə wɔːk/",
+          "part_of_speech": "phrase",
+          "uzbek": "itni sayrga olib chiqmoq",
+          "description": "To walk your dog outside for exercise and fresh air",
+          "example": "Take your dog for a walk every day."
+        }
+      ]
+    },
+    {
+      "unit": 32,
+      "title": "Travelling",
+      "topic": "Types of transport, travel vocabulary, and travelling by train and plane",
+      "words": [
+        {
+          "id": "u32_1",
+          "word": "train",
+          "transcription": "/treɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "poyezd",
+          "description": "A vehicle that runs on rails and carries passengers or goods",
+          "example": "The train is arriving at platform 3."
+        },
+        {
+          "id": "u32_2",
+          "word": "bus",
+          "transcription": "/bʌs/",
+          "part_of_speech": "noun",
+          "uzbek": "avtobus",
+          "description": "A large road vehicle that carries many passengers on a fixed route",
+          "example": "I take the bus to work every day."
+        },
+        {
+          "id": "u32_3",
+          "word": "bicycle / bike",
+          "transcription": "/ˈbaɪsɪkəl/ /baɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "velosiped",
+          "description": "A two-wheeled vehicle powered by pedalling",
+          "example": "I always rode my bike to school."
+        },
+        {
+          "id": "u32_4",
+          "word": "taxi",
+          "transcription": "/ˈtæksi/",
+          "part_of_speech": "noun",
+          "uzbek": "taksi",
+          "description": "A car with a driver that you hire to take you somewhere",
+          "example": "We took a taxi from the airport to our hotel."
+        },
+        {
+          "id": "u32_5",
+          "word": "aeroplane / plane",
+          "transcription": "/ˈeərəpleɪn/ /pleɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "samolyot",
+          "description": "A vehicle with wings and engines that flies through the air",
+          "example": "The plane lands in New York at 14:30."
+        },
+        {
+          "id": "u32_6",
+          "word": "car",
+          "transcription": "/kɑːr/",
+          "part_of_speech": "noun",
+          "uzbek": "mashina, avtomobil",
+          "description": "A four-wheeled motor vehicle used for road travel",
+          "example": "We hired a car for a week."
+        },
+        {
+          "id": "u32_7",
+          "word": "helicopter",
+          "transcription": "/ˈhɛlɪkɒptər/",
+          "part_of_speech": "noun",
+          "uzbek": "vertolyot",
+          "description": "An aircraft that flies using rotating blades on top",
+          "example": "The injured man was taken to hospital by helicopter."
+        },
+        {
+          "id": "u32_8",
+          "word": "motorbike / motorcycle",
+          "transcription": "/ˈmoʊtərbaɪk/ /ˈmoʊtərsaɪkəl/",
+          "part_of_speech": "noun",
+          "uzbek": "mototsikl",
+          "description": "A two-wheeled motor vehicle, faster than a bicycle",
+          "example": "He rode his motorbike to work."
+        },
+        {
+          "id": "u32_9",
+          "word": "underground",
+          "transcription": "/ˈʌndərɡraʊnd/",
+          "part_of_speech": "noun",
+          "uzbek": "metro, er osti poyezdi",
+          "description": "A railway system that runs in tunnels under a city; called 'subway' in American English",
+          "example": "In London you can take the underground to the London Eye."
+        },
+        {
+          "id": "u32_10",
+          "word": "boat",
+          "transcription": "/boʊt/",
+          "part_of_speech": "noun",
+          "uzbek": "qayiq, kichik kema",
+          "description": "A small vessel for travelling on water",
+          "example": "We went across the lake by boat."
+        },
+        {
+          "id": "u32_11",
+          "word": "ship",
+          "transcription": "/ʃɪp/",
+          "part_of_speech": "noun",
+          "uzbek": "kema (katta)",
+          "description": "A large vessel for travelling on the sea",
+          "example": "They crossed the Atlantic by ship."
+        },
+        {
+          "id": "u32_12",
+          "word": "map",
+          "transcription": "/mæp/",
+          "part_of_speech": "noun",
+          "uzbek": "xarita",
+          "description": "A drawing of an area showing roads, towns and other features",
+          "example": "Take a map so you don't get lost."
+        },
+        {
+          "id": "u32_13",
+          "word": "timetable",
+          "transcription": "/ˈtaɪmteɪbəl/",
+          "part_of_speech": "noun",
+          "uzbek": "jadval (poyezd, avtobus)",
+          "description": "A list showing the times when trains, buses or planes arrive and depart",
+          "example": "Check the timetable to see when the next train leaves."
+        },
+        {
+          "id": "u32_14",
+          "word": "customs",
+          "transcription": "/ˈkʌstəmz/",
+          "part_of_speech": "noun",
+          "uzbek": "bojxona",
+          "description": "The place at an airport or border where officials check luggage and documents",
+          "example": "I went through customs but nobody checked my passport."
+        },
+        {
+          "id": "u32_15",
+          "word": "luggage",
+          "transcription": "/ˈlʌɡɪdʒ/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "yuk, bagaj",
+          "description": "Bags and suitcases taken when travelling. Note: uncountable",
+          "example": "Was the journey long? Did you have a lot of luggage?"
+        },
+        {
+          "id": "u32_16",
+          "word": "passport",
+          "transcription": "/ˈpæspɔːrt/",
+          "part_of_speech": "noun",
+          "uzbek": "pasport",
+          "description": "An official document needed to travel between countries",
+          "example": "I went through customs but nobody checked my passport."
+        },
+        {
+          "id": "u32_17",
+          "word": "single ticket",
+          "transcription": "/ˈsɪŋɡəl ˈtɪkɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "bir tomonga chipta (boradigan)",
+          "description": "A ticket for a journey in one direction only; not return",
+          "example": "Can I have a single to Barcelona, please?"
+        },
+        {
+          "id": "u32_18",
+          "word": "return ticket",
+          "transcription": "/rɪˈtɜːrn ˈtɪkɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "borib-qaytish chiptas",
+          "description": "A ticket for a journey there and back again",
+          "example": "I'd like a return ticket to Madrid, please."
+        },
+        {
+          "id": "u32_19",
+          "word": "book / reserve a seat",
+          "transcription": "/bʊk/ /rɪˈzɜːrv ə siːt/",
+          "part_of_speech": "phrase",
+          "uzbek": "joy bron qilmoq",
+          "description": "To arrange in advance to have a seat on a train, plane or bus",
+          "example": "I'd like to book / reserve a seat in advance."
+        },
+        {
+          "id": "u32_20",
+          "word": "journey",
+          "transcription": "/ˈdʒɜːrni/",
+          "part_of_speech": "noun",
+          "uzbek": "safar, yo'l",
+          "description": "The act of travelling from one place to another. Note: 'Was the journey long?' NOT 'Was the travel long?'",
+          "example": "Was the journey long?"
+        },
+        {
+          "id": "u32_21",
+          "word": "arriving at",
+          "transcription": "/əˈraɪvɪŋ æt/",
+          "part_of_speech": "phrase",
+          "uzbek": "... ga yetib kelmoqda",
+          "description": "Coming to a place at a particular time",
+          "example": "The train arriving at platform 3 is the 16:50 to Paris."
+        },
+        {
+          "id": "u32_22",
+          "word": "departs / leaves from",
+          "transcription": "/dɪˈpɑːrts/ /liːvz frɒm/",
+          "part_of_speech": "phrase",
+          "uzbek": "... dan jo'nаmoqda (poyezd)",
+          "description": "Leaves a station or airport at a particular time",
+          "example": "The Edinburgh train departs from platform 6."
+        },
+        {
+          "id": "u32_23",
+          "word": "change trains",
+          "transcription": "/tʃeɪndʒ treɪnz/",
+          "part_of_speech": "phrase",
+          "uzbek": "poyezd almashtirmoq",
+          "description": "To get off one train and get onto another to continue your journey",
+          "example": "Do I have to change trains for Toulouse?"
+        },
+        {
+          "id": "u32_24",
+          "word": "check in",
+          "transcription": "/tʃɛk ɪn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "ro'yxatdan o'tmoq (aeroportda)",
+          "description": "To register at an airport before a flight",
+          "example": "You have to check in two hours before the plane takes off."
+        },
+        {
+          "id": "u32_25",
+          "word": "takes off",
+          "transcription": "/teɪks ɒf/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "ko'tarilmoq (samolyot)",
+          "description": "When a plane leaves the ground and begins to fly",
+          "example": "You have to check in two hours before the plane takes off."
+        },
+        {
+          "id": "u32_26",
+          "word": "boarding card",
+          "transcription": "/ˈbɔːrdɪŋ kɑːrd/",
+          "part_of_speech": "noun",
+          "uzbek": "boarding karta (samolyotga kirish uchun)",
+          "description": "A card given at check-in that allows you to get on a plane",
+          "example": "Give your boarding card to the flight attendant when you get on the plane."
+        },
+        {
+          "id": "u32_27",
+          "word": "lands",
+          "transcription": "/lændz/",
+          "part_of_speech": "verb",
+          "uzbek": "qo'nmoq (samolyot)",
+          "description": "When a plane comes down from the air and touches the ground",
+          "example": "The plane lands in New York at 14:30."
+        },
+        {
+          "id": "u32_28",
+          "word": "fill up with petrol",
+          "transcription": "/fɪl ʌp wɪð ˈpɛtrəl/",
+          "part_of_speech": "phrase",
+          "uzbek": "benzin quymoq (mashinaga)",
+          "description": "To put petrol (fuel) into a car's tank",
+          "example": "We had to fill it up with petrol."
+        },
+        {
+          "id": "u32_29",
+          "word": "hired a car",
+          "transcription": "/haɪərd ə kɑːr/",
+          "part_of_speech": "phrase",
+          "uzbek": "mashina ijarasiga olmoq",
+          "description": "To rent a car for a period of time",
+          "example": "We hired a car for a week."
+        },
+        {
+          "id": "u32_30",
+          "word": "give someone a lift",
+          "transcription": "/ɡɪv ˈsʌmwʌn ə lɪft/",
+          "part_of_speech": "phrase",
+          "uzbek": "kimnidir mashinada olib ketmoq",
+          "description": "To take someone somewhere in your car",
+          "example": "Can I give you a lift? I'm going into town."
+        }
+      ]
+    },
+    {
+      "unit": 33,
+      "title": "UK culture",
+      "topic": "British festivals, traditional food, education system and politics",
+      "words": [
+        {
+          "id": "u33_1",
+          "word": "Christmas",
+          "transcription": "/ˈkrɪsməs/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Rojdestvo (25-dekabr)",
+          "description": "A Christian festival celebrated on 25th December with gifts and family gatherings",
+          "example": "At Christmas people send cards, give presents and eat a lot."
+        },
+        {
+          "id": "u33_2",
+          "word": "Christmas tree",
+          "transcription": "/ˈkrɪsməs triː/",
+          "part_of_speech": "noun",
+          "uzbek": "Rojdestvo daraxti",
+          "description": "A decorated evergreen tree displayed at Christmas time",
+          "example": "Families decorate a Christmas tree at home."
+        },
+        {
+          "id": "u33_3",
+          "word": "New Year's Eve",
+          "transcription": "/njuː jɪərz iːv/",
+          "part_of_speech": "noun",
+          "uzbek": "Yangi yil arafasi (31-dekabr)",
+          "description": "The evening of 31st December, celebrated with parties and fireworks",
+          "example": "On New Year's Eve people sing and dance and toast the New Year."
+        },
+        {
+          "id": "u33_4",
+          "word": "New Year's Day",
+          "transcription": "/njuː jɪərz deɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "Yangi yil kuni (1-yanvar)",
+          "description": "1st January, a bank holiday in the UK",
+          "example": "New Year's Day is a bank holiday."
+        },
+        {
+          "id": "u33_5",
+          "word": "bank holiday",
+          "transcription": "/bæŋk ˈhɒlɪdeɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "rasmiy ta'til kuni",
+          "description": "A public holiday when most businesses and offices are closed",
+          "example": "New Year's Day is a bank holiday — most organisations are closed."
+        },
+        {
+          "id": "u33_6",
+          "word": "Valentine's Day",
+          "transcription": "/ˈvæləntaɪnz deɪ/",
+          "part_of_speech": "noun",
+          "uzbek": "Sevgillar kuni (14-fevral)",
+          "description": "14th February — a day when people send cards to their partner or romantic interest",
+          "example": "On Valentine's Day people send cards to their boyfriend or girlfriend."
+        },
+        {
+          "id": "u33_7",
+          "word": "Easter",
+          "transcription": "/ˈiːstər/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Pasxa bayrami",
+          "description": "A Christian festival celebrating the resurrection of Jesus, with chocolate eggs",
+          "example": "At Easter children are given Easter eggs — chocolate eggs."
+        },
+        {
+          "id": "u33_8",
+          "word": "Easter eggs",
+          "transcription": "/ˈiːstər ɛɡz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "Pasxa tuxumlari (shokolad)",
+          "description": "Chocolate eggs given to children at Easter",
+          "example": "At Easter children are given Easter eggs."
+        },
+        {
+          "id": "u33_9",
+          "word": "Halloween",
+          "transcription": "/ˌhæləˈwiːn/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Xellovin (31-oktyabr)",
+          "description": "31st October — a holiday when children dress in costumes and go trick-or-treating",
+          "example": "On Halloween children dress up and knock at doors and ask for sweets."
+        },
+        {
+          "id": "u33_10",
+          "word": "Bonfire Night",
+          "transcription": "/ˈbɒnfaɪər naɪt/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Gulxan kechasi (5-noyabr, britaniyacha bayram)",
+          "description": "5th November — a British celebration with bonfires and fireworks",
+          "example": "On Bonfire Night people have a bonfire and fireworks."
+        },
+        {
+          "id": "u33_11",
+          "word": "bonfire",
+          "transcription": "/ˈbɒnfaɪər/",
+          "part_of_speech": "noun",
+          "uzbek": "gulxan (katta ochiq olov)",
+          "description": "A large outdoor fire, often for celebration",
+          "example": "On Bonfire Night people have a bonfire."
+        },
+        {
+          "id": "u33_12",
+          "word": "fireworks",
+          "transcription": "/ˈfaɪərwɜːrks/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "otashin o'yinlar, feyrverklar",
+          "description": "Explosive devices that create colourful lights and sounds when set off",
+          "example": "We watched the fireworks on Bonfire Night."
+        },
+        {
+          "id": "u33_13",
+          "word": "fish and chips",
+          "transcription": "/fɪʃ ænd tʃɪps/",
+          "part_of_speech": "noun",
+          "uzbek": "baliq va qovurilgan kartoshka (ingliz milliy taomi)",
+          "description": "A traditional British dish of battered fried fish with fried potato chips",
+          "example": "Traditional UK food is fish and chips."
+        },
+        {
+          "id": "u33_14",
+          "word": "roast beef",
+          "transcription": "/roʊst biːf/",
+          "part_of_speech": "noun",
+          "uzbek": "qovurilgan mol go'shti",
+          "description": "Beef cooked slowly in an oven; a traditional Sunday meal in the UK",
+          "example": "Roast beef and roast potatoes is a traditional British meal."
+        },
+        {
+          "id": "u33_15",
+          "word": "Yorkshire pudding",
+          "transcription": "/ˈjɔːrkʃər ˈpʊdɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "Yorkshir puding (ingliz taomi)",
+          "description": "A baked batter dish made from flour, milk and eggs; served with roast beef",
+          "example": "Roast beef is served with Yorkshire pudding."
+        },
+        {
+          "id": "u33_16",
+          "word": "chicken tikka masala",
+          "transcription": "/ˌtʃɪkɪn tɪkə məˈsɑːlə/",
+          "part_of_speech": "noun",
+          "uzbek": "tovuq tikka masala (hind taomi, inglizlar sevgan)",
+          "description": "A popular Indian chicken curry dish that has become very popular in the UK",
+          "example": "Chicken tikka masala is a kind of curry from India but very popular in the UK."
+        },
+        {
+          "id": "u33_17",
+          "word": "nursery school",
+          "transcription": "/ˈnɜːrsəri skuːl/",
+          "part_of_speech": "noun",
+          "uzbek": "bog'cha (2-4 yosh)",
+          "description": "A school for very young children aged 2-4",
+          "example": "Nursery school is for children aged 2-4."
+        },
+        {
+          "id": "u33_18",
+          "word": "primary school",
+          "transcription": "/ˈpraɪməri skuːl/",
+          "part_of_speech": "noun",
+          "uzbek": "boshlang'ich maktab (5-11 yosh)",
+          "description": "A school for children aged 5-11",
+          "example": "Primary school is for children aged 5-11."
+        },
+        {
+          "id": "u33_19",
+          "word": "secondary school",
+          "transcription": "/ˈsɛkəndəri skuːl/",
+          "part_of_speech": "noun",
+          "uzbek": "o'rta maktab (12-18 yosh)",
+          "description": "A school for children aged 12-18",
+          "example": "Secondary school is for children aged 12-18."
+        },
+        {
+          "id": "u33_20",
+          "word": "state school",
+          "transcription": "/steɪt skuːl/",
+          "part_of_speech": "noun",
+          "uzbek": "davlat maktabi (bepul)",
+          "description": "A government-funded school where parents do not pay fees",
+          "example": "State school — parents don't pay for children to go here."
+        },
+        {
+          "id": "u33_21",
+          "word": "private school",
+          "transcription": "/ˈpraɪvɪt skuːl/",
+          "part_of_speech": "noun",
+          "uzbek": "xususiy maktab (pullik)",
+          "description": "A school funded by fees paid by parents, not by the government",
+          "example": "Private school — parents pay for children to go here."
+        },
+        {
+          "id": "u33_22",
+          "word": "royal family",
+          "transcription": "/ˈrɔɪəl ˈfæməli/",
+          "part_of_speech": "noun",
+          "uzbek": "qirollik oilasi",
+          "description": "The family of the king or queen of a country",
+          "example": "The UK has a royal family, with a king or a queen."
+        },
+        {
+          "id": "u33_23",
+          "word": "Prime Minister",
+          "transcription": "/praɪm ˈmɪnɪstər/",
+          "part_of_speech": "noun",
+          "uzbek": "Bosh vazir",
+          "description": "The head of government in the UK and many other countries",
+          "example": "The Prime Minister is the political leader of the UK."
+        },
+        {
+          "id": "u33_24",
+          "word": "Houses of Parliament",
+          "transcription": "/ˈhaʊzɪz əv ˈpɑːrləmənt/",
+          "part_of_speech": "noun",
+          "uzbek": "Parlament binosi (Angliya)",
+          "description": "The building in London where the UK Parliament meets and laws are made",
+          "example": "Political decisions are made at the Houses of Parliament."
+        }
+      ]
+    },
+    {
+      "unit": 34,
+      "title": "Crime",
+      "topic": "Types of crime, criminals, and the law",
+      "words": [
+        {
+          "id": "u34_1",
+          "word": "robbery",
+          "transcription": "/ˈrɒbəri/",
+          "part_of_speech": "noun",
+          "uzbek": "qaroqchilik, yulqib olish",
+          "description": "The crime of stealing from a person or place using violence or threats",
+          "example": "The bank was robbed yesterday."
+        },
+        {
+          "id": "u34_2",
+          "word": "robber",
+          "transcription": "/ˈrɒbər/",
+          "part_of_speech": "noun",
+          "uzbek": "qaroqchi, talончи",
+          "description": "A person who steals using violence or threats",
+          "example": "The robber stole £5,000 from the bank."
+        },
+        {
+          "id": "u34_3",
+          "word": "rob",
+          "transcription": "/rɒb/",
+          "part_of_speech": "verb",
+          "uzbek": "talamoq, o'g'irlamoq (zo'rlik bilan)",
+          "description": "To steal from a person or place using violence or threats. Note: 'rob somebody or a place'",
+          "example": "The bank was robbed yesterday. My sister was robbed last week."
+        },
+        {
+          "id": "u34_4",
+          "word": "murder",
+          "transcription": "/ˈmɜːrdər/",
+          "part_of_speech": "noun",
+          "uzbek": "qotillik, o'ldirish",
+          "description": "The crime of killing someone deliberately",
+          "example": "John West murdered his wife."
+        },
+        {
+          "id": "u34_5",
+          "word": "murderer",
+          "transcription": "/ˈmɜːrdərər/",
+          "part_of_speech": "noun",
+          "uzbek": "qotil",
+          "description": "A person who has committed murder",
+          "example": "The murderer was sent to prison for life."
+        },
+        {
+          "id": "u34_6",
+          "word": "murder",
+          "transcription": "/ˈmɜːrdər/",
+          "part_of_speech": "verb",
+          "uzbek": "o'ldirmoq (qasddan)",
+          "description": "To kill someone deliberately and illegally",
+          "example": "John West murdered his wife."
+        },
+        {
+          "id": "u34_7",
+          "word": "burglary",
+          "transcription": "/ˈbɜːrɡləri/",
+          "part_of_speech": "noun",
+          "uzbek": "uyga bostirib kirish va o'g'irlik",
+          "description": "The crime of breaking into a building to steal things",
+          "example": "There was a burglary at the school last night."
+        },
+        {
+          "id": "u34_8",
+          "word": "burglar",
+          "transcription": "/ˈbɜːrɡlər/",
+          "part_of_speech": "noun",
+          "uzbek": "o'g'ri (uyga kirib o'g'irlaydigan)",
+          "description": "A person who breaks into buildings to steal",
+          "example": "The burglar broke into the house through a window."
+        },
+        {
+          "id": "u34_9",
+          "word": "break into",
+          "transcription": "/breɪk ˈɪntuː/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "bostirib kirmoq (uyga)",
+          "description": "To enter a building illegally by force",
+          "example": "A burglar broke into our house while we were away."
+        },
+        {
+          "id": "u34_10",
+          "word": "mugging",
+          "transcription": "/ˈmʌɡɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "ko'chada hujum qilib o'g'irlik",
+          "description": "The crime of attacking someone in a public place to steal their money",
+          "example": "There are a lot of muggings in the city centre."
+        },
+        {
+          "id": "u34_11",
+          "word": "mugger",
+          "transcription": "/ˈmʌɡər/",
+          "part_of_speech": "noun",
+          "uzbek": "ko'chada hujum qiluvchi o'g'ri",
+          "description": "A person who attacks and robs people in public places",
+          "example": "The mugger stole her handbag."
+        },
+        {
+          "id": "u34_12",
+          "word": "mug",
+          "transcription": "/mʌɡ/",
+          "part_of_speech": "verb",
+          "uzbek": "ko'chada hujum qilib o'g'irlamoq",
+          "description": "To attack someone in a public place and steal from them",
+          "example": "She was mugged on her way home from work."
+        },
+        {
+          "id": "u34_13",
+          "word": "car theft",
+          "transcription": "/kɑːr θɛft/",
+          "part_of_speech": "noun",
+          "uzbek": "avtomobil o'g'irlash",
+          "description": "The crime of stealing a car",
+          "example": "Car theft is a big problem in this city."
+        },
+        {
+          "id": "u34_14",
+          "word": "car thief",
+          "transcription": "/kɑːr θiːf/",
+          "part_of_speech": "noun",
+          "uzbek": "avtomobil o'g'risi",
+          "description": "A person who steals cars",
+          "example": "The car thief was caught by the police."
+        },
+        {
+          "id": "u34_15",
+          "word": "steal",
+          "transcription": "/stiːl/",
+          "part_of_speech": "verb",
+          "uzbek": "o'g'irlamoq (narsa)",
+          "description": "To take something that belongs to someone else without permission. Note: 'steal something' NOT 'rob something'",
+          "example": "A thief steals something. Somebody stole my bicycle."
+        },
+        {
+          "id": "u34_16",
+          "word": "shoplifting",
+          "transcription": "/ˈʃɒplɪftɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "do'kondan o'g'irlik",
+          "description": "The crime of stealing goods from a shop while pretending to be a customer",
+          "example": "A student was arrested for shoplifting this morning."
+        },
+        {
+          "id": "u34_17",
+          "word": "shoplifter",
+          "transcription": "/ˈʃɒplɪftər/",
+          "part_of_speech": "noun",
+          "uzbek": "do'kondan o'g'irlaydigan shaxs",
+          "description": "A person who steals from shops",
+          "example": "The shoplifter was caught by security."
+        },
+        {
+          "id": "u34_18",
+          "word": "drug dealing",
+          "transcription": "/drʌɡ ˈdiːlɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "giyohvand moddalar savdosi",
+          "description": "The illegal business of buying and selling drugs",
+          "example": "Drug dealing is a serious crime."
+        },
+        {
+          "id": "u34_19",
+          "word": "terrorism",
+          "transcription": "/ˈtɛrərɪzəm/",
+          "part_of_speech": "noun",
+          "uzbek": "terrorizm",
+          "description": "The use of violence and fear to achieve political goals",
+          "example": "Terrorism is a global problem."
+        },
+        {
+          "id": "u34_20",
+          "word": "vandalism",
+          "transcription": "/ˈvændəlɪzəm/",
+          "part_of_speech": "noun",
+          "uzbek": "vandalizm (mol-mulkni buzish)",
+          "description": "The deliberate destruction or damage of other people's property",
+          "example": "We have a lot of vandalism in our town."
+        },
+        {
+          "id": "u34_21",
+          "word": "the police",
+          "transcription": "/ðə pəˈliːs/",
+          "part_of_speech": "noun",
+          "uzbek": "politsiya",
+          "description": "The organisation responsible for law and order and catching criminals",
+          "example": "The police came to the school and spoke to his teacher."
+        },
+        {
+          "id": "u34_22",
+          "word": "was arrested for",
+          "transcription": "/wɒz əˈrɛstɪd fɔːr/",
+          "part_of_speech": "phrase",
+          "uzbek": "... uchun hibsga olinmoq",
+          "description": "To be taken by the police because of suspected criminal activity",
+          "example": "A student was arrested for shoplifting this morning."
+        },
+        {
+          "id": "u34_23",
+          "word": "go to court",
+          "transcription": "/ɡoʊ tə kɔːrt/",
+          "part_of_speech": "phrase",
+          "uzbek": "sudga bormoq",
+          "description": "To appear before a judge to be tried for a crime",
+          "example": "The student has to go to court next week."
+        },
+        {
+          "id": "u34_24",
+          "word": "guilty",
+          "transcription": "/ˈɡɪlti/",
+          "part_of_speech": "adjective",
+          "uzbek": "aybli",
+          "description": "Having done something illegal or wrong; responsible for a crime",
+          "example": "If he is guilty he will have to pay a fine."
+        },
+        {
+          "id": "u34_25",
+          "word": "innocent",
+          "transcription": "/ˈɪnəsənt/",
+          "part_of_speech": "adjective",
+          "uzbek": "aybsiz, begunoh",
+          "description": "Not guilty of a crime; having done nothing wrong",
+          "example": "If he is innocent he can go home."
+        },
+        {
+          "id": "u34_26",
+          "word": "go to prison",
+          "transcription": "/ɡoʊ tə ˈprɪzən/",
+          "part_of_speech": "phrase",
+          "uzbek": "qamoqqa bormoq",
+          "description": "To be sent to jail as punishment for a crime",
+          "example": "I don't think he will go to prison."
+        },
+        {
+          "id": "u34_27",
+          "word": "pay a fine",
+          "transcription": "/peɪ ə faɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "jarima to'lamoq",
+          "description": "To pay money as a punishment for breaking a law",
+          "example": "If he is guilty he will have to pay a fine."
+        }
+      ]
+    },
+    {
+      "unit": 35,
+      "title": "The media",
+      "topic": "TV, radio programmes, newspapers, magazines and people in the media",
+      "words": [
+        {
+          "id": "u35_1",
+          "word": "the news",
+          "transcription": "/ðə njuːz/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "yangiliklar (xabarlar)",
+          "description": "Reports of recent events on TV, radio or in newspapers. Note: 'The news IS on' NOT 'The news ARE on'",
+          "example": "The news is on TV at 6 o'clock every night."
+        },
+        {
+          "id": "u35_2",
+          "word": "soaps / soap operas",
+          "transcription": "/soʊps/ /soʊp ˈɒpərəz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "seriallar (kundalik drama)",
+          "description": "Regular TV drama series about people's everyday lives, often shown daily",
+          "example": "Do you watch soaps? Home and Away is my favourite."
+        },
+        {
+          "id": "u35_3",
+          "word": "nature programmes",
+          "transcription": "/ˈneɪtʃər ˈproʊɡræmz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "tabiat haqida dasturlar",
+          "description": "TV or radio programmes about animals, birds and the natural world",
+          "example": "I like nature programmes best."
+        },
+        {
+          "id": "u35_4",
+          "word": "documentary",
+          "transcription": "/ˌdɒkjʊˈmɛntəri/",
+          "part_of_speech": "noun",
+          "uzbek": "hujjatli film, dokumental",
+          "description": "A film or TV programme that gives factual information about a real topic or issue",
+          "example": "I watched a documentary last night about drugs and crime."
+        },
+        {
+          "id": "u35_5",
+          "word": "talk show",
+          "transcription": "/tɔːk ʃoʊ/",
+          "part_of_speech": "noun",
+          "uzbek": "suhbat ko'rsatuvi",
+          "description": "A TV or radio programme where people talk about themselves or discuss topics with a host",
+          "example": "In talk shows, people talk about themselves with an interviewer."
+        },
+        {
+          "id": "u35_6",
+          "word": "cartoons",
+          "transcription": "/kɑːrˈtuːnz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "multfilmlar",
+          "description": "Animated films or TV programmes, often made for children",
+          "example": "The children watch cartoons on Saturday mornings."
+        },
+        {
+          "id": "u35_7",
+          "word": "reality TV",
+          "transcription": "/riˈælɪti ˌtiːˈviː/",
+          "part_of_speech": "noun",
+          "uzbek": "haqiqiy hayot ko'rsatuvi",
+          "description": "TV programmes that film real people living their lives, not actors",
+          "example": "My brother likes watching reality TV."
+        },
+        {
+          "id": "u35_8",
+          "word": "sports programmes",
+          "transcription": "/spɔːrts ˈproʊɡræmz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "sport ko'rsatuvlari",
+          "description": "TV or radio programmes about sporting events and news",
+          "example": "I always watch sports programmes."
+        },
+        {
+          "id": "u35_9",
+          "word": "newspaper",
+          "transcription": "/ˈnjuːspeɪpər/",
+          "part_of_speech": "noun",
+          "uzbek": "gazeta",
+          "description": "A daily or weekly publication containing news and articles",
+          "example": "In most countries there are morning and evening newspapers."
+        },
+        {
+          "id": "u35_10",
+          "word": "morning paper / evening paper",
+          "transcription": "/ˈmɔːrnɪŋ ˈpeɪpər/",
+          "part_of_speech": "noun",
+          "uzbek": "ertalabki / kechki gazeta",
+          "description": "A newspaper published in the morning or evening",
+          "example": "In most countries there are morning papers and evening papers."
+        },
+        {
+          "id": "u35_11",
+          "word": "magazine",
+          "transcription": "/ˌmæɡəˈziːn/",
+          "part_of_speech": "noun",
+          "uzbek": "jurnal",
+          "description": "A weekly or monthly publication with articles on various topics",
+          "example": "Every month, I buy a magazine."
+        },
+        {
+          "id": "u35_12",
+          "word": "women's magazines",
+          "transcription": "/ˈwɪmɪnz ˌmæɡəˈziːnz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "ayollar jurnallari",
+          "description": "Magazines aimed at a female audience",
+          "example": "My mother buys women's magazines."
+        },
+        {
+          "id": "u35_13",
+          "word": "news magazines",
+          "transcription": "/njuːz ˌmæɡəˈziːnz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "yangiliklar jurnallari",
+          "description": "Magazines focused on current events and news, like Newsweek or Time",
+          "example": "I like news magazines like Newsweek and Time."
+        },
+        {
+          "id": "u35_14",
+          "word": "adverts / advertisements",
+          "transcription": "/ˈædvɜːrts/ /ədˈvɜːrtɪsmənt/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "reklama, e'lon",
+          "description": "Paid announcements in media designed to persuade people to buy something",
+          "example": "In most magazines there are lots of adverts."
+        },
+        {
+          "id": "u35_15",
+          "word": "reporter",
+          "transcription": "/rɪˈpɔːrtər/",
+          "part_of_speech": "noun",
+          "uzbek": "muxbir, reporter",
+          "description": "A person who goes out and collects news stories for newspapers, TV or radio",
+          "example": "The reporters are outside the film star's house."
+        },
+        {
+          "id": "u35_16",
+          "word": "journalist",
+          "transcription": "/ˈdʒɜːrnəlɪst/",
+          "part_of_speech": "noun",
+          "uzbek": "jurnalist",
+          "description": "A person who writes articles for newspapers or magazines",
+          "example": "My sister is a journalist; she writes for The Oxford Times."
+        },
+        {
+          "id": "u35_17",
+          "word": "interview",
+          "transcription": "/ˈɪntərvjuː/",
+          "part_of_speech": "noun",
+          "uzbek": "intervyu, suhbat",
+          "description": "A meeting where someone is asked questions, often recorded for media",
+          "example": "There was an interview with the US President on TV last night."
+        },
+        {
+          "id": "u35_18",
+          "word": "read newspapers online",
+          "transcription": "/riːd ˈnjuːspeɪpərz ˈɒnlaɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "gazetalarni onlayn o'qimoq",
+          "description": "To read news on the internet instead of buying a printed newspaper",
+          "example": "You can read newspapers or watch TV online."
+        },
+        {
+          "id": "u35_19",
+          "word": "favourite TV programme",
+          "transcription": "/ˈfeɪvərɪt ˌtiːˈviː ˈproʊɡræm/",
+          "part_of_speech": "phrase",
+          "uzbek": "eng sevimli televizor ko'rsatuvi",
+          "description": "The TV show you enjoy the most",
+          "example": "What's your favourite TV programme?"
+        },
+        {
+          "id": "u35_20",
+          "word": "change the channel",
+          "transcription": "/tʃeɪndʒ ðə ˈtʃænəl/",
+          "part_of_speech": "phrase",
+          "uzbek": "kanalni almashtirmoq",
+          "description": "To switch to a different TV station using the remote control",
+          "example": "Is it OK if I change the channel?"
+        }
+      ]
+    },
+    {
+      "unit": 36,
+      "title": "Problems at home and work",
+      "topic": "Describing problems and things going wrong at home and at work",
+      "words": [
+        {
+          "id": "u36_1",
+          "word": "isn't working",
+          "transcription": "/ɪznt ˈwɜːrkɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "ishlamayapti, buzuq",
+          "description": "Used to say that a machine or device is not functioning",
+          "example": "The TV isn't working. Can you repair it?"
+        },
+        {
+          "id": "u36_2",
+          "word": "repair",
+          "transcription": "/rɪˈpeər/",
+          "part_of_speech": "verb",
+          "uzbek": "ta'mirlamoq, tuzatmoq",
+          "description": "To fix something that is broken or not working",
+          "example": "The TV isn't working. Can you repair it?"
+        },
+        {
+          "id": "u36_3",
+          "word": "broken",
+          "transcription": "/ˈbroʊkən/",
+          "part_of_speech": "adjective",
+          "uzbek": "buzilgan, singan",
+          "description": "Not working; damaged and not functioning properly",
+          "example": "The washing machine is broken. We need to mend it."
+        },
+        {
+          "id": "u36_4",
+          "word": "mend",
+          "transcription": "/mɛnd/",
+          "part_of_speech": "verb",
+          "uzbek": "tuzatmoq, yamаmoq",
+          "description": "To repair something that is broken or damaged",
+          "example": "The washing machine is broken. We need to mend it."
+        },
+        {
+          "id": "u36_5",
+          "word": "are dying",
+          "transcription": "/ɑːr ˈdaɪɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "qurib (o'lib) ketmoqda (o'simlik)",
+          "description": "Plants that are not getting enough water or care and will die",
+          "example": "The plants are dying. Did you forget to water them?"
+        },
+        {
+          "id": "u36_6",
+          "word": "water",
+          "transcription": "/ˈwɔːtər/",
+          "part_of_speech": "verb",
+          "uzbek": "sug'ormoq (o'simlik)",
+          "description": "To pour water onto plants to help them grow",
+          "example": "Did you forget to water the plants?"
+        },
+        {
+          "id": "u36_7",
+          "word": "untidy",
+          "transcription": "/ʌnˈtaɪdi/",
+          "part_of_speech": "adjective",
+          "uzbek": "tartibsiz, to'zib yotgan",
+          "description": "Not neat or organised; messy",
+          "example": "The room is untidy. We must tidy it."
+        },
+        {
+          "id": "u36_8",
+          "word": "tidy",
+          "transcription": "/ˈtaɪdi/",
+          "part_of_speech": "verb",
+          "uzbek": "tartibga keltirmoq, tozalamoq",
+          "description": "To make a room or space neat and organised",
+          "example": "The room is untidy. We must tidy it."
+        },
+        {
+          "id": "u36_9",
+          "word": "lost",
+          "transcription": "/lɒst/",
+          "part_of_speech": "adjective",
+          "uzbek": "yo'qolgan, topolmayapman",
+          "description": "Unable to be found; not knowing where something is",
+          "example": "I've lost my keys. Will you help me look for them?"
+        },
+        {
+          "id": "u36_10",
+          "word": "look for",
+          "transcription": "/lʊk fɔːr/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "qidirmoq, izlamoq",
+          "description": "To search for something you have lost or need to find",
+          "example": "I've lost my keys. Will you help me look for them?"
+        },
+        {
+          "id": "u36_11",
+          "word": "cut",
+          "transcription": "/kʌt/",
+          "part_of_speech": "verb (past: cut)",
+          "uzbek": "kesib olmoq, jarohat olmoq",
+          "description": "To accidentally injure yourself with something sharp",
+          "example": "You've cut your finger. You should put on a plaster."
+        },
+        {
+          "id": "u36_12",
+          "word": "put on a plaster",
+          "transcription": "/pʊt ɒn ə ˈplɑːstər/",
+          "part_of_speech": "phrase",
+          "uzbek": "plaster yopishtirmoq (jarohаtga)",
+          "description": "To cover a cut or small wound with a sticking plaster to protect it",
+          "example": "You've cut your finger. You should put on a plaster."
+        },
+        {
+          "id": "u36_13",
+          "word": "had a row with",
+          "transcription": "/hæd ə raʊ wɪð/",
+          "part_of_speech": "phrase",
+          "uzbek": "janjal qilmoq, urishmoq (kimdir bilan)",
+          "description": "To have an argument or disagreement with someone",
+          "example": "You've had a row with a friend. Will you apologise?"
+        },
+        {
+          "id": "u36_14",
+          "word": "apologise",
+          "transcription": "/əˈpɒlədʒaɪz/",
+          "part_of_speech": "verb",
+          "uzbek": "uzr so'ramoq, kechirim so'ramoq",
+          "description": "To say you are sorry for something you have done wrong",
+          "example": "You've had a row with a friend. Will you apologise?"
+        },
+        {
+          "id": "u36_15",
+          "word": "had a bad day",
+          "transcription": "/hæd ə bæd deɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "qiyin kun o'tkazmoq",
+          "description": "To have a day when many things go wrong",
+          "example": "Chloe had a bad day at work yesterday."
+        },
+        {
+          "id": "u36_16",
+          "word": "late for work",
+          "transcription": "/leɪt fɔːr wɜːrk/",
+          "part_of_speech": "phrase",
+          "uzbek": "ishga kech qolmoq",
+          "description": "Arriving at work after the expected time",
+          "example": "She was late for work."
+        },
+        {
+          "id": "u36_17",
+          "word": "too much work",
+          "transcription": "/tuː mʌtʃ wɜːrk/",
+          "part_of_speech": "phrase",
+          "uzbek": "juda ko'p ish",
+          "description": "More work than you can comfortably manage",
+          "example": "She had too much work to do."
+        },
+        {
+          "id": "u36_18",
+          "word": "in a bad mood",
+          "transcription": "/ɪn ə bæd muːd/",
+          "part_of_speech": "phrase",
+          "uzbek": "yomon kayfiyatda",
+          "description": "Feeling unhappy, angry or irritable",
+          "example": "Her colleague was in a bad mood."
+        },
+        {
+          "id": "u36_19",
+          "word": "computer crashed",
+          "transcription": "/kəmˈpjuːtər kræʃt/",
+          "part_of_speech": "phrase",
+          "uzbek": "kompyuter ishdan chiqdi",
+          "description": "When a computer suddenly stops working and loses data",
+          "example": "Her computer crashed in the middle of her work."
+        },
+        {
+          "id": "u36_20",
+          "word": "out of order",
+          "transcription": "/aʊt əv ˈɔːrdər/",
+          "part_of_speech": "phrase",
+          "uzbek": "ishlamaydi, buzuq (mashina)",
+          "description": "A machine that is not working and cannot be used",
+          "example": "The photocopier was out of order."
+        },
+        {
+          "id": "u36_21",
+          "word": "wasn't working",
+          "transcription": "/ˈwɒznt ˈwɜːrkɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "ishlamayotgan edi",
+          "description": "Used to describe a machine that was broken in the past",
+          "example": "The coffee machine wasn't working."
+        }
+      ]
+    },
+    {
+      "unit": 37,
+      "title": "Global problems",
+      "topic": "Natural disasters, man-made problems and global issues",
+      "words": [
+        {
+          "id": "u37_1",
+          "word": "hurricane",
+          "transcription": "/ˈhʌrɪkeɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "dovul, to'fon (kuchli shamol)",
+          "description": "A very strong and violent tropical storm with extremely fast winds",
+          "example": "There was a hurricane there last year."
+        },
+        {
+          "id": "u37_2",
+          "word": "snowstorm",
+          "transcription": "/ˈsnoʊstɔːrm/",
+          "part_of_speech": "noun",
+          "uzbek": "qor bo'roni, blizzard",
+          "description": "A storm with a lot of snow and strong winds at the same time",
+          "example": "There was a terrible snowstorm in the north."
+        },
+        {
+          "id": "u37_3",
+          "word": "forest fire",
+          "transcription": "/ˈfɒrɪst faɪər/",
+          "part_of_speech": "noun",
+          "uzbek": "o'rmon yong'ini",
+          "description": "A large uncontrolled fire in a forest or woodland area",
+          "example": "There was a huge forest fire in the south of the country."
+        },
+        {
+          "id": "u37_4",
+          "word": "earthquake",
+          "transcription": "/ˈɜːrθkweɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "zilzila",
+          "description": "A sudden violent shaking of the ground caused by movement of the Earth's surface",
+          "example": "San Francisco has had a lot of earthquakes."
+        },
+        {
+          "id": "u37_5",
+          "word": "floods",
+          "transcription": "/flʌdz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "sel, toshqin",
+          "description": "Large amounts of water covering areas that are usually dry after heavy rain",
+          "example": "There were serious floods in the north yesterday."
+        },
+        {
+          "id": "u37_6",
+          "word": "flood",
+          "transcription": "/flʌd/",
+          "part_of_speech": "verb",
+          "uzbek": "toshmoq, suv bosmoq",
+          "description": "When a river or area becomes covered with water",
+          "example": "The river often floods after heavy rain."
+        },
+        {
+          "id": "u37_7",
+          "word": "crowded",
+          "transcription": "/ˈkraʊdɪd/",
+          "part_of_speech": "adjective",
+          "uzbek": "gavjum, odamga to'la",
+          "description": "Having too many people in one place; uncomfortably full",
+          "example": "There are too many people in some places. Cities are too crowded."
+        },
+        {
+          "id": "u37_8",
+          "word": "poor",
+          "transcription": "/pʊər/",
+          "part_of_speech": "adjective",
+          "uzbek": "kambag'al, qashshoq",
+          "description": "Not having enough money for basic needs",
+          "example": "Many people are poor — they do not have enough money."
+        },
+        {
+          "id": "u37_9",
+          "word": "hungry",
+          "transcription": "/ˈhʌŋɡri/",
+          "part_of_speech": "adjective",
+          "uzbek": "och, to'yib ovqat yemaslik",
+          "description": "Not having enough food to eat; suffering from lack of food",
+          "example": "Many people are hungry — they do not have enough food."
+        },
+        {
+          "id": "u37_10",
+          "word": "homeless",
+          "transcription": "/ˈhoʊmləs/",
+          "part_of_speech": "adjective",
+          "uzbek": "uy-joysiz, boshpanasiz",
+          "description": "Not having a place to live",
+          "example": "Many people are homeless — they do not have a place to live."
+        },
+        {
+          "id": "u37_11",
+          "word": "unemployed",
+          "transcription": "/ˌʌnɪmˈplɔɪd/",
+          "part_of_speech": "adjective",
+          "uzbek": "ishsiz",
+          "description": "Not having a paid job",
+          "example": "Many people are unemployed — they do not have a job."
+        },
+        {
+          "id": "u37_12",
+          "word": "pollution",
+          "transcription": "/pəˈluːʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "ifloslanish, ifloslash",
+          "description": "When air, water or land is made dirty and harmful by chemicals or waste",
+          "example": "There is a lot of pollution in many places."
+        },
+        {
+          "id": "u37_13",
+          "word": "polluted",
+          "transcription": "/pəˈluːtɪd/",
+          "part_of_speech": "adjective",
+          "uzbek": "ifloslangan",
+          "description": "Made dirty and harmful by pollution",
+          "example": "The river is polluted and a lot of fish have died."
+        },
+        {
+          "id": "u37_14",
+          "word": "air pollution",
+          "transcription": "/eər pəˈluːʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "havo ifloslanishi",
+          "description": "Harmful chemicals and substances in the air we breathe",
+          "example": "The air pollution is very bad today."
+        },
+        {
+          "id": "u37_15",
+          "word": "war",
+          "transcription": "/wɔːr/",
+          "part_of_speech": "noun",
+          "uzbek": "urush",
+          "description": "Armed fighting between countries or groups of people",
+          "example": "The American War of Independence started in 1775 and ended in 1783."
+        },
+        {
+          "id": "u37_16",
+          "word": "on strike",
+          "transcription": "/ɒn straɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "ish tashlash, strajk",
+          "description": "When workers refuse to work to protest about pay or conditions",
+          "example": "The teachers are on strike today."
+        },
+        {
+          "id": "u37_17",
+          "word": "car crash",
+          "transcription": "/kɑːr kræʃ/",
+          "part_of_speech": "noun",
+          "uzbek": "yo'l-transport hodisasi, avariya",
+          "description": "An accident where a car hits something and is damaged",
+          "example": "He had a car crash on the way to work."
+        },
+        {
+          "id": "u37_18",
+          "word": "traffic jams",
+          "transcription": "/ˈtræfɪk dʒæmz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "tirbandlik, tiqilinch",
+          "description": "Long lines of vehicles that cannot move or can only move very slowly",
+          "example": "The traffic jams in the city are terrible in the rush hour."
+        },
+        {
+          "id": "u37_19",
+          "word": "rush hour",
+          "transcription": "/rʌʃ aʊər/",
+          "part_of_speech": "noun",
+          "uzbek": "eng gavjum soat (ish boshlanganda va tugaganda)",
+          "description": "The busiest times of day when most people are travelling to or from work",
+          "example": "The traffic jams in the city are terrible in the rush hour."
+        }
+      ]
+    },
+    {
+      "unit": 38,
+      "title": "Have / had / had",
+      "topic": "Using 'have' with meals, activities, and common expressions",
+      "words": [
+        {
+          "id": "u38_1",
+          "word": "have breakfast",
+          "transcription": "/hæv ˈbrɛkfəst/",
+          "part_of_speech": "phrase",
+          "uzbek": "nonushta qilmoq",
+          "description": "To eat the first meal of the day",
+          "example": "I have breakfast at 7 o'clock every morning."
+        },
+        {
+          "id": "u38_2",
+          "word": "have lunch",
+          "transcription": "/hæv lʌntʃ/",
+          "part_of_speech": "phrase",
+          "uzbek": "tushlik qilmoq",
+          "description": "To eat the midday meal",
+          "example": "We usually have lunch at 1 o'clock."
+        },
+        {
+          "id": "u38_3",
+          "word": "have dinner",
+          "transcription": "/hæv ˈdɪnər/",
+          "part_of_speech": "phrase",
+          "uzbek": "kechki ovqat qilmoq",
+          "description": "To eat the evening meal",
+          "example": "I make breakfast, lunch and dinner every day."
+        },
+        {
+          "id": "u38_4",
+          "word": "have a meal",
+          "transcription": "/hæv ə miːl/",
+          "part_of_speech": "phrase",
+          "uzbek": "ovqatlanmoq",
+          "description": "To eat a full meal",
+          "example": "Let's go and see a film and then have a meal."
+        },
+        {
+          "id": "u38_5",
+          "word": "have a party",
+          "transcription": "/hæv ə ˈpɑːrti/",
+          "part_of_speech": "phrase",
+          "uzbek": "ziyofat o'tkazmoq",
+          "description": "To organise and host a party for guests",
+          "example": "We're going to have a party on Saturday."
+        },
+        {
+          "id": "u38_6",
+          "word": "have a meeting",
+          "transcription": "/hæv ə ˈmiːtɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "yig'ilish o'tkazmoq, uchrashuv bo'lmoq",
+          "description": "To hold a formal or informal discussion with others",
+          "example": "We have a meeting every Monday morning."
+        },
+        {
+          "id": "u38_7",
+          "word": "have a game",
+          "transcription": "/hæv ə ɡeɪm/",
+          "part_of_speech": "phrase",
+          "uzbek": "o'yin o'ynаmoq",
+          "description": "To play a game of sport or other activity",
+          "example": "Let's have a game of tennis."
+        },
+        {
+          "id": "u38_8",
+          "word": "have a lesson",
+          "transcription": "/hæv ə ˈlɛsən/",
+          "part_of_speech": "phrase",
+          "uzbek": "dars olmoq",
+          "description": "To take part in a class or teaching session",
+          "example": "I have English lessons three times a week."
+        },
+        {
+          "id": "u38_9",
+          "word": "have an exam",
+          "transcription": "/hæv ən ɪɡˈzæm/",
+          "part_of_speech": "phrase",
+          "uzbek": "imtihon topshirmoq",
+          "description": "To sit or take an examination",
+          "example": "I have an exam tomorrow."
+        },
+        {
+          "id": "u38_10",
+          "word": "have a cup of tea / coffee",
+          "transcription": "/hæv ə kʌp əv tiː/",
+          "part_of_speech": "phrase",
+          "uzbek": "choy / qahva ichmoq",
+          "description": "To drink a cup of tea or coffee",
+          "example": "Would you like to have a cup of tea?"
+        },
+        {
+          "id": "u38_11",
+          "word": "have a drink",
+          "transcription": "/hæv ə drɪŋk/",
+          "part_of_speech": "phrase",
+          "uzbek": "ichimlik ichmoq",
+          "description": "To drink something, often in a social context",
+          "example": "Let's go to the café and have a drink."
+        },
+        {
+          "id": "u38_12",
+          "word": "have a shower",
+          "transcription": "/hæv ə ˈʃaʊər/",
+          "part_of_speech": "phrase",
+          "uzbek": "dush qabul qilmoq",
+          "description": "To wash yourself under a shower",
+          "example": "I have a shower every morning."
+        },
+        {
+          "id": "u38_13",
+          "word": "have a bath",
+          "transcription": "/hæv ə bɑːθ/",
+          "part_of_speech": "phrase",
+          "uzbek": "vanna qabul qilmoq",
+          "description": "To wash yourself in a bathtub",
+          "example": "She has a bath every evening."
+        },
+        {
+          "id": "u38_14",
+          "word": "have a swim",
+          "transcription": "/hæv ə swɪm/",
+          "part_of_speech": "phrase",
+          "uzbek": "suzmoq, suzib olmoq",
+          "description": "To go swimming",
+          "example": "Let's have a swim in the pool."
+        },
+        {
+          "id": "u38_15",
+          "word": "have a look",
+          "transcription": "/hæv ə lʊk/",
+          "part_of_speech": "phrase",
+          "uzbek": "qarаmoq, ko'rib chiqmoq",
+          "description": "To look at something to check or examine it",
+          "example": "Is that your camera? Can I have a look?"
+        },
+        {
+          "id": "u38_16",
+          "word": "have a go",
+          "transcription": "/hæv ə ɡoʊ/",
+          "part_of_speech": "phrase",
+          "uzbek": "urinib ko'rmoq, sinab ko'rmoq",
+          "description": "To try something; to have an attempt at something",
+          "example": "Is that your bicycle? Can I have a go?"
+        },
+        {
+          "id": "u38_17",
+          "word": "have a good journey",
+          "transcription": "/hæv ə ɡʊd ˈdʒɜːrni/",
+          "part_of_speech": "phrase",
+          "uzbek": "yaxshi safar tilamoq",
+          "description": "A wish for someone to travel safely and pleasantly",
+          "example": "Goodbye! Have a good journey!"
+        },
+        {
+          "id": "u38_18",
+          "word": "have a good time",
+          "transcription": "/hæv ə ɡʊd taɪm/",
+          "part_of_speech": "phrase",
+          "uzbek": "yaxshi vaqt o'tkazmoq",
+          "description": "To enjoy yourself and have fun",
+          "example": "We always have a good time in our English lessons."
+        },
+        {
+          "id": "u38_19",
+          "word": "have my hair cut",
+          "transcription": "/hæv maɪ heər kʌt/",
+          "part_of_speech": "phrase",
+          "uzbek": "soch oldirmoq",
+          "description": "To get your hair cut by a hairdresser",
+          "example": "I'm going to have my hair cut. See you later."
+        },
+        {
+          "id": "u38_20",
+          "word": "have a word with",
+          "transcription": "/hæv ə wɜːrd wɪð/",
+          "part_of_speech": "phrase",
+          "uzbek": "gaplashib olmoq (bilan)",
+          "description": "To have a brief private conversation with someone",
+          "example": "Do you have a moment? Can I have a word with you?"
+        },
+        {
+          "id": "u38_21",
+          "word": "have got",
+          "transcription": "/hæv ɡɒt/",
+          "part_of_speech": "phrase",
+          "uzbek": "bor (ega bo'lmoq, noformal)",
+          "description": "Informal way to say 'have' when talking about possession. 'Have you got' = 'Do you have'",
+          "example": "Have you got any brothers and sisters? I've got three sisters."
+        },
+        {
+          "id": "u38_22",
+          "word": "have got to",
+          "transcription": "/hæv ɡɒt tə/",
+          "part_of_speech": "phrase",
+          "uzbek": "majbur bo'lmoq (noformal)",
+          "description": "Informal for 'have to'; meaning it is necessary to do something",
+          "example": "You've got to pay $10 to go in. All students have got to do an exam."
+        }
+      ]
+    },
+    {
+      "unit": 39,
+      "title": "Go / went / gone",
+      "topic": "Using 'go' with transport, prepositions, future plans and activities",
+      "words": [
+        {
+          "id": "u39_1",
+          "word": "go",
+          "transcription": "/ɡoʊ/",
+          "part_of_speech": "verb",
+          "uzbek": "bormoq, ketmoq",
+          "description": "To move from one place to another. Go means to move from here to there",
+          "example": "I go to work by bike. We went to Paris last summer."
+        },
+        {
+          "id": "u39_2",
+          "word": "go by bike",
+          "transcription": "/ɡoʊ baɪ baɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "velosiped bilan bormoq",
+          "description": "To travel somewhere using a bicycle",
+          "example": "I go to work by bike. My brother goes by car."
+        },
+        {
+          "id": "u39_3",
+          "word": "go in",
+          "transcription": "/ɡoʊ ɪn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "ichkariga kirmoq",
+          "description": "To enter a place or room",
+          "example": "Ethan went in to his room and shut the door."
+        },
+        {
+          "id": "u39_4",
+          "word": "go out of",
+          "transcription": "/ɡoʊ aʊt əv/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "tashqariga chiqmoq",
+          "description": "To leave a place or room",
+          "example": "Yuko went out of the house and into the garden."
+        },
+        {
+          "id": "u39_5",
+          "word": "go up",
+          "transcription": "/ɡoʊ ʌp/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "yuqoriga bormoq, ko'tarilmoq",
+          "description": "To move to a higher position",
+          "example": "Jacob was tired. He went up the stairs slowly."
+        },
+        {
+          "id": "u39_6",
+          "word": "go down",
+          "transcription": "/ɡoʊ daʊn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "pastga bormoq, tushmoq",
+          "description": "To move to a lower position",
+          "example": "The phone was ringing. She went down the stairs quickly."
+        },
+        {
+          "id": "u39_7",
+          "word": "be going to",
+          "transcription": "/biː ˈɡoʊɪŋ tə/",
+          "part_of_speech": "phrase",
+          "uzbek": "... qilmoqchi bo'lmoq (kelajak rejasi)",
+          "description": "Used to talk about plans or intentions for the future",
+          "example": "Jan is going to study maths at university."
+        },
+        {
+          "id": "u39_8",
+          "word": "go shopping",
+          "transcription": "/ɡoʊ ˈʃɒpɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "xarid qilgani bormoq",
+          "description": "To go to shops to buy things. Note: 'go shopping' NOT 'go to shopping'",
+          "example": "I hate going shopping. Let's go shopping this afternoon."
+        },
+        {
+          "id": "u39_9",
+          "word": "go swimming",
+          "transcription": "/ɡoʊ ˈswɪmɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "suzgani bormoq",
+          "description": "To go to a pool or the sea to swim",
+          "example": "I usually go swimming in the morning."
+        },
+        {
+          "id": "u39_10",
+          "word": "go dancing",
+          "transcription": "/ɡoʊ ˈdɑːnsɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "raqs o'ynagani bormoq",
+          "description": "To go somewhere to dance",
+          "example": "Let's go dancing tonight!"
+        },
+        {
+          "id": "u39_11",
+          "word": "go skiing",
+          "transcription": "/ɡoʊ ˈskiːɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "chang'i uchirгani bormoq",
+          "description": "To travel somewhere to ski on snow",
+          "example": "Hans goes skiing every winter."
+        },
+        {
+          "id": "u39_12",
+          "word": "go fishing",
+          "transcription": "/ɡoʊ ˈfɪʃɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "baliq ovlагani bormoq",
+          "description": "To go to a river, lake or sea to catch fish",
+          "example": "Carter is going fishing today."
+        },
+        {
+          "id": "u39_13",
+          "word": "go sightseeing",
+          "transcription": "/ɡoʊ ˈsaɪtsiːɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "diqqatga sazovor joylarni ko'rgani bormoq",
+          "description": "To visit famous and interesting places as a tourist",
+          "example": "Do you like going sightseeing when you are on holiday?"
+        },
+        {
+          "id": "u39_14",
+          "word": "go home",
+          "transcription": "/ɡoʊ hoʊm/",
+          "part_of_speech": "phrase",
+          "uzbek": "uyga bormoq / qaytmoq",
+          "description": "To return to your home. Note: 'go home' NOT 'go to home'",
+          "example": "I must go home at 10 o'clock."
+        },
+        {
+          "id": "u39_15",
+          "word": "go away",
+          "transcription": "/ɡoʊ əˈweɪ/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "ketmoq, uzoqlashmoq",
+          "description": "To leave a place or to go on a trip",
+          "example": "We went away to Paris last weekend."
+        },
+        {
+          "id": "u39_16",
+          "word": "go anywhere / somewhere",
+          "transcription": "/ɡoʊ ˈɛniwɛər/",
+          "part_of_speech": "phrase",
+          "uzbek": "biror joyga bormoq / hech qayerga bormaslik",
+          "description": "To go to any place (negative) or some place. Note: 'go anywhere' NOT 'go to anywhere'",
+          "example": "I don't want to go anywhere else."
+        },
+        {
+          "id": "u39_17",
+          "word": "went",
+          "transcription": "/wɛnt/",
+          "part_of_speech": "verb (past simple)",
+          "uzbek": "bordi, ketdi (o'tgan zamon)",
+          "description": "The past simple form of 'go'",
+          "example": "We went to Paris last summer."
+        },
+        {
+          "id": "u39_18",
+          "word": "gone",
+          "transcription": "/ɡɒn/",
+          "part_of_speech": "verb (past participle)",
+          "uzbek": "ketgan, borgan (o'tgan zamon sifatdoshi)",
+          "description": "The past participle form of 'go'; used in perfect tenses",
+          "example": "Have you gone to the new shopping centre yet?"
+        }
+      ]
+    },
+    {
+      "unit": 40,
+      "title": "Do / did / done",
+      "topic": "Using 'do' as auxiliary verb and with activities",
+      "words": [
+        {
+          "id": "u40_1",
+          "word": "do",
+          "transcription": "/duː/",
+          "part_of_speech": "verb (auxiliary)",
+          "uzbek": "yordamchi fe'l (savol va inkor uchun)",
+          "description": "Used as an auxiliary verb to form questions and negatives in the present tense",
+          "example": "Do you like tennis? He doesn't play well."
+        },
+        {
+          "id": "u40_2",
+          "word": "did",
+          "transcription": "/dɪd/",
+          "part_of_speech": "verb (past auxiliary)",
+          "uzbek": "o'tgan zamondagi yordamchi fe'l",
+          "description": "Past simple auxiliary; used to form past questions and negatives",
+          "example": "Did they like the film? Yes, they did. Leo didn't see it."
+        },
+        {
+          "id": "u40_3",
+          "word": "does",
+          "transcription": "/dʌz/",
+          "part_of_speech": "verb (auxiliary)",
+          "uzbek": "yordamchi fe'l (3-shaxs yakkasi)",
+          "description": "Third person singular of 'do'; used with he, she, it",
+          "example": "So does Matteo. What does your wife do?"
+        },
+        {
+          "id": "u40_4",
+          "word": "do nothing",
+          "transcription": "/duː ˈnʌθɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "hech narsa qilmaslik, bekor o'tirmoq",
+          "description": "To have no activities; to rest and not do anything",
+          "example": "On Saturdays I usually do nothing. I just relax."
+        },
+        {
+          "id": "u40_5",
+          "word": "What do you do?",
+          "transcription": "/wɒt duː juː duː/",
+          "part_of_speech": "phrase",
+          "uzbek": "Siz nima ish qilasiz? (kasb)",
+          "description": "A question asking about someone's job or occupation",
+          "example": "What do you do? I'm a student. What does your wife do? She's a doctor."
+        },
+        {
+          "id": "u40_6",
+          "word": "do the housework",
+          "transcription": "/duː ðə ˈhaʊswɜːrk/",
+          "part_of_speech": "phrase",
+          "uzbek": "uy ishlarini qilmoq",
+          "description": "To clean, tidy and maintain the house",
+          "example": "On Saturdays I do the housework."
+        },
+        {
+          "id": "u40_7",
+          "word": "do the gardening",
+          "transcription": "/duː ðə ˈɡɑːrdnɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "bog'da ishlаmoq",
+          "description": "To work in the garden, cutting grass and growing plants",
+          "example": "I do the gardening on Sunday mornings."
+        },
+        {
+          "id": "u40_8",
+          "word": "do the washing",
+          "transcription": "/duː ðə ˈwɒʃɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "kir yuvmoq",
+          "description": "To wash clothes, usually in a washing machine. Note: 'do the washing' NOT 'make the washing'",
+          "example": "Did you do the washing this morning? No, I'm going to do it later."
+        },
+        {
+          "id": "u40_9",
+          "word": "do the washing-up",
+          "transcription": "/duː ðə ˈwɒʃɪŋ ʌp/",
+          "part_of_speech": "phrase",
+          "uzbek": "idish yuvmoq",
+          "description": "To wash the dishes and cups after a meal",
+          "example": "Can you do the washing-up while I tidy the kitchen?"
+        },
+        {
+          "id": "u40_10",
+          "word": "do your homework",
+          "transcription": "/duː jɔːr ˈhoʊmwɜːrk/",
+          "part_of_speech": "phrase",
+          "uzbek": "uy vazifasini bajarmoq",
+          "description": "To complete school work given by the teacher. Note: 'do homework' NOT 'make homework'",
+          "example": "Have you done your homework yet?"
+        },
+        {
+          "id": "u40_11",
+          "word": "do some exercises",
+          "transcription": "/duː sʌm ˈɛksərsaɪzɪz/",
+          "part_of_speech": "phrase",
+          "uzbek": "mashqlar bajarmoq (jismoniy yoki dars)",
+          "description": "To do physical exercises or work through practice questions",
+          "example": "I do some exercises every morning to stay fit."
+        },
+        {
+          "id": "u40_12",
+          "word": "do business with",
+          "transcription": "/duː ˈbɪznɪs wɪð/",
+          "part_of_speech": "phrase",
+          "uzbek": "biznes yuritmoq (bilan)",
+          "description": "To have commercial dealings or trade with someone",
+          "example": "Our company does a lot of business with the US."
+        },
+        {
+          "id": "u40_13",
+          "word": "do your best",
+          "transcription": "/duː jɔːr bɛst/",
+          "part_of_speech": "phrase",
+          "uzbek": "qo'ldan kelganini qilmoq, harakat qilmoq",
+          "description": "To try as hard as you can to achieve something",
+          "example": "The homework is very difficult — just do your best."
+        },
+        {
+          "id": "u40_14",
+          "word": "Don't do that",
+          "transcription": "/doʊnt duː ðæt/",
+          "part_of_speech": "phrase",
+          "uzbek": "Shuni qilma!",
+          "description": "A command telling someone to stop doing something",
+          "example": "Don't do that, Tommy!"
+        }
+      ]
     }
   ]
 }
