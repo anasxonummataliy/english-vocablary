@@ -32,6 +32,7 @@ def get_session_maker() -> async_sessionmaker[AsyncSession]:
         autoflush=False,
         expire_on_commit=False,
     )
+    
 
 
 @asynccontextmanager
