@@ -8615,6 +8615,1543 @@
           "example": "Don't do that, Tommy!"
         }
       ]
+    },
+    {
+      "unit": 41,
+      "title": "Make / made / made",
+      "topic": "Uses and collocations with the verb 'make'",
+      "words": [
+        {
+          "id": "u41_1",
+          "word": "make",
+          "transcription": "/meɪk/",
+          "part_of_speech": "verb",
+          "uzbek": "qilmoq, tayyorlamoq, yasamoq",
+          "description": "To produce or create something. Past: made. Past participle: made",
+          "example": "Dad is making some coffee. Mum is making dinner."
+        },
+        {
+          "id": "u41_2",
+          "word": "made",
+          "transcription": "/meɪd/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "qildi, tayyorladi (o'tgan zamon)",
+          "description": "Past tense and past participle of 'make'",
+          "example": "She made a film last year."
+        },
+        {
+          "id": "u41_3",
+          "word": "make some coffee",
+          "transcription": "/meɪk sʌm ˈkɒfi/",
+          "part_of_speech": "phrase",
+          "uzbek": "qahva tayyorlamoq",
+          "description": "To prepare coffee for drinking",
+          "example": "Dad is making some coffee."
+        },
+        {
+          "id": "u41_4",
+          "word": "make dinner",
+          "transcription": "/meɪk ˈdɪnər/",
+          "part_of_speech": "phrase",
+          "uzbek": "kechki ovqat pishirmoq",
+          "description": "To prepare the evening meal. Note: 'make dinner' NOT 'do dinner'",
+          "example": "Mum is making dinner."
+        },
+        {
+          "id": "u41_5",
+          "word": "make breakfast / lunch",
+          "transcription": "/meɪk ˈbrɛkfəst/ /lʌntʃ/",
+          "part_of_speech": "phrase",
+          "uzbek": "nonushta / tushlik tayyorlamoq",
+          "description": "To prepare a meal to eat",
+          "example": "I make breakfast and lunch every day."
+        },
+        {
+          "id": "u41_6",
+          "word": "make some tea",
+          "transcription": "/meɪk sʌm tiː/",
+          "part_of_speech": "phrase",
+          "uzbek": "choy tayyorlamoq, choy qaynatmoq",
+          "description": "To prepare a pot or cup of tea",
+          "example": "I'll make some tea or hot chocolate."
+        },
+        {
+          "id": "u41_7",
+          "word": "make a photocopy",
+          "transcription": "/meɪk ə ˈfoʊtəkɒpi/",
+          "part_of_speech": "phrase",
+          "uzbek": "nusxa ko'chirmoq, fotokopiya qilmoq",
+          "description": "To make a copy of a document using a photocopier",
+          "example": "He's making a photocopy of the contract."
+        },
+        {
+          "id": "u41_8",
+          "word": "make a film / video",
+          "transcription": "/meɪk ə fɪlm/",
+          "part_of_speech": "phrase",
+          "uzbek": "film/video suratga olmoq",
+          "description": "To produce a film or video recording",
+          "example": "She's making a film about local history."
+        },
+        {
+          "id": "u41_9",
+          "word": "makes me (feel) tired",
+          "transcription": "/meɪks miː ˈtaɪərd/",
+          "part_of_speech": "phrase",
+          "uzbek": "meni charchatadi",
+          "description": "Something that causes you to feel a certain emotion. 'It makes me feel...'",
+          "example": "Going by train always makes me (feel) tired."
+        },
+        {
+          "id": "u41_10",
+          "word": "made me (feel) angry",
+          "transcription": "/meɪd miː ˈæŋɡri/",
+          "part_of_speech": "phrase",
+          "uzbek": "meni g'azablantirdi",
+          "description": "Something in the past that caused you to feel angry",
+          "example": "My friend called me stupid. It made me (feel) angry."
+        },
+        {
+          "id": "u41_11",
+          "word": "made me (feel) sad",
+          "transcription": "/meɪd miː sæd/",
+          "part_of_speech": "phrase",
+          "uzbek": "meni xafa qildi",
+          "description": "Something in the past that caused you to feel sad",
+          "example": "That film made me (feel) sad."
+        },
+        {
+          "id": "u41_12",
+          "word": "make a mistake",
+          "transcription": "/meɪk ə mɪˈsteɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "xato qilmoq",
+          "description": "To do something incorrectly. Note: 'make a mistake' NOT 'do a mistake'",
+          "example": "I made a mistake in the exercise."
+        },
+        {
+          "id": "u41_13",
+          "word": "make an appointment",
+          "transcription": "/meɪk ən əˈpɔɪntmənt/",
+          "part_of_speech": "phrase",
+          "uzbek": "uchrashuv belgilamoq",
+          "description": "To arrange a fixed time to see a doctor, dentist or other professional",
+          "example": "I want to make an appointment with the doctor."
+        },
+        {
+          "id": "u41_14",
+          "word": "make my bed",
+          "transcription": "/meɪk maɪ bɛd/",
+          "part_of_speech": "phrase",
+          "uzbek": "to'shak yig'ishtirmoq",
+          "description": "To straighten and tidy the bed covers after sleeping",
+          "example": "When I get up I make my bed."
+        },
+        {
+          "id": "u41_15",
+          "word": "making a noise",
+          "transcription": "/ˈmeɪkɪŋ ə nɔɪz/",
+          "part_of_speech": "phrase",
+          "uzbek": "shovqin qilmoq",
+          "description": "To make loud unpleasant sounds",
+          "example": "The children are making a noise."
+        },
+        {
+          "id": "u41_16",
+          "word": "making a mess",
+          "transcription": "/ˈmeɪkɪŋ ə mɛs/",
+          "part_of_speech": "phrase",
+          "uzbek": "axlatxonaga aylantirmoq, tartibsizlik qilmoq",
+          "description": "To make a place untidy and dirty",
+          "example": "The children are making a mess in the living room."
+        },
+        {
+          "id": "u41_17",
+          "word": "made a good choice",
+          "transcription": "/meɪd ə ɡʊd tʃɔɪs/",
+          "part_of_speech": "phrase",
+          "uzbek": "to'g'ri tanlov qildi",
+          "description": "To choose something that was a good decision",
+          "example": "I love your new dress — you made a good choice."
+        },
+        {
+          "id": "u41_18",
+          "word": "do homework",
+          "transcription": "/duː ˈhoʊmwɜːrk/",
+          "part_of_speech": "phrase",
+          "uzbek": "uy vazifasini bajarmoq",
+          "description": "Note the difference: you DO homework, but you MAKE a mistake",
+          "example": "You do homework. You make a mistake. NOT make homework."
+        },
+        {
+          "id": "u41_19",
+          "word": "take a photo",
+          "transcription": "/teɪk ə ˈfoʊtoʊ/",
+          "part_of_speech": "phrase",
+          "uzbek": "rasm olmoq, suratga tushmoq",
+          "description": "Note: you TAKE a photo, NOT make a photo",
+          "example": "You take a photo. NOT make a photo."
+        },
+        {
+          "id": "u41_20",
+          "word": "do the washing",
+          "transcription": "/duː ðə ˈwɒʃɪŋ/",
+          "part_of_speech": "phrase",
+          "uzbek": "kir yuvmoq",
+          "description": "Note: you DO the washing, NOT make the washing",
+          "example": "You do the washing. NOT make the washing."
+        }
+      ]
+    },
+    {
+      "unit": 42,
+      "title": "Come / came / come",
+      "topic": "Uses and expressions with the verb 'come'",
+      "words": [
+        {
+          "id": "u42_1",
+          "word": "come",
+          "transcription": "/kʌm/",
+          "part_of_speech": "verb",
+          "uzbek": "kelmoq",
+          "description": "To move towards the speaker or a place. Past: came. Past participle: come. Note: 'come' and 'go' are different — come = towards here, go = away from here",
+          "example": "Come and go are different: go = from here to there, come = from there to here."
+        },
+        {
+          "id": "u42_2",
+          "word": "came",
+          "transcription": "/keɪm/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "keldi (o'tgan zamon)",
+          "description": "Past tense of 'come'",
+          "example": "She came back yesterday."
+        },
+        {
+          "id": "u42_3",
+          "word": "come in",
+          "transcription": "/kʌm ɪn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "kirmoq",
+          "description": "To enter a room. We say 'Come in!' when someone knocks at the door",
+          "example": "We say 'Come in!' when someone knocks at the door."
+        },
+        {
+          "id": "u42_4",
+          "word": "comes into",
+          "transcription": "/kʌmz ˈɪntə/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "ichkariga kirmoq",
+          "description": "To enter a room or building",
+          "example": "Then the person who knocked comes into the room."
+        },
+        {
+          "id": "u42_5",
+          "word": "come out (of)",
+          "transcription": "/kʌm aʊt əv/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "chiqmoq, tashqariga chiqmoq",
+          "description": "To leave a building or room; the opposite of come in",
+          "example": "A woman came out of the shop with two big bags."
+        },
+        {
+          "id": "u42_6",
+          "word": "comes out of",
+          "transcription": "/kʌmz aʊt əv/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "chiqib kelmoq (mashinadan va h.k.)",
+          "description": "When something exits from inside something else",
+          "example": "You put your money in and the ticket comes out of the machine."
+        },
+        {
+          "id": "u42_7",
+          "word": "come back",
+          "transcription": "/kʌm bæk/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "qaytib kelmoq",
+          "description": "To return to the place where the speaker is. Note: often used with 'from'",
+          "example": "She went away for three days. She came back yesterday."
+        },
+        {
+          "id": "u42_8",
+          "word": "came back from",
+          "transcription": "/keɪm bæk frɒm/",
+          "part_of_speech": "phrase",
+          "uzbek": "... dan qaytib keldi",
+          "description": "To return from a place",
+          "example": "They came back from Italy yesterday."
+        },
+        {
+          "id": "u42_9",
+          "word": "come home",
+          "transcription": "/kʌm hoʊm/",
+          "part_of_speech": "phrase",
+          "uzbek": "uyga kelmoq",
+          "description": "To return to your home. 'Home' is 'here' for the person speaking",
+          "example": "What time did you come home last night?"
+        },
+        {
+          "id": "u42_10",
+          "word": "come from",
+          "transcription": "/kʌm frɒm/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "... dan kelmoq, ... dan bo'lmoq",
+          "description": "To be originally from a place or country. Note: 'I come from Poland' NOT 'I'm coming from Poland'",
+          "example": "What country do you come from? I come from Poland. I'm Polish."
+        },
+        {
+          "id": "u42_11",
+          "word": "come along",
+          "transcription": "/kʌm əˈlɒŋ/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "birga kelmoq, qo'shilmoq",
+          "description": "To come with someone; to join a group activity",
+          "example": "We're going clubbing tonight. Do you want to come along?"
+        },
+        {
+          "id": "u42_12",
+          "word": "come and see me",
+          "transcription": "/kʌm ænd siː miː/",
+          "part_of_speech": "phrase",
+          "uzbek": "meni ko'rgani kelmoq",
+          "description": "An invitation to visit someone at their home",
+          "example": "Come and see me some time."
+        },
+        {
+          "id": "u42_13",
+          "word": "Come on!",
+          "transcription": "/kʌm ɒn/",
+          "part_of_speech": "exclamation",
+          "uzbek": "Turing, turing! Tez bo'ling!",
+          "description": "Used to encourage someone to hurry or to start moving",
+          "example": "Come on! We're late."
+        }
+      ]
+    },
+    {
+      "unit": 43,
+      "title": "Take / took / taken",
+      "topic": "Uses and expressions with the verb 'take'",
+      "words": [
+        {
+          "id": "u43_1",
+          "word": "take",
+          "transcription": "/teɪk/",
+          "part_of_speech": "verb",
+          "uzbek": "olmoq, olib ketmoq",
+          "description": "To carry or move something from one place to another. Past: took. Past participle: taken",
+          "example": "Are you going to school? Take your books."
+        },
+        {
+          "id": "u43_2",
+          "word": "took",
+          "transcription": "/tʊk/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "oldi, olib ketdi (o'tgan zamon)",
+          "description": "Past tense of 'take'",
+          "example": "I took a taxi home yesterday."
+        },
+        {
+          "id": "u43_3",
+          "word": "it takes (time)",
+          "transcription": "/ɪt teɪks/",
+          "part_of_speech": "phrase",
+          "uzbek": "vaqt ketadi, talab qiladi",
+          "description": "Used to say how long a journey or activity takes",
+          "example": "It takes Alan 20 minutes to get to work."
+        },
+        {
+          "id": "u43_4",
+          "word": "it took me",
+          "transcription": "/ɪt tʊk miː/",
+          "part_of_speech": "phrase",
+          "uzbek": "menga ... vaqt ketdi",
+          "description": "Used to say how long something took in the past",
+          "example": "It took me two hours to do my homework yesterday."
+        },
+        {
+          "id": "u43_5",
+          "word": "How long does it take?",
+          "transcription": "/haʊ lɒŋ dʌz ɪt teɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "Qancha vaqt ketadi?",
+          "description": "A question asking about the duration of a journey or activity",
+          "example": "How long does it take to get to the station? Fifteen minutes."
+        },
+        {
+          "id": "u43_6",
+          "word": "take something with you",
+          "transcription": "/teɪk ˈsʌmθɪŋ wɪð juː/",
+          "part_of_speech": "phrase",
+          "uzbek": "biror narsani olib ketmoq",
+          "description": "To carry something when you go somewhere",
+          "example": "Are you going out? Take an umbrella. It's raining."
+        },
+        {
+          "id": "u43_7",
+          "word": "take a photo / photograph",
+          "transcription": "/teɪk ə ˈfoʊtoʊ/",
+          "part_of_speech": "phrase",
+          "uzbek": "rasm olmoq, suratga tushirmoq",
+          "description": "To use a camera to take a picture. Note: 'take a photo' NOT 'make a photo'",
+          "example": "Can I take a photo here?"
+        },
+        {
+          "id": "u43_8",
+          "word": "take an English course",
+          "transcription": "/teɪk ən ˈɪŋɡlɪʃ kɔːrs/",
+          "part_of_speech": "phrase",
+          "uzbek": "ingliz tili kurslariga qatnashmoq",
+          "description": "To study a subject in an organised programme of lessons",
+          "example": "Are you taking an English course?"
+        },
+        {
+          "id": "u43_9",
+          "word": "take an exam",
+          "transcription": "/teɪk ən ɪɡˈzæm/",
+          "part_of_speech": "phrase",
+          "uzbek": "imtihon topshirmoq",
+          "description": "To do a formal test. Note: both 'take an exam' and 'do an exam' are correct",
+          "example": "Do you have to take an exam at the end of the course?"
+        },
+        {
+          "id": "u43_10",
+          "word": "take some lessons",
+          "transcription": "/teɪk sʌm ˈlɛsənz/",
+          "part_of_speech": "phrase",
+          "uzbek": "darslar olmoq",
+          "description": "To receive instruction in a skill or subject",
+          "example": "I want to take some Japanese lessons."
+        },
+        {
+          "id": "u43_11",
+          "word": "take the bus",
+          "transcription": "/teɪk ðə bʌs/",
+          "part_of_speech": "phrase",
+          "uzbek": "avtobus bilan bormoq",
+          "description": "To travel by bus",
+          "example": "How do you get to work? I take the bus."
+        },
+        {
+          "id": "u43_12",
+          "word": "take the underground",
+          "transcription": "/teɪk ðɪ ˈʌndərɡraʊnd/",
+          "part_of_speech": "phrase",
+          "uzbek": "metro bilan bormoq",
+          "description": "To travel by underground railway",
+          "example": "In London you can take the underground to the London Eye."
+        },
+        {
+          "id": "u43_13",
+          "word": "take a taxi",
+          "transcription": "/teɪk ə ˈtæksi/",
+          "part_of_speech": "phrase",
+          "uzbek": "taksi bilan bormoq",
+          "description": "To travel by taxi",
+          "example": "We took a taxi from the airport to our hotel."
+        },
+        {
+          "id": "u43_14",
+          "word": "takes the train",
+          "transcription": "/teɪks ðə treɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "poyezd bilan bormoq",
+          "description": "To travel by train",
+          "example": "How does Nick get to work? He takes the train."
+        },
+        {
+          "id": "u43_15",
+          "word": "take / bring",
+          "transcription": "/teɪk/ /brɪŋ/",
+          "part_of_speech": "verb",
+          "uzbek": "olib ketmoq / olib kelmoq",
+          "description": "Important difference: TAKE = from here to there (like go). BRING = from there to here (like come)",
+          "example": "Take your books to school. Bring me a glass from the kitchen."
+        }
+      ]
+    },
+    {
+      "unit": 44,
+      "title": "Bring / brought / brought",
+      "topic": "Uses and expressions with the verb 'bring'",
+      "words": [
+        {
+          "id": "u44_1",
+          "word": "bring",
+          "transcription": "/brɪŋ/",
+          "part_of_speech": "verb",
+          "uzbek": "olib kelmoq",
+          "description": "To carry or take something to the place where you are or where you are going. Past: brought. Note: bring = from there to HERE (like come)",
+          "example": "Are you going to the kitchen? Can you bring me a glass?"
+        },
+        {
+          "id": "u44_2",
+          "word": "brought",
+          "transcription": "/brɔːt/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "olib keldi (o'tgan zamon)",
+          "description": "Past tense and past participle of 'bring'",
+          "example": "I've brought you some apples from my garden."
+        },
+        {
+          "id": "u44_3",
+          "word": "take vs bring",
+          "transcription": "/teɪk/ /brɪŋ/",
+          "part_of_speech": "verb",
+          "uzbek": "olib ketmoq (u yerga) / olib kelmoq (bu yerga)",
+          "description": "TAKE = move something from here to there. BRING = move something from there to here. Take = like go. Bring = like come",
+          "example": "Take = from here to there. Bring = from there to here."
+        },
+        {
+          "id": "u44_4",
+          "word": "bring something here",
+          "transcription": "/brɪŋ ˈsʌmθɪŋ hɪər/",
+          "part_of_speech": "phrase",
+          "uzbek": "bu yerga olib kelmoq",
+          "description": "To carry something to where the speaker is",
+          "example": "Are you going to the kitchen? Can you bring me a glass?"
+        },
+        {
+          "id": "u44_5",
+          "word": "bring your guitar",
+          "transcription": "/brɪŋ jɔːr ɡɪˈtɑːr/",
+          "part_of_speech": "phrase",
+          "uzbek": "gitarangizni olib kelmoq",
+          "description": "To carry your guitar to come to someone's house",
+          "example": "Come to my house tomorrow and bring your guitar."
+        },
+        {
+          "id": "u44_6",
+          "word": "brings me flowers",
+          "transcription": "/brɪŋz miː ˈflaʊərz/",
+          "part_of_speech": "phrase",
+          "uzbek": "menga gul olib kelmoq",
+          "description": "When someone carries flowers to give you when they visit",
+          "example": "When she visits me, she always brings me flowers."
+        },
+        {
+          "id": "u44_7",
+          "word": "I've brought you some apples",
+          "transcription": "/aɪv brɔːt juː sʌm ˈæpəlz/",
+          "part_of_speech": "phrase",
+          "uzbek": "Men sizga olma olib keldim",
+          "description": "To give someone something you have carried to them from another place",
+          "example": "I've brought you some apples from my garden."
+        },
+        {
+          "id": "u44_8",
+          "word": "bring something back",
+          "transcription": "/brɪŋ ˈsʌmθɪŋ bæk/",
+          "part_of_speech": "phrase",
+          "uzbek": "qaytarib olib kelmoq",
+          "description": "To return something to its original place or owner",
+          "example": "This book is interesting. Please take it and bring it back on Friday."
+        },
+        {
+          "id": "u44_9",
+          "word": "please take it",
+          "transcription": "/pliːz teɪk ɪt/",
+          "part_of_speech": "phrase",
+          "uzbek": "Iltimos, olib keting",
+          "description": "An invitation for someone to take something away with them",
+          "example": "Please take it with you and read it."
+        },
+        {
+          "id": "u44_10",
+          "word": "take this form to the secretary",
+          "transcription": "/teɪk ðɪs fɔːrm tə ðə ˈsɛkrətəri/",
+          "part_of_speech": "phrase",
+          "uzbek": "bu blankni kotibaga olib boring",
+          "description": "To carry a document to give to someone elsewhere",
+          "example": "Please take this form to the secretary."
+        }
+      ]
+    },
+    {
+      "unit": 45,
+      "title": "Get / got / got",
+      "topic": "Uses and expressions with the verb 'get'",
+      "words": [
+        {
+          "id": "u45_1",
+          "word": "get",
+          "transcription": "/ɡɛt/",
+          "part_of_speech": "verb",
+          "uzbek": "olmoq; bo'lmoq; kelmoq",
+          "description": "A very common verb with many meanings. Past: got. Past participle: got (British) / gotten (American)",
+          "example": "If you don't have something, you can get it."
+        },
+        {
+          "id": "u45_2",
+          "word": "got",
+          "transcription": "/ɡɒt/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "oldi; bo'ldi (o'tgan zamon)",
+          "description": "Past tense and past participle of 'get' in British English",
+          "example": "I got a stamp from the shop."
+        },
+        {
+          "id": "u45_3",
+          "word": "getting dark",
+          "transcription": "/ˈɡɛtɪŋ dɑːrk/",
+          "part_of_speech": "phrase",
+          "uzbek": "qorong'i tushmoqda, qorong'ilashmoqda",
+          "description": "Get + adjective = to change state; becoming dark",
+          "example": "It's light. → It's getting dark. → It's dark."
+        },
+        {
+          "id": "u45_4",
+          "word": "getting better",
+          "transcription": "/ˈɡɛtɪŋ ˈbɛtər/",
+          "part_of_speech": "phrase",
+          "uzbek": "yaxshilanmoqda, tuzalmoqda",
+          "description": "To be improving in health or skill",
+          "example": "She's ill. → She's getting better. → She's better."
+        },
+        {
+          "id": "u45_5",
+          "word": "getting tired",
+          "transcription": "/ˈɡɛtɪŋ ˈtaɪərd/",
+          "part_of_speech": "phrase",
+          "uzbek": "charchayapman",
+          "description": "To be becoming tired",
+          "example": "I'm getting tired. I want to go to bed."
+        },
+        {
+          "id": "u45_6",
+          "word": "getting wet",
+          "transcription": "/ˈɡɛtɪŋ wɛt/",
+          "part_of_speech": "phrase",
+          "uzbek": "ho'llanmoqda",
+          "description": "To be becoming wet because of rain",
+          "example": "It's raining! I'm getting wet!"
+        },
+        {
+          "id": "u45_7",
+          "word": "get a stamp",
+          "transcription": "/ɡɛt ə stæmp/",
+          "part_of_speech": "phrase",
+          "uzbek": "marka sotib olmoq",
+          "description": "To buy or obtain a stamp",
+          "example": "I'm going to the shop to get a stamp."
+        },
+        {
+          "id": "u45_8",
+          "word": "get a newspaper",
+          "transcription": "/ɡɛt ə ˈnjuːspeɪpər/",
+          "part_of_speech": "phrase",
+          "uzbek": "gazeta sotib olmoq",
+          "description": "To buy or obtain a newspaper",
+          "example": "I'm going to the shop to get a newspaper."
+        },
+        {
+          "id": "u45_9",
+          "word": "get some coffee",
+          "transcription": "/ɡɛt sʌm ˈkɒfi/",
+          "part_of_speech": "phrase",
+          "uzbek": "qahva olmoq",
+          "description": "To obtain or buy coffee",
+          "example": "Do you want a drink? I can get some coffee."
+        },
+        {
+          "id": "u45_10",
+          "word": "get a taxi",
+          "transcription": "/ɡɛt ə ˈtæksi/",
+          "part_of_speech": "phrase",
+          "uzbek": "taksi tutmoq, taksi olmoq",
+          "description": "To find and use a taxi",
+          "example": "Where can I get a taxi?"
+        },
+        {
+          "id": "u45_11",
+          "word": "get a job",
+          "transcription": "/ɡɛt ə dʒɒb/",
+          "part_of_speech": "phrase",
+          "uzbek": "ish topmoq",
+          "description": "To find and start a new job",
+          "example": "I've finished my studies. Now I want to get a job."
+        },
+        {
+          "id": "u45_12",
+          "word": "get a doctor",
+          "transcription": "/ɡɛt ə ˈdɒktər/",
+          "part_of_speech": "phrase",
+          "uzbek": "shifokor chaqirmoq / topmoq",
+          "description": "To find a doctor to come and help a sick person",
+          "example": "My friend is ill! Please get a doctor."
+        },
+        {
+          "id": "u45_13",
+          "word": "getting married",
+          "transcription": "/ˈɡɛtɪŋ ˈmærid/",
+          "part_of_speech": "phrase",
+          "uzbek": "turmush qurmoqda, uylanyapti",
+          "description": "To be in the process of getting married",
+          "example": "Maria and David are getting married in April."
+        },
+        {
+          "id": "u45_14",
+          "word": "get to",
+          "transcription": "/ɡɛt tə/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "... ga yetib bormoq",
+          "description": "To arrive at or reach a place",
+          "example": "When you get to New York, call me."
+        },
+        {
+          "id": "u45_15",
+          "word": "get back",
+          "transcription": "/ɡɛt bæk/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "qaytib kelmoq, qaytmoq",
+          "description": "To return to a place",
+          "example": "I'll see you when you get back from Hong Kong."
+        },
+        {
+          "id": "u45_16",
+          "word": "get home",
+          "transcription": "/ɡɛt hoʊm/",
+          "part_of_speech": "phrase",
+          "uzbek": "uyga kelmoq, uyga yetib bormoq",
+          "description": "To arrive at your home. Note: 'when I get home' NOT 'when I get to home'",
+          "example": "When I get home, I have my lunch."
+        },
+        {
+          "id": "u45_17",
+          "word": "get there",
+          "transcription": "/ɡɛt ðeər/",
+          "part_of_speech": "phrase",
+          "uzbek": "u yerga yetib bormoq",
+          "description": "To arrive at a specific place. Note: 'I get there at 6 o'clock' NOT 'I get to there'",
+          "example": "I get there at 6 o'clock, so please ring me at 6.30."
+        },
+        {
+          "id": "u45_18",
+          "word": "How do I get to...?",
+          "transcription": "/haʊ duː aɪ ɡɛt tə/",
+          "part_of_speech": "phrase",
+          "uzbek": "... ga qanday boraman?",
+          "description": "A question asking for directions to a place",
+          "example": "How do I get to the airport?"
+        }
+      ]
+    },
+    {
+      "unit": 46,
+      "title": "Phrasal verbs",
+      "topic": "Common phrasal verbs with get, turn, go, put and come",
+      "words": [
+        {
+          "id": "u46_1",
+          "word": "phrasal verb",
+          "transcription": "/ˈfreɪzəl vɜːrb/",
+          "part_of_speech": "noun",
+          "uzbek": "frazeologik fe'l (ikki qismli)",
+          "description": "A verb made from a verb + particle (up, on, off, down etc). One phrasal verb can have different meanings",
+          "example": "Phrasal verbs have two parts: a verb + a particle."
+        },
+        {
+          "id": "u46_2",
+          "word": "get up",
+          "transcription": "/ɡɛt ʌp/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "o'rnidan turmoq (ertalab)",
+          "description": "To get out of bed in the morning",
+          "example": "I got up at 6.30 this morning. I'm tired now."
+        },
+        {
+          "id": "u46_3",
+          "word": "get on (the bus)",
+          "transcription": "/ɡɛt ɒn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "(avtobusga) chiqmoq, minmoq",
+          "description": "To board a bus, train or other transport",
+          "example": "We should get on the bus. It's leaving in five minutes!"
+        },
+        {
+          "id": "u46_4",
+          "word": "get off (the bus)",
+          "transcription": "/ɡɛt ɒf/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "(avtobusdan) tushmoq",
+          "description": "To leave a bus, train or other transport",
+          "example": "We got off the bus at the City Museum."
+        },
+        {
+          "id": "u46_5",
+          "word": "turn on",
+          "transcription": "/tɜːrn ɒn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "yoqmoq (elektr qurilma)",
+          "description": "To start a machine, light or electrical device",
+          "example": "He always turns on the TV at 9 o'clock to watch the news."
+        },
+        {
+          "id": "u46_6",
+          "word": "turn off",
+          "transcription": "/tɜːrn ɒf/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "o'chirmoq (elektr qurilma)",
+          "description": "To stop a machine, light or electrical device",
+          "example": "It's a sunny day. Turn the light off."
+        },
+        {
+          "id": "u46_7",
+          "word": "turn up",
+          "transcription": "/tɜːrn ʌp/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "ovozini balandlashtirmoq",
+          "description": "To increase the volume or level of something",
+          "example": "Turn the TV up. I can't hear it."
+        },
+        {
+          "id": "u46_8",
+          "word": "turn down",
+          "transcription": "/tɜːrn daʊn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "ovozini pasaytirmoq; rad etmoq",
+          "description": "To reduce the volume or level of something; also to refuse an offer",
+          "example": "Turn the TV down. It's too loud. / She turned down the invitation."
+        },
+        {
+          "id": "u46_9",
+          "word": "go on",
+          "transcription": "/ɡoʊ ɒn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "davom etmoq",
+          "description": "To continue doing something",
+          "example": "Don't stop. Go on talking. It's very interesting."
+        },
+        {
+          "id": "u46_10",
+          "word": "went off",
+          "transcription": "/wɛnt ɒf/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "ketdi, chiqib ketdi; ishga tushdi (signal)",
+          "description": "To leave; also when an alarm starts making a sound",
+          "example": "Karen went off and forgot her handbag."
+        },
+        {
+          "id": "u46_11",
+          "word": "put something on",
+          "transcription": "/pʊt ˈsʌmθɪŋ ɒn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "kiyib olmoq",
+          "description": "To place clothing on your body. Note: 'put clothes ON' NOT 'put on clothes off'",
+          "example": "It's cold and windy outside. Put your coat on."
+        },
+        {
+          "id": "u46_12",
+          "word": "Come on!",
+          "transcription": "/kʌm ɒn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "Turing! Tez bo'ling!",
+          "description": "Used to encourage someone to hurry or come with you",
+          "example": "Come on! We're late."
+        },
+        {
+          "id": "u46_13",
+          "word": "take off",
+          "transcription": "/teɪk ɒf/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "yechmoq (kiyim); uchib ketmoq (samolyot)",
+          "description": "To remove clothing; also when a plane leaves the ground. Two different meanings",
+          "example": "Our plane takes off at 12.30. / She took off her shoes."
+        }
+      ]
+    },
+    {
+      "unit": 47,
+      "title": "Everyday things",
+      "topic": "Things we do every day — daily routine vocabulary",
+      "words": [
+        {
+          "id": "u47_1",
+          "word": "wake up",
+          "transcription": "/weɪk ʌp/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "uyg'onmoq",
+          "description": "To stop sleeping; to become awake",
+          "example": "I usually wake up at 8 o'clock."
+        },
+        {
+          "id": "u47_2",
+          "word": "get up",
+          "transcription": "/ɡɛt ʌp/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "o'rnidan turmoq",
+          "description": "To get out of bed after waking",
+          "example": "I usually get up at 8 o'clock."
+        },
+        {
+          "id": "u47_3",
+          "word": "go to the bathroom",
+          "transcription": "/ɡoʊ tə ðə ˈbæθruːm/",
+          "part_of_speech": "phrase",
+          "uzbek": "hammomga bormoq",
+          "description": "To go to the bathroom to wash or use the toilet",
+          "example": "After waking up, I go to the bathroom."
+        },
+        {
+          "id": "u47_4",
+          "word": "have a shower",
+          "transcription": "/hæv ə ˈʃaʊər/",
+          "part_of_speech": "phrase",
+          "uzbek": "dush qabul qilmoq",
+          "description": "To wash yourself under a shower",
+          "example": "I have a shower every morning."
+        },
+        {
+          "id": "u47_5",
+          "word": "have breakfast",
+          "transcription": "/hæv ˈbrɛkfəst/",
+          "part_of_speech": "phrase",
+          "uzbek": "nonushta qilmoq",
+          "description": "To eat the first meal of the day",
+          "example": "I have breakfast at 7.30 every day."
+        },
+        {
+          "id": "u47_6",
+          "word": "listen to the radio",
+          "transcription": "/ˈlɪsən tə ðə ˈreɪdioʊ/",
+          "part_of_speech": "phrase",
+          "uzbek": "radio tinglаmoq",
+          "description": "To hear programmes on the radio",
+          "example": "While having breakfast, I listen to the radio."
+        },
+        {
+          "id": "u47_7",
+          "word": "go to work",
+          "transcription": "/ɡoʊ tə wɜːrk/",
+          "part_of_speech": "phrase",
+          "uzbek": "ishga bormoq",
+          "description": "To travel to your workplace",
+          "example": "I go to work at 8 o'clock."
+        },
+        {
+          "id": "u47_8",
+          "word": "come home",
+          "transcription": "/kʌm hoʊm/",
+          "part_of_speech": "phrase",
+          "uzbek": "uyga kelmoq, qaytmoq",
+          "description": "To return to your home at the end of the day",
+          "example": "I come home at 6 o'clock in the evening."
+        },
+        {
+          "id": "u47_9",
+          "word": "make dinner",
+          "transcription": "/meɪk ˈdɪnər/",
+          "part_of_speech": "phrase",
+          "uzbek": "kechki ovqat tayyorlamoq",
+          "description": "To prepare the evening meal",
+          "example": "In the evening I make dinner."
+        },
+        {
+          "id": "u47_10",
+          "word": "phone a friend",
+          "transcription": "/foʊn ə frɛnd/",
+          "part_of_speech": "phrase",
+          "uzbek": "do'stga qo'ng'iroq qilmoq",
+          "description": "To call a friend on the telephone; also 'call a friend'",
+          "example": "I phone or call a friend in the evening."
+        },
+        {
+          "id": "u47_11",
+          "word": "watch TV",
+          "transcription": "/wɒtʃ ˌtiːˈviː/",
+          "part_of_speech": "phrase",
+          "uzbek": "televizor ko'rmoq",
+          "description": "To view programmes on television",
+          "example": "In the evening I watch TV."
+        },
+        {
+          "id": "u47_12",
+          "word": "go to bed",
+          "transcription": "/ɡoʊ tə bɛd/",
+          "part_of_speech": "phrase",
+          "uzbek": "yotmoq (uxlash uchun)",
+          "description": "To get into bed to sleep at night",
+          "example": "I go to bed at 11 o'clock."
+        },
+        {
+          "id": "u47_13",
+          "word": "wash clothes",
+          "transcription": "/wɒʃ kloʊðz/",
+          "part_of_speech": "phrase",
+          "uzbek": "kir yuvmoq",
+          "description": "To clean clothes by washing them",
+          "example": "Sometimes I wash clothes."
+        },
+        {
+          "id": "u47_14",
+          "word": "clean the house",
+          "transcription": "/kliːn ðə haʊs/",
+          "part_of_speech": "phrase",
+          "uzbek": "uyni tozalamoq",
+          "description": "To clean all the rooms in your home",
+          "example": "Sometimes I clean the house."
+        },
+        {
+          "id": "u47_15",
+          "word": "go for a walk",
+          "transcription": "/ɡoʊ fər ə wɔːk/",
+          "part_of_speech": "phrase",
+          "uzbek": "sayrga chiqmoq",
+          "description": "To walk outside for pleasure or exercise",
+          "example": "Sometimes I go for a walk in the park."
+        },
+        {
+          "id": "u47_16",
+          "word": "write letters / emails",
+          "transcription": "/raɪt ˈlɛtərz/ /ˈiːmeɪlz/",
+          "part_of_speech": "phrase",
+          "uzbek": "xat / email yozmoq",
+          "description": "To compose and send letters or emails to people",
+          "example": "Sometimes I write letters or emails."
+        },
+        {
+          "id": "u47_17",
+          "word": "How often do you...?",
+          "transcription": "/haʊ ˈɒfən duː juː/",
+          "part_of_speech": "phrase",
+          "uzbek": "Qanchalik tez-tez ... qilasiz?",
+          "description": "A question asking about the frequency of an activity",
+          "example": "How often do you go out? Three or four times a week."
+        },
+        {
+          "id": "u47_18",
+          "word": "What time do you...?",
+          "transcription": "/wɒt taɪm duː juː/",
+          "part_of_speech": "phrase",
+          "uzbek": "Soat nechaда ... qilasiz?",
+          "description": "A question asking at what time someone does something",
+          "example": "What time do you get up? At 7 o'clock normally."
+        },
+        {
+          "id": "u47_19",
+          "word": "How do you get to work?",
+          "transcription": "/haʊ duː juː ɡɛt tə wɜːrk/",
+          "part_of_speech": "phrase",
+          "uzbek": "Ishga qanday borasiz?",
+          "description": "A question asking what transport someone uses to travel to work",
+          "example": "How do you get to work? Usually by bus or train or car."
+        },
+        {
+          "id": "u47_20",
+          "word": "usually get up",
+          "transcription": "/ˈjuːʒuəli ɡɛt ʌp/",
+          "part_of_speech": "phrase",
+          "uzbek": "odatda turmoq (ertalab)",
+          "description": "Note: 'I usually get up at 8' NOT 'I used to get up at 8' for current habits",
+          "example": "I usually get up at 8 o'clock, but today I got up at 8.30."
+        }
+      ]
+    },
+    {
+      "unit": 48,
+      "title": "Talking",
+      "topic": "Verbs of communication: say, tell, ask, speak, talk, answer, reply",
+      "words": [
+        {
+          "id": "u48_1",
+          "word": "say",
+          "transcription": "/seɪ/",
+          "part_of_speech": "verb",
+          "uzbek": "aytmoq, demoq",
+          "description": "To speak words; to report what someone says. Note: NOT immediately followed by a person — 'She said it' NOT 'She said me it'",
+          "example": "She said, 'This is horrible!' / He said that he wanted a drink."
+        },
+        {
+          "id": "u48_2",
+          "word": "said",
+          "transcription": "/sɛd/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "aytdi, dedi (o'tgan zamon)",
+          "description": "Past tense of 'say'",
+          "example": "She said that she was tired."
+        },
+        {
+          "id": "u48_3",
+          "word": "say hello / goodbye",
+          "transcription": "/seɪ həˈloʊ/ /ˌɡʊdˈbaɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "salom aytmoq / xayr aytmoq",
+          "description": "To greet or farewell someone. Note: 'say hello' NOT 'tell hello'",
+          "example": "We say hello and goodbye and we say please, thank you and Merry Christmas."
+        },
+        {
+          "id": "u48_4",
+          "word": "say please / thank you",
+          "transcription": "/seɪ pliːz/ /θæŋk juː/",
+          "part_of_speech": "phrase",
+          "uzbek": "iltimos/rahmat demoq",
+          "description": "To use polite words when making requests or expressing thanks",
+          "example": "Say please when you ask for something and thank you when you receive it."
+        },
+        {
+          "id": "u48_5",
+          "word": "tell",
+          "transcription": "/tɛl/",
+          "part_of_speech": "verb",
+          "uzbek": "aytmoq, gapirib bermoq (birovga)",
+          "description": "To give information or instructions to someone. Note: usually followed immediately by a person — 'She told me...'",
+          "example": "Tell is usually followed immediately by a person."
+        },
+        {
+          "id": "u48_6",
+          "word": "told",
+          "transcription": "/toʊld/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "aytdi (birovga); o'tgan zamon",
+          "description": "Past tense of 'tell'",
+          "example": "She told me how to fill in the application form."
+        },
+        {
+          "id": "u48_7",
+          "word": "tell me when",
+          "transcription": "/tɛl miː wɛn/",
+          "part_of_speech": "phrase",
+          "uzbek": "menga qachon ekanini aytmoq",
+          "description": "To inform someone about the time of something. 'Tell' is used with how and wh- words",
+          "example": "Tell me when you want to have dinner."
+        },
+        {
+          "id": "u48_8",
+          "word": "tell someone the time",
+          "transcription": "/tɛl ˈsʌmwʌn ðə taɪm/",
+          "part_of_speech": "phrase",
+          "uzbek": "birovga vaqtni aytmoq",
+          "description": "To inform someone what time it is",
+          "example": "You can tell someone the time, a story, a joke, or your name and address."
+        },
+        {
+          "id": "u48_9",
+          "word": "told me his name",
+          "transcription": "/toʊld miː hɪz neɪm/",
+          "part_of_speech": "phrase",
+          "uzbek": "menga ismini aytdi",
+          "description": "To inform someone of a name. Note: 'He told me his name' NOT 'He said me his name'",
+          "example": "He told me his name."
+        },
+        {
+          "id": "u48_10",
+          "word": "ask",
+          "transcription": "/ɑːsk/",
+          "part_of_speech": "verb",
+          "uzbek": "so'ramoq, savol bermoq",
+          "description": "To use a question to find out information or to request something",
+          "example": "My sister asked me where I was going."
+        },
+        {
+          "id": "u48_11",
+          "word": "asked me",
+          "transcription": "/ɑːskt miː/",
+          "part_of_speech": "phrase",
+          "uzbek": "mendan so'radi",
+          "description": "To pose a question to someone",
+          "example": "My sister asked me where I was going."
+        },
+        {
+          "id": "u48_12",
+          "word": "ask a question",
+          "transcription": "/ɑːsk ə ˈkwɛstʃən/",
+          "part_of_speech": "phrase",
+          "uzbek": "savol so'ramoq",
+          "description": "To pose a question to find out information",
+          "example": "Can I ask you a question?"
+        },
+        {
+          "id": "u48_13",
+          "word": "ask someone the way",
+          "transcription": "/ɑːsk ˈsʌmwʌn ðə weɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "yo'lni so'ramoq",
+          "description": "To ask someone for directions",
+          "example": "You can ask someone the way or the time."
+        },
+        {
+          "id": "u48_14",
+          "word": "asked him to turn off",
+          "transcription": "/ɑːskt hɪm tə tɜːrn ɒf/",
+          "part_of_speech": "phrase",
+          "uzbek": "unga o'chirishni so'radi",
+          "description": "To request that someone do something. 'Ask somebody to do something'",
+          "example": "I asked him to turn off his radio."
+        },
+        {
+          "id": "u48_15",
+          "word": "asked for the bill",
+          "transcription": "/ɑːskt fɔːr ðə bɪl/",
+          "part_of_speech": "phrase",
+          "uzbek": "hisobni so'radi",
+          "description": "To request something. 'Ask for something'",
+          "example": "She asked for the bill."
+        },
+        {
+          "id": "u48_16",
+          "word": "speak",
+          "transcription": "/spiːk/",
+          "part_of_speech": "verb",
+          "uzbek": "gapirmoq, so'zlashmoq",
+          "description": "To say words; to communicate verbally. Used especially for languages. Note: 'Do you speak Japanese?' NOT 'Do you talk Japanese?'",
+          "example": "Do you speak Japanese?"
+        },
+        {
+          "id": "u48_17",
+          "word": "talk",
+          "transcription": "/tɔːk/",
+          "part_of_speech": "verb",
+          "uzbek": "suhbatlashmoq, gaplashmoq",
+          "description": "To have a conversation; to communicate with someone",
+          "example": "I like talking to you."
+        },
+        {
+          "id": "u48_18",
+          "word": "talking to",
+          "transcription": "/ˈtɔːkɪŋ tə/",
+          "part_of_speech": "phrase",
+          "uzbek": "bilan gaplashmoq",
+          "description": "To have a conversation with someone",
+          "example": "I like talking to you."
+        },
+        {
+          "id": "u48_19",
+          "word": "answer",
+          "transcription": "/ˈɑːnsər/",
+          "part_of_speech": "verb",
+          "uzbek": "javob bermoq, ko'tarmoq (telefon)",
+          "description": "To respond to a question; or to pick up a phone when it rings",
+          "example": "Can you answer the telephone / the door, please?"
+        },
+        {
+          "id": "u48_20",
+          "word": "reply to",
+          "transcription": "/rɪˈplaɪ tə/",
+          "part_of_speech": "verb phrase",
+          "uzbek": "javob qaytarmoq (xat, email)",
+          "description": "To respond to a letter, email or text message. Note: 'reply to' an email, NOT 'answer' an email",
+          "example": "He didn't reply to my email."
+        }
+      ]
+    },
+    {
+      "unit": 49,
+      "title": "Moving",
+      "topic": "Verbs of movement without transport, and travelling vocabulary",
+      "words": [
+        {
+          "id": "u49_1",
+          "word": "walk",
+          "transcription": "/wɔːk/",
+          "part_of_speech": "verb",
+          "uzbek": "yurmoq, piyoda bormoq",
+          "description": "To move on foot at a normal pace. Past: walked",
+          "example": "I walk to work every day. Yesterday I walked to the park."
+        },
+        {
+          "id": "u49_2",
+          "word": "run",
+          "transcription": "/rʌn/",
+          "part_of_speech": "verb",
+          "uzbek": "yugurmoq",
+          "description": "To move quickly on foot. Past: ran",
+          "example": "She ran to catch the bus."
+        },
+        {
+          "id": "u49_3",
+          "word": "jump",
+          "transcription": "/dʒʌmp/",
+          "part_of_speech": "verb",
+          "uzbek": "sakramoq",
+          "description": "To push yourself up from the ground with your legs. Past: jumped",
+          "example": "The child jumped over the puddle."
+        },
+        {
+          "id": "u49_4",
+          "word": "dance",
+          "transcription": "/dɑːns/",
+          "part_of_speech": "verb",
+          "uzbek": "raqs tushmoq",
+          "description": "To move your body rhythmically to music. Past: danced",
+          "example": "She danced all night at the party."
+        },
+        {
+          "id": "u49_5",
+          "word": "swim",
+          "transcription": "/swɪm/",
+          "part_of_speech": "verb",
+          "uzbek": "suzmoq",
+          "description": "To move through water using your arms and legs. Past: swam",
+          "example": "She swam in the sea every morning on holiday."
+        },
+        {
+          "id": "u49_6",
+          "word": "climb",
+          "transcription": "/klaɪm/",
+          "part_of_speech": "verb",
+          "uzbek": "chiqmoq, ko'tarilmoq",
+          "description": "To go up something using your hands and feet. Past: climbed",
+          "example": "She climbed the mountain in three hours."
+        },
+        {
+          "id": "u49_7",
+          "word": "fall",
+          "transcription": "/fɔːl/",
+          "part_of_speech": "verb",
+          "uzbek": "yiqilmoq, tushmoq",
+          "description": "To drop down from a higher place. Past: fell",
+          "example": "She fell and broke her arm."
+        },
+        {
+          "id": "u49_8",
+          "word": "go by",
+          "transcription": "/ɡoʊ baɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "... bilan bormoq (transport)",
+          "description": "To travel using a means of transport. 'go by car / bus / train / plane / ship / bike / motorbike'. Note: NOT 'go by a car'",
+          "example": "We went to Paris by train last summer."
+        },
+        {
+          "id": "u49_9",
+          "word": "take (transport)",
+          "transcription": "/teɪk/",
+          "part_of_speech": "verb",
+          "uzbek": "... bilan bormoq (avtobus, poyezd)",
+          "description": "To use a particular form of transport — 'take a/the bus, train, plane, taxi, underground'",
+          "example": "I took a taxi home yesterday."
+        },
+        {
+          "id": "u49_10",
+          "word": "ride",
+          "transcription": "/raɪd/",
+          "part_of_speech": "verb",
+          "uzbek": "minib bormoq (velosiped, ot)",
+          "description": "To travel on a bicycle, motorbike or horse. Past: rode",
+          "example": "I always rode my bike to school."
+        },
+        {
+          "id": "u49_11",
+          "word": "drive",
+          "transcription": "/draɪv/",
+          "part_of_speech": "verb",
+          "uzbek": "haydamoq (mashina, avtobus)",
+          "description": "To operate and travel in a car, bus or train. Past: drove",
+          "example": "My uncle drove a bus for ten years."
+        },
+        {
+          "id": "u49_12",
+          "word": "flies",
+          "transcription": "/flaɪz/",
+          "part_of_speech": "verb",
+          "uzbek": "uchadi (samolyot)",
+          "description": "When a pilot operates an aircraft or a plane moves through the air. Past: flew",
+          "example": "The pilot flies a plane."
+        },
+        {
+          "id": "u49_13",
+          "word": "flew",
+          "transcription": "/fluː/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "uchib ketdi (o'tgan zamon)",
+          "description": "Past tense of 'fly'",
+          "example": "How did you get to Istanbul? We flew there."
+        },
+        {
+          "id": "u49_14",
+          "word": "arrive at / in",
+          "transcription": "/əˈraɪv æt/ /ɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "yetib kelmoq (... da)",
+          "description": "To reach a destination. Note: 'arrive IN' a city/country, 'arrive AT' other places. NOT 'arrive to'",
+          "example": "The train arrived in Tokyo on time. The plane arrived late at Heathrow."
+        },
+        {
+          "id": "u49_15",
+          "word": "pass",
+          "transcription": "/pɑːs/",
+          "part_of_speech": "verb",
+          "uzbek": "uzatmoq, bermoq; o'tmoq",
+          "description": "To give something to someone; to go past a place",
+          "example": "Please pass the salt. / The bus passes our house every 10 minutes."
+        },
+        {
+          "id": "u49_16",
+          "word": "carry",
+          "transcription": "/ˈkæri/",
+          "part_of_speech": "verb",
+          "uzbek": "ko'tarmoq, tashimoq",
+          "description": "To hold something and take it somewhere",
+          "example": "Can I help you carry your luggage?"
+        },
+        {
+          "id": "u49_17",
+          "word": "miss the train",
+          "transcription": "/mɪs ðə treɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "poyezdni qoldirmoq (ulgurmaslik)",
+          "description": "To be too late to catch a train, bus or plane",
+          "example": "I've just missed the train."
+        },
+        {
+          "id": "u49_18",
+          "word": "catch the train",
+          "transcription": "/kætʃ ðə treɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "poyezdga ulgurib yetmoq",
+          "description": "To be in time to board a train, bus or plane",
+          "example": "If we don't leave now we won't catch our train."
+        }
+      ]
+    },
+    {
+      "unit": 50,
+      "title": "Conjunctions and connecting words",
+      "topic": "Words used to connect parts of sentences",
+      "words": [
+        {
+          "id": "u50_1",
+          "word": "and",
+          "transcription": "/ænd/",
+          "part_of_speech": "conjunction",
+          "uzbek": "va, ham",
+          "description": "Used to add extra information in the second part of a sentence",
+          "example": "Kate is a student and she works part-time."
+        },
+        {
+          "id": "u50_2",
+          "word": "but",
+          "transcription": "/bʌt/",
+          "part_of_speech": "conjunction",
+          "uzbek": "lekin, ammo",
+          "description": "Used when the second part of a sentence contrasts with the first part",
+          "example": "They are rich but they aren't happy."
+        },
+        {
+          "id": "u50_3",
+          "word": "or",
+          "transcription": "/ɔːr/",
+          "part_of_speech": "conjunction",
+          "uzbek": "yoki",
+          "description": "Used when the second part of a sentence gives a different possibility",
+          "example": "You can pay by credit card or cash."
+        },
+        {
+          "id": "u50_4",
+          "word": "because",
+          "transcription": "/bɪˈkɒz/",
+          "part_of_speech": "conjunction",
+          "uzbek": "chunki, sababli",
+          "description": "Used when the second part of a sentence explains why the first part happened",
+          "example": "We went home early because we were tired."
+        },
+        {
+          "id": "u50_5",
+          "word": "so",
+          "transcription": "/soʊ/",
+          "part_of_speech": "conjunction",
+          "uzbek": "shuning uchun, shunday qilib",
+          "description": "Used when the second part of a sentence gives a result of the first part",
+          "example": "I felt ill so I didn't go to work."
+        },
+        {
+          "id": "u50_6",
+          "word": "when",
+          "transcription": "/wɛn/",
+          "part_of_speech": "conjunction",
+          "uzbek": "qachon, ... vaqtda",
+          "description": "Used to say at what time something happened",
+          "example": "I went to the party when the babysitter arrived."
+        },
+        {
+          "id": "u50_7",
+          "word": "before",
+          "transcription": "/bɪˈfɔːr/",
+          "part_of_speech": "conjunction",
+          "uzbek": "oldin, ... dan oldin",
+          "description": "Used to show that the first part of a sentence happened first",
+          "example": "We left before it started to rain."
+        },
+        {
+          "id": "u50_8",
+          "word": "after",
+          "transcription": "/ˈɑːftər/",
+          "part_of_speech": "conjunction",
+          "uzbek": "keyin, ... dan keyin",
+          "description": "Used to show that the second part of a sentence happened first",
+          "example": "We went for a meal after we had seen the film."
+        },
+        {
+          "id": "u50_9",
+          "word": "if",
+          "transcription": "/ɪf/",
+          "part_of_speech": "conjunction",
+          "uzbek": "agar, ...sa",
+          "description": "Used to say that the first part will only happen after the second part happens",
+          "example": "You can have some ice cream if you eat your dinner."
+        },
+        {
+          "id": "u50_10",
+          "word": "only",
+          "transcription": "/ˈoʊnli/",
+          "part_of_speech": "adverb",
+          "uzbek": "faqat, atigi",
+          "description": "Used to say something is not very big or not very much",
+          "example": "He only sleeps for three hours every night."
+        },
+        {
+          "id": "u50_11",
+          "word": "like",
+          "transcription": "/laɪk/",
+          "part_of_speech": "preposition",
+          "uzbek": "...ga o'xshab, ...dek",
+          "description": "Used to make a comparison between two things",
+          "example": "She looks like her father."
+        },
+        {
+          "id": "u50_12",
+          "word": "than",
+          "transcription": "/ðæn/",
+          "part_of_speech": "conjunction",
+          "uzbek": "...dan (taqqoslashda)",
+          "description": "Used after a comparative adjective or adverb",
+          "example": "She works harder than he does."
+        },
+        {
+          "id": "u50_13",
+          "word": "also",
+          "transcription": "/ˈɔːlsoʊ/",
+          "part_of_speech": "adverb",
+          "uzbek": "ham, shuningdek",
+          "description": "Used to say something extra is true; similar to 'too' and 'as well'",
+          "example": "He works in the shop and she does also."
+        },
+        {
+          "id": "u50_14",
+          "word": "too",
+          "transcription": "/tuː/",
+          "part_of_speech": "adverb",
+          "uzbek": "ham (gapning oxirida)",
+          "description": "Used at the end of a sentence or clause meaning 'also'",
+          "example": "He works in the shop and she does too."
+        },
+        {
+          "id": "u50_15",
+          "word": "as well",
+          "transcription": "/æz wɛl/",
+          "part_of_speech": "phrase",
+          "uzbek": "ham, shuningdek (gapning oxirida)",
+          "description": "Used at the end of a sentence meaning 'also' or 'too'",
+          "example": "He works in the shop and she does as well."
+        },
+        {
+          "id": "u50_16",
+          "word": "also / too / as well",
+          "transcription": "/ˈɔːlsoʊ/ /tuː/ /æz wɛl/",
+          "part_of_speech": "adverb",
+          "uzbek": "ham / shuningdek (uchala so'z bir xil ma'noda)",
+          "description": "Three ways to say 'in addition'. They have the same meaning but different positions in the sentence",
+          "example": "He works in the shop and she does also / too / as well."
+        }
+      ]
     }
   ]
 }

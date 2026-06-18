@@ -1,6 +1,7 @@
 import os
 import json
 from aiogram import Router, F
+from aiogram.exceptions import TelegramBadRequest
 from aiogram.types import CallbackQuery, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
@@ -131,9 +132,13 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         )
     )
 
-    await callback.message.edit_text(
-        text,
-        parse_mode="HTML",
-        reply_markup=ikb.as_markup(),
-    )
+    try:
+        await callback.message.edit_text(
+            text,
+            parse_mode="HTML",
+            reply_markup=ikb.as_markup(),
+        )
+    except TelegramBadRequest:
+        pass
+
     await callback.answer()

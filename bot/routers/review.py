@@ -1,6 +1,7 @@
 import random
 
 from aiogram import Router, F
+from aiogram.exceptions import TelegramBadRequest
 from aiogram.types import CallbackQuery, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
@@ -21,12 +22,21 @@ async def review_handler(callback: CallbackQuery, redis: Redis):
     if isinstance(raw_level, bytes):
         raw_level = raw_level.decode()
 
+    if not raw_level:
+        await callback.answer(
+            "⚠️ Sessiya muddati tugagan. Qaytadan boshlang.", show_alert=True
+        )
+        return
+
     level = "".join(filter(str.isalnum, raw_level)).lower()
 
     words = await get_unit_words(level, unit_id)
 
     if not words:
-        await callback.answer("So'zlar topilmadi", show_alert=True)
+        await callback.answer(
+            "❌ Bu unit uchun so'zlar topilmadi. Boshqa unitni tanlang.",
+            show_alert=True,
+        )
         return
 
     word = random.choice(words)
@@ -43,11 +53,14 @@ async def review_handler(callback: CallbackQuery, redis: Redis):
         )
     )
 
-    await callback.message.edit_text(
-        f"🇬🇧 <b>{word_text}</b>",
-        parse_mode="HTML",
-        reply_markup=ikb.as_markup(),
-    )
+    try:
+        await callback.message.edit_text(
+            f"🇬🇧 <b>{word_text}</b>",
+            parse_mode="HTML",
+            reply_markup=ikb.as_markup(),
+        )
+    except TelegramBadRequest:
+        pass
 
     await redis.set(
         f"review:{user_id}:{word_text}",
@@ -63,7 +76,7 @@ async def show_review_answer(callback: CallbackQuery, redis: Redis):
     data = callback.data.split("_")
 
     unit_id = data[2]
-    word_text = data[3]
+    word_text = "_".join(data[3:])  # so'z ichida _ bo'lishi mumkin
 
     user_id = callback.from_user.id
 
@@ -71,6 +84,10 @@ async def show_review_answer(callback: CallbackQuery, redis: Redis):
 
     if isinstance(uzbek, bytes):
         uzbek = uzbek.decode()
+
+    if not uzbek:
+        await callback.answer("❌ Ma'lumot topilmadi.", show_alert=True)
+        return
 
     ikb = InlineKeyboardBuilder()
 
@@ -81,10 +98,13 @@ async def show_review_answer(callback: CallbackQuery, redis: Redis):
         )
     )
 
-    await callback.message.edit_text(
-        f"🇬🇧 <b>{word_text}</b>\n\n" f"🇺🇿 <b>{uzbek}</b>",
-        parse_mode="HTML",
-        reply_markup=ikb.as_markup(),
-    )
+    try:
+        await callback.message.edit_text(
+            f"🇬🇧 <b>{word_text}</b>\n\n" f"🇺🇿 <b>{uzbek}</b>",
+            parse_mode="HTML",
+            reply_markup=ikb.as_markup(),
+        )
+    except TelegramBadRequest:
+        pass
 
     await callback.answer()

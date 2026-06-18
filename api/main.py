@@ -34,5 +34,11 @@ async def webhook_handler(request: Request):
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
-    await dp.feed_update(bot, update, redis=redis_client)
+    try:
+        await dp.feed_update(bot, update, redis=redis_client)
+    except Exception as e:
+        # Xatolikni log qilish, lekin 200 qaytarish — Telegram retry qilmasligi uchun
+        import logging
+        logging.exception(f"Error processing update {update.update_id}: {e}")
+
     return {"status": "ok"}

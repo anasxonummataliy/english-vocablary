@@ -2,12 +2,12 @@ import random
 import json
 import asyncio
 from aiogram import Router, F, Bot
+from aiogram.exceptions import TelegramBadRequest
 from aiogram.types import CallbackQuery, InlineKeyboardButton, PollAnswer
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
 
 from bot.routers.get_words import get_unit_words
-from bot.routers.level import section_selection_handler
 
 router = Router()
 
@@ -56,13 +56,16 @@ async def test_type_selection(callback: CallbackQuery):
     )
     ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data=f"select_{unit_id}"))
 
-    await callback.message.edit_text(
-        "🎯 <b>Test turini tanlang:</b>\n\n"
-        f"⏱ Har bir savolga <b>{TIMER_SECONDS} soniya</b> vaqt beriladi\n"
-        f"⚠️ Ketma-ket <b>{MAX_SKIPS} ta</b> savolga javob berilmasa — test to'xtatiladi",
-        reply_markup=ikb.as_markup(),
-        parse_mode="HTML",
-    )
+    try:
+        await callback.message.edit_text(
+            "🎯 <b>Test turini tanlang:</b>\n\n"
+            f"⏱ Har bir savolga <b>{TIMER_SECONDS} soniya</b> vaqt beriladi\n"
+            f"⚠️ Ketma-ket <b>{MAX_SKIPS} ta</b> savolga javob berilmasa — test to'xtatiladi",
+            reply_markup=ikb.as_markup(),
+            parse_mode="HTML",
+        )
+    except TelegramBadRequest:
+        pass
     await callback.answer()
 
 
@@ -85,6 +88,12 @@ async def start_test_by_mode(callback: CallbackQuery, redis: Redis, bot: Bot):
         return
 
     words = await get_unit_words(user_level_raw.split()[-1].lower(), unit_num)
+    if not words:
+        await callback.answer(
+            "❌ Bu unit uchun so'zlar topilmadi. Boshqa unitni tanlang.",
+            show_alert=True,
+        )
+        return
     if len(words) < 4:
         await callback.answer(
             "⚠️ Bu unitda kamida 4 ta so'z bo'lishi kerak!", show_alert=True
@@ -105,7 +114,11 @@ async def start_test_by_mode(callback: CallbackQuery, redis: Redis, bot: Bot):
         "chat_id": callback.message.chat.id,
     }
 
-    await callback.message.delete()
+    try:
+        await callback.message.delete()
+    except TelegramBadRequest:
+        pass
+
     await redis.set(f"test_state:{user_id}", json.dumps(test_data), ex=3600)
     await send_quiz_poll(bot, user_id, test_data, redis)
     await callback.answer("✅ Test boshlandi!")
@@ -343,7 +356,11 @@ async def resume_test(callback: CallbackQuery, redis: Redis, bot: Bot):
     data["paused"] = False
     data["skips"] = 0
 
-    await callback.message.delete()
+    try:
+        await callback.message.delete()
+    except TelegramBadRequest:
+        pass
+
     await redis.set(f"test_state:{user_id}", json.dumps(data), ex=3600)
     await send_quiz_poll(bot, user_id, data, redis)
     await callback.answer("▶️ Test davom ettirildi!")
@@ -395,5 +412,36 @@ async def _send_result(bot: Bot, chat_id: int, user_id: int, data: dict, redis: 
 # ==================== UNITLARGA QAYTISH ====================
 @router.callback_query(F.data == "back_to_units")
 async def back_to_units(callback: CallbackQuery, redis: Redis):
-    await callback.message.delete()
-    await section_selection_handler(callback.message, redis)
+    user_id = callback.from_user.id
+    user_level = _to_str(await redis.get(f"user:{user_id}:level"))
+
+    if not user_level:
+        await callback.answer("⚠️ Sessiya muddati tugagan.", show_alert=True)
+        return
+
+    try:
+        await callback.message.delete()
+    except TelegramBadRequest:
+        pass
+
+    # section_selection_handler o'rniga to'g'ridan-to'g'ri unitlar sahifasiga yo'naltiramiz
+    from bot.routers.keyboard import get_page_data, create_units_keyboard, get_available_units
+
+    available_units = get_available_units(user_level)
+    if not available_units:
+        await callback.message.answer(
+            f"⚠️ <b>{user_level}</b> kitobidagi so'zlar hali yuklanmagan.",
+            parse_mode="HTML",
+        )
+        await callback.answer()
+        return
+
+    page_data, current_page, total_pages = await get_page_data(0, user_level)
+
+    text = f"📖 Kitob: <b>{user_level}</b>\n"
+    text += "🎯 <b>Unit tanlang:</b>\n\n"
+    text += f"📊 Jami: {len(available_units)} ta unit mavjud"
+
+    keyboard = await create_units_keyboard(current_page, total_pages, page_data)
+    await callback.message.answer(text, reply_markup=keyboard, parse_mode="HTML")
+    await callback.answer()
