@@ -40,18 +40,21 @@ async def test_type_selection(callback: CallbackQuery):
         InlineKeyboardButton(
             text="🇺🇿 O'zbekcha → 🇬🇧 Inglizcha",
             callback_data=f"tmode_uz_en_{unit_id}",
+            style="success",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="🇬🇧 Inglizcha → 🇺🇿 O'zbekcha",
             callback_data=f"tmode_en_uz_{unit_id}",
+            style="success",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="📖 Ta'rifdan so'zni top",
             callback_data=f"tmode_desc_{unit_id}",
+            style="primary",
         )
     )
     ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data=f"select_{unit_id}"))
@@ -315,11 +318,12 @@ async def _next_step(bot: Bot, user_id: int, data: dict, redis: Redis):
 async def _send_pause(bot: Bot, chat_id: int, data: dict):
 
     ikb = InlineKeyboardBuilder()
-    ikb.row(InlineKeyboardButton(text="▶️ Davom ettirish", callback_data="resume_test"))
+    ikb.row(InlineKeyboardButton(text="▶️ Davom ettirish", callback_data="resume_test", style="success"))
     ikb.row(
         InlineKeyboardButton(
             text="🔄 Qayta boshlash",
             callback_data=f"test_{data['unit_id']}",
+            style="primary",
         ),
         InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units"),
     )
@@ -391,6 +395,7 @@ async def _send_result(bot: Bot, chat_id: int, user_id: int, data: dict, redis: 
         InlineKeyboardButton(
             text="🔄 Qayta topshirish",
             callback_data=f"test_{data['unit_id']}",
+            style="primary",
         ),
         InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units"),
     )

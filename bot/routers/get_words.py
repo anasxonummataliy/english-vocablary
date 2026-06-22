@@ -117,12 +117,14 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         InlineKeyboardButton(
             text="🧪 Testni boshlash",
             callback_data=f"test_{unit_id}",
+            style="success",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="🔁 So'zlarni takrorlash",
             callback_data=f"review_{unit_id}",
+            style="primary",
         )
     )
     ikb.row(
