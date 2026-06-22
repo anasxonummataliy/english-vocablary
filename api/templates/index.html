@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Vocabulary Bot — Users</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f2f5;
+            padding: 20px;
+            color: #1a1a2e;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #16213e;
+        }
+        .stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+            min-width: 150px;
+        }
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f3460;
+        }
+        .stat-card .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 4px;
+        }
+        .stat-card.active .number { color: #27ae60; }
+        .stat-card.blocked .number { color: #e74c3c; }
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            padding: 10px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-box input:focus { border-color: #2980b9; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #16213e;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        tr:hover { background: #f8f9fa; }
+        tr:last-child td { border-bottom: none; }
+        a { color: #2980b9; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code {
+            background: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        .status-active { color: #27ae60; font-weight: 600; }
+        .status-blocked { color: #e74c3c; font-weight: 600; }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        @media (max-width: 768px) {
+            table { font-size: 0.85rem; }
+            th, td { padding: 8px 10px; }
+            h1 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 English Vocabulary Bot — Foydalanuvchilar</h1>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number" id="total">—</div>
+                <div class="label">Jami foydalanuvchilar</div>
+            </div>
+            <div class="stat-card active">
+                <div class="number" id="active">—</div>
+                <div class="label">Faol</div>
+            </div>
+            <div class="stat-card blocked">
+                <div class="number" id="blocked">—</div>
+                <div class="label">Bloklangan</div>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="search" placeholder="🔍 Qidirish (ism, username, ID)...">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ism</th>
+                    <th>Username</th>
+                    <th>Telegram ID</th>
+                    <th>Holat</th>
+                    <th>Oxirgi faollik</th>
+                </tr>
+            </thead>
+            <tbody id="users-table">
+                <tr><td colspan="6" class="loading">Yuklanmoqda...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function loadUsers() {
+            try {
+                const res = await fetch('/api/users');
+                const users = await res.json();
+
+                const total = users.length;
+                const active = users.filter(u => !u.is_blocked).length;
+                const blocked = users.filter(u => u.is_blocked).length;
+
+                document.getElementById('total').textContent = total;
+                document.getElementById('active').textContent = active;
+                document.getElementById('blocked').textContent = blocked;
+
+                renderTable(users);
+
+                document.getElementById('search').addEventListener('input', (e) => {
+                    const q = e.target.value.toLowerCase();
+                    const filtered = users.filter(u => {
+                        const name = ((u.first_name || '') + ' ' + (u.last_name || '')).toLowerCase();
+                        const username = (u.username || '').toLowerCase();
+                        const tgId = String(u.tg_id);
+                        return name.includes(q) || username.includes(q) || tgId.includes(q);
+                    });
+                    renderTable(filtered);
+                });
+            } catch (err) {
+                document.getElementById('users-table').innerHTML =
+                    '<tr><td colspan="6" class="loading">❌ Xatolik yuz berdi</td></tr>';
+            }
+        }
+
+        function renderTable(users) {
+            const tbody = document.getElementById('users-table');
+            if (users.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" class="loading">Foydalanuvchilar topilmadi</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = users.map((user, i) => {
+                const fullName = ((user.first_name || '') + ' ' + (user.last_name || '')).trim() || '—';
+                const username = user.username ? `@${user.username}` : '—';
+                const link = user.username
+                    ? `https://t.me/${user.username}`
+                    : `tg://user?id=${user.tg_id}`;
+                const statusClass = user.is_blocked ? 'status-blocked' : 'status-active';
+                const statusText = user.is_blocked ? '🚫 Blocked' : '✅ Active';
+                const lastActive = user.last_activity
+                    ? new Date(user.last_activity).toLocaleString('uz-UZ')
+                    : '—';
+
+                return `<tr>
+                    <td>${i + 1}</td>
+                    <td><a href="${link}" target="_blank">${fullName}</a></td>
+                    <td>${username}</td>
+                    <td><code>${user.tg_id}</code></td>
+                    <td class="${statusClass}">${statusText}</td>
+                    <td>${lastActive}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        loadUsers();
+    </script>
+</body>
+</html>
