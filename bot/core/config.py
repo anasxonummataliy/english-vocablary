@@ -18,6 +18,9 @@ class Settings(BaseSettings):
     redis_host: str = os.getenv("REDIS_HOST", "localhost")
     redis_port: int = int(os.getenv("REDIS_PORT", 6379))
 
+    admin_login: str = os.getenv("ADMIN_LOGIN", "anasxon")
+    admin_password: str = os.getenv("ADMIN_PASSWORD", "muslim1306")
+
     @property
     def redis_url(self) -> str:
         return f"redis://{self.redis_host}:{self.redis_port}/0"
