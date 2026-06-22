@@ -24,7 +24,8 @@ RUN uv pip install --system --no-cache \
     "greenlet>=3.3.0,<4.0.0" \
     "fastapi>=0.115.0,<1.0.0" \
     "uvicorn>=0.40.0,<0.41.0" \
-    "asyncpg>=0.31.0,<0.32.0"
+    "asyncpg>=0.31.0,<0.32.0" \
+    "python-multipart>=0.0.18"
 
 COPY . .
 
