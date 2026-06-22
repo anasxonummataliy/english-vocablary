@@ -27,6 +27,7 @@ async def get_users(message: Message):
             hbold(f"Fullname: {user.first_name} {user.last_name or ''}"),
             f"Username: (@{user.username or 'username yo‘q'})",
             hcode(f"Telegram ID: {user.tg_id}"),
+            f"Created at: {user.created_at }",
             sep="\n",
         )
         users_lines.append(line)

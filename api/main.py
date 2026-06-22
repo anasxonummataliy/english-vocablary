@@ -23,6 +23,7 @@ async def get_users():
     async with get_async_session_context() as session:
         stmt = select(User)
         result = await session.execute(stmt)
+        
     return result.scalars().all()
 
 
