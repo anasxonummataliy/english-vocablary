@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.13"
-aiogram = {version = ">=3.29.0,<4.0.0", extras = ["i18n"]}
+aiogram = {version = ">=3.22.0,<4.0.0", extras = ["i18n"]}
 python-dotenv = ">=1.0.0"
 babel = ">=2.17.0,<3.0.0"
 redis-dict = ">=3.2.5,<4.0.0"
