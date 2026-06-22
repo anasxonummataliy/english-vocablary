@@ -132,18 +132,23 @@ async def select_handler(callback: CallbackQuery, redis: Redis):
     ikb = InlineKeyboardBuilder()
     ikb.row(
         InlineKeyboardButton(
-            text="📖 So'zlarni o'rganish", callback_data=f"words_{selected_unit}"
+            text="📖 So'zlarni o'rganish",
+            callback_data=f"words_{selected_unit}",
+            style="success",
         ),
     )
     ikb.row(
         InlineKeyboardButton(
-            text="📝 Test yechish", callback_data=f"test_{selected_unit}"
+            text="📝 Test yechish",
+            callback_data=f"test_{selected_unit}",
+            style="primary",
         ),
     )
 
     ikb.row(
         InlineKeyboardButton(
-            text="⬅️ Unitlar ro'yxatiga qaytish", callback_data="page_0"
+            text="⬅️ Unitlar ro'yxatiga qaytish",
+            callback_data="page_0",
         )
     )
 
