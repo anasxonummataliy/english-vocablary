@@ -1,5 +1,4 @@
 import logging
-import hashlib
 import secrets
 from pathlib import Path
 
@@ -9,7 +8,6 @@ from sqlalchemy import select
 from bot.database.models.users import User
 from bot.database.session import get_async_session_context
 from bot.main import dp, bot, start_bot
-from bot.core.config import settings
 from aiogram.types import Update
 from contextlib import asynccontextmanager
 from bot.database.base import redis_client
@@ -21,7 +19,7 @@ active_sessions: set[str] = set()
 
 
 def verify_credentials(login: str, password: str) -> bool:
-    return login == settings.admin_login and password == settings.admin_password
+    return login == "anasxon" and password == "muslim1306"
 
 
 def is_authenticated(session_token: str | None) -> bool:
