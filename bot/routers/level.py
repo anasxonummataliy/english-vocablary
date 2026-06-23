@@ -139,6 +139,13 @@ async def select_handler(callback: CallbackQuery, redis: Redis):
     )
     ikb.row(
         InlineKeyboardButton(
+            text="🃏 Flash card",
+            callback_data=f"flash_{selected_unit}",
+            style="success",
+        ),
+    )
+    ikb.row(
+        InlineKeyboardButton(
             text="📝 Test yechish",
             callback_data=f"test_{selected_unit}",
             style="primary",

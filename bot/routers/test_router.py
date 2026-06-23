@@ -325,7 +325,7 @@ async def _send_pause(bot: Bot, chat_id: int, data: dict):
             callback_data=f"test_{data['unit_id']}",
             style="primary",
         ),
-        InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units"),
+        InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units", style="danger"),
     )
 
     answered = data["current_index"]
@@ -397,7 +397,7 @@ async def _send_result(bot: Bot, chat_id: int, user_id: int, data: dict, redis: 
             callback_data=f"test_{data['unit_id']}",
             style="primary",
         ),
-        InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units"),
+        InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units", style="danger"),
     )
 
     await bot.send_message(

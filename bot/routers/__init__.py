@@ -8,10 +8,11 @@ from .level import router as level
 from .get_words import router as get_words
 from .test_router import router as test_router
 from .review import router as review_router
+from .flashcard import router as flashcard_router
 
 
 user_router = Router()
 user_router.message.filter(~isAdmin())
 user_router.include_routers(
-    review_router, test_router, get_words, level, message_to_admin, help, start
+    flashcard_router, review_router, test_router, get_words, level, message_to_admin, help, start
 )
