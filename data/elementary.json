@@ -10152,6 +10152,2092 @@
           "example": "He works in the shop and she does also / too / as well."
         }
       ]
+    },
+    {
+      "unit": 51,
+      "title": "Days, months, seasons",
+      "topic": "Days of the week, months of the year, seasons and time expressions",
+      "words": [
+        {
+          "id": "u51_1",
+          "word": "year",
+          "transcription": "/jɪər/",
+          "part_of_speech": "noun",
+          "uzbek": "yil",
+          "description": "A period of 365 days (366 in a leap year). There are 12 months in a year",
+          "example": "There are 365 days in a year. A year which has 366 days is a leap year."
+        },
+        {
+          "id": "u51_2",
+          "word": "month",
+          "transcription": "/mʌnθ/",
+          "part_of_speech": "noun",
+          "uzbek": "oy",
+          "description": "One of the 12 periods that a year is divided into",
+          "example": "There are 12 months in a year."
+        },
+        {
+          "id": "u51_3",
+          "word": "week",
+          "transcription": "/wiːk/",
+          "part_of_speech": "noun",
+          "uzbek": "hafta",
+          "description": "A period of 7 days, from Monday to Sunday",
+          "example": "There are 7 days in a week."
+        },
+        {
+          "id": "u51_4",
+          "word": "fortnight",
+          "transcription": "/ˈfɔːrtnaɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "ikki hafta, o'n to'rt kun",
+          "description": "A period of two weeks (14 days); used mainly in British English",
+          "example": "There are 2 weeks in a fortnight."
+        },
+        {
+          "id": "u51_5",
+          "word": "hour",
+          "transcription": "/aʊər/",
+          "part_of_speech": "noun",
+          "uzbek": "soat (vaqt birligi)",
+          "description": "A period of 60 minutes. Note: 'an hour' NOT 'a hour'",
+          "example": "There are 24 hours in a day."
+        },
+        {
+          "id": "u51_6",
+          "word": "minute",
+          "transcription": "/ˈmɪnɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "daqiqa",
+          "description": "A period of 60 seconds; one sixtieth of an hour",
+          "example": "There are 60 minutes in an hour."
+        },
+        {
+          "id": "u51_7",
+          "word": "second",
+          "transcription": "/ˈsɛkənd/",
+          "part_of_speech": "noun",
+          "uzbek": "soniya",
+          "description": "A very short period of time; one sixtieth of a minute",
+          "example": "There are 60 seconds in a minute."
+        },
+        {
+          "id": "u51_8",
+          "word": "century",
+          "transcription": "/ˈsɛntʃəri/",
+          "part_of_speech": "noun",
+          "uzbek": "asr, yuz yil",
+          "description": "A period of 100 years",
+          "example": "There are 100 years in a century. We are living in the 21st century."
+        },
+        {
+          "id": "u51_9",
+          "word": "Monday",
+          "transcription": "/ˈmʌndeɪ/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Dushanba",
+          "description": "The first day of the working week. Note: days of the week always begin with a capital letter",
+          "example": "I have an English lesson on Monday."
+        },
+        {
+          "id": "u51_10",
+          "word": "Tuesday",
+          "transcription": "/ˈtʃuːzdeɪ/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Seshanba",
+          "description": "The second day of the working week",
+          "example": "We have a meeting every Tuesday."
+        },
+        {
+          "id": "u51_11",
+          "word": "Wednesday",
+          "transcription": "/ˈwɛnzdeɪ/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Chorshanba",
+          "description": "The third day of the working week",
+          "example": "She goes to the gym on Wednesday."
+        },
+        {
+          "id": "u51_12",
+          "word": "Thursday",
+          "transcription": "/ˈθɜːrzdeɪ/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Payshanba",
+          "description": "The fourth day of the working week",
+          "example": "I saw her on Thursday evening."
+        },
+        {
+          "id": "u51_13",
+          "word": "Friday",
+          "transcription": "/ˈfraɪdeɪ/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Juma",
+          "description": "The fifth and last day of the working week",
+          "example": "We finish work early on Friday."
+        },
+        {
+          "id": "u51_14",
+          "word": "Saturday",
+          "transcription": "/ˈsætərdeɪ/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Shanba",
+          "description": "The sixth day of the week; part of the weekend",
+          "example": "I go shopping on Saturday."
+        },
+        {
+          "id": "u51_15",
+          "word": "Sunday",
+          "transcription": "/ˈsʌndeɪ/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Yakshanba",
+          "description": "The seventh day of the week; part of the weekend",
+          "example": "We visit grandparents on Sunday."
+        },
+        {
+          "id": "u51_16",
+          "word": "the weekend",
+          "transcription": "/ðə ˌwiːkˈɛnd/",
+          "part_of_speech": "noun",
+          "uzbek": "dam olish kunlari (shanba-yakshanba)",
+          "description": "Saturday and Sunday together. Note: 'at the weekend' NOT 'in the weekend'",
+          "example": "What did you do at the weekend?"
+        },
+        {
+          "id": "u51_17",
+          "word": "January",
+          "transcription": "/ˈdʒænjuəri/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Yanvar",
+          "description": "The first month of the year. Note: months always begin with a capital letter",
+          "example": "My birthday is in January."
+        },
+        {
+          "id": "u51_18",
+          "word": "February",
+          "transcription": "/ˈfɛbruəri/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Fevral",
+          "description": "The second month of the year",
+          "example": "Valentine's Day is on 14th February."
+        },
+        {
+          "id": "u51_19",
+          "word": "March",
+          "transcription": "/mɑːrtʃ/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Mart",
+          "description": "The third month of the year",
+          "example": "Spring starts in March."
+        },
+        {
+          "id": "u51_20",
+          "word": "April",
+          "transcription": "/ˈeɪprɪl/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Aprel",
+          "description": "The fourth month of the year",
+          "example": "Easter is usually in April."
+        },
+        {
+          "id": "u51_21",
+          "word": "May",
+          "transcription": "/meɪ/",
+          "part_of_speech": "proper noun",
+          "uzbek": "May",
+          "description": "The fifth month of the year",
+          "example": "The flowers bloom in May."
+        },
+        {
+          "id": "u51_22",
+          "word": "June",
+          "transcription": "/dʒuːn/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Iyun",
+          "description": "The sixth month of the year",
+          "example": "The school holds a sports day in June."
+        },
+        {
+          "id": "u51_23",
+          "word": "July",
+          "transcription": "/dʒuˈlaɪ/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Iyul",
+          "description": "The seventh month of the year. Note: 'my birthday is in July' NOT 'on July'",
+          "example": "My birthday is in July."
+        },
+        {
+          "id": "u51_24",
+          "word": "August",
+          "transcription": "/ˈɔːɡəst/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Avgust",
+          "description": "The eighth month of the year",
+          "example": "We go on holiday in August."
+        },
+        {
+          "id": "u51_25",
+          "word": "September",
+          "transcription": "/sɛpˈtɛmbər/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Sentabr",
+          "description": "The ninth month of the year",
+          "example": "School starts again in September."
+        },
+        {
+          "id": "u51_26",
+          "word": "October",
+          "transcription": "/ɒkˈtoʊbər/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Oktyabr",
+          "description": "The tenth month of the year",
+          "example": "Halloween is on 31st October."
+        },
+        {
+          "id": "u51_27",
+          "word": "November",
+          "transcription": "/noʊˈvɛmbər/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Noyabr",
+          "description": "The eleventh month of the year",
+          "example": "Bonfire Night is on 5th November."
+        },
+        {
+          "id": "u51_28",
+          "word": "December",
+          "transcription": "/dɪˈsɛmbər/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Dekabr",
+          "description": "The twelfth and last month of the year",
+          "example": "Christmas is on 25th December."
+        },
+        {
+          "id": "u51_29",
+          "word": "spring",
+          "transcription": "/sprɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "bahor",
+          "description": "The season between winter and summer when plants start to grow",
+          "example": "Birds sing in the spring."
+        },
+        {
+          "id": "u51_30",
+          "word": "summer",
+          "transcription": "/ˈsʌmər/",
+          "part_of_speech": "noun",
+          "uzbek": "yoz",
+          "description": "The warmest season of the year",
+          "example": "We go to the beach in summer."
+        },
+        {
+          "id": "u51_31",
+          "word": "autumn",
+          "transcription": "/ˈɔːtəm/",
+          "part_of_speech": "noun",
+          "uzbek": "kuz",
+          "description": "The season between summer and winter when leaves fall; called 'fall' in American English",
+          "example": "The leaves change colour in autumn."
+        },
+        {
+          "id": "u51_32",
+          "word": "winter",
+          "transcription": "/ˈwɪntər/",
+          "part_of_speech": "noun",
+          "uzbek": "qish",
+          "description": "The coldest season of the year",
+          "example": "It snows in winter."
+        },
+        {
+          "id": "u51_33",
+          "word": "on Monday / on Tuesday evening",
+          "transcription": "/ɒn ˈmʌndeɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "Dushanba kuni / Seshanba kechasi",
+          "description": "Use ON with days of the week. Note: 'on Monday' NOT 'in Monday'",
+          "example": "I saw her on Friday. We say on + days of the week."
+        },
+        {
+          "id": "u51_34",
+          "word": "in July / in summer",
+          "transcription": "/ɪn dʒuˈlaɪ/ /ɪn ˈsʌmər/",
+          "part_of_speech": "phrase",
+          "uzbek": "Iyulda / yozda",
+          "description": "Use IN with months and seasons. Note: 'in July' NOT 'on July'",
+          "example": "My birthday is in July. We say in + months and seasons."
+        },
+        {
+          "id": "u51_35",
+          "word": "morning / afternoon / evening",
+          "transcription": "/ˈmɔːrnɪŋ/ /ˌɑːftərˈnuːn/ /ˈiːvnɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "ertalab / tushdan keyin / kechqurun",
+          "description": "Parts of the day. Monday morning = before 12pm, Monday afternoon = 12-6pm, Monday evening = after 6pm",
+          "example": "Monday morning (before 12pm), Monday afternoon (12-6pm), Monday evening (after 6pm)."
+        }
+      ]
+    },
+    {
+      "unit": 52,
+      "title": "Time words",
+      "topic": "Words for talking about time — past, present, future and frequency",
+      "words": [
+        {
+          "id": "u52_1",
+          "word": "now",
+          "transcription": "/naʊ/",
+          "part_of_speech": "adverb",
+          "uzbek": "hozir, hozirda",
+          "description": "At this moment; at the present time",
+          "example": "It is 10 o'clock now."
+        },
+        {
+          "id": "u52_2",
+          "word": "then",
+          "transcription": "/ðɛn/",
+          "part_of_speech": "adverb",
+          "uzbek": "keyin, o'sha paytda",
+          "description": "At another time, usually in the past",
+          "example": "I was born in Edinburgh. Then we moved to London. Now I live in Cambridge."
+        },
+        {
+          "id": "u52_3",
+          "word": "o'clock",
+          "transcription": "/əˈklɒk/",
+          "part_of_speech": "adverb",
+          "uzbek": "soat (aniq vaqt)",
+          "description": "Used after a number to show the exact hour",
+          "example": "It is 10 o'clock now."
+        },
+        {
+          "id": "u52_4",
+          "word": "ago",
+          "transcription": "/əˈɡoʊ/",
+          "part_of_speech": "adverb",
+          "uzbek": "oldin (vaqt)",
+          "description": "Used to show how far in the past something happened",
+          "example": "I got up four hours ago, at 6 o'clock."
+        },
+        {
+          "id": "u52_5",
+          "word": "for two years",
+          "transcription": "/fɔːr tuː jɪərz/",
+          "part_of_speech": "phrase",
+          "uzbek": "ikki yil davomida",
+          "description": "Used to show the duration of a period of time",
+          "example": "I studied English for two years."
+        },
+        {
+          "id": "u52_6",
+          "word": "from 2014 to 2016",
+          "transcription": "/frɒm tuː ˈθaʊzənd fɔːˈtiːn tə tuː ˈθaʊzənd sɪkˈstiːn/",
+          "part_of_speech": "phrase",
+          "uzbek": "2014 yildan 2016 yilgacha",
+          "description": "Used to show the start and end of a period",
+          "example": "I studied at Oxford from 2014 to 2016."
+        },
+        {
+          "id": "u52_7",
+          "word": "last year / last week / last Saturday",
+          "transcription": "/lɑːst jɪər/ /lɑːst wiːk/",
+          "part_of_speech": "phrase",
+          "uzbek": "o'tgan yil / o'tgan hafta / o'tgan shanba",
+          "description": "Used to refer to the year, week or day before the current one",
+          "example": "Last month it was June. Next month it will be August."
+        },
+        {
+          "id": "u52_8",
+          "word": "next year / next week / next summer",
+          "transcription": "/nɛkst jɪər/ /nɛkst wiːk/",
+          "part_of_speech": "phrase",
+          "uzbek": "kelasi yil / kelasi hafta / kelasi yoz",
+          "description": "Used to refer to the year, week or season after the current one",
+          "example": "Next month it will be August."
+        },
+        {
+          "id": "u52_9",
+          "word": "the past",
+          "transcription": "/ðə pɑːst/",
+          "part_of_speech": "noun",
+          "uzbek": "o'tmish",
+          "description": "The time before now; what has already happened",
+          "example": "In the past people didn't have television."
+        },
+        {
+          "id": "u52_10",
+          "word": "the present",
+          "transcription": "/ðə ˈprɛzənt/",
+          "part_of_speech": "noun",
+          "uzbek": "hozirgi zamon, bugungi kun",
+          "description": "The time that is happening now",
+          "example": "In the present we have television and the internet."
+        },
+        {
+          "id": "u52_11",
+          "word": "the future",
+          "transcription": "/ðə ˈfjuːtʃər/",
+          "part_of_speech": "noun",
+          "uzbek": "kelajak",
+          "description": "The time that will come after now",
+          "example": "People may travel to Mars in the future."
+        },
+        {
+          "id": "u52_12",
+          "word": "always",
+          "transcription": "/ˈɔːlweɪz/",
+          "part_of_speech": "adverb",
+          "uzbek": "doim, har doim",
+          "description": "At all times; on every occasion. The most frequent adverb",
+          "example": "It always snows in Russia in winter."
+        },
+        {
+          "id": "u52_13",
+          "word": "usually",
+          "transcription": "/ˈjuːʒuəli/",
+          "part_of_speech": "adverb",
+          "uzbek": "odatda, ko'pincha",
+          "description": "Most of the time; in most cases",
+          "example": "It usually rains in the UK."
+        },
+        {
+          "id": "u52_14",
+          "word": "often",
+          "transcription": "/ˈɒfən/",
+          "part_of_speech": "adverb",
+          "uzbek": "tez-tez, ko'p marta",
+          "description": "Many times; frequently",
+          "example": "It often rains in London."
+        },
+        {
+          "id": "u52_15",
+          "word": "sometimes",
+          "transcription": "/ˈsʌmtaɪmz/",
+          "part_of_speech": "adverb",
+          "uzbek": "ba'zan, gohida",
+          "description": "On some occasions but not always",
+          "example": "It sometimes snows in England in winter."
+        },
+        {
+          "id": "u52_16",
+          "word": "now and then",
+          "transcription": "/naʊ ænd ðɛn/",
+          "part_of_speech": "phrase",
+          "uzbek": "ba'zida, vaqti-vaqti bilan",
+          "description": "Occasionally; sometimes but not often",
+          "example": "She visits now and then, but not very often."
+        },
+        {
+          "id": "u52_17",
+          "word": "occasionally",
+          "transcription": "/əˈkeɪʒənəli/",
+          "part_of_speech": "adverb",
+          "uzbek": "ba'zan, kamdan-kam",
+          "description": "Sometimes but not very often",
+          "example": "I occasionally visit my aunt in the countryside."
+        },
+        {
+          "id": "u52_18",
+          "word": "not often",
+          "transcription": "/nɒt ˈɒfən/",
+          "part_of_speech": "phrase",
+          "uzbek": "kam, tez-tez emas",
+          "description": "Not frequently; rarely happening",
+          "example": "It doesn't often snow in London."
+        },
+        {
+          "id": "u52_19",
+          "word": "rarely",
+          "transcription": "/ˈreərli/",
+          "part_of_speech": "adverb",
+          "uzbek": "kamdan-kam, deyarli hech qachon",
+          "description": "Almost never; very infrequently",
+          "example": "I rarely go to the cinema these days."
+        },
+        {
+          "id": "u52_20",
+          "word": "never",
+          "transcription": "/ˈnɛvər/",
+          "part_of_speech": "adverb",
+          "uzbek": "hech qachon",
+          "description": "At no time; not ever. The least frequent adverb",
+          "example": "The Ancient Romans never went to America or Australia."
+        },
+        {
+          "id": "u52_21",
+          "word": "once a week",
+          "transcription": "/wʌns ə wiːk/",
+          "part_of_speech": "phrase",
+          "uzbek": "haftada bir marta",
+          "description": "One time every week",
+          "example": "I go swimming once a week, every Saturday."
+        },
+        {
+          "id": "u52_22",
+          "word": "twice a day",
+          "transcription": "/twaɪs ə deɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "kuniga ikki marta",
+          "description": "Two times every day",
+          "example": "I clean my teeth twice a day."
+        },
+        {
+          "id": "u52_23",
+          "word": "three times a year",
+          "transcription": "/θriː taɪmz ə jɪər/",
+          "part_of_speech": "phrase",
+          "uzbek": "yilda uch marta",
+          "description": "Three occasions in every year",
+          "example": "I see my uncle three times a year."
+        },
+        {
+          "id": "u52_24",
+          "word": "in a moment",
+          "transcription": "/ɪn ə ˈmoʊmənt/",
+          "part_of_speech": "phrase",
+          "uzbek": "hoziroq, bir zum ichida",
+          "description": "Very soon; in a very short time",
+          "example": "I'll be with you in a moment."
+        },
+        {
+          "id": "u52_25",
+          "word": "at the moment",
+          "transcription": "/æt ðə ˈmoʊmənt/",
+          "part_of_speech": "phrase",
+          "uzbek": "hozirda, hozirgi vaqtda",
+          "description": "Now; at this present time",
+          "example": "Nora's in Paris at the moment."
+        },
+        {
+          "id": "u52_26",
+          "word": "soon",
+          "transcription": "/suːn/",
+          "part_of_speech": "adverb",
+          "uzbek": "tez orada, yaqin vaqtda",
+          "description": "In a short time from now",
+          "example": "See you soon!"
+        },
+        {
+          "id": "u52_27",
+          "word": "recently",
+          "transcription": "/ˈriːsəntli/",
+          "part_of_speech": "adverb",
+          "uzbek": "yaqinda, so'nggi paytda",
+          "description": "Not long ago; a short time before now",
+          "example": "We met recently, not long ago."
+        }
+      ]
+    },
+    {
+      "unit": 53,
+      "title": "Places",
+      "topic": "General place words, prepositions of place and position words",
+      "words": [
+        {
+          "id": "u53_1",
+          "word": "here",
+          "transcription": "/hɪər/",
+          "part_of_speech": "adverb",
+          "uzbek": "bu yerda, shu yerda",
+          "description": "In or at this place; where the speaker is",
+          "example": "Come here, please. I'm over here."
+        },
+        {
+          "id": "u53_2",
+          "word": "there",
+          "transcription": "/ðeər/",
+          "part_of_speech": "adverb",
+          "uzbek": "u yerda, o'sha yerda",
+          "description": "In or at that place; not where the speaker is",
+          "example": "Have you been to Lima? I'm going there in April."
+        },
+        {
+          "id": "u53_3",
+          "word": "back",
+          "transcription": "/bæk/",
+          "part_of_speech": "adverb",
+          "uzbek": "qaytib, orqaga",
+          "description": "To or towards the place you came from; returning to a previous place",
+          "example": "Max is coming back from Portugal in May."
+        },
+        {
+          "id": "u53_4",
+          "word": "everywhere",
+          "transcription": "/ˈɛvriweər/",
+          "part_of_speech": "adverb",
+          "uzbek": "hamma yerda, barcha joylarda",
+          "description": "In all places; in every location",
+          "example": "There are books and papers everywhere in my room."
+        },
+        {
+          "id": "u53_5",
+          "word": "in",
+          "transcription": "/ɪn/",
+          "part_of_speech": "preposition",
+          "uzbek": "ichida (joy uchun)",
+          "description": "Used for position inside an enclosed space — rooms, cities, countries, continents",
+          "example": "Luke is in the kitchen. Samantha lives in Seoul."
+        },
+        {
+          "id": "u53_6",
+          "word": "at",
+          "transcription": "/æt/",
+          "part_of_speech": "preposition",
+          "uzbek": "da, da/da (nuqta uchun)",
+          "description": "Used for a specific point or location, like a station or the front of a class",
+          "example": "I'll meet you at the station. I always sit at the front of the class."
+        },
+        {
+          "id": "u53_7",
+          "word": "on",
+          "transcription": "/ɒn/",
+          "part_of_speech": "preposition",
+          "uzbek": "ustida, yuzasida",
+          "description": "Used for position on a surface",
+          "example": "I like that photo on the wall. Don't put your books on the chair."
+        },
+        {
+          "id": "u53_8",
+          "word": "the top",
+          "transcription": "/ðə tɒp/",
+          "part_of_speech": "noun",
+          "uzbek": "tepa, yuqori qism",
+          "description": "The highest part of something",
+          "example": "He stood at the top of the mountain."
+        },
+        {
+          "id": "u53_9",
+          "word": "the middle",
+          "transcription": "/ðə ˈmɪdəl/",
+          "part_of_speech": "noun",
+          "uzbek": "o'rta qism, markaz",
+          "description": "The central part of something, equidistant from all edges",
+          "example": "She stood in the middle of the road."
+        },
+        {
+          "id": "u53_10",
+          "word": "the bottom",
+          "transcription": "/ðə ˈbɒtəm/",
+          "part_of_speech": "noun",
+          "uzbek": "pastki qism, tub",
+          "description": "The lowest part of something",
+          "example": "The sugar sank to the bottom of the glass."
+        },
+        {
+          "id": "u53_11",
+          "word": "the front",
+          "transcription": "/ðə frʌnt/",
+          "part_of_speech": "noun",
+          "uzbek": "old tomoni, old qism",
+          "description": "The part of something that faces forward or is seen first",
+          "example": "She sat in the front of the car."
+        },
+        {
+          "id": "u53_12",
+          "word": "the side",
+          "transcription": "/ðə saɪd/",
+          "part_of_speech": "noun",
+          "uzbek": "yon tomoni",
+          "description": "The part of something that is not the front, back, top or bottom",
+          "example": "He sat at the side of the car."
+        },
+        {
+          "id": "u53_13",
+          "word": "the back",
+          "transcription": "/ðə bæk/",
+          "part_of_speech": "noun",
+          "uzbek": "orqa tomoni, orqa qism",
+          "description": "The part of something that is at the rear; opposite of the front",
+          "example": "She sat in the back of the car."
+        },
+        {
+          "id": "u53_14",
+          "word": "the beginning",
+          "transcription": "/ðə bɪˈɡɪnɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "boshi, boshlanishi",
+          "description": "The start of something — a road, a story, a film",
+          "example": "There was a traffic jam at the beginning of the motorway."
+        },
+        {
+          "id": "u53_15",
+          "word": "the end",
+          "transcription": "/ðɪ ɛnd/",
+          "part_of_speech": "noun",
+          "uzbek": "oxiri, tugashi",
+          "description": "The final part of something — a road, a story, a film",
+          "example": "There was a roundabout at the end of the motorway."
+        },
+        {
+          "id": "u53_16",
+          "word": "left",
+          "transcription": "/lɛft/",
+          "part_of_speech": "adjective / adverb",
+          "uzbek": "chap, chapga",
+          "description": "The direction that is on the same side as your left hand",
+          "example": "This is his left hand. In York Street there is a cinema on the left."
+        },
+        {
+          "id": "u53_17",
+          "word": "right",
+          "transcription": "/raɪt/",
+          "part_of_speech": "adjective / adverb",
+          "uzbek": "o'ng, o'ngga",
+          "description": "The direction that is on the same side as your right hand",
+          "example": "This is his right hand. And a restaurant on the right."
+        },
+        {
+          "id": "u53_18",
+          "word": "at home",
+          "transcription": "/æt hoʊm/",
+          "part_of_speech": "phrase",
+          "uzbek": "uyda",
+          "description": "In your house or flat",
+          "example": "Is Eleanor at home?"
+        },
+        {
+          "id": "u53_19",
+          "word": "out",
+          "transcription": "/aʊt/",
+          "part_of_speech": "adverb",
+          "uzbek": "tashqarida, uydan chiqib ketgan",
+          "description": "Not at home; away from your house for a short time",
+          "example": "No, sorry, she's out. She's gone to the shops."
+        },
+        {
+          "id": "u53_20",
+          "word": "away",
+          "transcription": "/əˈweɪ/",
+          "part_of_speech": "adverb",
+          "uzbek": "uzoqda, ketib qolgan (uzoq vaqt)",
+          "description": "Not at home for a longer time, like a holiday or work trip",
+          "example": "No, sorry, she's away. She's on holiday in Spain."
+        },
+        {
+          "id": "u53_21",
+          "word": "abroad",
+          "transcription": "/əˈbrɔːd/",
+          "part_of_speech": "adverb",
+          "uzbek": "chet elda, xorijda",
+          "description": "In or to a foreign country; outside your own country",
+          "example": "No, sorry, she's abroad. She's in another country."
+        }
+      ]
+    },
+    {
+      "unit": 54,
+      "title": "Manner",
+      "topic": "Adverbs and adjectives describing how things are done",
+      "words": [
+        {
+          "id": "u54_1",
+          "word": "manner",
+          "transcription": "/ˈmænər/",
+          "part_of_speech": "noun",
+          "uzbek": "tarz, usul, holat",
+          "description": "The way in which something is done or happens",
+          "example": "Adjectives and adverbs can describe manner — how we do something."
+        },
+        {
+          "id": "u54_2",
+          "word": "fast",
+          "transcription": "/fɑːst/",
+          "part_of_speech": "adjective / adverb",
+          "uzbek": "tez (sifat va ravish)",
+          "description": "Moving or doing something quickly. Note: 'fast' is both adjective and adverb — no -ly form",
+          "example": "This is a fast car. This car goes very fast."
+        },
+        {
+          "id": "u54_3",
+          "word": "slow",
+          "transcription": "/sloʊ/",
+          "part_of_speech": "adjective",
+          "uzbek": "sekin (sifat)",
+          "description": "Moving or doing something without speed; not fast",
+          "example": "This is a slow car."
+        },
+        {
+          "id": "u54_4",
+          "word": "slowly",
+          "transcription": "/ˈsloʊli/",
+          "part_of_speech": "adverb",
+          "uzbek": "sekin (ravish)",
+          "description": "In a slow manner; without speed. The adverb form of 'slow'",
+          "example": "This car goes very slowly."
+        },
+        {
+          "id": "u54_5",
+          "word": "loud",
+          "transcription": "/laʊd/",
+          "part_of_speech": "adjective",
+          "uzbek": "baland ovozli, shovqinli (sifat)",
+          "description": "Making a lot of noise; not quiet",
+          "example": "The music is too loud."
+        },
+        {
+          "id": "u54_6",
+          "word": "loudly",
+          "transcription": "/ˈlaʊdli/",
+          "part_of_speech": "adverb",
+          "uzbek": "baland ovozda, qattiq (ravish)",
+          "description": "In a loud manner; making a lot of noise",
+          "example": "The children sang loudly."
+        },
+        {
+          "id": "u54_7",
+          "word": "quiet",
+          "transcription": "/ˈkwaɪət/",
+          "part_of_speech": "adjective",
+          "uzbek": "sokin, jim, tinch (sifat)",
+          "description": "Making little or no noise; not loud",
+          "example": "It's very quiet here. We can hear the birds."
+        },
+        {
+          "id": "u54_8",
+          "word": "quietly",
+          "transcription": "/ˈkwaɪətli/",
+          "part_of_speech": "adverb",
+          "uzbek": "sokin, jimgina (ravish)",
+          "description": "In a quiet manner; without making noise",
+          "example": "The teacher speaks very quietly. We can't hear him."
+        },
+        {
+          "id": "u54_9",
+          "word": "good",
+          "transcription": "/ɡʊd/",
+          "part_of_speech": "adjective",
+          "uzbek": "yaxshi (sifat)",
+          "description": "Of high quality or ability; the adjective form",
+          "example": "She's a good driver."
+        },
+        {
+          "id": "u54_10",
+          "word": "well",
+          "transcription": "/wɛl/",
+          "part_of_speech": "adverb",
+          "uzbek": "yaxshi (ravish)",
+          "description": "In a good manner; with skill or ability. The adverb form of 'good'",
+          "example": "She drives well."
+        },
+        {
+          "id": "u54_11",
+          "word": "bad",
+          "transcription": "/bæd/",
+          "part_of_speech": "adjective",
+          "uzbek": "yomon (sifat)",
+          "description": "Of low quality or ability; not good",
+          "example": "He's a bad driver."
+        },
+        {
+          "id": "u54_12",
+          "word": "badly",
+          "transcription": "/ˈbædli/",
+          "part_of_speech": "adverb",
+          "uzbek": "yomon (ravish)",
+          "description": "In a bad manner; poorly. The adverb form of 'bad'",
+          "example": "He drives badly."
+        },
+        {
+          "id": "u54_13",
+          "word": "right",
+          "transcription": "/raɪt/",
+          "part_of_speech": "adjective",
+          "uzbek": "to'g'ri, correct (sifat)",
+          "description": "Correct; without errors",
+          "example": "This sentence is right."
+        },
+        {
+          "id": "u54_14",
+          "word": "wrong",
+          "transcription": "/rɒŋ/",
+          "part_of_speech": "adjective",
+          "uzbek": "noto'g'ri, xato (sifat)",
+          "description": "Incorrect; containing errors",
+          "example": "This sentence is wrong."
+        },
+        {
+          "id": "u54_15",
+          "word": "in a friendly way",
+          "transcription": "/ɪn ə ˈfrɛndli weɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "do'stona tarzda",
+          "description": "Used to describe how someone is speaking — in a friendly manner",
+          "example": "He's speaking in a friendly way."
+        },
+        {
+          "id": "u54_16",
+          "word": "in an unfriendly way",
+          "transcription": "/ɪn ən ʌnˈfrɛndli weɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "do'stona bo'lmagan tarzda",
+          "description": "Used to describe how someone is speaking — not in a friendly manner",
+          "example": "She's speaking in an unfriendly way."
+        },
+        {
+          "id": "u54_17",
+          "word": "the right way",
+          "transcription": "/ðə raɪt weɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "to'g'ri usulda",
+          "description": "The correct method of doing something",
+          "example": "Let me show you the right way to do it."
+        },
+        {
+          "id": "u54_18",
+          "word": "the wrong way",
+          "transcription": "/ðə rɒŋ weɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "noto'g'ri usulda",
+          "description": "An incorrect method of doing something",
+          "example": "You're doing that the wrong way."
+        }
+      ]
+    },
+    {
+      "unit": 55,
+      "title": "Common uncountable nouns",
+      "topic": "Nouns that cannot be counted and are always singular",
+      "words": [
+        {
+          "id": "u55_1",
+          "word": "money",
+          "transcription": "/ˈmʌni/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "pul",
+          "description": "Coins and notes used to buy things. Cannot be counted — NOT 'moneys'",
+          "example": "I need some money. NOT I need a money."
+        },
+        {
+          "id": "u55_2",
+          "word": "bread",
+          "transcription": "/brɛd/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "non",
+          "description": "A food made from flour baked in an oven. Cannot be counted — NOT 'a bread'",
+          "example": "Can I have some bread? NOT Can I have a bread?"
+        },
+        {
+          "id": "u55_3",
+          "word": "information",
+          "transcription": "/ˌɪnfəˈmeɪʃən/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "ma'lumot, axborot",
+          "description": "Facts or knowledge about something. Cannot be counted — NOT 'informations'",
+          "example": "He can give some useful information about Bangkok."
+        },
+        {
+          "id": "u55_4",
+          "word": "furniture",
+          "transcription": "/ˈfɜːrnɪtʃər/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "mebel",
+          "description": "Large moveable objects in a room. Cannot be counted — NOT 'furnitures'",
+          "example": "This furniture is modern."
+        },
+        {
+          "id": "u55_5",
+          "word": "traffic",
+          "transcription": "/ˈtræfɪk/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "transport, trafik",
+          "description": "Vehicles moving on roads. Cannot be counted — NOT 'traffics'",
+          "example": "The traffic is bad today."
+        },
+        {
+          "id": "u55_6",
+          "word": "advice",
+          "transcription": "/ədˈvaɪs/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "maslahat, ko'rsatma",
+          "description": "Suggestions about what someone should do. Cannot be counted — NOT 'an advice'",
+          "example": "I'll give you some advice about your future."
+        },
+        {
+          "id": "u55_7",
+          "word": "news",
+          "transcription": "/njuːz/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "yangiliklar",
+          "description": "Reports of recent events. Cannot be counted and takes a singular verb — NOT 'the news are'",
+          "example": "There is some bad news today. The news is on now."
+        },
+        {
+          "id": "u55_8",
+          "word": "weather",
+          "transcription": "/ˈwɛðər/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "ob-havo",
+          "description": "The condition of the atmosphere. Cannot be counted — NOT 'weathers'",
+          "example": "It's terrible weather today."
+        },
+        {
+          "id": "u55_9",
+          "word": "accommodation",
+          "transcription": "/əˌkɒməˈdeɪʃən/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "turar joy, yashash joyi",
+          "description": "A place to stay or live. Cannot be counted — NOT 'accommodations'",
+          "example": "Accommodation here is expensive."
+        },
+        {
+          "id": "u55_10",
+          "word": "work",
+          "transcription": "/wɜːrk/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "ish, mehnat",
+          "description": "Activity done as a job or for a purpose. Cannot be counted in this sense — NOT 'a work'",
+          "example": "Studying is hard work."
+        },
+        {
+          "id": "u55_11",
+          "word": "travel",
+          "transcription": "/ˈtrævəl/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "sayohat (umumiy ma'noda)",
+          "description": "The general activity of going from place to place. Cannot be counted in this sense",
+          "example": "Air travel is faster than rail travel."
+        },
+        {
+          "id": "u55_12",
+          "word": "air",
+          "transcription": "/eər/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "havo",
+          "description": "The mixture of gases surrounding the Earth that we breathe. Cannot be counted",
+          "example": "I need some fresh air."
+        },
+        {
+          "id": "u55_13",
+          "word": "rice",
+          "transcription": "/raɪs/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "guruch, sholi",
+          "description": "Small grains cooked and eaten as food. Cannot be counted — NOT 'a rice'",
+          "example": "I love rice. Can I have some rice?"
+        },
+        {
+          "id": "u55_14",
+          "word": "spaghetti",
+          "transcription": "/spəˈɡɛti/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "spagetti",
+          "description": "A type of pasta in long thin strings. Cannot be counted",
+          "example": "I love spaghetti. NOT I love a spaghetti."
+        },
+        {
+          "id": "u55_15",
+          "word": "butter",
+          "transcription": "/ˈbʌtər/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "sariyog'",
+          "description": "A yellow fat made from cream. Cannot be counted — NOT 'a butter'",
+          "example": "I need some butter to make the cake."
+        },
+        {
+          "id": "u55_16",
+          "word": "milk",
+          "transcription": "/mɪlk/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "sut",
+          "description": "A white liquid from cows. Cannot be counted — NOT 'a milk'",
+          "example": "Can I have some milk in my tea?"
+        },
+        {
+          "id": "u55_17",
+          "word": "water",
+          "transcription": "/ˈwɔːtər/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "suv",
+          "description": "The clear liquid we drink. Cannot be counted — NOT 'a water'",
+          "example": "Can I have some water, please?"
+        },
+        {
+          "id": "u55_18",
+          "word": "sugar",
+          "transcription": "/ˈʃʊɡər/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "shakar",
+          "description": "A sweet substance. Cannot be counted — NOT 'a sugar'",
+          "example": "Do you take sugar in your tea?"
+        },
+        {
+          "id": "u55_19",
+          "word": "coffee",
+          "transcription": "/ˈkɒfi/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "qahva",
+          "description": "A hot drink made from coffee beans. Cannot be counted in general — NOT 'a coffee' for the drink in general",
+          "example": "I love coffee. NOT I love a coffee. (But: Can I have a coffee? = a cup of)"
+        },
+        {
+          "id": "u55_20",
+          "word": "tea",
+          "transcription": "/tiː/",
+          "part_of_speech": "noun (uncountable)",
+          "uzbek": "choy",
+          "description": "A hot drink made from tea leaves. Cannot be counted in general use",
+          "example": "I love tea. NOT I love a tea."
+        },
+        {
+          "id": "u55_21",
+          "word": "two loaves of bread",
+          "transcription": "/tuː loʊvz əv brɛd/",
+          "part_of_speech": "phrase",
+          "uzbek": "ikki dona non",
+          "description": "How to count bread — use 'loaves' as the counting unit",
+          "example": "I want two loaves of bread."
+        },
+        {
+          "id": "u55_22",
+          "word": "three litres of milk",
+          "transcription": "/θriː ˈliːtərz əv mɪlk/",
+          "part_of_speech": "phrase",
+          "uzbek": "uch litr sut",
+          "description": "How to measure milk — use litres as the unit",
+          "example": "Can I have three litres of milk?"
+        },
+        {
+          "id": "u55_23",
+          "word": "a kilo of rice",
+          "transcription": "/ə ˈkiːloʊ əv raɪs/",
+          "part_of_speech": "phrase",
+          "uzbek": "bir kilogram guruch",
+          "description": "How to measure rice — use kilos as the unit",
+          "example": "I need a kilo of rice."
+        }
+      ]
+    },
+    {
+      "unit": 56,
+      "title": "Common adjectives: Good and bad things",
+      "topic": "Adjectives to describe good and bad things, and expressions",
+      "words": [
+        {
+          "id": "u56_1",
+          "word": "good",
+          "transcription": "/ɡʊd/",
+          "part_of_speech": "adjective",
+          "uzbek": "yaxshi",
+          "description": "Of a high standard or quality; pleasant",
+          "example": "That was a good restaurant."
+        },
+        {
+          "id": "u56_2",
+          "word": "nice",
+          "transcription": "/naɪs/",
+          "part_of_speech": "adjective",
+          "uzbek": "yoqimli, chiroyli, yaxshi",
+          "description": "Pleasant; agreeable. Used to describe things, places and people",
+          "example": "That's a nice jacket."
+        },
+        {
+          "id": "u56_3",
+          "word": "lovely",
+          "transcription": "/ˈlʌvli/",
+          "part_of_speech": "adjective",
+          "uzbek": "ajoyib, go'zal, yoqimli",
+          "description": "Very pleasant or beautiful. Stronger than 'nice'",
+          "example": "It's a lovely day today!"
+        },
+        {
+          "id": "u56_4",
+          "word": "great",
+          "transcription": "/ɡreɪt/",
+          "part_of_speech": "adjective",
+          "uzbek": "zo'r, ajoyib",
+          "description": "Very good; excellent. Informal and enthusiastic",
+          "example": "It's a great film. We all loved it."
+        },
+        {
+          "id": "u56_5",
+          "word": "wonderful",
+          "transcription": "/ˈwʌndərfəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "ajoyib, mo'jizaviy",
+          "description": "Extremely good; causing wonder and admiration",
+          "example": "There's a wonderful view from the top of the hill."
+        },
+        {
+          "id": "u56_6",
+          "word": "excellent",
+          "transcription": "/ˈɛksələnt/",
+          "part_of_speech": "adjective",
+          "uzbek": "a'lo, zo'r, mukammal",
+          "description": "Extremely good; of the highest quality",
+          "example": "That's an excellent idea!"
+        },
+        {
+          "id": "u56_7",
+          "word": "bad",
+          "transcription": "/bæd/",
+          "part_of_speech": "adjective",
+          "uzbek": "yomon",
+          "description": "Of a low standard or quality; unpleasant",
+          "example": "The weather this summer was very bad."
+        },
+        {
+          "id": "u56_8",
+          "word": "horrible",
+          "transcription": "/ˈhɒrɪbəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "dahshatli, jirkanch, yomon",
+          "description": "Very unpleasant; causing strong dislike",
+          "example": "The food in that café was horrible. Nobody liked it."
+        },
+        {
+          "id": "u56_9",
+          "word": "terrible",
+          "transcription": "/ˈtɛrɪbəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "dahshatli, juda yomon",
+          "description": "Extremely bad; causing fear or distress",
+          "example": "I had a terrible day at work today."
+        },
+        {
+          "id": "u56_10",
+          "word": "dreadful",
+          "transcription": "/ˈdrɛdfəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "qo'rqinchli, juda yomon",
+          "description": "Very bad; extremely unpleasant",
+          "example": "What's that dreadful smell?"
+        },
+        {
+          "id": "u56_11",
+          "word": "awful",
+          "transcription": "/ˈɔːfəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "dahshatli, misoli yo'q yomon",
+          "description": "Very bad or unpleasant; used to describe things that are really terrible",
+          "example": "My hair is awful!"
+        },
+        {
+          "id": "u56_12",
+          "word": "not bad",
+          "transcription": "/nɒt bæd/",
+          "part_of_speech": "phrase",
+          "uzbek": "yomon emas, ancha yaxshi",
+          "description": "Informal way of saying something is actually quite good. Note: used in speaking",
+          "example": "I get $500 a week. That's not bad. (= it's quite good)"
+        },
+        {
+          "id": "u56_13",
+          "word": "Excellent! / Great! / Wonderful!",
+          "transcription": "/ˈɛksələnt/ /ɡreɪt/ /ˈwʌndərfəl/",
+          "part_of_speech": "exclamation",
+          "uzbek": "A'lo! / Zo'r! / Ajoyib! (qo'shimcha so'z sifatida)",
+          "description": "Used as exclamations to express strong approval or happiness",
+          "example": "The train arrives at 7. Dinner is at 8. Excellent! / Great! / Wonderful! / Lovely! / Perfect!"
+        },
+        {
+          "id": "u56_14",
+          "word": "How awful! / How horrible!",
+          "transcription": "/haʊ ˈɔːfəl/ /haʊ ˈhɒrɪbəl/",
+          "part_of_speech": "exclamation",
+          "uzbek": "Qanday dahshatli! / Qanday yomon!",
+          "description": "Used to express shock or sympathy about something bad. Note: 'How awful!' NOT 'How bad!'",
+          "example": "How awful! / How horrible! NOT How bad!"
+        },
+        {
+          "id": "u56_15",
+          "word": "How nice! / How wonderful! / How lovely!",
+          "transcription": "/haʊ naɪs/ /haʊ ˈwʌndərfəl/",
+          "part_of_speech": "exclamation",
+          "uzbek": "Qanday yoqimli! / Qanday ajoyib!",
+          "description": "Used to express delight about something good",
+          "example": "I've got a great new job in New York! How nice! / How wonderful! / How lovely!"
+        }
+      ]
+    },
+    {
+      "unit": 57,
+      "title": "Words and prepositions",
+      "topic": "Common verbs and adjectives followed by prepositions",
+      "words": [
+        {
+          "id": "u57_1",
+          "word": "listen to",
+          "transcription": "/ˈlɪsən tə/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "tinglаmoq (... ni)",
+          "description": "To pay attention to sound. Note: 'listen TO' NOT just 'listen'",
+          "example": "I listen to the radio in bed in the morning."
+        },
+        {
+          "id": "u57_2",
+          "word": "wait for",
+          "transcription": "/weɪt fɔːr/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "kutmoq (... ni)",
+          "description": "To stay somewhere until someone arrives or something happens",
+          "example": "I waited for the bus for half an hour yesterday."
+        },
+        {
+          "id": "u57_3",
+          "word": "ask for",
+          "transcription": "/ɑːsk fɔːr/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "so'ramoq (... ni), talab qilmoq",
+          "description": "To request something",
+          "example": "I asked for a black coffee, not a white one."
+        },
+        {
+          "id": "u57_4",
+          "word": "pay for",
+          "transcription": "/peɪ fɔːr/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "to'lamoq (... uchun)",
+          "description": "To give money in exchange for something",
+          "example": "Where do I pay for our meal?"
+        },
+        {
+          "id": "u57_5",
+          "word": "come to",
+          "transcription": "/kʌm tə/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "kelmoq (... ga)",
+          "description": "To visit or attend a place",
+          "example": "I hope you can come to my party."
+        },
+        {
+          "id": "u57_6",
+          "word": "belongs to",
+          "transcription": "/bɪˈlɒŋz tə/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "... ga tegishli bo'lmoq",
+          "description": "To be the property of someone",
+          "example": "This book belongs to Sarah Smith."
+        },
+        {
+          "id": "u57_7",
+          "word": "thinking about",
+          "transcription": "/ˈθɪŋkɪŋ əˈbaʊt/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "o'ylayapman (... haqida)",
+          "description": "To have thoughts about something",
+          "example": "What are you thinking about?"
+        },
+        {
+          "id": "u57_8",
+          "word": "thanked for",
+          "transcription": "/θæŋkt fɔːr/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "... uchun rahmat aytmoq",
+          "description": "To express gratitude to someone for something they did",
+          "example": "Lauren thanked her mother for the present."
+        },
+        {
+          "id": "u57_9",
+          "word": "apologised for",
+          "transcription": "/əˈpɒlədʒaɪzd fɔːr/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "... uchun uzr so'ramoq",
+          "description": "To say sorry for something you did wrong",
+          "example": "Damian apologised for being late."
+        },
+        {
+          "id": "u57_10",
+          "word": "look at",
+          "transcription": "/lʊk æt/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "qarаmoq (... ga)",
+          "description": "To direct your eyes towards something to see it",
+          "example": "I love looking at old photographs."
+        },
+        {
+          "id": "u57_11",
+          "word": "look for",
+          "transcription": "/lʊk fɔːr/",
+          "part_of_speech": "verb + preposition",
+          "uzbek": "qidirmoq, izlamoq",
+          "description": "To try to find something or someone",
+          "example": "If you want to find your key, you must look for it."
+        },
+        {
+          "id": "u57_12",
+          "word": "look after",
+          "transcription": "/lʊk ˈɑːftər/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "qaramoq, g'amxo'rlik qilmoq",
+          "description": "To take care of someone or something",
+          "example": "Parents look after their children."
+        },
+        {
+          "id": "u57_13",
+          "word": "look forward to",
+          "transcription": "/lʊk ˈfɔːrwərd tə/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "kutib turmoq (hayajon bilan), intizor bo'lmoq",
+          "description": "To feel excited about something that will happen in the future",
+          "example": "You look forward to something nice in the future, like a holiday."
+        },
+        {
+          "id": "u57_14",
+          "word": "good at",
+          "transcription": "/ɡʊd æt/",
+          "part_of_speech": "adjective + preposition",
+          "uzbek": "... da yaxshi, mohir",
+          "description": "Having skill or ability in something",
+          "example": "I'm good at geography but bad at maths."
+        },
+        {
+          "id": "u57_15",
+          "word": "bad at",
+          "transcription": "/bæd æt/",
+          "part_of_speech": "adjective + preposition",
+          "uzbek": "... da yomon, zaif",
+          "description": "Not having skill or ability in something",
+          "example": "I'm good at geography but bad at maths."
+        },
+        {
+          "id": "u57_16",
+          "word": "interested in",
+          "transcription": "/ˈɪntrɪstɪd ɪn/",
+          "part_of_speech": "adjective + preposition",
+          "uzbek": "qiziqmoq (... ga), qiziqarli",
+          "description": "Having curiosity or attention for something",
+          "example": "I'm interested in hearing all your news."
+        },
+        {
+          "id": "u57_17",
+          "word": "afraid of",
+          "transcription": "/əˈfreɪd əv/",
+          "part_of_speech": "adjective + preposition",
+          "uzbek": "qo'rqmoq (... dan)",
+          "description": "Feeling fear about something",
+          "example": "He is afraid of mice."
+        },
+        {
+          "id": "u57_18",
+          "word": "proud of",
+          "transcription": "/praʊd əv/",
+          "part_of_speech": "adjective + preposition",
+          "uzbek": "faxrlanmoq (... bilan), g'urur his qilmoq",
+          "description": "Feeling pleasure and satisfaction about something you or someone else has done",
+          "example": "Lucy is proud of winning a medal."
+        },
+        {
+          "id": "u57_19",
+          "word": "happy about",
+          "transcription": "/ˈhæpi əˈbaʊt/",
+          "part_of_speech": "adjective + preposition",
+          "uzbek": "xursand bo'lmoq (... haqida)",
+          "description": "Feeling pleased about something. Note: 'happy ABOUT' NOT 'happy for'",
+          "example": "She's really happy about her success."
+        },
+        {
+          "id": "u57_20",
+          "word": "used to",
+          "transcription": "/ˈjuːst tə/",
+          "part_of_speech": "adjective + preposition",
+          "uzbek": "odatlanib ketgan (... ga)",
+          "description": "Familiar with something so it no longer seems strange or difficult",
+          "example": "I'm used to getting up early, I always do."
+        },
+        {
+          "id": "u57_21",
+          "word": "get used to",
+          "transcription": "/ɡɛt ˈjuːst tə/",
+          "part_of_speech": "phrase",
+          "uzbek": "odatlanib bormoq, ko'nikmoq",
+          "description": "To become familiar with something new so it seems less strange",
+          "example": "You have to get used to something new, like a new school."
+        }
+      ]
+    },
+    {
+      "unit": 58,
+      "title": "Prefixes",
+      "topic": "Common prefixes added to the beginning of words",
+      "words": [
+        {
+          "id": "u58_1",
+          "word": "prefix",
+          "transcription": "/ˈpriːfɪks/",
+          "part_of_speech": "noun",
+          "uzbek": "prefiks, old qo'shimcha",
+          "description": "Letters added to the beginning of a word to change its meaning",
+          "example": "Prefixes come at the beginning of words and can help you understand what a new word means."
+        },
+        {
+          "id": "u58_2",
+          "word": "ex-",
+          "transcription": "/ɛks/",
+          "part_of_speech": "prefix",
+          "uzbek": "sobiq, ilgari bo'lgan",
+          "description": "Prefix meaning 'was but now isn't'. Added to nouns",
+          "example": "ex-wife (a woman who was but now isn't your wife), ex-boyfriend"
+        },
+        {
+          "id": "u58_3",
+          "word": "ex-wife",
+          "transcription": "/ˌɛks ˈwaɪf/",
+          "part_of_speech": "noun",
+          "uzbek": "sobiq xotin, xotinidan ajralgan",
+          "description": "A woman who is now divorced from someone; was but now isn't their wife",
+          "example": "An ex-wife is a woman who is now divorced."
+        },
+        {
+          "id": "u58_4",
+          "word": "ex-boyfriend",
+          "transcription": "/ˌɛks ˈbɔɪfrɛnd/",
+          "part_of_speech": "noun",
+          "uzbek": "sobiq sevgilisi (erkak)",
+          "description": "A man who was but is no longer someone's boyfriend",
+          "example": "An ex-boyfriend is someone who is no longer your boyfriend."
+        },
+        {
+          "id": "u58_5",
+          "word": "half-",
+          "transcription": "/hɑːf/",
+          "part_of_speech": "prefix",
+          "uzbek": "yarim, yarimta",
+          "description": "Prefix meaning '50% of something'. Added to nouns or adjectives",
+          "example": "half-price (50% of the normal price), half-hour (30 minutes)"
+        },
+        {
+          "id": "u58_6",
+          "word": "half-price",
+          "transcription": "/ˌhɑːf ˈpraɪs/",
+          "part_of_speech": "noun / adjective",
+          "uzbek": "yarim narxda, 50% chegirma",
+          "description": "Costing half the normal price",
+          "example": "Something that cost £10 yesterday and costs £5 today is half-price."
+        },
+        {
+          "id": "u58_7",
+          "word": "half-hour",
+          "transcription": "/ˌhɑːf ˈaʊər/",
+          "part_of_speech": "noun",
+          "uzbek": "yarim soat (30 daqiqa)",
+          "description": "A period of 30 minutes",
+          "example": "A half-hour journey is a journey of 30 minutes."
+        },
+        {
+          "id": "u58_8",
+          "word": "in-, im-",
+          "transcription": "/ɪn/ /ɪm/",
+          "part_of_speech": "prefix",
+          "uzbek": "... emas, anti- (sifat oldidan)",
+          "description": "Prefix meaning 'not'. Added to adjectives. Use 'im' before words beginning with p or m",
+          "example": "informal (not formal), impossible (not possible)"
+        },
+        {
+          "id": "u58_9",
+          "word": "informal",
+          "transcription": "/ɪnˈfɔːrməl/",
+          "part_of_speech": "adjective",
+          "uzbek": "norasmiy, erkin (kiyim va h.k.)",
+          "description": "Not formal; relaxed and casual",
+          "example": "Informal clothes are like jeans and trainers. Formal clothes are like a suit."
+        },
+        {
+          "id": "u58_10",
+          "word": "impossible",
+          "transcription": "/ɪmˈpɒsɪbəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "imkonsiz, mumkin emas",
+          "description": "Not able to happen or be done",
+          "example": "If something is impossible, you can't do it."
+        },
+        {
+          "id": "u58_11",
+          "word": "non-",
+          "transcription": "/nɒn/",
+          "part_of_speech": "prefix",
+          "uzbek": "... emas, anti-",
+          "description": "Prefix meaning 'not'. Added to adjectives or nouns",
+          "example": "non-smoking (not smoking), non-alcoholic"
+        },
+        {
+          "id": "u58_12",
+          "word": "non-smoking",
+          "transcription": "/ˌnɒn ˈsmoʊkɪŋ/",
+          "part_of_speech": "adjective",
+          "uzbek": "chekish taqiqlangan (joy)",
+          "description": "A place where smoking is not allowed",
+          "example": "You must not smoke in a non-smoking restaurant."
+        },
+        {
+          "id": "u58_13",
+          "word": "pre-",
+          "transcription": "/priː/",
+          "part_of_speech": "prefix",
+          "uzbek": "oldindan, avvaldan (oldin)",
+          "description": "Prefix meaning 'before'. Added to nouns, adjectives or verbs",
+          "example": "pre-school (before school age), pre-heat (heat before)"
+        },
+        {
+          "id": "u58_14",
+          "word": "pre-school",
+          "transcription": "/ˈpriːskuːl/",
+          "part_of_speech": "adjective",
+          "uzbek": "maktabgacha (yosh)",
+          "description": "Before school age; too young to go to school",
+          "example": "Pre-school children are too young to go to school."
+        },
+        {
+          "id": "u58_15",
+          "word": "pre-heat",
+          "transcription": "/ˌpriː ˈhiːt/",
+          "part_of_speech": "verb",
+          "uzbek": "oldindan qizdirmoq (pechni)",
+          "description": "To heat an oven to a particular temperature before putting food in it",
+          "example": "You nearly always need to pre-heat the oven before you cook something."
+        },
+        {
+          "id": "u58_16",
+          "word": "re-",
+          "transcription": "/riː/",
+          "part_of_speech": "prefix",
+          "uzbek": "qayta, yana",
+          "description": "Prefix meaning 'again'. Added to verbs",
+          "example": "redo (do again), rewrite (write again)"
+        },
+        {
+          "id": "u58_17",
+          "word": "redo",
+          "transcription": "/ˌriː ˈduː/",
+          "part_of_speech": "verb",
+          "uzbek": "qayta qilmoq",
+          "description": "To do something again",
+          "example": "To redo something is to do it a second time."
+        },
+        {
+          "id": "u58_18",
+          "word": "rewrite",
+          "transcription": "/ˌriː ˈraɪt/",
+          "part_of_speech": "verb",
+          "uzbek": "qayta yozmoq",
+          "description": "To write something again, usually to improve it",
+          "example": "To rewrite something is to write it a second time."
+        },
+        {
+          "id": "u58_19",
+          "word": "un-",
+          "transcription": "/ʌn/",
+          "part_of_speech": "prefix",
+          "uzbek": "... emas, aksi (sifat oldidan)",
+          "description": "Prefix meaning 'not'. Added to adjectives or nouns",
+          "example": "unhappy (not happy), unsafe (not safe)"
+        },
+        {
+          "id": "u58_20",
+          "word": "unhappy",
+          "transcription": "/ʌnˈhæpi/",
+          "part_of_speech": "adjective",
+          "uzbek": "baxtli emas, xafa",
+          "description": "Not happy; sad. The opposite of happy",
+          "example": "Unhappy means sad, the opposite of happy."
+        },
+        {
+          "id": "u58_21",
+          "word": "unsafe",
+          "transcription": "/ʌnˈseɪf/",
+          "part_of_speech": "adjective",
+          "uzbek": "xavfli, xavfsiz emas",
+          "description": "Not safe; dangerous. The opposite of safe",
+          "example": "Unsafe means dangerous, the opposite of safe."
+        }
+      ]
+    },
+    {
+      "unit": 59,
+      "title": "Suffixes",
+      "topic": "Common suffixes added to the end of words",
+      "words": [
+        {
+          "id": "u59_1",
+          "word": "suffix",
+          "transcription": "/ˈsʌfɪks/",
+          "part_of_speech": "noun",
+          "uzbek": "suffiks, oxirgi qo'shimcha",
+          "description": "Letters added to the end of a word to make a new word or change its form",
+          "example": "Suffixes come at the end of words and help you understand the meaning of a new word."
+        },
+        {
+          "id": "u59_2",
+          "word": "-er / -or (person)",
+          "transcription": "/ər/ /ɔːr/",
+          "part_of_speech": "suffix",
+          "uzbek": "-chi, -gar (odamni bildiradi)",
+          "description": "Added to verbs to make a noun meaning 'a person who does something'",
+          "example": "worker (a person who works), swimmer, instructor"
+        },
+        {
+          "id": "u59_3",
+          "word": "worker",
+          "transcription": "/ˈwɜːrkər/",
+          "part_of_speech": "noun",
+          "uzbek": "ishchi, xodim",
+          "description": "A person who works",
+          "example": "He's a hard worker. He works 12 hours a day."
+        },
+        {
+          "id": "u59_4",
+          "word": "swimmer",
+          "transcription": "/ˈswɪmər/",
+          "part_of_speech": "noun",
+          "uzbek": "suzuvchi, cho'michchi",
+          "description": "A person who swims, especially as a sport",
+          "example": "She's a very good swimmer. She was in the Olympic team."
+        },
+        {
+          "id": "u59_5",
+          "word": "instructor",
+          "transcription": "/ɪnˈstrʌktər/",
+          "part_of_speech": "noun",
+          "uzbek": "o'qituvchi, instruktor",
+          "description": "A person who teaches a skill or sport",
+          "example": "Her tennis is much better now that she has a new instructor."
+        },
+        {
+          "id": "u59_6",
+          "word": "-er / -or (machine)",
+          "transcription": "/ər/ /ɔːr/",
+          "part_of_speech": "suffix",
+          "uzbek": "-ch, -gich (mashina yoki qurilmani bildiradi)",
+          "description": "Added to verbs to make a noun meaning 'a machine or thing that does something'",
+          "example": "cooker (a thing you cook on), calculator"
+        },
+        {
+          "id": "u59_7",
+          "word": "cooker",
+          "transcription": "/ˈkʊkər/",
+          "part_of_speech": "noun",
+          "uzbek": "plita (gaz yoki elektr)",
+          "description": "A machine you cook food on; a stove or range",
+          "example": "We've got a new gas cooker so the food should be delicious!"
+        },
+        {
+          "id": "u59_8",
+          "word": "calculator",
+          "transcription": "/ˈkælkjʊleɪtər/",
+          "part_of_speech": "noun",
+          "uzbek": "kalkulyator",
+          "description": "An electronic device used for doing maths calculations",
+          "example": "Can we use our calculators in the maths test?"
+        },
+        {
+          "id": "u59_9",
+          "word": "-ful",
+          "transcription": "/fʊl/",
+          "part_of_speech": "suffix",
+          "uzbek": "-li (to'la, boy ma'nosida)",
+          "description": "Added to nouns to make adjectives meaning 'full of' or 'having that quality'",
+          "example": "useful (= full of use), beautiful"
+        },
+        {
+          "id": "u59_10",
+          "word": "useful",
+          "transcription": "/ˈjuːsfəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "foydali, qulay",
+          "description": "Having a practical purpose; helpful",
+          "example": "Thanks for the information. It was very useful."
+        },
+        {
+          "id": "u59_11",
+          "word": "beautiful",
+          "transcription": "/ˈbjuːtɪfəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "go'zal, chiroyli",
+          "description": "Very attractive or pleasing to look at",
+          "example": "What a beautiful photo. I think it will win the competition."
+        },
+        {
+          "id": "u59_12",
+          "word": "-less",
+          "transcription": "/lɪs/",
+          "part_of_speech": "suffix",
+          "uzbek": "-siz (yo'qligini bildiradi)",
+          "description": "Added to nouns to make adjectives meaning 'without'",
+          "example": "useless (= without use), endless"
+        },
+        {
+          "id": "u59_13",
+          "word": "useless",
+          "transcription": "/ˈjuːsləs/",
+          "part_of_speech": "adjective",
+          "uzbek": "befoyda, keraksiz",
+          "description": "Having no use or purpose; not helpful at all",
+          "example": "This book is no help at all — it's useless."
+        },
+        {
+          "id": "u59_14",
+          "word": "endless",
+          "transcription": "/ˈɛndləs/",
+          "part_of_speech": "adjective",
+          "uzbek": "cheksiz, tugamaydigan",
+          "description": "Having no end; continuing for a very long time",
+          "example": "I can't finish this book — it's endless."
+        },
+        {
+          "id": "u59_15",
+          "word": "-ly",
+          "transcription": "/li/",
+          "part_of_speech": "suffix",
+          "uzbek": "-larcha, -ona (ravish yasaydi)",
+          "description": "Added to adjectives to make adverbs describing how something is done",
+          "example": "quickly (from quick), happily (from happy)"
+        },
+        {
+          "id": "u59_16",
+          "word": "quickly",
+          "transcription": "/ˈkwɪkli/",
+          "part_of_speech": "adverb",
+          "uzbek": "tez, shoshilinch",
+          "description": "At a fast speed; without taking much time",
+          "example": "He was late for work so he went quickly to the station."
+        },
+        {
+          "id": "u59_17",
+          "word": "happily",
+          "transcription": "/ˈhæpɪli/",
+          "part_of_speech": "adverb",
+          "uzbek": "baxtli ravishda, xursandchilik bilan",
+          "description": "In a happy manner; with happiness",
+          "example": "They are happily married with two young children."
+        },
+        {
+          "id": "u59_18",
+          "word": "-ness",
+          "transcription": "/nɪs/",
+          "part_of_speech": "suffix",
+          "uzbek": "-lik (abstract ot yasaydi)",
+          "description": "Added to adjectives to make abstract nouns describing a state or quality",
+          "example": "happiness (from happy), sadness (from sad)"
+        },
+        {
+          "id": "u59_19",
+          "word": "happiness",
+          "transcription": "/ˈhæpɪnɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "baxt, xursandchilik",
+          "description": "The state of feeling happy and content",
+          "example": "The mother was smiling with happiness as she held her baby."
+        },
+        {
+          "id": "u59_20",
+          "word": "sadness",
+          "transcription": "/ˈsædnɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "qayg'u, g'am",
+          "description": "The state of feeling sad or unhappy",
+          "example": "They said goodbye with great sadness."
+        },
+        {
+          "id": "u59_21",
+          "word": "-y",
+          "transcription": "/i/",
+          "part_of_speech": "suffix",
+          "uzbek": "-li (sifat yasaydi otdan)",
+          "description": "Added to nouns to make adjectives describing a quality",
+          "example": "sandy (= full of sand, from sand), sunny (from sun)"
+        },
+        {
+          "id": "u59_22",
+          "word": "sandy",
+          "transcription": "/ˈsændi/",
+          "part_of_speech": "adjective",
+          "uzbek": "qumli",
+          "description": "Covered with or containing sand",
+          "example": "That beach is very popular because it is long and sandy."
+        },
+        {
+          "id": "u59_23",
+          "word": "sunny",
+          "transcription": "/ˈsʌni/",
+          "part_of_speech": "adjective",
+          "uzbek": "quyoshli",
+          "description": "Having a lot of sunshine; bright and warm",
+          "example": "It's a lovely sunny day — let's go to the beach."
+        }
+      ]
+    },
+    {
+      "unit": 60,
+      "title": "Words you may confuse",
+      "topic": "Pairs of words that are easy to mix up",
+      "words": [
+        {
+          "id": "u60_1",
+          "word": "quite",
+          "transcription": "/kwaɪt/",
+          "part_of_speech": "adverb",
+          "uzbek": "ancha, bir oz (o'rtacha)",
+          "description": "Fairly; to some degree. Less strong than 'very'. Note: different from 'quiet'",
+          "example": "This book is quite good. (= bad → quite good → good → very good)"
+        },
+        {
+          "id": "u60_2",
+          "word": "quiet",
+          "transcription": "/ˈkwaɪət/",
+          "part_of_speech": "adjective",
+          "uzbek": "sokin, jim, shovqinsiz",
+          "description": "Making little or no noise; peaceful. Note: different from 'quite'",
+          "example": "My bedroom is very quiet. I can sleep well."
+        },
+        {
+          "id": "u60_3",
+          "word": "lose",
+          "transcription": "/luːz/",
+          "part_of_speech": "verb",
+          "uzbek": "yo'qotmoq; yutqazmoq",
+          "description": "To be unable to find something; or to not win a game. Past: lost",
+          "example": "Why do I always lose my keys? I lost my keys again."
+        },
+        {
+          "id": "u60_4",
+          "word": "loose",
+          "transcription": "/luːs/",
+          "part_of_speech": "adjective",
+          "uzbek": "keng, bo'sh (kiyim), bo'sh (narsa)",
+          "description": "Not tight; not fitting closely. Describes clothes that are too big",
+          "example": "These trousers are very loose. (= they are not tight, they are too big)"
+        },
+        {
+          "id": "u60_5",
+          "word": "fell",
+          "transcription": "/fɛl/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "yiqildi (fall ning o'tgan zamoni)",
+          "description": "Past tense of 'fall' — to drop down from a higher place",
+          "example": "Yesterday I fell and broke my arm."
+        },
+        {
+          "id": "u60_6",
+          "word": "felt",
+          "transcription": "/fɛlt/",
+          "part_of_speech": "verb (past)",
+          "uzbek": "his qildi (feel ning o'tgan zamoni)",
+          "description": "Past tense of 'feel' — to experience an emotion or physical sensation",
+          "example": "I felt ill yesterday, but I feel OK today."
+        },
+        {
+          "id": "u60_7",
+          "word": "cook",
+          "transcription": "/kʊk/",
+          "part_of_speech": "noun",
+          "uzbek": "oshpaz (odam)",
+          "description": "A person who cooks food",
+          "example": "He is a very good cook. He works 12 hours a day in the kitchen."
+        },
+        {
+          "id": "u60_8",
+          "word": "cooker",
+          "transcription": "/ˈkʊkər/",
+          "part_of_speech": "noun",
+          "uzbek": "plita (mashina)",
+          "description": "The machine you cook food on. Note: cook = person, cooker = machine",
+          "example": "This cooker costs £500. (= the machine, NOT the person)"
+        },
+        {
+          "id": "u60_9",
+          "word": "lend",
+          "transcription": "/lɛnd/",
+          "part_of_speech": "verb",
+          "uzbek": "qarz bermoq, vaqtincha bermoq",
+          "description": "To give something to someone temporarily — you give it. Past: lent",
+          "example": "Will you lend me your bicycle? (= you give it to me for a time)"
+        },
+        {
+          "id": "u60_10",
+          "word": "borrow",
+          "transcription": "/ˈbɒroʊ/",
+          "part_of_speech": "verb",
+          "uzbek": "qarz olmoq, vaqtincha olmoq",
+          "description": "To take something from someone temporarily — you receive it. Note: lend = give, borrow = take",
+          "example": "Can I borrow your bicycle? (= I take it from you for a time)"
+        },
+        {
+          "id": "u60_11",
+          "word": "check",
+          "transcription": "/tʃɛk/",
+          "part_of_speech": "verb",
+          "uzbek": "tekshirmoq, ko'zdan kechirmoq",
+          "description": "To examine something to make sure it is correct or satisfactory",
+          "example": "The passport officer checked my passport."
+        },
+        {
+          "id": "u60_12",
+          "word": "control",
+          "transcription": "/kənˈtroʊl/",
+          "part_of_speech": "verb",
+          "uzbek": "boshqarmoq, nazorat qilmoq",
+          "description": "To have power over something and make it do what you want",
+          "example": "We use the mouse to control the computer."
+        },
+        {
+          "id": "u60_13",
+          "word": "hope",
+          "transcription": "/hoʊp/",
+          "part_of_speech": "verb",
+          "uzbek": "umid qilmoq (bo'lishi mumkin)",
+          "description": "To want something to happen and believe it might; not sure it will happen",
+          "example": "They're waiting for the bus. I hope I pass my exams."
+        },
+        {
+          "id": "u60_14",
+          "word": "expect",
+          "transcription": "/ɪkˈspɛkt/",
+          "part_of_speech": "verb",
+          "uzbek": "kutmoq (bo'lishiga ishonmoq)",
+          "description": "To believe that something will happen; more certain than 'hope'",
+          "example": "I haven't studied; I expect I'll fail my exams. (= I think it's probable)"
+        },
+        {
+          "id": "u60_15",
+          "word": "wait",
+          "transcription": "/weɪt/",
+          "part_of_speech": "verb",
+          "uzbek": "kutmoq (kimnidir yoki biror narsani)",
+          "description": "To stay in a place until something happens or someone arrives",
+          "example": "They're waiting for the bus."
+        },
+        {
+          "id": "u60_16",
+          "word": "afternoon",
+          "transcription": "/ˌɑːftərˈnuːn/",
+          "part_of_speech": "noun",
+          "uzbek": "tushdan keyin (12-17/18 soat)",
+          "description": "The time from about 12 o'clock till 5 or 6 pm",
+          "example": "In English the afternoon is from about 12 o'clock till 5 or 6 pm."
+        },
+        {
+          "id": "u60_17",
+          "word": "evening",
+          "transcription": "/ˈiːvnɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "kechqurun (17/18-21/22 soat)",
+          "description": "The time from about 5 or 6 pm until about 9 or 10 pm",
+          "example": "The evening is from 5 or 6 pm until about 9 or 10 pm."
+        },
+        {
+          "id": "u60_18",
+          "word": "night",
+          "transcription": "/naɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "kech tun (21/22 soatdan keyin)",
+          "description": "The time after about 9 or 10 pm. Note: evening comes before night",
+          "example": "After 9 or 10 pm it is the night."
+        },
+        {
+          "id": "u60_19",
+          "word": "quite / quiet difference",
+          "transcription": "/kwaɪt/ /ˈkwaɪət/",
+          "part_of_speech": "note",
+          "uzbek": "quite va quiet farqi",
+          "description": "QUITE = adverb meaning 'fairly'. QUIET = adjective meaning 'not noisy'. They look and sound similar but have completely different meanings",
+          "example": "The book is quite good. (= fairly good) / My room is very quiet. (= not noisy)"
+        },
+        {
+          "id": "u60_20",
+          "word": "lend / borrow difference",
+          "transcription": "/lɛnd/ /ˈbɒroʊ/",
+          "part_of_speech": "note",
+          "uzbek": "lend va borrow farqi",
+          "description": "LEND = give something temporarily. BORROW = take something temporarily. If Sam wants a bicycle: 'Will you lend me your bicycle?' OR 'Can I borrow your bicycle?'",
+          "example": "Will you lend me your bicycle? = Can I borrow your bicycle? (same meaning, different perspective)"
+        }
+      ]
     }
   ]
 }
