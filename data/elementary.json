@@ -4170,7 +4170,7 @@
           "word": "supermarket",
           "transcription": "/ˈsuːpərmɑːrkɪt/",
           "part_of_speech": "noun",
-          "uzbek": "supermarket",
+          "uzbek": "yirik savdo do'koni, supermarket",
           "description": "A large self-service shop selling food and household goods",
           "example": "I'll get everything we need from the supermarket."
         },
@@ -4526,7 +4526,7 @@
           "word": "lift",
           "transcription": "/lɪft/",
           "part_of_speech": "noun",
-          "uzbek": "lift",
+          "uzbek": "lift, ko'taruvchi (bino qavatlararo)",
           "description": "A machine that carries people between floors of a building; 'elevator' in American English",
           "example": "Your room is on the first floor. Take the lift."
         },
@@ -4722,7 +4722,7 @@
           "word": "bar / pub",
           "transcription": "/bɑːr/ /pʌb/",
           "part_of_speech": "noun",
-          "uzbek": "bar / pub",
+          "uzbek": "ichimlik joyi / ingliz qahvaxonasi",
           "description": "Places where alcohol and soft drinks are served; you can usually eat snacks or meals there too",
           "example": "Bars and pubs serve alcohol and soft drinks."
         },
@@ -4927,7 +4927,7 @@
           "word": "badminton",
           "transcription": "/ˈbædmɪntən/",
           "part_of_speech": "noun",
-          "uzbek": "badminton",
+          "uzbek": "badminton (raketka bilan o'ynaladigan sport)",
           "description": "A game played with rackets and a shuttlecock over a net",
           "example": "We play badminton on the badminton court."
         },
@@ -4945,7 +4945,7 @@
           "word": "tennis",
           "transcription": "/ˈtɛnɪs/",
           "part_of_speech": "noun",
-          "uzbek": "tennis",
+          "uzbek": "tennis (raketka va to'p bilan o'ynaladigan sport)",
           "description": "A game played with rackets and a ball over a net on a court",
           "example": "We play tennis on the tennis court."
         },
@@ -5017,7 +5017,7 @@
           "word": "judo / karate",
           "transcription": "/ˈdʒuːdoʊ/ /kəˈrɑːti/",
           "part_of_speech": "noun",
-          "uzbek": "judo / karate",
+          "uzbek": "judo / karate (kurash san'ati)",
           "description": "Martial arts sports. Note: use 'do' with these — 'She does judo'",
           "example": "She does judo. He does karate."
         },
@@ -5641,7 +5641,7 @@
           "word": "opera",
           "transcription": "/ˈɒpərə/",
           "part_of_speech": "noun",
-          "uzbek": "opera",
+          "uzbek": "opera (qo'shiq va musiqa bilan dramatik spektakl)",
           "description": "A type of musical performance where singers perform a dramatic story",
           "example": "Harper can't stand opera. She prefers pop music."
         },
@@ -6193,7 +6193,7 @@
           "word": "bank",
           "transcription": "/bæŋk/",
           "part_of_speech": "noun",
-          "uzbek": "bank",
+          "uzbek": "bank (pul saqlanadigan va almashtiladigan muassasa)",
           "description": "A place where you can keep, borrow or exchange money",
           "example": "Bank — you can change money here or get money from a cash machine."
         },
@@ -8299,7 +8299,7 @@
           "word": "have got",
           "transcription": "/hæv ɡɒt/",
           "part_of_speech": "phrase",
-          "uzbek": "bor (ega bo'lmoq, noformal)",
+          "uzbek": "bor, egaman (have got = have, noformal shaklda)",
           "description": "Informal way to say 'have' when talking about possession. 'Have you got' = 'Do you have'",
           "example": "Have you got any brothers and sisters? I've got three sisters."
         },
@@ -8308,7 +8308,7 @@
           "word": "have got to",
           "transcription": "/hæv ɡɒt tə/",
           "part_of_speech": "phrase",
-          "uzbek": "majbur bo'lmoq (noformal)",
+          "uzbek": "... kerak, majburman (have got to = have to, noformal)",
           "description": "Informal for 'have to'; meaning it is necessary to do something",
           "example": "You've got to pay $10 to go in. All students have got to do an exam."
         }
@@ -8468,7 +8468,7 @@
           "word": "went",
           "transcription": "/wɛnt/",
           "part_of_speech": "verb (past simple)",
-          "uzbek": "bordi, ketdi (o'tgan zamon)",
+          "uzbek": "u yerga bormoq (there = there, NOT to there)",
           "description": "The past simple form of 'go'",
           "example": "We went to Paris last summer."
         },
@@ -8477,7 +8477,7 @@
           "word": "gone",
           "transcription": "/ɡɒn/",
           "part_of_speech": "verb (past participle)",
-          "uzbek": "ketgan, borgan (o'tgan zamon sifatdoshi)",
+          "uzbek": "biror yerga / hech qayoqqa bormaslik",
           "description": "The past participle form of 'go'; used in perfect tenses",
           "example": "Have you gone to the new shopping centre yet?"
         }
@@ -8779,7 +8779,7 @@
           "word": "do homework",
           "transcription": "/duː ˈhoʊmwɜːrk/",
           "part_of_speech": "phrase",
-          "uzbek": "uy vazifasini bajarmoq",
+          "uzbek": "do homework (uy vazifasini bajarmoq) - make emas, do ishlatiladi",
           "description": "Note the difference: you DO homework, but you MAKE a mistake",
           "example": "You do homework. You make a mistake. NOT make homework."
         },
@@ -8788,7 +8788,7 @@
           "word": "take a photo",
           "transcription": "/teɪk ə ˈfoʊtoʊ/",
           "part_of_speech": "phrase",
-          "uzbek": "rasm olmoq, suratga tushmoq",
+          "uzbek": "take a photo (rasm olmoq) - make emas, take ishlatiladi",
           "description": "Note: you TAKE a photo, NOT make a photo",
           "example": "You take a photo. NOT make a photo."
         },
@@ -8797,7 +8797,7 @@
           "word": "do the washing",
           "transcription": "/duː ðə ˈwɒʃɪŋ/",
           "part_of_speech": "phrase",
-          "uzbek": "kir yuvmoq",
+          "uzbek": "do the washing (kir yuvmoq) - make emas, do ishlatiladi",
           "description": "Note: you DO the washing, NOT make the washing",
           "example": "You do the washing. NOT make the washing."
         }
@@ -8813,7 +8813,7 @@
           "word": "come",
           "transcription": "/kʌm/",
           "part_of_speech": "verb",
-          "uzbek": "kelmoq",
+          "uzbek": "kelmoq (go va come farqi: come = bu tomonga, go = u tomonga)",
           "description": "To move towards the speaker or a place. Past: came. Past participle: come. Note: 'come' and 'go' are different — come = towards here, go = away from here",
           "example": "Come and go are different: go = from here to there, come = from there to here."
         },
@@ -9063,7 +9063,7 @@
           "word": "take / bring",
           "transcription": "/teɪk/ /brɪŋ/",
           "part_of_speech": "verb",
-          "uzbek": "olib ketmoq / olib kelmoq",
+          "uzbek": "take (olib ketmoq) va bring (olib kelmoq) farqi",
           "description": "Important difference: TAKE = from here to there (like go). BRING = from there to here (like come)",
           "example": "Take your books to school. Bring me a glass from the kitchen."
         }
@@ -9097,7 +9097,7 @@
           "word": "take vs bring",
           "transcription": "/teɪk/ /brɪŋ/",
           "part_of_speech": "verb",
-          "uzbek": "olib ketmoq (u yerga) / olib kelmoq (bu yerga)",
+          "uzbek": "olib ketmoq (u yerga) va olib kelmoq (bu yerga) farqi",
           "description": "TAKE = move something from here to there. BRING = move something from there to here. Take = like go. Bring = like come",
           "example": "Take = from here to there. Bring = from there to here."
         },
@@ -9194,7 +9194,7 @@
           "word": "getting dark",
           "transcription": "/ˈɡɛtɪŋ dɑːrk/",
           "part_of_speech": "phrase",
-          "uzbek": "qorong'i tushmoqda, qorong'ilashmoqda",
+          "uzbek": "qorong'ilashmoqda (get + sifat = o'zgarish jarayoni)",
           "description": "Get + adjective = to change state; becoming dark",
           "example": "It's light. → It's getting dark. → It's dark."
         },
@@ -9203,7 +9203,7 @@
           "word": "getting better",
           "transcription": "/ˈɡɛtɪŋ ˈbɛtər/",
           "part_of_speech": "phrase",
-          "uzbek": "yaxshilanmoqda, tuzalmoqda",
+          "uzbek": "tuzalmoqda, yaxshilanmoqda (get + better)",
           "description": "To be improving in health or skill",
           "example": "She's ill. → She's getting better. → She's better."
         },
@@ -9212,7 +9212,7 @@
           "word": "getting tired",
           "transcription": "/ˈɡɛtɪŋ ˈtaɪərd/",
           "part_of_speech": "phrase",
-          "uzbek": "charchayapman",
+          "uzbek": "charchayapman (get + tired)",
           "description": "To be becoming tired",
           "example": "I'm getting tired. I want to go to bed."
         },
@@ -9221,7 +9221,7 @@
           "word": "getting wet",
           "transcription": "/ˈɡɛtɪŋ wɛt/",
           "part_of_speech": "phrase",
-          "uzbek": "ho'llanmoqda",
+          "uzbek": "ho'llanmoqda (get + wet)",
           "description": "To be becoming wet because of rain",
           "example": "It's raining! I'm getting wet!"
         },
@@ -9345,7 +9345,7 @@
           "word": "phrasal verb",
           "transcription": "/ˈfreɪzəl vɜːrb/",
           "part_of_speech": "noun",
-          "uzbek": "frazeologik fe'l (ikki qismli)",
+          "uzbek": "frazeologik fe'l: fe'l + zarracha (up, on, off, down)",
           "description": "A verb made from a verb + particle (up, on, off, down etc). One phrasal verb can have different meanings",
           "example": "Phrasal verbs have two parts: a verb + a particle."
         },
@@ -10147,7 +10147,7 @@
           "word": "also / too / as well",
           "transcription": "/ˈɔːlsoʊ/ /tuː/ /æz wɛl/",
           "part_of_speech": "adverb",
-          "uzbek": "ham / shuningdek (uchala so'z bir xil ma'noda)",
+          "uzbek": "ham / shuningdek / bundan tashqari (uch xil usulda)",
           "description": "Three ways to say 'in addition'. They have the same meaning but different positions in the sentence",
           "example": "He works in the shop and she does also / too / as well."
         }
@@ -10343,7 +10343,7 @@
           "word": "May",
           "transcription": "/meɪ/",
           "part_of_speech": "proper noun",
-          "uzbek": "May",
+          "uzbek": "May oyi (yilning beshinchi oyi)",
           "description": "The fifth month of the year",
           "example": "The flowers bloom in May."
         },
@@ -11262,7 +11262,7 @@
           "word": "coffee",
           "transcription": "/ˈkɒfi/",
           "part_of_speech": "noun (uncountable)",
-          "uzbek": "qahva",
+          "uzbek": "qahva (umumiy ma'noda sanab bo'lmaydigan ot)",
           "description": "A hot drink made from coffee beans. Cannot be counted in general — NOT 'a coffee' for the drink in general",
           "example": "I love coffee. NOT I love a coffee. (But: Can I have a coffee? = a cup of)"
         },
@@ -11271,7 +11271,7 @@
           "word": "tea",
           "transcription": "/tiː/",
           "part_of_speech": "noun (uncountable)",
-          "uzbek": "choy",
+          "uzbek": "choy (umumiy ma'noda sanab bo'lmaydigan ot)",
           "description": "A hot drink made from tea leaves. Cannot be counted in general use",
           "example": "I love tea. NOT I love a tea."
         },
@@ -11661,7 +11661,7 @@
           "word": "ex-",
           "transcription": "/ɛks/",
           "part_of_speech": "prefix",
-          "uzbek": "sobiq, ilgari bo'lgan",
+          "uzbek": "ex- prefiksi: sobiq, ilgari bo'lgan ma'nosini beradi",
           "description": "Prefix meaning 'was but now isn't'. Added to nouns",
           "example": "ex-wife (a woman who was but now isn't your wife), ex-boyfriend"
         },
@@ -11715,7 +11715,7 @@
           "word": "in-, im-",
           "transcription": "/ɪn/ /ɪm/",
           "part_of_speech": "prefix",
-          "uzbek": "... emas, anti- (sifat oldidan)",
+          "uzbek": "in-, im- prefikslari: emas, aksi ma'nosini beradi (sifat oldidan)",
           "description": "Prefix meaning 'not'. Added to adjectives. Use 'im' before words beginning with p or m",
           "example": "informal (not formal), impossible (not possible)"
         },
@@ -11742,7 +11742,7 @@
           "word": "non-",
           "transcription": "/nɒn/",
           "part_of_speech": "prefix",
-          "uzbek": "... emas, anti-",
+          "uzbek": "non- prefiksi: emas, aksi ma'nosini beradi",
           "description": "Prefix meaning 'not'. Added to adjectives or nouns",
           "example": "non-smoking (not smoking), non-alcoholic"
         },
@@ -11760,7 +11760,7 @@
           "word": "pre-",
           "transcription": "/priː/",
           "part_of_speech": "prefix",
-          "uzbek": "oldindan, avvaldan (oldin)",
+          "uzbek": "pre- prefiksi: oldindan, avvaldan ma'nosini beradi",
           "description": "Prefix meaning 'before'. Added to nouns, adjectives or verbs",
           "example": "pre-school (before school age), pre-heat (heat before)"
         },
@@ -11787,7 +11787,7 @@
           "word": "re-",
           "transcription": "/riː/",
           "part_of_speech": "prefix",
-          "uzbek": "qayta, yana",
+          "uzbek": "re- prefiksi: qayta, yana ma'nosini beradi",
           "description": "Prefix meaning 'again'. Added to verbs",
           "example": "redo (do again), rewrite (write again)"
         },
@@ -11814,7 +11814,7 @@
           "word": "un-",
           "transcription": "/ʌn/",
           "part_of_speech": "prefix",
-          "uzbek": "... emas, aksi (sifat oldidan)",
+          "uzbek": "un- prefiksi: emas, aksi ma'nosini beradi (sifat oldidan)",
           "description": "Prefix meaning 'not'. Added to adjectives or nouns",
           "example": "unhappy (not happy), unsafe (not safe)"
         },
@@ -11857,7 +11857,7 @@
           "word": "-er / -or (person)",
           "transcription": "/ər/ /ɔːr/",
           "part_of_speech": "suffix",
-          "uzbek": "-chi, -gar (odamni bildiradi)",
+          "uzbek": "-er/-or suffiksi: ish bajaruvchi odamni bildiradi",
           "description": "Added to verbs to make a noun meaning 'a person who does something'",
           "example": "worker (a person who works), swimmer, instructor"
         },
@@ -11893,7 +11893,7 @@
           "word": "-er / -or (machine)",
           "transcription": "/ər/ /ɔːr/",
           "part_of_speech": "suffix",
-          "uzbek": "-ch, -gich (mashina yoki qurilmani bildiradi)",
+          "uzbek": "-er/-or suffiksi: biror ishni bajaruvchi mashina yoki qurilmani bildiradi",
           "description": "Added to verbs to make a noun meaning 'a machine or thing that does something'",
           "example": "cooker (a thing you cook on), calculator"
         },
@@ -11920,7 +11920,7 @@
           "word": "-ful",
           "transcription": "/fʊl/",
           "part_of_speech": "suffix",
-          "uzbek": "-li (to'la, boy ma'nosida)",
+          "uzbek": "-ful suffiksi: to'la, boy ma'nosida sifat yasaydi",
           "description": "Added to nouns to make adjectives meaning 'full of' or 'having that quality'",
           "example": "useful (= full of use), beautiful"
         },
@@ -11947,7 +11947,7 @@
           "word": "-less",
           "transcription": "/lɪs/",
           "part_of_speech": "suffix",
-          "uzbek": "-siz (yo'qligini bildiradi)",
+          "uzbek": "-less suffiksi: yo'qligini bildiruvchi sifat yasaydi",
           "description": "Added to nouns to make adjectives meaning 'without'",
           "example": "useless (= without use), endless"
         },
@@ -11974,7 +11974,7 @@
           "word": "-ly",
           "transcription": "/li/",
           "part_of_speech": "suffix",
-          "uzbek": "-larcha, -ona (ravish yasaydi)",
+          "uzbek": "-ly suffiksi: sifatdan ravish yasaydi",
           "description": "Added to adjectives to make adverbs describing how something is done",
           "example": "quickly (from quick), happily (from happy)"
         },
@@ -12001,7 +12001,7 @@
           "word": "-ness",
           "transcription": "/nɪs/",
           "part_of_speech": "suffix",
-          "uzbek": "-lik (abstract ot yasaydi)",
+          "uzbek": "-ness suffiksi: sifatdan mavhum ot yasaydi",
           "description": "Added to adjectives to make abstract nouns describing a state or quality",
           "example": "happiness (from happy), sadness (from sad)"
         },
@@ -12028,7 +12028,7 @@
           "word": "-y",
           "transcription": "/i/",
           "part_of_speech": "suffix",
-          "uzbek": "-li (sifat yasaydi otdan)",
+          "uzbek": "-y suffiksi: otdan sifat yasaydi",
           "description": "Added to nouns to make adjectives describing a quality",
           "example": "sandy (= full of sand, from sand), sunny (from sun)"
         },
@@ -12224,7 +12224,7 @@
           "word": "quite / quiet difference",
           "transcription": "/kwaɪt/ /ˈkwaɪət/",
           "part_of_speech": "note",
-          "uzbek": "quite va quiet farqi",
+          "uzbek": "quite (ancha) va quiet (sokin) so'zlarining farqi",
           "description": "QUITE = adverb meaning 'fairly'. QUIET = adjective meaning 'not noisy'. They look and sound similar but have completely different meanings",
           "example": "The book is quite good. (= fairly good) / My room is very quiet. (= not noisy)"
         },
@@ -12233,7 +12233,7 @@
           "word": "lend / borrow difference",
           "transcription": "/lɛnd/ /ˈbɒroʊ/",
           "part_of_speech": "note",
-          "uzbek": "lend va borrow farqi",
+          "uzbek": "lend (bermoq) va borrow (olmoq) so'zlarining farqi",
           "description": "LEND = give something temporarily. BORROW = take something temporarily. If Sam wants a bicycle: 'Will you lend me your bicycle?' OR 'Can I borrow your bicycle?'",
           "example": "Will you lend me your bicycle? = Can I borrow your bicycle? (same meaning, different perspective)"
         }
