@@ -1,0 +1,1750 @@
+{
+  "book": "English Vocabulary in Use Pre-intermediate and Intermediate",
+  "edition": "Fourth Edition",
+  "units": [
+    {
+      "unit": 1,
+      "title": "Learning vocabulary",
+      "topic": "Study skills for learning and revising vocabulary",
+      "words": [
+        {
+          "id": "u1_1",
+          "word": "routine",
+          "transcription": "/ruːˈtiːn/",
+          "part_of_speech": "noun",
+          "uzbek": "odat, tartib (bir xil ravishda qilinadigan)",
+          "description": "Something you do often and usually in the same way",
+          "example": "It's a good idea to have a routine when you use this book."
+        },
+        {
+          "id": "u1_2",
+          "word": "at least",
+          "transcription": "/æt liːst/",
+          "part_of_speech": "phrase",
+          "uzbek": "kamida, eng kamida",
+          "description": "Not less than a particular amount",
+          "example": "Study a new unit for at least 30-45 minutes."
+        },
+        {
+          "id": "u1_3",
+          "word": "weekly",
+          "transcription": "/ˈwiːkli/",
+          "part_of_speech": "adjective / adverb",
+          "uzbek": "haftalik, har hafta",
+          "description": "Happening or done once a week",
+          "example": "A weekly routine when you study a new unit."
+        },
+        {
+          "id": "u1_4",
+          "word": "daily",
+          "transcription": "/ˈdeɪli/",
+          "part_of_speech": "adjective / adverb",
+          "uzbek": "kunlik, har kuni",
+          "description": "Happening or done every day",
+          "example": "A daily routine when you revise that unit."
+        },
+        {
+          "id": "u1_5",
+          "word": "revise",
+          "transcription": "/rɪˈvaɪz/",
+          "part_of_speech": "verb",
+          "uzbek": "takrorlamoq, qayta o'rganmoq",
+          "description": "To study something again that you have already learned",
+          "example": "You may only need to revise for five or ten minutes each time."
+        },
+        {
+          "id": "u1_6",
+          "word": "active",
+          "transcription": "/ˈæktɪv/",
+          "part_of_speech": "adjective",
+          "uzbek": "faol, aktiv",
+          "description": "Doing things energetically rather than passively",
+          "example": "When you are studying a unit for the first time, you need to be active."
+        },
+        {
+          "id": "u1_7",
+          "word": "say it aloud",
+          "transcription": "/seɪ ɪt əˈlaʊd/",
+          "part_of_speech": "phrase",
+          "uzbek": "ovoz chiqarib aytmoq",
+          "description": "To speak something so you can hear it",
+          "example": "With a new word or phrase, say it aloud."
+        },
+        {
+          "id": "u1_8",
+          "word": "silently",
+          "transcription": "/ˈsaɪləntli/",
+          "part_of_speech": "adverb",
+          "uzbek": "jim, ovozsiz, ichida (gapirmasdan)",
+          "description": "In your head, not speaking out loud",
+          "example": "Repeat it to yourself silently."
+        },
+        {
+          "id": "u1_9",
+          "word": "highlighter pen",
+          "transcription": "/ˈhaɪlaɪtər pɛn/",
+          "part_of_speech": "noun",
+          "uzbek": "belgilash uchun ruchka, markirovkali qalam",
+          "description": "A pen used to mark important text in bright colour",
+          "example": "Use a highlighter pen to mark words you think are important."
+        },
+        {
+          "id": "u1_10",
+          "word": "rub out",
+          "transcription": "/rʌb aʊt/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "o'chirmoq (qalam bilan yozilganni)",
+          "description": "To remove pencil marks using a rubber/eraser",
+          "example": "You can rub them out (using a rubber) and do them again later."
+        },
+        {
+          "id": "u1_11",
+          "word": "rubber",
+          "transcription": "/ˈrʌbər/",
+          "part_of_speech": "noun",
+          "uzbek": "o'chirg'ich",
+          "description": "A small object used to remove pencil marks",
+          "example": "You can rub them out using a rubber."
+        },
+        {
+          "id": "u1_12",
+          "word": "test yourself",
+          "transcription": "/tɛst jɔːrˈsɛlf/",
+          "part_of_speech": "phrase",
+          "uzbek": "o'zingizni sinab ko'rmoq",
+          "description": "To check what you remember without looking at the answer",
+          "example": "Test yourself, e.g. look at a word and cover the meaning."
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "title": "Keeping a vocabulary notebook",
+      "topic": "Strategies for recording new vocabulary in a notebook",
+      "words": [
+        {
+          "id": "u2_1",
+          "word": "write down",
+          "transcription": "/raɪt daʊn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "yozib qo'ymoq",
+          "description": "To record information in writing",
+          "example": "I write down new English words and phrases in my notebook."
+        },
+        {
+          "id": "u2_2",
+          "word": "translation",
+          "transcription": "/trænzˈleɪʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "tarjima",
+          "description": "The conversion of words from one language to another",
+          "example": "Next to each word I write a Spanish translation."
+        },
+        {
+          "id": "u2_3",
+          "word": "a mess",
+          "transcription": "/ə mɛs/",
+          "part_of_speech": "noun",
+          "uzbek": "tartibsizlik, betartiblik",
+          "description": "A state of being untidy or disorganised",
+          "example": "My notebook is a mess. [nothing is in a good order]"
+        },
+        {
+          "id": "u2_4",
+          "word": "draw",
+          "transcription": "/drɔː/",
+          "part_of_speech": "verb",
+          "uzbek": "chizmoq, rasm chizmoq",
+          "description": "To create a picture using a pen or pencil",
+          "example": "I like to draw pictures."
+        },
+        {
+          "id": "u2_5",
+          "word": "make a note of",
+          "transcription": "/meɪk ə noʊt əv/",
+          "part_of_speech": "phrase",
+          "uzbek": "qayd qilmoq, eslatma yozib qo'ymoq",
+          "description": "To write down something so you remember it",
+          "example": "I sometimes make a note of new words in my notebook."
+        },
+        {
+          "id": "u2_6",
+          "word": "forget",
+          "transcription": "/fərˈɡɛt/",
+          "part_of_speech": "verb",
+          "uzbek": "unutmoq",
+          "description": "To not remember something",
+          "example": "I often forget. [don't remember]"
+        },
+        {
+          "id": "u2_7",
+          "word": "by topic",
+          "transcription": "/baɪ ˈtoʊpɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "mavzu bo'yicha",
+          "description": "Organised according to subject category",
+          "example": "I try and list words by topic, so I put all the animals together."
+        },
+        {
+          "id": "u2_8",
+          "word": "note down",
+          "transcription": "/noʊt daʊn/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "qayd qilmoq, yozib qo'ymoq",
+          "description": "To write down information briefly",
+          "example": "I note down new words and phrases."
+        },
+        {
+          "id": "u2_9",
+          "word": "explanation",
+          "transcription": "/ˌɛkspləˈneɪʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "tushuntirish, izoh",
+          "description": "A description of what something means",
+          "example": "I write an explanation in English if it is not difficult."
+        },
+        {
+          "id": "u2_10",
+          "word": "tip",
+          "transcription": "/tɪp/",
+          "part_of_speech": "noun",
+          "uzbek": "maslahat, ko'rsatma",
+          "description": "A piece of advice to help you with something",
+          "example": "A tip is a piece of advice to help you."
+        },
+        {
+          "id": "u2_11",
+          "word": "mix up",
+          "transcription": "/mɪks ʌp/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "aralashtirib yubormoq, chalkashtirib qo'ymoq",
+          "description": "To put things together without organisation, causing confusion",
+          "example": "Don't mix words from different topics up."
+        },
+        {
+          "id": "u2_12",
+          "word": "necessary",
+          "transcription": "/ˈnɛsəsɛri/",
+          "part_of_speech": "adjective",
+          "uzbek": "zarur, kerakli",
+          "description": "Needed; required",
+          "example": "Write a translation if it is necessary."
+        },
+        {
+          "id": "u2_13",
+          "word": "unnecessary",
+          "transcription": "/ʌnˈnɛsəsɛri/",
+          "part_of_speech": "adjective",
+          "uzbek": "keraksiz, zarur bo'lmagan",
+          "description": "Not needed; not required",
+          "example": "Don't write things that are unnecessary."
+        },
+        {
+          "id": "u2_14",
+          "word": "synonym",
+          "transcription": "/ˈsɪnənɪm/",
+          "part_of_speech": "noun",
+          "uzbek": "sinonim, o'xshash ma'noli so'z",
+          "description": "A word with the same or similar meaning to another word",
+          "example": "awful (adjective) = terrible (synonym: dreadful)"
+        },
+        {
+          "id": "u2_15",
+          "word": "word partners",
+          "transcription": "/wɜːrd ˈpɑːrtnərz/",
+          "part_of_speech": "noun (collocations)",
+          "uzbek": "so'z hamkorligi, kollokatsiya",
+          "description": "Words that are commonly used together",
+          "example": "Example sentences help you with word partners (collocations)."
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "title": "Using a dictionary",
+      "topic": "How to use dictionaries effectively and common defining words",
+      "words": [
+        {
+          "id": "u3_1",
+          "word": "bilingual",
+          "transcription": "/baɪˈlɪŋɡwəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "ikki tilli",
+          "description": "Using or able to use two languages",
+          "example": "A bilingual dictionary is easy for you to understand."
+        },
+        {
+          "id": "u3_2",
+          "word": "look up a word",
+          "transcription": "/lʊk ʌp ə wɜːrd/",
+          "part_of_speech": "phrase",
+          "uzbek": "so'zni lug'atdan qidirmoq",
+          "description": "To find a word's meaning in a dictionary",
+          "example": "If you look up a word using the dictionary..."
+        },
+        {
+          "id": "u3_3",
+          "word": "definition",
+          "transcription": "/ˌdɛfɪˈnɪʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "ta'rif, izoh",
+          "description": "An explanation of the meaning of a word",
+          "example": "A definition explains the meaning."
+        },
+        {
+          "id": "u3_4",
+          "word": "phonemic symbols",
+          "transcription": "/foʊˈniːmɪk ˈsɪmbəlz/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "fonetik belgilar, transkripsiya belgilari",
+          "description": "Symbols used to show the pronunciation of a word",
+          "example": "Pronunciation using phonemic symbols."
+        },
+        {
+          "id": "u3_5",
+          "word": "part of speech",
+          "transcription": "/pɑːrt əv spiːtʃ/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "so'z turkumi (grammatika)",
+          "description": "A grammatical category of a word, e.g. noun, verb, adjective",
+          "example": "[U] tells you that 'fun' is a noun."
+        },
+        {
+          "id": "u3_6",
+          "word": "emphasise",
+          "transcription": "/ˈɛmfəsaɪz/",
+          "part_of_speech": "verb",
+          "uzbek": "ta'kidlamoq, alohida e'tibor bermoq",
+          "description": "To give something more attention and importance",
+          "example": "My teacher has always emphasised the importance of writing down new words."
+        },
+        {
+          "id": "u3_7",
+          "word": "relating to / connected to/with",
+          "transcription": "/rɪˈleɪtɪŋ tə/ /kəˈnɛktɪd tə/",
+          "part_of_speech": "phrase",
+          "uzbek": "bog'liq bo'lgan, aloqador",
+          "description": "Having a relationship with someone or something",
+          "example": "Musical is connected with / related to music."
+        },
+        {
+          "id": "u3_8",
+          "word": "amount",
+          "transcription": "/əˈmaʊnt/",
+          "part_of_speech": "noun",
+          "uzbek": "miqdor, son",
+          "description": "How much there is of something",
+          "example": "£5 million is a large amount of money."
+        },
+        {
+          "id": "u3_9",
+          "word": "official",
+          "transcription": "/əˈfɪʃəl/",
+          "part_of_speech": "adjective",
+          "uzbek": "rasmiy, davlat tomonidan tasdiqlangan",
+          "description": "Done by the government or someone in authority",
+          "example": "A passport is an official document."
+        },
+        {
+          "id": "u3_10",
+          "word": "behave",
+          "transcription": "/bɪˈheɪv/",
+          "part_of_speech": "verb",
+          "uzbek": "o'zini tutmoq, harakat qilmoq",
+          "description": "To do or say things in a particular way",
+          "example": "People can behave strangely when they're nervous."
+        },
+        {
+          "id": "u3_11",
+          "word": "silent letter",
+          "transcription": "/ˈsaɪlənt ˈlɛtər/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "jim harf (talaffuz qilinmaydigan)",
+          "description": "A letter in a word that is not pronounced",
+          "example": "In the word island, the letter 's' is silent."
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "title": "English language words",
+      "topic": "Grammar terms: parts of speech, pronunciation and punctuation",
+      "words": [
+        {
+          "id": "u4_1",
+          "word": "pronoun",
+          "transcription": "/ˈproʊnaʊn/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "olmosh",
+          "description": "A word used in place of a noun, e.g. I, you, he, she, it",
+          "example": "I is a pronoun."
+        },
+        {
+          "id": "u4_2",
+          "word": "noun",
+          "transcription": "/naʊn/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "ot (so'z turkumi)",
+          "description": "A word for a person, place or thing",
+          "example": "Chair, window, morning and music are all nouns."
+        },
+        {
+          "id": "u4_3",
+          "word": "verb",
+          "transcription": "/vɜːrb/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "fe'l",
+          "description": "A word describing an action or state",
+          "example": "Have, sit and listen are verbs."
+        },
+        {
+          "id": "u4_4",
+          "word": "adjective",
+          "transcription": "/ˈædʒɪktɪv/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "sifat",
+          "description": "A word that describes a noun",
+          "example": "Brown and leather are adjectives."
+        },
+        {
+          "id": "u4_5",
+          "word": "adverb",
+          "transcription": "/ˈædvɜːrb/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "ravish",
+          "description": "A word that describes a verb, adjective or another adverb",
+          "example": "Often is an adverb."
+        },
+        {
+          "id": "u4_6",
+          "word": "preposition",
+          "transcription": "/ˌprɛpəˈzɪʃən/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "old qo'shimcha, predlog",
+          "description": "A word showing the relationship between a noun and other words, e.g. in, at, on",
+          "example": "By and to are prepositions."
+        },
+        {
+          "id": "u4_7",
+          "word": "definite article",
+          "transcription": "/ˈdɛfɪnɪt ˈɑːrtɪkəl/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "aniq artikl ('the')",
+          "description": "The word 'the', used for specific things",
+          "example": "The is a definite article."
+        },
+        {
+          "id": "u4_8",
+          "word": "indefinite article",
+          "transcription": "/ˌɪndɪˈfɪnɪt ˈɑːrtɪkəl/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "noaniq artikl ('a/an')",
+          "description": "The word 'a' or 'an', used for non-specific things",
+          "example": "A is an indefinite article."
+        },
+        {
+          "id": "u4_9",
+          "word": "conjunction / link word",
+          "transcription": "/kənˈdʒʌŋkʃən/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "bog'lovchi, biriktiruvchi so'z",
+          "description": "A word that connects clauses or sentences, e.g. and, but, so",
+          "example": "And is a conjunction or link word."
+        },
+        {
+          "id": "u4_10",
+          "word": "countable",
+          "transcription": "/ˈkaʊntəbəl/",
+          "part_of_speech": "adjective (grammar term)",
+          "uzbek": "sanaladigan (ot)",
+          "description": "A noun that can be counted and has a plural form",
+          "example": "Books, apples, chairs are countable nouns."
+        },
+        {
+          "id": "u4_11",
+          "word": "uncountable",
+          "transcription": "/ʌnˈkaʊntəbəl/",
+          "part_of_speech": "adjective (grammar term)",
+          "uzbek": "sanalmaydigan (ot)",
+          "description": "A noun that cannot be counted and has no plural form",
+          "example": "Information, advice are uncountable nouns."
+        },
+        {
+          "id": "u4_12",
+          "word": "regular",
+          "transcription": "/ˈrɛɡjʊlər/",
+          "part_of_speech": "adjective (grammar term)",
+          "uzbek": "to'g'ri (fe'l)",
+          "description": "Following the standard grammar pattern, e.g. for past tense -ed",
+          "example": "Work, live are regular verbs."
+        },
+        {
+          "id": "u4_13",
+          "word": "irregular",
+          "transcription": "/ɪˈrɛɡjʊlər/",
+          "part_of_speech": "adjective (grammar term)",
+          "uzbek": "noto'g'ri (fe'l)",
+          "description": "Not following the standard grammar pattern",
+          "example": "Go/went, take/took are irregular verbs."
+        },
+        {
+          "id": "u4_14",
+          "word": "phrasal verb",
+          "transcription": "/ˈfreɪzəl vɜːrb/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "frazeologik fe'l",
+          "description": "A verb combined with a preposition or adverb to make a new meaning",
+          "example": "Take something off, wake up are phrasal verbs."
+        },
+        {
+          "id": "u4_15",
+          "word": "prefix",
+          "transcription": "/ˈpriːfɪks/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "prefiks, old qo'shimcha",
+          "description": "Letters added to the beginning of a word that change its meaning",
+          "example": "In uncomfortable, un- is a prefix."
+        },
+        {
+          "id": "u4_16",
+          "word": "suffix",
+          "transcription": "/ˈsʌfɪks/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "suffiks, oxirgi qo'shimcha",
+          "description": "Letters added to the end of a word that change its meaning or form",
+          "example": "-able is a suffix."
+        },
+        {
+          "id": "u4_17",
+          "word": "syllable",
+          "transcription": "/ˈsɪləbəl/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "bo'g'in",
+          "description": "A unit of pronunciation with one vowel sound",
+          "example": "Book has one syllable, before has two syllables."
+        },
+        {
+          "id": "u4_18",
+          "word": "stress",
+          "transcription": "/strɛs/",
+          "part_of_speech": "noun (grammar term)",
+          "uzbek": "urg'u (talaffuzda)",
+          "description": "The emphasis placed on a syllable when pronouncing a word",
+          "example": "It is important to know which syllable to stress."
+        },
+        {
+          "id": "u4_19",
+          "word": "capital letter",
+          "transcription": "/ˈkæpɪtəl ˈlɛtər/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "bosh harf",
+          "description": "An uppercase letter used at the beginning of sentences and names",
+          "example": "Every sentence must begin with a capital letter."
+        },
+        {
+          "id": "u4_20",
+          "word": "full stop",
+          "transcription": "/fʊl stɒp/",
+          "part_of_speech": "noun",
+          "uzbek": "nuqta (tinish belgisi)",
+          "description": "The punctuation mark '.' used at the end of a sentence",
+          "example": "Every sentence must end with a full stop."
+        },
+        {
+          "id": "u4_21",
+          "word": "comma",
+          "transcription": "/ˈkɒmə/",
+          "part_of_speech": "noun",
+          "uzbek": "vergul",
+          "description": "The punctuation mark ',' used to show a pause in a sentence",
+          "example": "Some sentences have a comma."
+        },
+        {
+          "id": "u4_22",
+          "word": "question mark",
+          "transcription": "/ˈkwɛstʃən mɑːrk/",
+          "part_of_speech": "noun",
+          "uzbek": "savol belgisi",
+          "description": "The punctuation mark '?' used at the end of a question",
+          "example": "A question must end with a question mark."
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "title": "Country, nationality and language",
+      "topic": "Countries, nationalities, languages and parts of the world",
+      "words": [
+        {
+          "id": "u5_1",
+          "word": "come from",
+          "transcription": "/kʌm frɒm/",
+          "part_of_speech": "phrase",
+          "uzbek": "... dan bo'lmoq, kelib chiqmoq",
+          "description": "To be originally from a particular country",
+          "example": "I come from Argentina, so I'm Argentinian."
+        },
+        {
+          "id": "u5_2",
+          "word": "capital",
+          "transcription": "/ˈkæpɪtəl/",
+          "part_of_speech": "noun",
+          "uzbek": "poytaxt",
+          "description": "The main city of a country where the government is based",
+          "example": "The capital is Buenos Aires."
+        },
+        {
+          "id": "u5_3",
+          "word": "population",
+          "transcription": "/ˌpɒpjʊˈleɪʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "aholi soni",
+          "description": "The number of people living in a place",
+          "example": "The capital has a population of more than 10 million people."
+        },
+        {
+          "id": "u5_4",
+          "word": "Mandarin",
+          "transcription": "/ˈmændərɪn/",
+          "part_of_speech": "proper noun",
+          "uzbek": "mandarin tili (xitoy tili)",
+          "description": "The main official language of China",
+          "example": "In China they speak Mandarin (and Cantonese)."
+        },
+        {
+          "id": "u5_5",
+          "word": "Hebrew",
+          "transcription": "/ˈhiːbruː/",
+          "part_of_speech": "proper noun",
+          "uzbek": "ivrit tili",
+          "description": "The official language of Israel",
+          "example": "In Israel they speak Hebrew."
+        },
+        {
+          "id": "u5_6",
+          "word": "continent",
+          "transcription": "/ˈkɒntɪnənt/",
+          "part_of_speech": "noun",
+          "uzbek": "qit'a, materik",
+          "description": "One of the large land masses on Earth",
+          "example": "The continents in the world are Europe, Africa, Asia, North America, South America, Australia and Antarctica."
+        },
+        {
+          "id": "u5_7",
+          "word": "the Middle East",
+          "transcription": "/ðə ˌmɪdəl ˈiːst/",
+          "part_of_speech": "proper noun",
+          "uzbek": "O'rta Sharq",
+          "description": "A region including countries like the UAE and Saudi Arabia",
+          "example": "The Middle East includes United Arab Emirates and Saudi Arabia."
+        },
+        {
+          "id": "u5_8",
+          "word": "the Far East",
+          "transcription": "/ðə fɑːr ˈiːst/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Uzoq Sharq",
+          "description": "A region including countries like Thailand and Japan",
+          "example": "The Far East includes Thailand and Japan."
+        },
+        {
+          "id": "u5_9",
+          "word": "the Caribbean",
+          "transcription": "/ðə ˌkærɪˈbiːən/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Karib dengizi havzasi",
+          "description": "A region including countries like Jamaica and Barbados",
+          "example": "The Caribbean includes Jamaica and Barbados."
+        },
+        {
+          "id": "u5_10",
+          "word": "Scandinavia",
+          "transcription": "/ˌskændɪˈneɪviə/",
+          "part_of_speech": "proper noun",
+          "uzbek": "Skandinaviya",
+          "description": "The northern European region including Sweden, Norway, Denmark",
+          "example": "Scandinavia includes Sweden, Norway, Denmark and Finland."
+        },
+        {
+          "id": "u5_11",
+          "word": "the British / the French",
+          "transcription": "/ðə ˈbrɪtɪʃ/ /ðə frɛntʃ/",
+          "part_of_speech": "phrase",
+          "uzbek": "britaniyaliklar / fransuzlar (xalq sifatida)",
+          "description": "Used with 'the' to refer to a nationality group as a whole",
+          "example": "The British / The French are..."
+        },
+        {
+          "id": "u5_12",
+          "word": "Brazilians / Russians",
+          "transcription": "/brəˈzɪliənz/ /ˈrʌʃənz/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "braziliyaliklar / ruslar",
+          "description": "Nationalities ending in -ian/-ian that take 's' for plural, no 'the' needed",
+          "example": "Brazilians/Russians are..."
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "title": "The physical world",
+      "topic": "Geographic features and facts about the physical world",
+      "words": [
+        {
+          "id": "u6_1",
+          "word": "surface",
+          "transcription": "/ˈsɜːrfɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "sirt, yuza",
+          "description": "The top or outside part of something",
+          "example": "Two thirds of the surface of the Earth is covered in water."
+        },
+        {
+          "id": "u6_2",
+          "word": "Earth",
+          "transcription": "/ɜːrθ/",
+          "part_of_speech": "noun",
+          "uzbek": "Yer (sayyora)",
+          "description": "The planet we live on",
+          "example": "Two thirds of the surface of the Earth is covered in water."
+        },
+        {
+          "id": "u6_3",
+          "word": "covered in / with",
+          "transcription": "/ˈkʌvərd ɪn/ /wɪð/",
+          "part_of_speech": "phrase",
+          "uzbek": "... bilan qoplangan",
+          "description": "Having a layer of something over the surface",
+          "example": "The surface was covered in water; the ground was covered with snow."
+        },
+        {
+          "id": "u6_4",
+          "word": "temperature",
+          "transcription": "/ˈtɛmprətʃər/",
+          "part_of_speech": "noun",
+          "uzbek": "harorat, temperatura",
+          "description": "How hot or cold something is",
+          "example": "Temperatures of over 57 degrees Celsius have been recorded."
+        },
+        {
+          "id": "u6_5",
+          "word": "degree",
+          "transcription": "/dɪˈɡriː/",
+          "part_of_speech": "noun",
+          "uzbek": "daraja (harorat o'lchov birligi)",
+          "description": "A unit of measurement for temperature",
+          "example": "57°C (57 degrees Celsius)."
+        },
+        {
+          "id": "u6_6",
+          "word": "cave",
+          "transcription": "/keɪv/",
+          "part_of_speech": "noun",
+          "uzbek": "g'or",
+          "description": "A large natural hole in the side of a hill or under the ground",
+          "example": "The Krubera-Voronja Cave is the deepest cave in the world."
+        },
+        {
+          "id": "u6_7",
+          "word": "canal",
+          "transcription": "/kəˈnæl/",
+          "part_of_speech": "noun",
+          "uzbek": "kanal (sun'iy suv yo'li)",
+          "description": "An artificial waterway for boats or irrigation",
+          "example": "The Beijing-Hangzhou Grand Canal is the longest canal in the world."
+        },
+        {
+          "id": "u6_8",
+          "word": "waterfall",
+          "transcription": "/ˈwɔːtərfɔːl/",
+          "part_of_speech": "noun",
+          "uzbek": "sharsharа, vodopad",
+          "description": "A place where water falls from a height, e.g. over a cliff",
+          "example": "The highest waterfall in the world is the Angel Falls."
+        },
+        {
+          "id": "u6_9",
+          "word": "rainforest",
+          "transcription": "/ˈreɪnfɒrɪst/",
+          "part_of_speech": "noun",
+          "uzbek": "yomg'ir o'rmoni",
+          "description": "A dense tropical forest with very high rainfall",
+          "example": "The Amazon Rainforest is the largest rainforest in the world."
+        },
+        {
+          "id": "u6_10",
+          "word": "ocean",
+          "transcription": "/ˈoʊʃən/",
+          "part_of_speech": "noun",
+          "uzbek": "okean",
+          "description": "A very large area of sea",
+          "example": "The Pacific is the largest ocean in the world."
+        },
+        {
+          "id": "u6_11",
+          "word": "consist of",
+          "transcription": "/kənˈsɪst əv/",
+          "part_of_speech": "verb",
+          "uzbek": "iborat bo'lmoq, tashkil topmoq",
+          "description": "To be made or formed from particular parts",
+          "example": "Switzerland consists of three main geographical regions."
+        },
+        {
+          "id": "u6_12",
+          "word": "region",
+          "transcription": "/ˈriːdʒən/",
+          "part_of_speech": "noun",
+          "uzbek": "hudud, mintaqa",
+          "description": "An area within a country or the world",
+          "example": "Switzerland consists of three main geographical regions."
+        },
+        {
+          "id": "u6_13",
+          "word": "contrast",
+          "transcription": "/ˈkɒntræst/",
+          "part_of_speech": "noun",
+          "uzbek": "farq, qarama-qarshilik",
+          "description": "A big difference between two things",
+          "example": "Switzerland is a land of contrasts."
+        },
+        {
+          "id": "u6_14",
+          "word": "landscape",
+          "transcription": "/ˈlændskeɪp/",
+          "part_of_speech": "noun",
+          "uzbek": "manzara, landshaft",
+          "description": "The appearance of an area of land",
+          "example": "Switzerland has completely different landscapes."
+        },
+        {
+          "id": "u6_15",
+          "word": "climate",
+          "transcription": "/ˈklaɪmɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "iqlim",
+          "description": "The general weather conditions of a place over a long period",
+          "example": "The climate can change within a very short distance."
+        },
+        {
+          "id": "u6_16",
+          "word": "distance",
+          "transcription": "/ˈdɪstəns/",
+          "part_of_speech": "noun",
+          "uzbek": "masofa",
+          "description": "The amount of space between two places",
+          "example": "The distance between the two is just 70 kilometres."
+        },
+        {
+          "id": "u6_17",
+          "word": "north / south / east / west",
+          "transcription": "/nɔːrθ/ /saʊθ/ /iːst/ /wɛst/",
+          "part_of_speech": "noun",
+          "uzbek": "shimol / janub / sharq / g'arb",
+          "description": "The four main directions of the compass",
+          "example": "Ascona in the south has an almost Mediterranean climate."
+        },
+        {
+          "id": "u6_18",
+          "word": "north-east / north-west / south-east / south-west",
+          "transcription": "/nɔːrθ iːst/ /nɔːrθ wɛst/",
+          "part_of_speech": "noun",
+          "uzbek": "shimoli-sharq / shimoli-g'arb / janubi-sharq / janubi-g'arb",
+          "description": "The intermediate compass directions",
+          "example": "The wind is coming from the north-west."
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "title": "Weather",
+      "topic": "Weather conditions, rain, storms and temperature",
+      "words": [
+        {
+          "id": "u7_1",
+          "word": "foggy",
+          "transcription": "/ˈfɒɡi/",
+          "part_of_speech": "adjective",
+          "uzbek": "tumanli",
+          "description": "Having thick fog; difficult to see far",
+          "example": "It was very foggy this morning."
+        },
+        {
+          "id": "u7_2",
+          "word": "cloudy",
+          "transcription": "/ˈklaʊdi/",
+          "part_of_speech": "adjective",
+          "uzbek": "bulutli",
+          "description": "Having a lot of clouds in the sky",
+          "example": "It was very cloudy this morning, but the sun came out after lunch."
+        },
+        {
+          "id": "u7_3",
+          "word": "icy",
+          "transcription": "/ˈaɪsi/",
+          "part_of_speech": "adjective",
+          "uzbek": "muzli, muzlagan",
+          "description": "Covered in ice; very cold",
+          "example": "The roads were icy this morning."
+        },
+        {
+          "id": "u7_4",
+          "word": "the sun came out",
+          "transcription": "/ðə sʌn keɪm aʊt/",
+          "part_of_speech": "phrase",
+          "uzbek": "quyosh chiqib qoldi",
+          "description": "When the sun appears after being hidden by clouds",
+          "example": "It was cloudy, but the sun came out after lunch."
+        },
+        {
+          "id": "u7_5",
+          "word": "thick fog",
+          "transcription": "/θɪk fɒɡ/",
+          "part_of_speech": "phrase",
+          "uzbek": "qalin tuman",
+          "description": "Very dense fog that makes it hard to see",
+          "example": "The accident happened in thick fog."
+        },
+        {
+          "id": "u7_6",
+          "word": "heavy rain",
+          "transcription": "/ˈhɛvi reɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "kuchli yomg'ir",
+          "description": "A large amount of rain falling",
+          "example": "We had some heavy rain at the weekend."
+        },
+        {
+          "id": "u7_7",
+          "word": "light rain",
+          "transcription": "/laɪt reɪn/",
+          "part_of_speech": "phrase",
+          "uzbek": "yengil yomg'ir, kam yomg'ir",
+          "description": "A small amount of rain falling gently",
+          "example": "Light rain is the opposite of heavy rain."
+        },
+        {
+          "id": "u7_8",
+          "word": "strong wind",
+          "transcription": "/strɒŋ wɪnd/",
+          "part_of_speech": "phrase",
+          "uzbek": "kuchli shamol",
+          "description": "Wind blowing with a lot of force",
+          "example": "There was a strong wind when we were on the boat."
+        },
+        {
+          "id": "u7_9",
+          "word": "the wind has blown",
+          "transcription": "/ðə wɪnd hæz bloʊn/",
+          "part_of_speech": "phrase",
+          "uzbek": "shamol esib o'tdi (kuchli)",
+          "description": "When wind has caused movement of something",
+          "example": "The wind has blown all the apples off the tree."
+        },
+        {
+          "id": "u7_10",
+          "word": "clear sky",
+          "transcription": "/klɪər skaɪ/",
+          "part_of_speech": "phrase",
+          "uzbek": "ochiq, tiniq osmon (bulutsiz)",
+          "description": "A sky with no clouds",
+          "example": "The sky was clear by lunchtime. [no clouds]"
+        },
+        {
+          "id": "u7_11",
+          "word": "extremely",
+          "transcription": "/ɪkˈstriːmli/",
+          "part_of_speech": "adverb",
+          "uzbek": "o'ta, juda, haddan tashqari",
+          "description": "To a very great degree; very",
+          "example": "It's been extremely cold today."
+        },
+        {
+          "id": "u7_12",
+          "word": "pour",
+          "transcription": "/pɔːr/",
+          "part_of_speech": "verb",
+          "uzbek": "shiddat bilan yog'moq (yomg'ir)",
+          "description": "To rain very heavily",
+          "example": "It poured with rain this afternoon."
+        },
+        {
+          "id": "u7_13",
+          "word": "shower",
+          "transcription": "/ˈʃaʊər/",
+          "part_of_speech": "noun",
+          "uzbek": "yomg'ir (qisqa muddatli)",
+          "description": "A short period of light or heavy rain",
+          "example": "We had a couple of heavy/light showers this morning."
+        },
+        {
+          "id": "u7_14",
+          "word": "storm",
+          "transcription": "/stɔːrm/",
+          "part_of_speech": "noun",
+          "uzbek": "bo'ron, kuchli yomg'ir",
+          "description": "Heavy rain with strong winds",
+          "example": "A storm is heavy rain with strong winds."
+        },
+        {
+          "id": "u7_15",
+          "word": "thunderstorm",
+          "transcription": "/ˈθʌndərstɔːrm/",
+          "part_of_speech": "noun",
+          "uzbek": "momaqaldiroqli bo'ron",
+          "description": "A storm with thunder and lightning",
+          "example": "A period of hot weather sometimes ends with a thunderstorm."
+        },
+        {
+          "id": "u7_16",
+          "word": "humid",
+          "transcription": "/ˈhjuːmɪd/",
+          "part_of_speech": "adjective",
+          "uzbek": "nam, sernam (havo)",
+          "description": "When the air feels very warm and wet",
+          "example": "First it becomes very humid."
+        },
+        {
+          "id": "u7_17",
+          "word": "thunder",
+          "transcription": "/ˈθʌndər/",
+          "part_of_speech": "noun",
+          "uzbek": "momaqaldiroq",
+          "description": "The loud noise heard during a storm",
+          "example": "You hear thunder and see lightning."
+        },
+        {
+          "id": "u7_18",
+          "word": "lightning",
+          "transcription": "/ˈlaɪtnɪŋ/",
+          "part_of_speech": "noun",
+          "uzbek": "chaqmoq",
+          "description": "A bright flash of light in the sky during a storm",
+          "example": "You hear thunder and see lightning."
+        },
+        {
+          "id": "u7_19",
+          "word": "boiling",
+          "transcription": "/ˈbɔɪlɪŋ/",
+          "part_of_speech": "adjective",
+          "uzbek": "juda issiq, qaynayotgandek issiq",
+          "description": "Extremely hot",
+          "example": "Boiling means very hot."
+        },
+        {
+          "id": "u7_20",
+          "word": "warm",
+          "transcription": "/wɔːrm/",
+          "part_of_speech": "adjective",
+          "uzbek": "iliq",
+          "description": "Having a pleasant, moderate heat",
+          "example": "It's quite warm today."
+        },
+        {
+          "id": "u7_21",
+          "word": "cool",
+          "transcription": "/kuːl/",
+          "part_of_speech": "adjective",
+          "uzbek": "salqin, sal sovuq",
+          "description": "Slightly cold, either pleasantly or unpleasantly",
+          "example": "We've had a cool summer. / The water in the pool was lovely and cool."
+        },
+        {
+          "id": "u7_22",
+          "word": "chilly",
+          "transcription": "/ˈtʃɪli/",
+          "part_of_speech": "adjective",
+          "uzbek": "sovuqroq, salqin (yoqimsiz)",
+          "description": "Unpleasantly cold",
+          "example": "It's a bit chilly today, take a jacket."
+        },
+        {
+          "id": "u7_23",
+          "word": "freezing",
+          "transcription": "/ˈfriːzɪŋ/",
+          "part_of_speech": "adjective",
+          "uzbek": "juda sovuq, muzdek",
+          "description": "Extremely cold; below freezing point",
+          "example": "Freezing means very cold."
+        },
+        {
+          "id": "u7_24",
+          "word": "mild",
+          "transcription": "/maɪld/",
+          "part_of_speech": "adjective",
+          "uzbek": "yumshoq (havo, oddiy soruqdan iliqroq)",
+          "description": "Not as cold as usual; pleasantly moderate",
+          "example": "It's been a mild winter."
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "title": "Animals and insects",
+      "topic": "Pets, farm animals, wild animals, insects and sea creatures",
+      "words": [
+        {
+          "id": "u8_1",
+          "word": "keep pets",
+          "transcription": "/kiːp pɛts/",
+          "part_of_speech": "phrase",
+          "uzbek": "uy hayvonlarini saqlamoq",
+          "description": "To have animals living with you at home",
+          "example": "In the UK, many people keep pets."
+        },
+        {
+          "id": "u8_2",
+          "word": "cage",
+          "transcription": "/keɪdʒ/",
+          "part_of_speech": "noun",
+          "uzbek": "qafas",
+          "description": "A container with bars for keeping birds or small animals",
+          "example": "Parrots are usually in a cage."
+        },
+        {
+          "id": "u8_3",
+          "word": "mouse / mice",
+          "transcription": "/maʊs/ /maɪs/",
+          "part_of_speech": "noun",
+          "uzbek": "sichqon / sichqonlar",
+          "description": "A very small rodent. Singular: mouse, plural: mice",
+          "example": "Children sometimes keep mice (singular: mouse)."
+        },
+        {
+          "id": "u8_4",
+          "word": "rabbit",
+          "transcription": "/ˈræbɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "quyon",
+          "description": "A small furry animal with long ears",
+          "example": "Children sometimes keep rabbits."
+        },
+        {
+          "id": "u8_5",
+          "word": "frog",
+          "transcription": "/frɒɡ/",
+          "part_of_speech": "noun",
+          "uzbek": "qurbaqa",
+          "description": "A small amphibian with smooth skin that lives near water",
+          "example": "Some people keep more unusual pets, e.g. frogs, snakes and spiders."
+        },
+        {
+          "id": "u8_6",
+          "word": "snake",
+          "transcription": "/sneɪk/",
+          "part_of_speech": "noun",
+          "uzbek": "ilon",
+          "description": "A long reptile with no legs",
+          "example": "Some people keep snakes as pets."
+        },
+        {
+          "id": "u8_7",
+          "word": "spider",
+          "transcription": "/ˈspaɪdər/",
+          "part_of_speech": "noun",
+          "uzbek": "o'rgimchak",
+          "description": "A small eight-legged creature that spins webs",
+          "example": "Some people keep spiders as pets."
+        },
+        {
+          "id": "u8_8",
+          "word": "donkey",
+          "transcription": "/ˈdɒŋki/",
+          "part_of_speech": "noun",
+          "uzbek": "eshak",
+          "description": "A farm animal similar to a small horse with long ears",
+          "example": "Farms in the UK may have donkeys."
+        },
+        {
+          "id": "u8_9",
+          "word": "goat",
+          "transcription": "/ɡoʊt/",
+          "part_of_speech": "noun",
+          "uzbek": "echki",
+          "description": "A farm animal kept for milk and meat",
+          "example": "Farms in the UK may have goats."
+        },
+        {
+          "id": "u8_10",
+          "word": "bull",
+          "transcription": "/bʊl/",
+          "part_of_speech": "noun",
+          "uzbek": "buqa, ho'kiz",
+          "description": "An adult male cow",
+          "example": "Farms in the UK may have a bull."
+        },
+        {
+          "id": "u8_11",
+          "word": "wild animal",
+          "transcription": "/waɪld ˈænɪməl/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "yovvoyi hayvon",
+          "description": "An animal that lives naturally in the wild, not domesticated",
+          "example": "The pictures show a number of wild animals."
+        },
+        {
+          "id": "u8_12",
+          "word": "in the wild",
+          "transcription": "/ɪn ðə waɪld/",
+          "part_of_speech": "phrase",
+          "uzbek": "yovvoyi tabiatda, erkin holatda",
+          "description": "Living freely in their natural environment",
+          "example": "You may see these animals in the wild."
+        },
+        {
+          "id": "u8_13",
+          "word": "zoo",
+          "transcription": "/zuː/",
+          "part_of_speech": "noun",
+          "uzbek": "hayvonot bog'i, zоо park",
+          "description": "A place where wild animals are kept for public display",
+          "example": "You will probably see them in a zoo."
+        },
+        {
+          "id": "u8_14",
+          "word": "rare",
+          "transcription": "/reər/",
+          "part_of_speech": "adjective",
+          "uzbek": "kamyob, noyob",
+          "description": "Not often seen or found",
+          "example": "Some animals, for example tigers, are now quite rare."
+        },
+        {
+          "id": "u8_15",
+          "word": "protect",
+          "transcription": "/prəˈtɛkt/",
+          "part_of_speech": "verb",
+          "uzbek": "himoya qilmoq, asramoq",
+          "description": "To keep safe from harm",
+          "example": "It is important that we protect these endangered animals."
+        },
+        {
+          "id": "u8_16",
+          "word": "endangered",
+          "transcription": "/ɪnˈdeɪndʒərd/",
+          "part_of_speech": "adjective",
+          "uzbek": "yo'q bo'lib ketish xavfi ostida",
+          "description": "At risk of becoming extinct",
+          "example": "We protect these endangered animals."
+        },
+        {
+          "id": "u8_17",
+          "word": "monkey",
+          "transcription": "/ˈmʌŋki/",
+          "part_of_speech": "noun",
+          "uzbek": "maymun",
+          "description": "A small to medium-sized primate that climbs trees",
+          "example": "Monkey is a wild animal."
+        },
+        {
+          "id": "u8_18",
+          "word": "camel",
+          "transcription": "/ˈkæməl/",
+          "part_of_speech": "noun",
+          "uzbek": "tuya",
+          "description": "A large desert animal with one or two humps",
+          "example": "A camel can survive in the desert without water for a long time."
+        },
+        {
+          "id": "u8_19",
+          "word": "leopard",
+          "transcription": "/ˈlɛpərd/",
+          "part_of_speech": "noun",
+          "uzbek": "qoplon, leopard",
+          "description": "A large wild cat with a spotted coat",
+          "example": "A leopard is a wild animal with spots."
+        },
+        {
+          "id": "u8_20",
+          "word": "bear",
+          "transcription": "/beər/",
+          "part_of_speech": "noun",
+          "uzbek": "ayiq",
+          "description": "A large heavy wild mammal with thick fur",
+          "example": "A bear is a large wild animal."
+        },
+        {
+          "id": "u8_21",
+          "word": "trunk",
+          "transcription": "/trʌŋk/",
+          "part_of_speech": "noun",
+          "uzbek": "xartum (fil)",
+          "description": "The long nose of an elephant",
+          "example": "The elephant uses its trunk to drink water."
+        },
+        {
+          "id": "u8_22",
+          "word": "creature",
+          "transcription": "/ˈkriːtʃər/",
+          "part_of_speech": "noun",
+          "uzbek": "jonzot, jonivor",
+          "description": "A living thing, especially an animal",
+          "example": "Many different creatures live in the sea."
+        },
+        {
+          "id": "u8_23",
+          "word": "whale",
+          "transcription": "/weɪl/",
+          "part_of_speech": "noun",
+          "uzbek": "kit",
+          "description": "A very large sea mammal",
+          "example": "A whale is the largest sea creature."
+        },
+        {
+          "id": "u8_24",
+          "word": "dolphin",
+          "transcription": "/ˈdɒlfɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "delfin",
+          "description": "An intelligent sea mammal known for jumping out of water",
+          "example": "Dolphins are very intelligent sea creatures."
+        },
+        {
+          "id": "u8_25",
+          "word": "shark",
+          "transcription": "/ʃɑːrk/",
+          "part_of_speech": "noun",
+          "uzbek": "akula",
+          "description": "A large predatory fish with sharp teeth",
+          "example": "Some sharks are dangerous to humans."
+        },
+        {
+          "id": "u8_26",
+          "word": "octopus",
+          "transcription": "/ˈɒktəpəs/",
+          "part_of_speech": "noun",
+          "uzbek": "sakkizoyoq, osьminog",
+          "description": "A sea creature with eight arms",
+          "example": "An octopus has eight arms."
+        }
+      ]
+    },
+    {
+      "unit": 9,
+      "title": "The body and movement",
+      "topic": "Parts of the body and movements involving mouth, face and head",
+      "words": [
+        {
+          "id": "u9_1",
+          "word": "forehead",
+          "transcription": "/ˈfɔːrhɛd/",
+          "part_of_speech": "noun",
+          "uzbek": "peshona",
+          "description": "The part of the face above the eyebrows",
+          "example": "She had a headache and rubbed her forehead."
+        },
+        {
+          "id": "u9_2",
+          "word": "cheek",
+          "transcription": "/tʃiːk/",
+          "part_of_speech": "noun",
+          "uzbek": "yonoq",
+          "description": "The side of the face below the eyes",
+          "example": "The baby had round, pink cheeks."
+        },
+        {
+          "id": "u9_3",
+          "word": "lips",
+          "transcription": "/lɪps/",
+          "part_of_speech": "noun (plural)",
+          "uzbek": "lablar",
+          "description": "The soft edges around the mouth opening",
+          "example": "Drink water if your lips feel dry."
+        },
+        {
+          "id": "u9_4",
+          "word": "chin",
+          "transcription": "/tʃɪn/",
+          "part_of_speech": "noun",
+          "uzbek": "iyak",
+          "description": "The part of the face below the mouth",
+          "example": "She rested her chin on her hand."
+        },
+        {
+          "id": "u9_5",
+          "word": "breast",
+          "transcription": "/brɛst/",
+          "part_of_speech": "noun",
+          "uzbek": "ko'krak (ayollar)",
+          "description": "The chest area of a woman's body",
+          "example": "Breast is a part of the female chest."
+        },
+        {
+          "id": "u9_6",
+          "word": "elbow",
+          "transcription": "/ˈɛlboʊ/",
+          "part_of_speech": "noun",
+          "uzbek": "tirsak",
+          "description": "The joint in the middle of the arm",
+          "example": "I bumped my elbow on the table."
+        },
+        {
+          "id": "u9_7",
+          "word": "waist",
+          "transcription": "/weɪst/",
+          "part_of_speech": "noun",
+          "uzbek": "bel (ingichka qism)",
+          "description": "The narrow part of the body between chest and hips",
+          "example": "She has a very slim waist."
+        },
+        {
+          "id": "u9_8",
+          "word": "hip",
+          "transcription": "/hɪp/",
+          "part_of_speech": "noun",
+          "uzbek": "son, dumba",
+          "description": "The area between the waist and top of the leg",
+          "example": "She fell and broke her hip."
+        },
+        {
+          "id": "u9_9",
+          "word": "bottom",
+          "transcription": "/ˈbɒtəm/",
+          "part_of_speech": "noun",
+          "uzbek": "dumba, o'tirgan joy",
+          "description": "The part of the body that you sit on",
+          "example": "He sat down on the bottom step."
+        },
+        {
+          "id": "u9_10",
+          "word": "wrist",
+          "transcription": "/rɪst/",
+          "part_of_speech": "noun",
+          "uzbek": "bilak, qo'l bilagi",
+          "description": "The joint connecting the hand to the lower arm",
+          "example": "She wears a watch on her wrist."
+        },
+        {
+          "id": "u9_11",
+          "word": "heel",
+          "transcription": "/hiːl/",
+          "part_of_speech": "noun",
+          "uzbek": "tovon",
+          "description": "The back part of the foot",
+          "example": "These shoes hurt my heel."
+        },
+        {
+          "id": "u9_12",
+          "word": "breathe",
+          "transcription": "/briːð/",
+          "part_of_speech": "verb",
+          "uzbek": "nafas olmoq",
+          "description": "To take air into and out of the lungs",
+          "example": "People breathe through their nose or mouth."
+        },
+        {
+          "id": "u9_13",
+          "word": "breathe in / out",
+          "transcription": "/briːð ɪn/ /aʊt/",
+          "part_of_speech": "phrasal verb",
+          "uzbek": "nafas ichiga olmoq / chiqarmoq",
+          "description": "To take air into the lungs / to let air out of the lungs",
+          "example": "You breathe in and out about 12-15 times a minute."
+        },
+        {
+          "id": "u9_14",
+          "word": "smile at",
+          "transcription": "/smaɪl æt/",
+          "part_of_speech": "phrase",
+          "uzbek": "... ga tabassum qilmoq",
+          "description": "To smile in the direction of someone",
+          "example": "They sometimes smile at people to be polite."
+        },
+        {
+          "id": "u9_15",
+          "word": "laugh at",
+          "transcription": "/lɑːf æt/",
+          "part_of_speech": "phrase",
+          "uzbek": "... ga kulmoq",
+          "description": "To laugh because something is funny",
+          "example": "People laugh at things which are funny."
+        },
+        {
+          "id": "u9_16",
+          "word": "cry",
+          "transcription": "/kraɪ/",
+          "part_of_speech": "verb",
+          "uzbek": "yig'lamoq",
+          "description": "To produce tears, usually from sadness",
+          "example": "People sometimes cry if they're very unhappy."
+        },
+        {
+          "id": "u9_17",
+          "word": "nod your head",
+          "transcription": "/nɒd jɔːr hɛd/",
+          "part_of_speech": "phrase",
+          "uzbek": "boshini tasdiqlovchi tarzda likillatmoq ('ha' belgisi)",
+          "description": "To move your head up and down to mean 'yes'",
+          "example": "People in some countries nod their head to mean 'yes'."
+        },
+        {
+          "id": "u9_18",
+          "word": "shake your head",
+          "transcription": "/ʃeɪk jɔːr hɛd/",
+          "part_of_speech": "phrase",
+          "uzbek": "boshini chayqatmoq ('yo'q' belgisi)",
+          "description": "To move your head from side to side to mean 'no'",
+          "example": "People shake their head for 'no'."
+        },
+        {
+          "id": "u9_19",
+          "word": "yawn",
+          "transcription": "/jɔːn/",
+          "part_of_speech": "verb",
+          "uzbek": "esnamoq",
+          "description": "To open your mouth wide and breathe in deeply, usually when tired",
+          "example": "People often yawn when they're tired."
+        },
+        {
+          "id": "u9_20",
+          "word": "shake hands with someone",
+          "transcription": "/ʃeɪk hændz wɪð ˈsʌmwʌn/",
+          "part_of_speech": "phrase",
+          "uzbek": "qo'l berib ko'rishmoq",
+          "description": "To grasp and shake someone's hand as a greeting",
+          "example": "They shook hands with each other when they met."
+        },
+        {
+          "id": "u9_21",
+          "word": "fold your arms",
+          "transcription": "/foʊld jɔːr ɑːrmz/",
+          "part_of_speech": "phrase",
+          "uzbek": "qo'llarini ko'krak oldida bog'lab turish",
+          "description": "To cross your arms over your chest",
+          "example": "He folded his arms and waited."
+        },
+        {
+          "id": "u9_22",
+          "word": "wave to somebody",
+          "transcription": "/weɪv tə ˈsʌmbɒdi/",
+          "part_of_speech": "phrase",
+          "uzbek": "qo'l silkitib salom bermoq",
+          "description": "To move your hand from side to side as a greeting or farewell",
+          "example": "She waved to her friend across the street."
+        },
+        {
+          "id": "u9_23",
+          "word": "blow your nose",
+          "transcription": "/bloʊ jɔːr noʊz/",
+          "part_of_speech": "phrase",
+          "uzbek": "burnini tozalamoq",
+          "description": "To clear your nose by blowing air through it into a tissue",
+          "example": "She blew her nose into a tissue."
+        },
+        {
+          "id": "u9_24",
+          "word": "comb your hair",
+          "transcription": "/koʊm jɔːr heər/",
+          "part_of_speech": "phrase",
+          "uzbek": "sochini taramoq",
+          "description": "To arrange your hair using a comb",
+          "example": "She combs her hair every morning."
+        }
+      ]
+    },
+    {
+      "unit": 10,
+      "title": "Describing appearance",
+      "topic": "Words for describing beauty, size, hair and physical appearance",
+      "words": [
+        {
+          "id": "u10_1",
+          "word": "appearance",
+          "transcription": "/əˈpɪərəns/",
+          "part_of_speech": "noun",
+          "uzbek": "tashqi ko'rinish, qiyofa",
+          "description": "The way someone or something looks",
+          "example": "Your appearance is the way you look."
+        },
+        {
+          "id": "u10_2",
+          "word": "attractive",
+          "transcription": "/əˈtræktɪv/",
+          "part_of_speech": "adjective",
+          "uzbek": "jozibali, yoqimli",
+          "description": "Pleasing in appearance",
+          "example": "Women can be attractive or good-looking."
+        },
+        {
+          "id": "u10_3",
+          "word": "good-looking",
+          "transcription": "/ˌɡʊd ˈlʊkɪŋ/",
+          "part_of_speech": "adjective",
+          "uzbek": "chiroyli, ko'rkam",
+          "description": "Nice to look at; attractive",
+          "example": "Women can be attractive or good-looking."
+        },
+        {
+          "id": "u10_4",
+          "word": "pretty",
+          "transcription": "/ˈprɪti/",
+          "part_of_speech": "adjective",
+          "uzbek": "chiroyli (qizlar uchun)",
+          "description": "Attractive, especially used for a girl",
+          "example": "We often use pretty to describe a girl."
+        },
+        {
+          "id": "u10_5",
+          "word": "gorgeous",
+          "transcription": "/ˈɡɔːrdʒəs/",
+          "part_of_speech": "adjective",
+          "uzbek": "juda go'zal, ajoyib",
+          "description": "Extremely beautiful or attractive",
+          "example": "We use gorgeous for women who are very attractive."
+        },
+        {
+          "id": "u10_6",
+          "word": "handsome",
+          "transcription": "/ˈhænsəm/",
+          "part_of_speech": "adjective",
+          "uzbek": "kelishgan, chiroyli (erkak uchun)",
+          "description": "Attractive, especially used for men",
+          "example": "Liam has become quite handsome."
+        },
+        {
+          "id": "u10_7",
+          "word": "ordinary",
+          "transcription": "/ˈɔːrdɪnɛri/",
+          "part_of_speech": "adjective",
+          "uzbek": "oddiy, odatdagi",
+          "description": "Not special or different; a polite alternative to 'ugly'",
+          "example": "Ordinary [not special or different] is more polite than ugly."
+        },
+        {
+          "id": "u10_8",
+          "word": "height",
+          "transcription": "/haɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "bo'y (uzunlik)",
+          "description": "How tall or short a person is",
+          "example": "We can talk about a person's height."
+        },
+        {
+          "id": "u10_9",
+          "word": "weight",
+          "transcription": "/weɪt/",
+          "part_of_speech": "noun",
+          "uzbek": "vazn, og'irlik",
+          "description": "How heavy a person is",
+          "example": "We can talk about their weight."
+        },
+        {
+          "id": "u10_10",
+          "word": "roughly / approximately",
+          "transcription": "/ˈrʌfli/ /əˈprɒksɪmətli/",
+          "part_of_speech": "adverb",
+          "uzbek": "taxminan",
+          "description": "Used to indicate a number is not exact",
+          "example": "I'm roughly one metre eighty (tall)."
+        },
+        {
+          "id": "u10_11",
+          "word": "medium height",
+          "transcription": "/ˈmiːdiəm haɪt/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "o'rtacha bo'y",
+          "description": "Neither tall nor short",
+          "example": "If someone is not tall or short, you can describe them as medium height."
+        },
+        {
+          "id": "u10_12",
+          "word": "average",
+          "transcription": "/ˈævərɪdʒ/",
+          "part_of_speech": "adjective",
+          "uzbek": "o'rtacha",
+          "description": "Typical; similar to most other people",
+          "example": "If a person is very similar to most other people in height and weight, you can say they are average."
+        },
+        {
+          "id": "u10_13",
+          "word": "blonde / blond",
+          "transcription": "/blɒnd/",
+          "part_of_speech": "adjective",
+          "uzbek": "sariq soch",
+          "description": "Having light yellow coloured hair",
+          "example": "His hair is blonde (or blond)."
+        },
+        {
+          "id": "u10_14",
+          "word": "fair",
+          "transcription": "/feər/",
+          "part_of_speech": "adjective",
+          "uzbek": "och sariq soch",
+          "description": "Light coloured hair, lighter than brown",
+          "example": "Her hair colour is fair."
+        },
+        {
+          "id": "u10_15",
+          "word": "wavy",
+          "transcription": "/ˈweɪvi/",
+          "part_of_speech": "adjective",
+          "uzbek": "to'lqinsimon (soch)",
+          "description": "Hair with gentle curves; between straight and curly",
+          "example": "Her hair is wavy, not straight or curly."
+        },
+        {
+          "id": "u10_16",
+          "word": "curly",
+          "transcription": "/ˈkɜːrli/",
+          "part_of_speech": "adjective",
+          "uzbek": "jingalak (soch)",
+          "description": "Hair with tight curls",
+          "example": "Her hair is curly."
+        },
+        {
+          "id": "u10_17",
+          "word": "What does ... look like?",
+          "transcription": "/wɒt dʌz laɪk/",
+          "part_of_speech": "phrase",
+          "uzbek": "... qanday ko'rinishga ega? (tashqi ko'rinish haqida)",
+          "description": "A question asking someone to describe a person's appearance",
+          "example": "What does Sophia's boyfriend look like?"
+        },
+        {
+          "id": "u10_18",
+          "word": "tallish",
+          "transcription": "/ˈtɔːlɪʃ/",
+          "part_of_speech": "adjective",
+          "uzbek": "ancha baland bo'yli",
+          "description": "Quite tall; using the suffix -ish meaning 'quite'",
+          "example": "He's tallish, but he's got broad shoulders."
+        },
+        {
+          "id": "u10_19",
+          "word": "broad shoulders",
+          "transcription": "/brɔːd ˈʃoʊldərz/",
+          "part_of_speech": "noun phrase",
+          "uzbek": "keng yelka",
+          "description": "Wide shoulders; the opposite of narrow shoulders",
+          "example": "He's got broad shoulders. [wide; opposite narrow]"
+        },
+        {
+          "id": "u10_20",
+          "word": "athletic",
+          "transcription": "/æθˈlɛtɪk/",
+          "part_of_speech": "adjective",
+          "uzbek": "sportчи tana tuzilishiga ega, atletik",
+          "description": "Strong, healthy and good at sports",
+          "example": "He looks very athletic."
+        },
+        {
+          "id": "u10_21",
+          "word": "smart",
+          "transcription": "/smɑːrt/",
+          "part_of_speech": "adjective",
+          "uzbek": "ozoda, did bilan kiyingan",
+          "description": "Clean, tidy and stylish in appearance",
+          "example": "Is he quite smart? [clean, tidy and stylish]"
+        },
+        {
+          "id": "u10_22",
+          "word": "dress well",
+          "transcription": "/drɛs wɛl/",
+          "part_of_speech": "phrase",
+          "uzbek": "chiroyli kiyinmoq",
+          "description": "To wear nice, fashionable clothes",
+          "example": "He dresses quite well. [the clothes he wears are quite nice]"
+        }
+      ]
+    }
+  ]
+}
