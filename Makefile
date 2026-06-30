@@ -11,7 +11,7 @@ compile:
 	pybabel update -d locales -i locales/message.pot
 	
 update:
- 	pybabel update -d locales -i locales/message.pot
+	pybabel update -d locales -i locales/message.pot
 
 init_migration:
 	alembic init migration
