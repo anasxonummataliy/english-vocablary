@@ -1,472 +1,467 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel — English Vocabulary Bot</title>
-    <style>
-        :root {
-            --primary: #1e293b;
-            --primary-light: #334155;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --success: #10b981;
-            --danger: #ef4444;
-            --warning: #f59e0b;
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
-            --radius: 12px;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — English Vocabulary Bot</title>
+<style>
+:root{
+  --bg:#0f172a;
+  --sidebar:#1e293b;
+  --card:#1e293b;
+  --card2:#273348;
+  --border:#334155;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --blue:#3b82f6;
+  --blue-soft:#1d4ed8;
+  --green:#10b981;
+  --green-soft:#065f46;
+  --red:#ef4444;
+  --red-soft:#7f1d1d;
+  --orange:#f59e0b;
+  --orange-soft:#78350f;
+  --purple:#a855f7;
+  --purple-soft:#4c1d95;
+  --teal:#06b6d4;
+  --teal-soft:#164e63;
+  --radius:14px;
+  --shadow:0 4px 24px rgba(0,0,0,0.35);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh;}
 
-        /* Sidebar */
-        .layout { display: flex; min-height: 100vh; }
-        .sidebar {
-            width: 240px;
-            background: var(--primary);
-            color: white;
-            padding: 24px 16px;
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            z-index: 100;
-        }
-        .sidebar-logo {
-            font-size: 1.1rem;
-            font-weight: 700;
-            padding: 0 8px 24px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 24px;
-        }
-        .sidebar-nav { flex: 1; }
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: rgba(255,255,255,0.7);
-            transition: all 0.15s;
-            margin-bottom: 4px;
-        }
-        .nav-item:hover { background: rgba(255,255,255,0.08); color: white; }
-        .nav-item.active { background: var(--accent); color: white; }
-        .nav-item .icon { font-size: 1.1rem; }
-        .sidebar-footer {
-            padding-top: 16px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .logout-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 0.85rem;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: all 0.15s;
-        }
-        .logout-link:hover { background: rgba(239,68,68,0.2); color: #fca5a5; }
+/* Sidebar */
+.sidebar{
+  width:220px;min-width:220px;background:var(--sidebar);
+  display:flex;flex-direction:column;padding:20px 12px;
+  border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;z-index:100;
+}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  padding:0 8px 20px;border-bottom:1px solid var(--border);margin-bottom:20px;
+}
+.logo-icon{font-size:1.4rem;}
+.logo-text{font-size:0.95rem;font-weight:700;line-height:1.2;}
+.logo-sub{font-size:0.7rem;color:var(--muted);}
+nav{flex:1;}
+.nav-group{margin-bottom:16px;}
+.nav-group-title{font-size:0.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;padding:0 10px;margin-bottom:6px;}
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 10px;border-radius:10px;cursor:pointer;
+  font-size:0.85rem;font-weight:500;color:var(--muted);
+  transition:all .15s;user-select:none;
+}
+.nav-item:hover{background:rgba(255,255,255,0.05);color:var(--text);}
+.nav-item.active{background:var(--blue);color:#fff;box-shadow:0 2px 12px rgba(59,130,246,0.35);}
+.nav-badge{
+  margin-left:auto;background:rgba(255,255,255,0.1);
+  font-size:0.7rem;padding:2px 7px;border-radius:20px;font-weight:600;
+}
+.nav-item.active .nav-badge{background:rgba(255,255,255,0.25);}
+.sidebar-bottom{border-top:1px solid var(--border);padding-top:14px;}
+.logout{
+  display:flex;align-items:center;gap:8px;color:var(--muted);
+  text-decoration:none;font-size:0.83rem;padding:9px 10px;border-radius:10px;transition:.15s;
+}
+.logout:hover{background:rgba(239,68,68,.15);color:#fca5a5;}
 
-        /* Main content */
-        .main { flex: 1; margin-left: 240px; padding: 28px 32px; }
-        .page-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: var(--primary);
-        }
+/* Main */
+.main{flex:1;margin-left:220px;padding:28px 32px;overflow-x:hidden;}
+.page{display:none;}
+.page.active{display:block;}
+.page-header{margin-bottom:26px;}
+.page-title{font-size:1.5rem;font-weight:800;margin-bottom:4px;}
+.page-sub{font-size:0.85rem;color:var(--muted);}
 
-        /* Stats grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 14px;
-            margin-bottom: 28px;
-        }
-        .stat-card {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-        }
-        .stat-card.blue::before { background: var(--accent); }
-        .stat-card.green::before { background: var(--success); }
-        .stat-card.red::before { background: var(--danger); }
-        .stat-card.orange::before { background: var(--warning); }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-        .stat-card.blue .stat-number { color: var(--accent); }
-        .stat-card.green .stat-number { color: var(--success); }
-        .stat-card.red .stat-number { color: var(--danger); }
-        .stat-card.orange .stat-number { color: var(--warning); }
-        .stat-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+/* Stats grid */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;margin-bottom:26px;}
+.scard{
+  background:var(--card);border-radius:var(--radius);padding:18px 18px 14px;
+  border:1px solid var(--border);position:relative;overflow:hidden;
+}
+.scard-glow{
+  position:absolute;top:-30px;right:-30px;width:80px;height:80px;
+  border-radius:50%;opacity:.15;filter:blur(20px);
+}
+.scard-icon{font-size:1.4rem;margin-bottom:10px;display:block;}
+.scard-val{font-size:1.9rem;font-weight:800;line-height:1;}
+.scard-lbl{font-size:0.75rem;font-weight:500;margin-top:5px;color:var(--muted);}
+.scard-trend{font-size:0.7rem;margin-top:6px;font-weight:600;}
+.scard.blue .scard-glow,.scard.blue .scard-val{color:var(--blue);}
+.scard.blue .scard-glow{background:var(--blue);}
+.scard.green .scard-glow,.scard.green .scard-val{color:var(--green);}
+.scard.green .scard-glow{background:var(--green);}
+.scard.red .scard-glow,.scard.red .scard-val{color:var(--red);}
+.scard.red .scard-glow{background:var(--red);}
+.scard.orange .scard-glow,.scard.orange .scard-val{color:var(--orange);}
+.scard.orange .scard-glow{background:var(--orange);}
+.scard.purple .scard-glow,.scard.purple .scard-val{color:var(--purple);}
+.scard.purple .scard-glow{background:var(--purple);}
+.scard.teal .scard-glow,.scard.teal .scard-val{color:var(--teal);}
+.scard.teal .scard-glow{background:var(--teal);}
 
-        /* Chart */
-        .chart-card {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            margin-bottom: 28px;
-        }
-        .chart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .chart-title { font-size: 1rem; font-weight: 600; }
-        .chart {
-            display: flex;
-            align-items: flex-end;
-            gap: 6px;
-            height: 180px;
-        }
-        .bar-col {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100%;
-            justify-content: flex-end;
-        }
-        .bar-val {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }
-        .bar {
-            width: 100%;
-            max-width: 36px;
-            background: linear-gradient(180deg, var(--accent), #60a5fa);
-            border-radius: 6px 6px 2px 2px;
-            min-height: 3px;
-            transition: height 0.4s ease;
-        }
-        .bar-date {
-            font-size: 0.68rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-            font-weight: 500;
-        }
+/* Grid layout */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;}
+.grid3{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-bottom:20px;}
 
-        /* Table section */
-        .table-card {
-            background: var(--card);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            overflow: hidden;
-        }
-        .table-header {
-            padding: 16px 20px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .table-title { font-size: 0.95rem; font-weight: 600; }
-        .search-input {
-            padding: 8px 14px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 0.85rem;
-            outline: none;
-            width: 280px;
-            transition: border-color 0.15s;
-        }
-        .search-input:focus { border-color: var(--accent); }
-        table { width: 100%; border-collapse: collapse; }
-        th, td {
-            padding: 11px 16px;
-            text-align: left;
-            font-size: 0.84rem;
-            border-bottom: 1px solid var(--border);
-        }
-        th {
-            background: #f8fafc;
-            font-weight: 600;
-            color: var(--text-muted);
-            font-size: 0.76rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background: #f1f5f9; }
-        a { color: var(--accent); text-decoration: none; font-weight: 500; }
-        a:hover { text-decoration: underline; }
-        code {
-            background: #f1f5f9;
-            padding: 2px 7px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: var(--primary);
-        }
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 3px 8px;
-            border-radius: 20px;
-            font-size: 0.72rem;
-            font-weight: 600;
-        }
-        .badge-active { background: #d1fae5; color: #065f46; }
-        .badge-blocked { background: #fee2e2; color: #991b1b; }
-        .empty-state { text-align: center; padding: 40px; color: var(--text-muted); }
+/* Card */
+.card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;}
+.card-head{
+  padding:16px 20px;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.card-title{font-size:0.9rem;font-weight:700;}
+.card-sub{font-size:0.75rem;color:var(--muted);}
+.card-body{padding:20px;}
 
-        /* Page sections */
-        .page { display: none; }
-        .page.active { display: block; }
+/* Chart */
+.chart-wrap{display:flex;align-items:flex-end;gap:5px;height:160px;padding-top:8px;}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;}
+.bar-v{font-size:0.68rem;font-weight:700;color:var(--text);margin-bottom:4px;}
+.bar{
+  width:100%;max-width:32px;min-height:3px;border-radius:6px 6px 3px 3px;
+  background:linear-gradient(180deg,var(--blue),rgba(59,130,246,.4));
+  transition:height .4s ease;
+}
+.bar-d{font-size:0.65rem;color:var(--muted);margin-top:8px;font-weight:500;}
 
-        /* Mobile */
-        .mobile-header {
-            display: none;
-            padding: 16px 20px;
-            background: var(--primary);
-            color: white;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .hamburger { font-size: 1.4rem; cursor: pointer; }
-        @media (max-width: 768px) {
-            .sidebar { transform: translateX(-100%); transition: transform 0.2s; }
-            .sidebar.open { transform: translateX(0); }
-            .main { margin-left: 0; padding: 16px; }
-            .mobile-header { display: flex; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .search-input { width: 100%; }
-            .table-header { flex-direction: column; align-items: stretch; }
-        }
-    </style>
+/* Pie donut */
+.donut-wrap{display:flex;align-items:center;gap:20px;justify-content:center;padding:10px 0;}
+svg.donut{transform:rotate(-90deg);}
+.donut-legend{display:flex;flex-direction:column;gap:8px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.8rem;}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+
+/* Channel cards */
+.channel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;padding:20px;}
+.ch-card{
+  background:var(--card2);border-radius:12px;border:1px solid var(--border);
+  padding:16px;display:flex;flex-direction:column;gap:10px;
+}
+.ch-head{display:flex;align-items:center;gap:12px;}
+.ch-icon{
+  width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--blue),var(--purple));
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;
+}
+.ch-name{font-size:0.9rem;font-weight:700;}
+.ch-user{font-size:0.75rem;color:var(--muted);}
+.ch-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:2px 8px;border-radius:20px;font-size:0.7rem;font-weight:600;margin-left:auto;
+}
+.ch-badge.on{background:rgba(16,185,129,.2);color:var(--green);}
+.ch-badge.off{background:rgba(239,68,68,.2);color:var(--red);}
+.ch-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.ch-stat{background:var(--bg);border-radius:8px;padding:10px;text-align:center;}
+.ch-stat-val{font-size:1.1rem;font-weight:800;}
+.ch-stat-lbl{font-size:0.67rem;color:var(--muted);margin-top:2px;}
+.ch-stat.b .ch-stat-val{color:var(--blue);}
+.ch-stat.g .ch-stat-val{color:var(--green);}
+.ch-stat.p .ch-stat-val{color:var(--purple);}
+.ch-footer{font-size:0.72rem;color:var(--muted);padding-top:6px;border-top:1px solid var(--border);}
+
+/* Table */
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;}
+th,td{padding:10px 16px;text-align:left;font-size:0.82rem;border-bottom:1px solid var(--border);}
+th{background:rgba(255,255,255,0.03);color:var(--muted);font-size:0.72rem;text-transform:uppercase;letter-spacing:.5px;font-weight:600;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,.03);}
+a{color:var(--blue);text-decoration:none;font-weight:500;}
+a:hover{text-decoration:underline;}
+code{background:rgba(255,255,255,.07);padding:2px 7px;border-radius:4px;font-size:0.78rem;}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:20px;font-size:0.7rem;font-weight:700;}
+.badge-on{background:rgba(16,185,129,.15);color:var(--green);}
+.badge-off{background:rgba(239,68,68,.15);color:var(--red);}
+
+/* Table header actions */
+.tbl-hdr{
+  padding:14px 18px;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+}
+.tbl-title{font-size:0.9rem;font-weight:700;}
+.search-inp{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:8px;padding:8px 14px;font-size:0.83rem;
+  color:var(--text);outline:none;width:260px;transition:.15s;
+}
+.search-inp:focus{border-color:var(--blue);}
+.empty{text-align:center;padding:36px;color:var(--muted);font-size:0.85rem;}
+
+@media(max-width:900px){
+  .sidebar{width:64px;min-width:64px;}
+  .logo-text,.logo-sub,.nav-group-title,.nav-item span:last-child,.logout span:last-child,.nav-badge{display:none;}
+  .nav-item{justify-content:center;padding:10px;}
+  .main{margin-left:64px;}
+  .grid2,.grid3{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .main{padding:16px;}
+}
+</style>
 </head>
 <body>
-    <div class="mobile-header">
-        <span style="font-weight:700">📚 Vocab Bot</span>
-        <span class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</span>
+
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-icon">📚</div>
+    <div>
+      <div class="logo-text">Vocab Bot</div>
+      <div class="logo-sub">Admin Panel</div>
+    </div>
+  </div>
+  <nav>
+    <div class="nav-group">
+      <div class="nav-group-title">Asosiy</div>
+      <div class="nav-item active" onclick="go('dashboard',this)">
+        <span>📊</span><span>Dashboard</span>
+      </div>
+      <div class="nav-item" onclick="go('channels',this)">
+        <span>📢</span><span>Kanallar</span>
+        <span class="nav-badge" id="nb-ch">—</span>
+      </div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">Ma'lumotlar</div>
+      <div class="nav-item" onclick="go('users',this)">
+        <span>👥</span><span>Foydalanuvchilar</span>
+        <span class="nav-badge" id="nb-u">—</span>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-bottom">
+    <a href="/logout" class="logout"><span>🚪</span><span>Chiqish</span></a>
+  </div>
+</aside>
+
+<main class="main">
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="page active">
+    <div class="page-header">
+      <div class="page-title">📊 Dashboard</div>
+      <div class="page-sub" id="dash-time">—</div>
     </div>
 
-    <div class="layout">
-        <aside class="sidebar">
-            <div class="sidebar-logo">📚 Vocabulary Bot</div>
-            <nav class="sidebar-nav">
-                <div class="nav-item active" onclick="showPage('dashboard', this)">
-                    <span class="icon">📊</span> Dashboard
-                </div>
-                <div class="nav-item" onclick="showPage('users-page', this)">
-                    <span class="icon">👥</span> Foydalanuvchilar
-                </div>
-            </nav>
-            <div class="sidebar-footer">
-                <a href="/logout" class="logout-link">
-                    <span>🚪</span> Chiqish
-                </a>
-            </div>
-        </aside>
-
-        <main class="main">
-            <!-- DASHBOARD -->
-            <div id="dashboard" class="page active">
-                <div class="page-title">Dashboard</div>
-                <div class="stats-grid">
-                    <div class="stat-card blue">
-                        <div class="stat-number" id="s-total">—</div>
-                        <div class="stat-label">Jami foydalanuvchilar</div>
-                    </div>
-                    <div class="stat-card green">
-                        <div class="stat-number" id="s-active">—</div>
-                        <div class="stat-label">Faol</div>
-                    </div>
-                    <div class="stat-card red">
-                        <div class="stat-number" id="s-blocked">—</div>
-                        <div class="stat-label">Bloklangan</div>
-                    </div>
-                    <div class="stat-card blue">
-                        <div class="stat-number" id="s-today">—</div>
-                        <div class="stat-label">Bugun faol</div>
-                    </div>
-                    <div class="stat-card orange">
-                        <div class="stat-number" id="s-week">—</div>
-                        <div class="stat-label">Haftalik faol</div>
-                    </div>
-                    <div class="stat-card orange">
-                        <div class="stat-number" id="s-month">—</div>
-                        <div class="stat-label">Oylik faol</div>
-                    </div>
-                    <div class="stat-card green">
-                        <div class="stat-number" id="s-today-new">—</div>
-                        <div class="stat-label">Bugun yangi</div>
-                    </div>
-                    <div class="stat-card green">
-                        <div class="stat-number" id="s-week-new">—</div>
-                        <div class="stat-label">Hafta yangi</div>
-                    </div>
-                </div>
-
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <div class="chart-title">📈 Oxirgi 7 kun — kunlik faol foydalanuvchilar</div>
-                    </div>
-                    <div class="chart" id="chart"></div>
-                </div>
-            </div>
-
-            <!-- USERS -->
-            <div id="users-page" class="page">
-                <div class="page-title">Foydalanuvchilar</div>
-                <div class="table-card">
-                    <div class="table-header">
-                        <div class="table-title" id="user-count">Yuklanmoqda...</div>
-                        <input type="text" class="search-input" id="search" placeholder="🔍 Qidirish...">
-                    </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Foydalanuvchi</th>
-                                <th>Username</th>
-                                <th>Telegram ID</th>
-                                <th>Holat</th>
-                                <th>Oxirgi faollik</th>
-                                <th>Qo'shilgan</th>
-                            </tr>
-                        </thead>
-                        <tbody id="users-table">
-                            <tr><td colspan="7" class="empty-state">Yuklanmoqda...</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </main>
+    <div class="stats">
+      <div class="scard blue"><div class="scard-glow"></div><span class="scard-icon">👤</span><div class="scard-val" id="s-total">—</div><div class="scard-lbl">Jami foydalanuvchilar</div></div>
+      <div class="scard green"><div class="scard-glow"></div><span class="scard-icon">✅</span><div class="scard-val" id="s-active">—</div><div class="scard-lbl">Faol</div></div>
+      <div class="scard red"><div class="scard-glow"></div><span class="scard-icon">🚫</span><div class="scard-val" id="s-blocked">—</div><div class="scard-lbl">Bloklangan</div></div>
+      <div class="scard teal"><div class="scard-glow"></div><span class="scard-icon">⚡</span><div class="scard-val" id="s-today">—</div><div class="scard-lbl">Bugun faol</div></div>
+      <div class="scard orange"><div class="scard-glow"></div><span class="scard-icon">📅</span><div class="scard-val" id="s-week">—</div><div class="scard-lbl">Haftalik faol</div></div>
+      <div class="scard purple"><div class="scard-glow"></div><span class="scard-icon">📆</span><div class="scard-val" id="s-month">—</div><div class="scard-lbl">Oylik faol</div></div>
+      <div class="scard green"><div class="scard-glow"></div><span class="scard-icon">🆕</span><div class="scard-val" id="s-today-new">—</div><div class="scard-lbl">Bugun yangi</div></div>
+      <div class="scard blue"><div class="scard-glow"></div><span class="scard-icon">📈</span><div class="scard-val" id="s-week-new">—</div><div class="scard-lbl">Hafta yangi</div></div>
     </div>
 
-    <script>
-        let allUsers = [];
+    <div class="grid3">
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">📈 7 kunlik faollik</div>
+            <div class="card-sub">Kunlik faol foydalanuvchilar</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-wrap" id="chart"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">🥧 Holat taqsimoti</div>
+        </div>
+        <div class="card-body">
+          <div class="donut-wrap">
+            <svg class="donut" width="110" height="110" viewBox="0 0 110 110">
+              <circle cx="55" cy="55" r="42" fill="none" stroke="#1e293b" stroke-width="16"/>
+              <circle id="donut-active" cx="55" cy="55" r="42" fill="none" stroke="#10b981" stroke-width="16" stroke-dasharray="0 264" stroke-linecap="round"/>
+              <circle id="donut-blocked" cx="55" cy="55" r="42" fill="none" stroke="#ef4444" stroke-width="16" stroke-dasharray="0 264" stroke-linecap="round" stroke-dashoffset="0"/>
+            </svg>
+            <div class="donut-legend">
+              <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div><span id="leg-active" style="font-size:0.78rem">Faol: —</span></div>
+              <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div><span id="leg-blocked" style="font-size:0.78rem">Bloklangan: —</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        function showPage(pageId, el) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            el.classList.add('active');
-            document.querySelector('.sidebar').classList.remove('open');
-        }
+  <!-- CHANNELS -->
+  <div id="channels" class="page">
+    <div class="page-header">
+      <div class="page-title">📢 Kanallar</div>
+      <div class="page-sub">Bot ulangan kanallar va statistikasi</div>
+    </div>
+    <div id="channels-grid" class="channel-grid" style="padding:0;margin-bottom:20px;">
+      <div class="empty">Yuklanmoqda...</div>
+    </div>
+  </div>
 
-        async function loadStats() {
-            try {
-                const res = await fetch('/api/stats');
-                const s = await res.json();
-                document.getElementById('s-total').textContent = s.total;
-                document.getElementById('s-active').textContent = s.active;
-                document.getElementById('s-blocked').textContent = s.blocked;
-                document.getElementById('s-today').textContent = s.today_active;
-                document.getElementById('s-week').textContent = s.week_active;
-                document.getElementById('s-month').textContent = s.month_active;
-                document.getElementById('s-today-new').textContent = s.today_new;
-                document.getElementById('s-week-new').textContent = s.week_new;
-                renderChart(s.daily_stats);
-            } catch (e) { console.error(e); }
-        }
+  <!-- USERS -->
+  <div id="users" class="page">
+    <div class="page-header">
+      <div class="page-title">👥 Foydalanuvchilar</div>
+      <div class="page-sub" id="u-count">—</div>
+    </div>
+    <div class="card">
+      <div class="tbl-hdr">
+        <div class="tbl-title">Ro'yxat</div>
+        <input type="text" class="search-inp" id="search" placeholder="🔍 Qidirish...">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>#</th><th>Foydalanuvchi</th><th>Username</th>
+            <th>Telegram ID</th><th>Holat</th><th>Oxirgi faollik</th><th>Qo'shilgan</th>
+          </tr></thead>
+          <tbody id="users-table"><tr><td colspan="7" class="empty">Yuklanmoqda...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-        function renderChart(daily) {
-            const chart = document.getElementById('chart');
-            const max = Math.max(...daily.map(d => d.count), 1);
-            chart.innerHTML = daily.map(d => {
-                const h = Math.max((d.count / max) * 150, 3);
-                return `<div class="bar-col">
-                    <div class="bar-val">${d.count}</div>
-                    <div class="bar" style="height:${h}px"></div>
-                    <div class="bar-date">${d.date}</div>
-                </div>`;
-            }).join('');
-        }
+</main>
 
-        async function loadUsers() {
-            try {
-                const res = await fetch('/api/users');
-                allUsers = await res.json();
-                document.getElementById('user-count').textContent = `Jami: ${allUsers.length} ta`;
-                renderTable(allUsers);
-                document.getElementById('search').addEventListener('input', (e) => {
-                    const q = e.target.value.toLowerCase();
-                    const filtered = allUsers.filter(u => {
-                        const name = ((u.first_name||'') + ' ' + (u.last_name||'')).toLowerCase();
-                        const uname = (u.username||'').toLowerCase();
-                        return name.includes(q) || uname.includes(q) || String(u.tg_id).includes(q);
-                    });
-                    renderTable(filtered);
-                });
-            } catch (e) {
-                document.getElementById('users-table').innerHTML = '<tr><td colspan="7" class="empty-state">❌ Xatolik</td></tr>';
-            }
-        }
+<script>
+let allUsers=[], statsData=null;
 
-        function renderTable(users) {
-            const tbody = document.getElementById('users-table');
-            if (!users.length) {
-                tbody.innerHTML = '<tr><td colspan="7" class="empty-state">Topilmadi</td></tr>';
-                return;
-            }
-            tbody.innerHTML = users.map((u, i) => {
-                const name = ((u.first_name||'') + ' ' + (u.last_name||'')).trim() || '—';
-                const uname = u.username ? `@${u.username}` : '—';
-                const link = u.username ? `https://t.me/${u.username}` : `tg://user?id=${u.tg_id}`;
-                const badge = u.is_blocked
-                    ? '<span class="badge badge-blocked">🚫 Blocked</span>'
-                    : '<span class="badge badge-active">✅ Active</span>';
-                const last = u.last_activity ? new Date(u.last_activity).toLocaleString('uz-UZ') : '—';
-                const created = u.created_at ? new Date(u.created_at).toLocaleDateString('uz-UZ') : '—';
-                return `<tr>
-                    <td>${i+1}</td>
-                    <td><a href="${link}" target="_blank">${name}</a></td>
-                    <td>${uname}</td>
-                    <td><code>${u.tg_id}</code></td>
-                    <td>${badge}</td>
-                    <td>${last}</td>
-                    <td>${created}</td>
-                </tr>`;
-            }).join('');
-        }
+function go(pageId,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  el.classList.add('active');
+}
 
-        loadStats();
-        loadUsers();
-    </script>
+async function init(){
+  document.getElementById('dash-time').textContent = new Date().toLocaleString('uz-UZ');
+  try{
+    const [stats,users]=await Promise.all([fetch('/api/stats'),fetch('/api/users')]);
+    statsData=await stats.json();
+    allUsers=await users.json();
+    renderStats();
+    renderChart();
+    renderDonut();
+    renderChannels();
+    renderUsers(allUsers);
+    document.getElementById('nb-u').textContent=allUsers.length;
+    document.getElementById('nb-ch').textContent=statsData.channels?.length||0;
+    document.getElementById('u-count').textContent=`Jami: ${allUsers.length} ta foydalanuvchi`;
+  }catch(e){console.error(e);}
+}
+
+function renderStats(){
+  const s=statsData;
+  document.getElementById('s-total').textContent=s.total;
+  document.getElementById('s-active').textContent=s.active;
+  document.getElementById('s-blocked').textContent=s.blocked;
+  document.getElementById('s-today').textContent=s.today_active;
+  document.getElementById('s-week').textContent=s.week_active;
+  document.getElementById('s-month').textContent=s.month_active;
+  document.getElementById('s-today-new').textContent=s.today_new;
+  document.getElementById('s-week-new').textContent=s.week_new;
+}
+
+function renderChart(){
+  const daily=statsData.daily_stats;
+  const max=Math.max(...daily.map(d=>d.count),1);
+  document.getElementById('chart').innerHTML=daily.map(d=>{
+    const h=Math.max((d.count/max)*140,3);
+    return `<div class="bar-col">
+      <div class="bar-v">${d.count}</div>
+      <div class="bar" style="height:${h}px"></div>
+      <div class="bar-d">${d.date}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderDonut(){
+  const s=statsData, total=s.total||1;
+  const C=2*Math.PI*42;
+  const aRatio=s.active/total, bRatio=s.blocked/total;
+  const aLen=C*aRatio, bLen=C*bRatio;
+  const aOff=0, bOff=-(aLen);
+  document.getElementById('donut-active').setAttribute('stroke-dasharray',`${aLen} ${C-aLen}`);
+  document.getElementById('donut-active').setAttribute('stroke-dashoffset','0');
+  document.getElementById('donut-blocked').setAttribute('stroke-dasharray',`${bLen} ${C-bLen}`);
+  document.getElementById('donut-blocked').setAttribute('stroke-dashoffset',`${bOff}`);
+  document.getElementById('leg-active').textContent=`Faol: ${s.active} (${Math.round(aRatio*100)}%)`;
+  document.getElementById('leg-blocked').textContent=`Bloklangan: ${s.blocked} (${Math.round(bRatio*100)}%)`;
+}
+
+function renderChannels(){
+  const chs=statsData.channels||[];
+  const grid=document.getElementById('channels-grid');
+  if(!chs.length){grid.innerHTML='<div class="empty">Kanallar topilmadi</div>';return;}
+  grid.innerHTML=chs.map(ch=>{
+    const uname=ch.username?`@${ch.username}`:'—';
+    const link=ch.username?`https://t.me/${ch.username}`:(ch.link||'#');
+    const added=ch.added_at?new Date(ch.added_at).toLocaleDateString('uz-UZ'):'—';
+    const badge=ch.is_active
+      ?'<span class="ch-badge on">✅ Faol</span>'
+      :'<span class="ch-badge off">🚫 Nofaol</span>';
+    return `<div class="ch-card">
+      <div class="ch-head">
+        <div class="ch-icon">📢</div>
+        <div>
+          <div class="ch-name">${ch.title}</div>
+          <div class="ch-user"><a href="${link}" target="_blank">${uname}</a></div>
+        </div>
+        ${badge}
+      </div>
+      <div class="ch-stats">
+        <div class="ch-stat b">
+          <div class="ch-stat-val">${ch.users_before}</div>
+          <div class="ch-stat-lbl">Qo'shilishdan oldin</div>
+        </div>
+        <div class="ch-stat g">
+          <div class="ch-stat-val">+${ch.users_after}</div>
+          <div class="ch-stat-lbl">Keyin kelgan</div>
+        </div>
+        <div class="ch-stat p">
+          <div class="ch-stat-val">${ch.users_before+ch.users_after}</div>
+          <div class="ch-stat-lbl">Jami</div>
+        </div>
+      </div>
+      <div class="ch-footer">🗓 Qo'shilgan: ${added} &nbsp;|&nbsp; ID: <code>${ch.tg_id}</code></div>
+    </div>`;
+  }).join('');
+}
+
+function renderUsers(users){
+  const tbody=document.getElementById('users-table');
+  if(!users.length){tbody.innerHTML='<tr><td colspan="7" class="empty">Topilmadi</td></tr>';return;}
+  tbody.innerHTML=users.map((u,i)=>{
+    const name=((u.first_name||'')+' '+(u.last_name||'')).trim()||'—';
+    const uname=u.username?`@${u.username}`:'—';
+    const link=u.username?`https://t.me/${u.username}`:`tg://user?id=${u.tg_id}`;
+    const badge=u.is_blocked?'<span class="badge badge-off">🚫</span>':'<span class="badge badge-on">✅</span>';
+    const last=u.last_activity?new Date(u.last_activity).toLocaleString('uz-UZ'):'—';
+    const created=u.created_at?new Date(u.created_at).toLocaleDateString('uz-UZ'):'—';
+    return `<tr>
+      <td>${i+1}</td>
+      <td><a href="${link}" target="_blank">${name}</a></td>
+      <td>${uname}</td>
+      <td><code>${u.tg_id}</code></td>
+      <td>${badge}</td>
+      <td>${last}</td>
+      <td>${created}</td>
+    </tr>`;
+  }).join('');
+}
+
+document.getElementById('search').addEventListener('input',e=>{
+  const q=e.target.value.toLowerCase();
+  renderUsers(allUsers.filter(u=>{
+    const n=((u.first_name||'')+' '+(u.last_name||'')).toLowerCase();
+    return n.includes(q)||(u.username||'').toLowerCase().includes(q)||String(u.tg_id).includes(q);
+  }));
+});
+
+init();
+</script>
 </body>
 </html>
