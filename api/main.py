@@ -204,9 +204,86 @@ async def get_users_json(session_token: str | None = Cookie(default=None)):
             "username": u.username,
             "is_blocked": u.is_blocked,
             "last_activity": u.last_activity.isoformat() if u.last_activity else None,
+            "created_at": u.created_at.isoformat() if u.created_at else None,
         }
         for u in users
     ]
+
+
+@app.get("/api/stats")
+async def get_stats_json(session_token: str | None = Cookie(default=None)):
+    if not is_authenticated(session_token):
+        return Response(status_code=401, content="Unauthorized")
+
+    from datetime import datetime, timedelta
+    from sqlalchemy import func
+
+    now = datetime.utcnow()
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    week_start = today_start - timedelta(days=now.weekday())
+    month_start = today_start.replace(day=1)
+
+    async with get_async_session_context() as session:
+        total = (await session.execute(select(func.count(User.id)))).scalar() or 0
+        active = (await session.execute(
+            select(func.count(User.id)).where(User.is_blocked == False)
+        )).scalar() or 0
+        blocked = (await session.execute(
+            select(func.count(User.id)).where(User.is_blocked == True)
+        )).scalar() or 0
+
+        # Bugungi faol userlar
+        today_active = (await session.execute(
+            select(func.count(User.id)).where(User.last_activity >= today_start)
+        )).scalar() or 0
+
+        # Haftalik faol
+        week_active = (await session.execute(
+            select(func.count(User.id)).where(User.last_activity >= week_start)
+        )).scalar() or 0
+
+        # Oylik faol
+        month_active = (await session.execute(
+            select(func.count(User.id)).where(User.last_activity >= month_start)
+        )).scalar() or 0
+
+        # Bugun qo'shilganlar
+        today_new = (await session.execute(
+            select(func.count(User.id)).where(User.created_at >= today_start)
+        )).scalar() or 0
+
+        # Hafta davomida qo'shilganlar
+        week_new = (await session.execute(
+            select(func.count(User.id)).where(User.created_at >= week_start)
+        )).scalar() or 0
+
+        # Oxirgi 7 kun statistikasi (kunlik)
+        daily_stats = []
+        for i in range(6, -1, -1):
+            day_start = today_start - timedelta(days=i)
+            day_end = day_start + timedelta(days=1)
+            count = (await session.execute(
+                select(func.count(User.id)).where(
+                    User.last_activity >= day_start,
+                    User.last_activity < day_end,
+                )
+            )).scalar() or 0
+            daily_stats.append({
+                "date": day_start.strftime("%d/%m"),
+                "count": count,
+            })
+
+    return {
+        "total": total,
+        "active": active,
+        "blocked": blocked,
+        "today_active": today_active,
+        "week_active": week_active,
+        "month_active": month_active,
+        "today_new": today_new,
+        "week_new": week_new,
+        "daily_stats": daily_stats,
+    }
 
 
 @app.post("/webhook")

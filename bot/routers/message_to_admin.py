@@ -7,10 +7,9 @@ from aiogram.filters import Command
 from aiogram.enums import ChatAction
 from dotenv import load_dotenv
 
-
+load_dotenv()
 
 router = Router()
-load_dotenv()
 ADMIN = int(os.getenv("ADMIN"))
 
 
