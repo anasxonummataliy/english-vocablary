@@ -3,216 +3,469 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Vocabulary Bot — Users</title>
+    <title>Admin Panel — English Vocabulary Bot</title>
     <style>
+        :root {
+            --primary: #1e293b;
+            --primary-light: #334155;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            --radius: 12px;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f0f2f5;
-            padding: 20px;
-            color: #1a1a2e;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
         }
-        .container { max-width: 1200px; margin: 0 auto; }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            color: #16213e;
-        }
-        .stats {
+
+        /* Sidebar */
+        .layout { display: flex; min-height: 100vh; }
+        .sidebar {
+            width: 240px;
+            background: var(--primary);
+            color: white;
+            padding: 24px 16px;
             display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 100;
+        }
+        .sidebar-logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 0 8px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 24px;
+        }
+        .sidebar-nav { flex: 1; }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            transition: all 0.15s;
+            margin-bottom: 4px;
+        }
+        .nav-item:hover { background: rgba(255,255,255,0.08); color: white; }
+        .nav-item.active { background: var(--accent); color: white; }
+        .nav-item .icon { font-size: 1.1rem; }
+        .sidebar-footer {
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .logout-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.15s;
+        }
+        .logout-link:hover { background: rgba(239,68,68,0.2); color: #fca5a5; }
+
+        /* Main content */
+        .main { flex: 1; margin-left: 240px; padding: 28px 32px; }
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 28px;
         }
         .stat-card {
-            background: white;
-            border-radius: 12px;
-            padding: 15px 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            text-align: center;
-            min-width: 150px;
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
         }
-        .stat-card .number {
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+        }
+        .stat-card.blue::before { background: var(--accent); }
+        .stat-card.green::before { background: var(--success); }
+        .stat-card.red::before { background: var(--danger); }
+        .stat-card.orange::before { background: var(--warning); }
+        .stat-number {
             font-size: 2rem;
-            font-weight: 700;
-            color: #0f3460;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 6px;
         }
-        .stat-card .label {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 4px;
+        .stat-card.blue .stat-number { color: var(--accent); }
+        .stat-card.green .stat-number { color: var(--success); }
+        .stat-card.red .stat-number { color: var(--danger); }
+        .stat-card.orange .stat-number { color: var(--warning); }
+        .stat-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+
+        /* Chart */
+        .chart-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            margin-bottom: 28px;
         }
-        .stat-card.active .number { color: #27ae60; }
-        .stat-card.blocked .number { color: #e74c3c; }
-        .search-box {
+        .chart-header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
         }
-        .search-box input {
-            padding: 10px 16px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 400px;
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.2s;
+        .chart-title { font-size: 1rem; font-weight: 600; }
+        .chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            height: 180px;
         }
-        .search-box input:focus { border-color: #2980b9; }
-        table {
+        .bar-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: flex-end;
+        }
+        .bar-val {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .bar {
             width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
+            max-width: 36px;
+            background: linear-gradient(180deg, var(--accent), #60a5fa);
+            border-radius: 6px 6px 2px 2px;
+            min-height: 3px;
+            transition: height 0.4s ease;
+        }
+        .bar-date {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* Table section */
+        .table-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
+        .table-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .table-title { font-size: 0.95rem; font-weight: 600; }
+        .search-input {
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            outline: none;
+            width: 280px;
+            transition: border-color 0.15s;
+        }
+        .search-input:focus { border-color: var(--accent); }
+        table { width: 100%; border-collapse: collapse; }
         th, td {
-            padding: 12px 16px;
+            padding: 11px 16px;
             text-align: left;
-            border-bottom: 1px solid #eee;
+            font-size: 0.84rem;
+            border-bottom: 1px solid var(--border);
         }
         th {
-            background: #16213e;
-            color: white;
+            background: #f8fafc;
             font-weight: 600;
-            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-size: 0.76rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        tr:hover { background: #f8f9fa; }
         tr:last-child td { border-bottom: none; }
-        a { color: #2980b9; text-decoration: none; }
+        tr:hover td { background: #f1f5f9; }
+        a { color: var(--accent); text-decoration: none; font-weight: 500; }
         a:hover { text-decoration: underline; }
         code {
-            background: #ecf0f1;
-            padding: 2px 6px;
+            background: #f1f5f9;
+            padding: 2px 7px;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            color: var(--primary);
         }
-        .status-active { color: #27ae60; font-weight: 600; }
-        .status-blocked { color: #e74c3c; font-weight: 600; }
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-            font-size: 1.1rem;
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
         }
+        .badge-active { background: #d1fae5; color: #065f46; }
+        .badge-blocked { background: #fee2e2; color: #991b1b; }
+        .empty-state { text-align: center; padding: 40px; color: var(--text-muted); }
+
+        /* Page sections */
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* Mobile */
+        .mobile-header {
+            display: none;
+            padding: 16px 20px;
+            background: var(--primary);
+            color: white;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hamburger { font-size: 1.4rem; cursor: pointer; }
         @media (max-width: 768px) {
-            table { font-size: 0.85rem; }
-            th, td { padding: 8px 10px; }
-            h1 { font-size: 1.4rem; }
+            .sidebar { transform: translateX(-100%); transition: transform 0.2s; }
+            .sidebar.open { transform: translateX(0); }
+            .main { margin-left: 0; padding: 16px; }
+            .mobile-header { display: flex; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .search-input { width: 100%; }
+            .table-header { flex-direction: column; align-items: stretch; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>📚 English Vocabulary Bot — Foydalanuvchilar</h1>
-        <div style="text-align: right; margin-bottom: 10px;">
-            <a href="/logout" style="background:#e74c3c;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:0.85rem;">🚪 Chiqish</a>
-        </div>
+    <div class="mobile-header">
+        <span style="font-weight:700">📚 Vocab Bot</span>
+        <span class="hamburger" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</span>
+    </div>
 
-        <div class="stats">
-            <div class="stat-card">
-                <div class="number" id="total">—</div>
-                <div class="label">Jami foydalanuvchilar</div>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-logo">📚 Vocabulary Bot</div>
+            <nav class="sidebar-nav">
+                <div class="nav-item active" onclick="showPage('dashboard', this)">
+                    <span class="icon">📊</span> Dashboard
+                </div>
+                <div class="nav-item" onclick="showPage('users-page', this)">
+                    <span class="icon">👥</span> Foydalanuvchilar
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="/logout" class="logout-link">
+                    <span>🚪</span> Chiqish
+                </a>
             </div>
-            <div class="stat-card active">
-                <div class="number" id="active">—</div>
-                <div class="label">Faol</div>
-            </div>
-            <div class="stat-card blocked">
-                <div class="number" id="blocked">—</div>
-                <div class="label">Bloklangan</div>
-            </div>
-        </div>
+        </aside>
 
-        <div class="search-box">
-            <input type="text" id="search" placeholder="🔍 Qidirish (ism, username, ID)...">
-        </div>
+        <main class="main">
+            <!-- DASHBOARD -->
+            <div id="dashboard" class="page active">
+                <div class="page-title">Dashboard</div>
+                <div class="stats-grid">
+                    <div class="stat-card blue">
+                        <div class="stat-number" id="s-total">—</div>
+                        <div class="stat-label">Jami foydalanuvchilar</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-number" id="s-active">—</div>
+                        <div class="stat-label">Faol</div>
+                    </div>
+                    <div class="stat-card red">
+                        <div class="stat-number" id="s-blocked">—</div>
+                        <div class="stat-label">Bloklangan</div>
+                    </div>
+                    <div class="stat-card blue">
+                        <div class="stat-number" id="s-today">—</div>
+                        <div class="stat-label">Bugun faol</div>
+                    </div>
+                    <div class="stat-card orange">
+                        <div class="stat-number" id="s-week">—</div>
+                        <div class="stat-label">Haftalik faol</div>
+                    </div>
+                    <div class="stat-card orange">
+                        <div class="stat-number" id="s-month">—</div>
+                        <div class="stat-label">Oylik faol</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-number" id="s-today-new">—</div>
+                        <div class="stat-label">Bugun yangi</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-number" id="s-week-new">—</div>
+                        <div class="stat-label">Hafta yangi</div>
+                    </div>
+                </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Ism</th>
-                    <th>Username</th>
-                    <th>Telegram ID</th>
-                    <th>Holat</th>
-                    <th>Oxirgi faollik</th>
-                </tr>
-            </thead>
-            <tbody id="users-table">
-                <tr><td colspan="6" class="loading">Yuklanmoqda...</td></tr>
-            </tbody>
-        </table>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">📈 Oxirgi 7 kun — kunlik faol foydalanuvchilar</div>
+                    </div>
+                    <div class="chart" id="chart"></div>
+                </div>
+            </div>
+
+            <!-- USERS -->
+            <div id="users-page" class="page">
+                <div class="page-title">Foydalanuvchilar</div>
+                <div class="table-card">
+                    <div class="table-header">
+                        <div class="table-title" id="user-count">Yuklanmoqda...</div>
+                        <input type="text" class="search-input" id="search" placeholder="🔍 Qidirish...">
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Foydalanuvchi</th>
+                                <th>Username</th>
+                                <th>Telegram ID</th>
+                                <th>Holat</th>
+                                <th>Oxirgi faollik</th>
+                                <th>Qo'shilgan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table">
+                            <tr><td colspan="7" class="empty-state">Yuklanmoqda...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
     </div>
 
     <script>
+        let allUsers = [];
+
+        function showPage(pageId, el) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            el.classList.add('active');
+            document.querySelector('.sidebar').classList.remove('open');
+        }
+
+        async function loadStats() {
+            try {
+                const res = await fetch('/api/stats');
+                const s = await res.json();
+                document.getElementById('s-total').textContent = s.total;
+                document.getElementById('s-active').textContent = s.active;
+                document.getElementById('s-blocked').textContent = s.blocked;
+                document.getElementById('s-today').textContent = s.today_active;
+                document.getElementById('s-week').textContent = s.week_active;
+                document.getElementById('s-month').textContent = s.month_active;
+                document.getElementById('s-today-new').textContent = s.today_new;
+                document.getElementById('s-week-new').textContent = s.week_new;
+                renderChart(s.daily_stats);
+            } catch (e) { console.error(e); }
+        }
+
+        function renderChart(daily) {
+            const chart = document.getElementById('chart');
+            const max = Math.max(...daily.map(d => d.count), 1);
+            chart.innerHTML = daily.map(d => {
+                const h = Math.max((d.count / max) * 150, 3);
+                return `<div class="bar-col">
+                    <div class="bar-val">${d.count}</div>
+                    <div class="bar" style="height:${h}px"></div>
+                    <div class="bar-date">${d.date}</div>
+                </div>`;
+            }).join('');
+        }
+
         async function loadUsers() {
             try {
                 const res = await fetch('/api/users');
-                const users = await res.json();
-
-                const total = users.length;
-                const active = users.filter(u => !u.is_blocked).length;
-                const blocked = users.filter(u => u.is_blocked).length;
-
-                document.getElementById('total').textContent = total;
-                document.getElementById('active').textContent = active;
-                document.getElementById('blocked').textContent = blocked;
-
-                renderTable(users);
-
+                allUsers = await res.json();
+                document.getElementById('user-count').textContent = `Jami: ${allUsers.length} ta`;
+                renderTable(allUsers);
                 document.getElementById('search').addEventListener('input', (e) => {
                     const q = e.target.value.toLowerCase();
-                    const filtered = users.filter(u => {
-                        const name = ((u.first_name || '') + ' ' + (u.last_name || '')).toLowerCase();
-                        const username = (u.username || '').toLowerCase();
-                        const tgId = String(u.tg_id);
-                        return name.includes(q) || username.includes(q) || tgId.includes(q);
+                    const filtered = allUsers.filter(u => {
+                        const name = ((u.first_name||'') + ' ' + (u.last_name||'')).toLowerCase();
+                        const uname = (u.username||'').toLowerCase();
+                        return name.includes(q) || uname.includes(q) || String(u.tg_id).includes(q);
                     });
                     renderTable(filtered);
                 });
-            } catch (err) {
-                document.getElementById('users-table').innerHTML =
-                    '<tr><td colspan="6" class="loading">❌ Xatolik yuz berdi</td></tr>';
+            } catch (e) {
+                document.getElementById('users-table').innerHTML = '<tr><td colspan="7" class="empty-state">❌ Xatolik</td></tr>';
             }
         }
 
         function renderTable(users) {
             const tbody = document.getElementById('users-table');
-            if (users.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="6" class="loading">Foydalanuvchilar topilmadi</td></tr>';
+            if (!users.length) {
+                tbody.innerHTML = '<tr><td colspan="7" class="empty-state">Topilmadi</td></tr>';
                 return;
             }
-
-            tbody.innerHTML = users.map((user, i) => {
-                const fullName = ((user.first_name || '') + ' ' + (user.last_name || '')).trim() || '—';
-                const username = user.username ? `@${user.username}` : '—';
-                const link = user.username
-                    ? `https://t.me/${user.username}`
-                    : `tg://user?id=${user.tg_id}`;
-                const statusClass = user.is_blocked ? 'status-blocked' : 'status-active';
-                const statusText = user.is_blocked ? '🚫 Blocked' : '✅ Active';
-                const lastActive = user.last_activity
-                    ? new Date(user.last_activity).toLocaleString('uz-UZ')
-                    : '—';
-
+            tbody.innerHTML = users.map((u, i) => {
+                const name = ((u.first_name||'') + ' ' + (u.last_name||'')).trim() || '—';
+                const uname = u.username ? `@${u.username}` : '—';
+                const link = u.username ? `https://t.me/${u.username}` : `tg://user?id=${u.tg_id}`;
+                const badge = u.is_blocked
+                    ? '<span class="badge badge-blocked">🚫 Blocked</span>'
+                    : '<span class="badge badge-active">✅ Active</span>';
+                const last = u.last_activity ? new Date(u.last_activity).toLocaleString('uz-UZ') : '—';
+                const created = u.created_at ? new Date(u.created_at).toLocaleDateString('uz-UZ') : '—';
                 return `<tr>
-                    <td>${i + 1}</td>
-                    <td><a href="${link}" target="_blank">${fullName}</a></td>
-                    <td>${username}</td>
-                    <td><code>${user.tg_id}</code></td>
-                    <td class="${statusClass}">${statusText}</td>
-                    <td>${lastActive}</td>
+                    <td>${i+1}</td>
+                    <td><a href="${link}" target="_blank">${name}</a></td>
+                    <td>${uname}</td>
+                    <td><code>${u.tg_id}</code></td>
+                    <td>${badge}</td>
+                    <td>${last}</td>
+                    <td>${created}</td>
                 </tr>`;
             }).join('');
         }
 
+        loadStats();
         loadUsers();
     </script>
 </body>
