@@ -39,7 +39,8 @@ async def broadcast_handler(message: Message, bot: Bot, state: FSMContext):
 
     success = 0
     failed = 0
-    blocked = 0
+    newly_blocked = 0
+    unblocked = 0
 
     status_msg = await message.answer("📨 Xabarlar yuborilmoqda...")
 
@@ -47,19 +48,31 @@ async def broadcast_handler(message: Message, bot: Bot, state: FSMContext):
         try:
             await bot.send_message(user.tg_id, message.text)
             success += 1
+
+            # Xabar yuborildi — agar oldin blocked deb belgilangan bo'lsa, active qilish
+            if user.is_blocked:
+                async with get_async_session_context() as session:
+                    db_user = await session.get(User, user.id)
+                    if db_user:
+                        db_user.is_blocked = False
+                        await session.commit()
+                unblocked += 1
+                print(f"✅ {user.tg_id} - blokdan chiqdi (xabar qabul qildi)")
+
             await asyncio.sleep(0.05)
 
         except TelegramForbiddenError:
             failed += 1
-            blocked += 1
 
-            async with get_async_session_context() as session:
-                db_user = await session.get(User, user.id)
-                if db_user:
-                    db_user.is_blocked = True
-                    await session.commit()
-
-            print(f"🚫 {user.tg_id} - bot bloklangan")
+            # Hali blocked emas bo'lsa, blocked deb belgilash
+            if not user.is_blocked:
+                async with get_async_session_context() as session:
+                    db_user = await session.get(User, user.id)
+                    if db_user:
+                        db_user.is_blocked = True
+                        await session.commit()
+                newly_blocked += 1
+                print(f"🚫 {user.tg_id} - bot bloklangan")
 
         except Exception as e:
             failed += 1
@@ -67,9 +80,12 @@ async def broadcast_handler(message: Message, bot: Bot, state: FSMContext):
 
     await state.clear()
 
+    unblocked_line = f"\n🔓 Blokdan chiqqan: {unblocked}" if unblocked else ""
+
     await status_msg.edit_text(
         f"📢 Broadcast yakunlandi\n\n"
         f"✅ Yuborildi: {success}\n"
         f"❌ Yuborilmadi: {failed}\n"
-        f"🚫 Bloklagan: {blocked}"
+        f"🚫 Yangi bloklagan: {newly_blocked}"
+        f"{unblocked_line}"
     )

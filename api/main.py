@@ -217,6 +217,7 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
 
     from datetime import datetime, timedelta
     from sqlalchemy import func
+    from bot.database.models.channels import Channel
 
     now = datetime.utcnow()
     today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
@@ -231,33 +232,22 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
         blocked = (await session.execute(
             select(func.count(User.id)).where(User.is_blocked == True)
         )).scalar() or 0
-
-        # Bugungi faol userlar
         today_active = (await session.execute(
             select(func.count(User.id)).where(User.last_activity >= today_start)
         )).scalar() or 0
-
-        # Haftalik faol
         week_active = (await session.execute(
             select(func.count(User.id)).where(User.last_activity >= week_start)
         )).scalar() or 0
-
-        # Oylik faol
         month_active = (await session.execute(
             select(func.count(User.id)).where(User.last_activity >= month_start)
         )).scalar() or 0
-
-        # Bugun qo'shilganlar
         today_new = (await session.execute(
             select(func.count(User.id)).where(User.created_at >= today_start)
         )).scalar() or 0
-
-        # Hafta davomida qo'shilganlar
         week_new = (await session.execute(
             select(func.count(User.id)).where(User.created_at >= week_start)
         )).scalar() or 0
 
-        # Oxirgi 7 kun statistikasi (kunlik)
         daily_stats = []
         for i in range(6, -1, -1):
             day_start = today_start - timedelta(days=i)
@@ -268,9 +258,38 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
                     User.last_activity < day_end,
                 )
             )).scalar() or 0
-            daily_stats.append({
-                "date": day_start.strftime("%d/%m"),
-                "count": count,
+            daily_stats.append({"date": day_start.strftime("%d/%m"), "count": count})
+
+        # Channels data
+        channels_result = await session.execute(select(Channel))
+        channels = channels_result.scalars().all()
+
+        channels_data = []
+        for ch in channels:
+            # Kanal qo'shilgan vaqtdan oldin va keyin userlar soni
+            added_at = ch.created_at if hasattr(ch, 'created_at') and ch.created_at else None
+
+            if added_at:
+                before_count = (await session.execute(
+                    select(func.count(User.id)).where(User.created_at < added_at)
+                )).scalar() or 0
+                after_count = (await session.execute(
+                    select(func.count(User.id)).where(User.created_at >= added_at)
+                )).scalar() or 0
+            else:
+                before_count = 0
+                after_count = total
+
+            channels_data.append({
+                "id": ch.id,
+                "tg_id": ch.tg_id,
+                "title": ch.channel_title,
+                "username": ch.channel_username,
+                "link": ch.channel_link,
+                "is_active": ch.is_active,
+                "added_at": added_at.isoformat() if added_at else None,
+                "users_before": before_count,
+                "users_after": after_count,
             })
 
     return {
@@ -283,6 +302,7 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
         "today_new": today_new,
         "week_new": week_new,
         "daily_stats": daily_stats,
+        "channels": channels_data,
     }
 
 
