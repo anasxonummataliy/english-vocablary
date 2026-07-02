@@ -95,7 +95,7 @@ async def start_flashcard(callback: CallbackQuery, redis: Redis):
     level = "".join(filter(str.isalnum, raw_level)).lower()
 
     try:
-        unit_num = int(unit_id_str.replace("Unit", "").strip())
+        unit_num = int(unit_id_str.replace("Unit", "").replace("_", "").strip())
     except ValueError:
         await callback.answer("❌ Unit raqamini aniqlashda xatolik.", show_alert=True)
         return
