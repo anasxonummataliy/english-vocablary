@@ -124,7 +124,28 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
     )
 
     MAX_LEN = 4000
-    chunks = [text[i:i+MAX_LEN] for i in range(0, len(text), MAX_LEN)]
+    # HTML teglar o'rtasida qirqmaslik — so'z chegarasida qirqamiz
+    if len(text) <= MAX_LEN:
+        chunks = [text]
+    else:
+        # So'zlarni ajratib chiqamiz — har bir so'z bloki alohida
+        # So'z bloklari `\n\n{'─' * 18}\n\n` bilan ajratilgan
+        separator = f"\n{'─' * 18}\n\n"
+        parts = text.split(separator)
+        chunks = []
+        current = ""
+        for part in parts:
+            if len(current) + len(part) + len(separator) > MAX_LEN:
+                if current:
+                    chunks.append(current.rstrip())
+                current = part
+            else:
+                if current:
+                    current += separator + part
+                else:
+                    current = part
+        if current:
+            chunks.append(current.rstrip())
 
     try:
         await callback.message.edit_text(
