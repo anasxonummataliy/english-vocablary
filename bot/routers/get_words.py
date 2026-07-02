@@ -47,22 +47,23 @@ async def get_unit_info(level: str, unit_id: int) -> dict | None:
 
 
 def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) -> str:
+    import html
     level_display = level.capitalize()
 
     text = (
         f"📚 <b>{level_display} — Unit {unit_id}</b>\n"
-        f"📌 <b>{unit_info['title']}</b>\n"
-        f"<i>{unit_info['topic']}</i>\n\n"
+        f"📌 <b>{html.escape(unit_info['title'])}</b>\n"
+        f"<i>{html.escape(unit_info['topic'])}</i>\n\n"
         f"{'━' * 20}\n\n"
     )
 
     for i, word in enumerate(words, start=1):
-        word_str = word.get("word", "")
-        transcription = word.get("transcription", "")
-        pos = word.get("part_of_speech", "")
-        uzbek = word.get("uzbek", "—")
-        description = word.get("description", "")
-        example = word.get("example", "")
+        word_str = html.escape(word.get("word", ""))
+        transcription = html.escape(word.get("transcription", ""))
+        pos = html.escape(word.get("part_of_speech", ""))
+        uzbek = html.escape(word.get("uzbek", "—"))
+        description = html.escape(word.get("description", ""))
+        example = html.escape(word.get("example", ""))
 
         text += (
             f"<b>{i}. {word_str}</b>  <code>{transcription}</code>\n"
