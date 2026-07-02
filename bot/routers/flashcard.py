@@ -15,34 +15,36 @@ router = Router()
 # ==================== FLASH CARD TUR TANLASH ====================
 @router.callback_query(F.data.startswith("flash_"))
 async def flash_mode_selection(callback: CallbackQuery):
-    unit_id = callback.data.removeprefix("flash_")
+    # unit_id "Unit 5" formatida keladi — bo'sh joyni _ bilan almashtiramiz
+    unit_raw = callback.data.removeprefix("flash_")
+    unit_safe = unit_raw.replace(" ", "_")  # "Unit 5" -> "Unit_5"
 
     ikb = InlineKeyboardBuilder()
     ikb.row(
         InlineKeyboardButton(
             text="🇺🇿 O'zbekcha → 🇬🇧 Inglizcha",
-            callback_data=f"fmode_uz_en_{unit_id}",
+            callback_data=f"fmode_uz_en_{unit_safe}",
             style="success",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="🇬🇧 Inglizcha → 🇺🇿 O'zbekcha",
-            callback_data=f"fmode_en_uz_{unit_id}",
+            callback_data=f"fmode_en_uz_{unit_safe}",
             style="success",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="📖 Ta'rif → 🇬🇧 Inglizcha",
-            callback_data=f"fmode_desc_en_{unit_id}",
+            callback_data=f"fmode_desc_en_{unit_safe}",
             style="primary",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="⬅️ Orqaga",
-            callback_data=f"select_{unit_id}",
+            callback_data=f"select_{unit_raw}",
         )
     )
 
@@ -62,14 +64,23 @@ async def flash_mode_selection(callback: CallbackQuery):
 # ==================== FLASH CARD BOSHLASH ====================
 @router.callback_query(F.data.startswith("fmode_"))
 async def start_flashcard(callback: CallbackQuery, redis: Redis):
-    parts = callback.data.split("_")
-    # fmode_uz_en_Unit 5 yoki fmode_desc_en_Unit 5
-    if parts[1] == "desc":
+    data = callback.data  # fmode_uz_en_Unit 5 yoki fmode_desc_en_Unit 5
+    raw = data.removeprefix("fmode_")
+
+    # mode va unit_id ni ajratish
+    # format: uz_en_Unit 5 | en_uz_Unit 5 | desc_en_Unit 5
+    if raw.startswith("desc_en_"):
         mode = "desc_en"
-        unit_id_str = "_".join(parts[3:])
+        unit_id_str = raw.removeprefix("desc_en_").strip()
+    elif raw.startswith("uz_en_"):
+        mode = "uz_en"
+        unit_id_str = raw.removeprefix("uz_en_").strip()
+    elif raw.startswith("en_uz_"):
+        mode = "en_uz"
+        unit_id_str = raw.removeprefix("en_uz_").strip()
     else:
-        mode = f"{parts[1]}_{parts[2]}"
-        unit_id_str = "_".join(parts[3:])
+        await callback.answer("❌ Noto'g'ri format.", show_alert=True)
+        return
 
     user_id = callback.from_user.id
 

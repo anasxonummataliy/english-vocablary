@@ -116,7 +116,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
     ikb.row(
         InlineKeyboardButton(
             text="🧪 Testni boshlash",
-            callback_data=f"test_{unit_id}",
+            callback_data=f"test_Unit {unit_id}",
             style="success",
         )
     )
@@ -130,16 +130,27 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
     ikb.row(
         InlineKeyboardButton(
             text="⬅️ Orqaga",
-            callback_data=f"select_unit_{unit_id}",
+            callback_data=f"select_Unit {unit_id}",
         )
     )
 
+    # Telegram 4096 belgi limitiga bo'lish
+    MAX_LEN = 4000
+    chunks = [text[i:i+MAX_LEN] for i in range(0, len(text), MAX_LEN)]
+
     try:
         await callback.message.edit_text(
-            text,
+            chunks[0],
             parse_mode="HTML",
-            reply_markup=ikb.as_markup(),
+            reply_markup=ikb.as_markup() if len(chunks) == 1 else None,
         )
+        for chunk in chunks[1:]:
+            is_last = chunk == chunks[-1]
+            await callback.message.answer(
+                chunk,
+                parse_mode="HTML",
+                reply_markup=ikb.as_markup() if is_last else None,
+            )
     except TelegramBadRequest:
         pass
 

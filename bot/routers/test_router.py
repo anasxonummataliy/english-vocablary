@@ -34,30 +34,32 @@ def _cancel_timeout(user_id: int):
 
 @router.callback_query(F.data.startswith("test_"))
 async def test_type_selection(callback: CallbackQuery):
-    unit_id = callback.data.replace("test_", "")
+    unit_raw = callback.data.replace("test_", "")
+    unit_safe = unit_raw.replace(" ", "_")  # "Unit 5" -> "Unit_5"
+
     ikb = InlineKeyboardBuilder()
     ikb.row(
         InlineKeyboardButton(
             text="🇺🇿 O'zbekcha → 🇬🇧 Inglizcha",
-            callback_data=f"tmode_uz_en_{unit_id}",
+            callback_data=f"tmode_uz_en_{unit_safe}",
             style="success",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="🇬🇧 Inglizcha → 🇺🇿 O'zbekcha",
-            callback_data=f"tmode_en_uz_{unit_id}",
+            callback_data=f"tmode_en_uz_{unit_safe}",
             style="success",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="📖 Ta'rifdan so'zni top",
-            callback_data=f"tmode_desc_{unit_id}",
+            callback_data=f"tmode_desc_{unit_safe}",
             style="primary",
         )
     )
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data=f"select_{unit_id}"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data=f"select_{unit_raw}"))
 
     try:
         await callback.message.edit_text(
@@ -75,10 +77,28 @@ async def test_type_selection(callback: CallbackQuery):
 # ==================== TEST BOSHLASH ====================
 @router.callback_query(F.data.startswith("tmode_"))
 async def start_test_by_mode(callback: CallbackQuery, redis: Redis, bot: Bot):
-    parts = callback.data.split("_")
-    mode = f"{parts[1]}_{parts[2]}" if len(parts) >= 4 else parts[1]
-    unit_id_str = parts[-1]
-    unit_num = int(unit_id_str.replace("Unit ", ""))
+    raw = callback.data.removeprefix("tmode_")
+
+    # mode va unit ajratish: uz_en_Unit_5 | en_uz_Unit_5 | desc_Unit_5
+    if raw.startswith("uz_en_"):
+        mode = "uz_en"
+        unit_safe = raw.removeprefix("uz_en_")
+    elif raw.startswith("en_uz_"):
+        mode = "en_uz"
+        unit_safe = raw.removeprefix("en_uz_")
+    elif raw.startswith("desc_"):
+        mode = "desc"
+        unit_safe = raw.removeprefix("desc_")
+    else:
+        await callback.answer("❌ Noto'g'ri format.", show_alert=True)
+        return
+
+    unit_id_str = unit_safe.replace("_", " ")  # "Unit_5" -> "Unit 5"
+    try:
+        unit_num = int(unit_id_str.replace("Unit", "").strip())
+    except ValueError:
+        await callback.answer("❌ Unit raqamini aniqlashda xatolik.", show_alert=True)
+        return
 
     user_id = callback.from_user.id
     _cancel_timeout(user_id)
@@ -90,7 +110,8 @@ async def start_test_by_mode(callback: CallbackQuery, redis: Redis, bot: Bot):
         )
         return
 
-    words = await get_unit_words(user_level_raw.split()[-1].lower(), unit_num)
+    level = "".join(filter(str.isalnum, user_level_raw)).lower()
+    words = await get_unit_words(level, unit_num)
     if not words:
         await callback.answer(
             "❌ Bu unit uchun so'zlar topilmadi. Boshqa unitni tanlang.",
