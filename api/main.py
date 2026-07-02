@@ -1,5 +1,6 @@
 import logging
 import secrets
+from datetime import timedelta
 from pathlib import Path
 
 from fastapi import FastAPI, Request, Response, Cookie
@@ -195,6 +196,7 @@ async def get_users_json(session_token: str | None = Cookie(default=None)):
         result = await session.execute(stmt)
         users = result.scalars().all()
 
+    TZ5 = timedelta(hours=5)
     return [
         {
             "id": u.id,
@@ -203,8 +205,8 @@ async def get_users_json(session_token: str | None = Cookie(default=None)):
             "last_name": u.last_name,
             "username": u.username,
             "is_blocked": u.is_blocked,
-            "last_activity": u.last_activity.isoformat() if u.last_activity else None,
-            "created_at": u.created_at.isoformat() if u.created_at else None,
+            "last_activity": (u.last_activity + TZ5).isoformat() if u.last_activity else None,
+            "created_at": (u.created_at + TZ5).isoformat() if u.created_at else None,
         }
         for u in users
     ]
@@ -215,15 +217,21 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
     if not is_authenticated(session_token):
         return Response(status_code=401, content="Unauthorized")
 
-    from datetime import datetime, timedelta, timezone
+    from datetime import datetime
     from sqlalchemy import func
     from bot.database.models.channels import Channel
 
-    TZ = timezone(timedelta(hours=5))  # Asia/Tashkent UTC+5
-    now = datetime.now(TZ).replace(tzinfo=None)  # naive datetime for DB comparison
-    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
-    week_start = today_start - timedelta(days=now.weekday())
-    month_start = today_start.replace(day=1)
+    TZ_OFFSET = timedelta(hours=5)
+    now_utc = datetime.utcnow()
+    now_tashkent = now_utc + TZ_OFFSET
+
+    # Toshkent vaqtida kunning boshlari, lekin bazaga saqlash UTC sifatida bo'lgani uchun
+    # SQL so'rovlarda UTC chegaralarini ishlatamiz
+    week_dow = now_tashkent.weekday()  # 0=Monday
+
+    today_start = datetime(now_tashkent.year, now_tashkent.month, now_tashkent.day) - TZ_OFFSET
+    week_start = datetime(now_tashkent.year, now_tashkent.month, now_tashkent.day) - timedelta(days=week_dow) - TZ_OFFSET
+    month_start = datetime(now_tashkent.year, now_tashkent.month, 1) - TZ_OFFSET
 
     async with get_async_session_context() as session:
         total = (await session.execute(select(func.count(User.id)))).scalar() or 0
@@ -249,19 +257,24 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
             select(func.count(User.id)).where(User.created_at >= week_start)
         )).scalar() or 0
 
+        # Oxirgi 7 kun (Toshkent kunlari bo'yicha)
         daily_stats = []
         for i in range(6, -1, -1):
-            day_start = today_start - timedelta(days=i)
-            day_end = day_start + timedelta(days=1)
+            day_tashkent = now_tashkent - timedelta(days=i)
+            day_start_utc = datetime(day_tashkent.year, day_tashkent.month, day_tashkent.day) - TZ_OFFSET
+            day_end_utc = day_start_utc + timedelta(days=1)
             count = (await session.execute(
                 select(func.count(User.id)).where(
-                    User.last_activity >= day_start,
-                    User.last_activity < day_end,
+                    User.last_activity >= day_start_utc,
+                    User.last_activity < day_end_utc,
                 )
             )).scalar() or 0
-            daily_stats.append({"date": day_start.strftime("%d/%m"), "count": count})
+            daily_stats.append({
+                "date": day_tashkent.strftime("%d/%m"),
+                "count": count,
+            })
 
-        # Channels data
+        # Channels
         channels_result = await session.execute(select(Channel))
         channels = channels_result.scalars().all()
 
@@ -271,11 +284,9 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
             users_at_join = ch.users_at_join if hasattr(ch, 'users_at_join') and ch.users_at_join is not None else None
 
             if users_at_join is not None:
-                # Kanal qo'shilgan paytdagi user soni saqlanган
                 before_count = users_at_join
                 after_count = total - users_at_join
             elif added_at:
-                # Eski usul — vaqt bo'yicha
                 before_count = (await session.execute(
                     select(func.count(User.id)).where(User.created_at < added_at)
                 )).scalar() or 0
