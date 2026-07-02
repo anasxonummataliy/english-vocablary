@@ -1,62 +1,52 @@
 import os
 import json
+import html
+import logging
 from aiogram import Router, F
 from aiogram.exceptions import TelegramBadRequest
 from aiogram.types import CallbackQuery, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
 
-
 router = Router()
+logger = logging.getLogger(__name__)
 
 
 async def get_unit_words(level: str, unit_id: int) -> list | None:
     file_path = f"data/{level}.json"
-
     if not os.path.exists(file_path):
         return None
-
     with open(file_path, "r", encoding="utf-8") as f:
         data = json.load(f)
-
     for unit in data.get("units", []):
         if int(unit["unit"]) == int(unit_id):
             return unit.get("words", [])
-
     return None
 
 
 async def get_unit_info(level: str, unit_id: int) -> dict | None:
-
     file_path = f"data/{level}.json"
-
     if not os.path.exists(file_path):
         return None
-
     with open(file_path, "r", encoding="utf-8") as f:
         data = json.load(f)
-
     for unit in data.get("units", []):
         if int(unit["unit"]) == int(unit_id):
             return {
                 "title": unit.get("title", ""),
                 "topic": unit.get("topic", ""),
             }
-
     return None
 
 
 def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) -> str:
-    import html
     level_display = level.capitalize()
-
     text = (
         f"📚 <b>{level_display} — Unit {unit_id}</b>\n"
         f"📌 <b>{html.escape(unit_info['title'])}</b>\n"
         f"<i>{html.escape(unit_info['topic'])}</i>\n\n"
         f"{'━' * 20}\n\n"
     )
-
     for i, word in enumerate(words, start=1):
         word_str = html.escape(word.get("word", ""))
         transcription = html.escape(word.get("transcription", ""))
@@ -64,23 +54,21 @@ def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) ->
         uzbek = html.escape(word.get("uzbek", "—"))
         description = html.escape(word.get("description", ""))
         example = html.escape(word.get("example", ""))
-
         text += (
             f"<b>{i}. {word_str}</b>  <code>{transcription}</code>\n"
             f"   🇺🇿 <b>{uzbek}</b>\n"
             f"   📖 <i>{pos}</i> — {description}\n"
             f"   ✏️ <i>{example}</i>\n"
         )
-
         if i < len(words):
             text += f"\n{'─' * 18}\n\n"
-
     return text
 
 
 @router.callback_query(F.data.startswith("words_"))
 async def show_words_handler(callback: CallbackQuery, redis: Redis):
     raw_data = callback.data.removeprefix("words_").strip()
+    print(f"[DEBUG words] callback.data={callback.data!r} raw_data={raw_data!r}", flush=True)
 
     try:
         unit_id = int(raw_data.replace("Unit", "").replace("_", "").strip())
@@ -135,24 +123,6 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         )
     )
 
-    # Telegram 4096 belgi limitiga bo'lish
-    MAX_LEN = 4000
-    chunks = [text[i:i+MAX_LEN] for i in range(0, len(text), MAX_LEN)]
-
-    try:
-        await callback.message.edit_text(
-            chunks[0],
-            parse_mode="HTML",
-            reply_markup=ikb.as_markup() if len(chunks) == 1 else None,
-        )
-        for chunk in chunks[1:]:
-            is_last = chunk == chunks[-1]
-            await callback.message.answer(
-                chunk,
-                parse_mode="HTML",
-                reply_markup=ikb.as_markup() if is_last else None,
-            )
-    # Telegram 4096 belgi limitiga bo'lish
     MAX_LEN = 4000
     chunks = [text[i:i+MAX_LEN] for i in range(0, len(text), MAX_LEN)]
 
@@ -171,7 +141,6 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
             )
     except TelegramBadRequest as e:
         logger.warning(f"edit_text failed: {e}")
-        # edit_text ishlamasa yangi xabar sifatida yuboramiz
         for idx, chunk in enumerate(chunks):
             is_last = (idx == len(chunks) - 1)
             try:
