@@ -355,6 +355,9 @@ async def get_channels_json(session_token: str | None = Cookie(default=None)):
         })
 
     return result
+
+
+@app.post("/webhook")
 async def webhook_handler(request: Request):
     try:
         data = await request.json()
