@@ -444,10 +444,7 @@ function go(pageId,el){
 }
 
 async function init(){
-  // Toshkent vaqti (UTC+5)
-  const tzOffset = 5 * 60;
-  const now = new Date(new Date().getTime() + (tzOffset - new Date().getTimezoneOffset()) * 60000);
-  document.getElementById('dash-time').textContent = now.toLocaleString('uz-UZ');
+  document.getElementById('dash-time').textContent = new Date().toLocaleString('uz-UZ');
   try{
     const [statsRes, usersRes, channelsRes]=await Promise.all([
       fetch('/api/stats'),
@@ -581,9 +578,8 @@ document.getElementById('search').addEventListener('input',e=>{
 function renderActivity(){
   if(!allUsers.length||!statsData) return;
 
-  // Toshkent vaqti (UTC+5)
-  const tzOffsetMs = 5 * 60 * 60 * 1000;
-  const now = new Date(Date.now() + tzOffsetMs - new Date().getTimezoneOffset() * 60000);
+  // Vaqtlar backenddan Toshkent vaqtida keladi (+5 allaqachon qo'shilgan)
+  const now = new Date();
   const todayStart = new Date(now); todayStart.setHours(0,0,0,0);
   const dow = todayStart.getDay()||7;
   const weekStart = new Date(todayStart); weekStart.setDate(todayStart.getDate()-(dow-1));
