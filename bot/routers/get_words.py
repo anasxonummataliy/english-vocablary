@@ -82,7 +82,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
     raw_data = callback.data.removeprefix("words_").strip()
 
     try:
-        unit_id = int(raw_data.replace("Unit", "").strip())
+        unit_id = int(raw_data.replace("Unit", "").replace("_", "").strip())
     except ValueError:
         await callback.answer("❌ Unit raqamini aniqlashda xatolik.", show_alert=True)
         return
@@ -116,7 +116,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
     ikb.row(
         InlineKeyboardButton(
             text="🧪 Testni boshlash",
-            callback_data=f"test_Unit {unit_id}",
+            callback_data=f"test_Unit_{unit_id}",
             style="success",
         )
     )
