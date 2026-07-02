@@ -120,7 +120,8 @@ async def pagination_handler(callback: CallbackQuery, redis: Redis):
 
 @router.callback_query(F.data.startswith("select_"))
 async def select_handler(callback: CallbackQuery, redis: Redis):
-    selected_unit = callback.data.replace("select_", "")
+    selected_unit = callback.data.replace("select_", "")  # "Unit 3"
+    selected_unit_safe = selected_unit.replace(" ", "_")   # "Unit_3" — callback_data uchun
     user_id = callback.from_user.id
 
     user_level = await get_user_context(user_id, redis)
@@ -133,21 +134,21 @@ async def select_handler(callback: CallbackQuery, redis: Redis):
     ikb.row(
         InlineKeyboardButton(
             text="📖 So'zlarni o'rganish",
-            callback_data=f"words_{selected_unit}",
+            callback_data=f"words_{selected_unit_safe}",
             style="success",
         ),
     )
     ikb.row(
         InlineKeyboardButton(
             text="🃏 Flash card",
-            callback_data=f"flash_{selected_unit}",
+            callback_data=f"flash_{selected_unit_safe}",
             style="success",
         ),
     )
     ikb.row(
         InlineKeyboardButton(
             text="📝 Test yechish",
-            callback_data=f"test_{selected_unit}",
+            callback_data=f"test_{selected_unit_safe}",
             style="primary",
         ),
     )
