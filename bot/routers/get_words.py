@@ -152,7 +152,39 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
                 parse_mode="HTML",
                 reply_markup=ikb.as_markup() if is_last else None,
             )
-    except TelegramBadRequest:
-        pass
+    # Telegram 4096 belgi limitiga bo'lish
+    MAX_LEN = 4000
+    chunks = [text[i:i+MAX_LEN] for i in range(0, len(text), MAX_LEN)]
+
+    try:
+        await callback.message.edit_text(
+            chunks[0],
+            parse_mode="HTML",
+            reply_markup=ikb.as_markup() if len(chunks) == 1 else None,
+        )
+        for idx, chunk in enumerate(chunks[1:], start=1):
+            is_last = (idx == len(chunks) - 1)
+            await callback.message.answer(
+                chunk,
+                parse_mode="HTML",
+                reply_markup=ikb.as_markup() if is_last else None,
+            )
+    except TelegramBadRequest as e:
+        logger.warning(f"edit_text failed: {e}")
+        # edit_text ishlamasa yangi xabar sifatida yuboramiz
+        for idx, chunk in enumerate(chunks):
+            is_last = (idx == len(chunks) - 1)
+            try:
+                await callback.message.answer(
+                    chunk,
+                    parse_mode="HTML",
+                    reply_markup=ikb.as_markup() if is_last else None,
+                )
+            except Exception as send_err:
+                logger.error(f"send chunk error: {send_err}")
+    except Exception as e:
+        logger.error(f"Error in show_words_handler: {e}")
+        await callback.answer("❌ Xatolik yuz berdi.", show_alert=True)
+        return
 
     await callback.answer()
