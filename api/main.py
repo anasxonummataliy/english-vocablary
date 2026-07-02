@@ -215,11 +215,12 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
     if not is_authenticated(session_token):
         return Response(status_code=401, content="Unauthorized")
 
-    from datetime import datetime, timedelta
+    from datetime import datetime, timedelta, timezone
     from sqlalchemy import func
     from bot.database.models.channels import Channel
 
-    now = datetime.utcnow()
+    TZ = timezone(timedelta(hours=5))  # Asia/Tashkent UTC+5
+    now = datetime.now(TZ).replace(tzinfo=None)  # naive datetime for DB comparison
     today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
     week_start = today_start - timedelta(days=now.weekday())
     month_start = today_start.replace(day=1)
