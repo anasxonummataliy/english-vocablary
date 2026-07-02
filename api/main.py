@@ -266,16 +266,19 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
 
         channels_data = []
         for ch in channels:
-            # Kanal qo'shilgan vaqtdan oldin va keyin userlar soni
             added_at = ch.created_at if hasattr(ch, 'created_at') and ch.created_at else None
+            users_at_join = ch.users_at_join if hasattr(ch, 'users_at_join') and ch.users_at_join is not None else None
 
-            if added_at:
+            if users_at_join is not None:
+                # Kanal qo'shilgan paytdagi user soni saqlanган
+                before_count = users_at_join
+                after_count = total - users_at_join
+            elif added_at:
+                # Eski usul — vaqt bo'yicha
                 before_count = (await session.execute(
                     select(func.count(User.id)).where(User.created_at < added_at)
                 )).scalar() or 0
-                after_count = (await session.execute(
-                    select(func.count(User.id)).where(User.created_at >= added_at)
-                )).scalar() or 0
+                after_count = total - before_count
             else:
                 before_count = 0
                 after_count = total
@@ -289,7 +292,7 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
                 "is_active": ch.is_active,
                 "added_at": added_at.isoformat() if added_at else None,
                 "users_before": before_count,
-                "users_after": after_count,
+                "users_after": max(after_count, 0),
             })
 
     return {
@@ -306,7 +309,52 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
     }
 
 
-@app.post("/webhook")
+@app.get("/api/channels")
+async def get_channels_json(session_token: str | None = Cookie(default=None)):
+    if not is_authenticated(session_token):
+        return Response(status_code=401, content="Unauthorized")
+
+    from bot.database.models.channels import Channel
+    from sqlalchemy import func
+
+    async with get_async_session_context() as session:
+        total_users = (await session.execute(select(func.count(User.id)))).scalar() or 0
+        channels_result = await session.execute(select(Channel))
+        channels = channels_result.scalars().all()
+
+    result = []
+    for ch in channels:
+        # Real kanal a'zolari soni
+        try:
+            member_count = await bot.get_chat_member_count(ch.tg_id)
+        except Exception:
+            member_count = None
+
+        added_at = ch.created_at if hasattr(ch, 'created_at') and ch.created_at else None
+        users_at_join = ch.users_at_join if hasattr(ch, 'users_at_join') and ch.users_at_join is not None else None
+
+        if users_at_join is not None:
+            before_count = users_at_join
+            after_count = max(total_users - users_at_join, 0)
+        else:
+            before_count = 0
+            after_count = total_users
+
+        result.append({
+            "id": ch.id,
+            "tg_id": ch.tg_id,
+            "title": ch.channel_title,
+            "username": ch.channel_username,
+            "link": ch.channel_link,
+            "is_active": ch.is_active,
+            "added_at": added_at.isoformat() if added_at else None,
+            "member_count": member_count,
+            "bot_users_before": before_count,
+            "bot_users_after": after_count,
+            "bot_users_total": total_users,
+        })
+
+    return result
 async def webhook_handler(request: Request):
     try:
         data = await request.json()
