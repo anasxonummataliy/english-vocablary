@@ -47,12 +47,12 @@ async def add_channel(message: Message, state: FSMContext):
 @router.message(AddChannelStates.channel_link)
 async def channel_state(message: Message, state: FSMContext, bot: Bot):
     user_input = message.text.strip()
-    result = await bot.get_chat(user_input)
     try:
         chat = await bot.get_chat(user_input)
     except Exception as e:
         await message.answer(f"Kanalni olishda xatolik: {e}")
         return
+
     if chat.username:
         channel_username = chat.username
         channel_link = None
@@ -60,11 +60,20 @@ async def channel_state(message: Message, state: FSMContext, bot: Bot):
         channel_username = None
         channel_link = user_input
 
+    # Hozirgi user sonini olish
+    from sqlalchemy import func
+    async with get_async_session_context() as session:
+        from bot.database.models.users import User
+        current_users = (await session.execute(
+            select(func.count(User.id))
+        )).scalar() or 0
+
     channel_data = {
         "tg_id": chat.id,
         "channel_link": channel_link,
         "channel_username": channel_username,
         "channel_title": chat.title,
+        "users_at_join": current_users,
     }
     async with get_async_session_context() as session:
         stmt = select(Channel).where(Channel.tg_id == chat.id)
@@ -74,8 +83,13 @@ async def channel_state(message: Message, state: FSMContext, bot: Bot):
             existing_channel.channel_link = channel_link
             existing_channel.channel_username = channel_username
             existing_channel.channel_title = chat.title
+            # users_at_join ni yangilamaymiz — birinchi qo'shilgan vaqtdagi son saqlanib qolsin
         else:
             session.add(Channel(**channel_data))
         await session.commit()
-        await message.answer(f"Kanal saqlandi: {chat.title}")
+        await message.answer(
+            f"✅ Kanal saqlandi: <b>{chat.title}</b>\n"
+            f"📊 Qo'shilgan paytdagi user soni: <b>{current_users}</b>",
+            parse_mode="HTML"
+        )
         await state.clear()

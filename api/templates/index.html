@@ -219,6 +219,9 @@ code{background:rgba(255,255,255,.07);padding:2px 7px;border-radius:4px;font-siz
       <div class="nav-item active" onclick="go('dashboard',this)">
         <span>📊</span><span>Dashboard</span>
       </div>
+      <div class="nav-item" onclick="go('activity',this)">
+        <span>⚡</span><span>Faollik</span>
+      </div>
       <div class="nav-item" onclick="go('channels',this)">
         <span>📢</span><span>Kanallar</span>
         <span class="nav-badge" id="nb-ch">—</span>
@@ -290,6 +293,110 @@ code{background:rgba(255,255,255,.07);padding:2px 7px;border-radius:4px;font-siz
     </div>
   </div>
 
+  <!-- ACTIVITY -->
+  <div id="activity" class="page">
+    <div class="page-header">
+      <div class="page-title">⚡ Faollik</div>
+      <div class="page-sub">Foydalanuvchilar faollik statistikasi</div>
+    </div>
+
+    <!-- 3 period kartalar -->
+    <div class="stats" style="grid-template-columns:repeat(3,1fr);margin-bottom:28px;">
+      <div class="scard teal" style="text-align:center;padding:28px 20px;">
+        <div class="scard-glow"></div>
+        <span class="scard-icon">☀️</span>
+        <div class="scard-val" id="act-today">—</div>
+        <div class="scard-lbl">Bugun foydalangan</div>
+        <div id="act-today-pct" style="font-size:0.72rem;color:var(--muted);margin-top:6px;"></div>
+      </div>
+      <div class="scard blue" style="text-align:center;padding:28px 20px;">
+        <div class="scard-glow"></div>
+        <span class="scard-icon">📅</span>
+        <div class="scard-val" id="act-week">—</div>
+        <div class="scard-lbl">Hafta davomida</div>
+        <div id="act-week-pct" style="font-size:0.72rem;color:var(--muted);margin-top:6px;"></div>
+      </div>
+      <div class="scard purple" style="text-align:center;padding:28px 20px;">
+        <div class="scard-glow"></div>
+        <span class="scard-icon">🗓</span>
+        <div class="scard-val" id="act-month">—</div>
+        <div class="scard-lbl">Oy davomida</div>
+        <div id="act-month-pct" style="font-size:0.72rem;color:var(--muted);margin-top:6px;"></div>
+      </div>
+    </div>
+
+    <!-- Period jadvallari -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px;">
+
+      <!-- Bugun -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">☀️ Bugun faol</div>
+            <div class="card-sub" id="today-date">—</div>
+          </div>
+        </div>
+        <div class="table-wrap" style="max-height:320px;overflow-y:auto;">
+          <table>
+            <thead><tr><th>#</th><th>Foydalanuvchi</th><th>Vaqt</th></tr></thead>
+            <tbody id="today-table"><tr><td colspan="3" class="empty">Yuklanmoqda...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Hafta -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">📅 Bu hafta faol</div>
+            <div class="card-sub" id="week-date">—</div>
+          </div>
+        </div>
+        <div class="table-wrap" style="max-height:320px;overflow-y:auto;">
+          <table>
+            <thead><tr><th>#</th><th>Foydalanuvchi</th><th>Sana</th></tr></thead>
+            <tbody id="week-table"><tr><td colspan="3" class="empty">Yuklanmoqda...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Oy -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">🗓 Bu oy faol</div>
+            <div class="card-sub" id="month-date">—</div>
+          </div>
+        </div>
+        <div class="table-wrap" style="max-height:320px;overflow-y:auto;">
+          <table>
+            <thead><tr><th>#</th><th>Foydalanuvchi</th><th>Sana</th></tr></thead>
+            <tbody id="month-table"><tr><td colspan="3" class="empty">Yuklanmoqda...</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bugun yangi kelganlar -->
+    <div class="card">
+      <div class="card-head">
+        <div>
+          <div class="card-title">🆕 Bugun yangi kelganlar</div>
+          <div class="card-sub" id="new-today-sub">—</div>
+        </div>
+        <span id="new-today-count" style="background:rgba(16,185,129,.15);color:var(--green);padding:4px 12px;border-radius:20px;font-size:0.8rem;font-weight:700;">—</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Foydalanuvchi</th><th>Username</th><th>Telegram ID</th><th>Qo'shilgan vaqt</th></tr></thead>
+          <tbody id="new-today-table"><tr><td colspan="5" class="empty">Yuklanmoqda...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
   <!-- CHANNELS -->
   <div id="channels" class="page">
     <div class="page-header">
@@ -339,16 +446,23 @@ function go(pageId,el){
 async function init(){
   document.getElementById('dash-time').textContent = new Date().toLocaleString('uz-UZ');
   try{
-    const [stats,users]=await Promise.all([fetch('/api/stats'),fetch('/api/users')]);
-    statsData=await stats.json();
-    allUsers=await users.json();
+    const [statsRes, usersRes, channelsRes]=await Promise.all([
+      fetch('/api/stats'),
+      fetch('/api/users'),
+      fetch('/api/channels'),
+    ]);
+    statsData=await statsRes.json();
+    allUsers=await usersRes.json();
+    const channelsData=await channelsRes.json();
+
     renderStats();
     renderChart();
     renderDonut();
-    renderChannels();
+    renderChannels(channelsData);
     renderUsers(allUsers);
+    renderActivity();
     document.getElementById('nb-u').textContent=allUsers.length;
-    document.getElementById('nb-ch').textContent=statsData.channels?.length||0;
+    document.getElementById('nb-ch').textContent=channelsData.length||0;
     document.getElementById('u-count').textContent=`Jami: ${allUsers.length} ta foydalanuvchi`;
   }catch(e){console.error(e);}
 }
@@ -392,10 +506,9 @@ function renderDonut(){
   document.getElementById('leg-blocked').textContent=`Bloklangan: ${s.blocked} (${Math.round(bRatio*100)}%)`;
 }
 
-function renderChannels(){
-  const chs=statsData.channels||[];
+function renderChannels(chs){
   const grid=document.getElementById('channels-grid');
-  if(!chs.length){grid.innerHTML='<div class="empty">Kanallar topilmadi</div>';return;}
+  if(!chs||!chs.length){grid.innerHTML='<div class="empty">Kanallar topilmadi</div>';return;}
   grid.innerHTML=chs.map(ch=>{
     const uname=ch.username?`@${ch.username}`:'—';
     const link=ch.username?`https://t.me/${ch.username}`:(ch.link||'#');
@@ -403,6 +516,7 @@ function renderChannels(){
     const badge=ch.is_active
       ?'<span class="ch-badge on">✅ Faol</span>'
       :'<span class="ch-badge off">🚫 Nofaol</span>';
+    const members=ch.member_count!==null&&ch.member_count!==undefined?ch.member_count:'—';
     return `<div class="ch-card">
       <div class="ch-head">
         <div class="ch-icon">📢</div>
@@ -414,16 +528,16 @@ function renderChannels(){
       </div>
       <div class="ch-stats">
         <div class="ch-stat b">
-          <div class="ch-stat-val">${ch.users_before}</div>
-          <div class="ch-stat-lbl">Qo'shilishdan oldin</div>
+          <div class="ch-stat-val">${members}</div>
+          <div class="ch-stat-lbl">Kanal a'zolari</div>
         </div>
         <div class="ch-stat g">
-          <div class="ch-stat-val">+${ch.users_after}</div>
-          <div class="ch-stat-lbl">Keyin kelgan</div>
+          <div class="ch-stat-val">${ch.bot_users_before}</div>
+          <div class="ch-stat-lbl">Bot users (qo'shilishdan oldin)</div>
         </div>
         <div class="ch-stat p">
-          <div class="ch-stat-val">${ch.users_before+ch.users_after}</div>
-          <div class="ch-stat-lbl">Jami</div>
+          <div class="ch-stat-val">+${ch.bot_users_after}</div>
+          <div class="ch-stat-lbl">Keyin kelgan (bot)</div>
         </div>
       </div>
       <div class="ch-footer">🗓 Qo'shilgan: ${added} &nbsp;|&nbsp; ID: <code>${ch.tg_id}</code></div>
@@ -460,6 +574,77 @@ document.getElementById('search').addEventListener('input',e=>{
     return n.includes(q)||(u.username||'').toLowerCase().includes(q)||String(u.tg_id).includes(q);
   }));
 });
+
+function renderActivity(){
+  if(!allUsers.length||!statsData) return;
+
+  const now=new Date();
+  const todayStart=new Date(now); todayStart.setHours(0,0,0,0);
+  const weekStart=new Date(todayStart); weekStart.setDate(weekStart.getDate()-weekStart.getDay()||7);
+  // Monday-based week
+  const dow=todayStart.getDay()||7; weekStart.setDate(todayStart.getDate()-(dow-1));
+  const monthStart=new Date(now.getFullYear(),now.getMonth(),1);
+
+  const todayUsers=allUsers.filter(u=>u.last_activity&&new Date(u.last_activity)>=todayStart);
+  const weekUsers=allUsers.filter(u=>u.last_activity&&new Date(u.last_activity)>=weekStart);
+  const monthUsers=allUsers.filter(u=>u.last_activity&&new Date(u.last_activity)>=monthStart);
+  const total=allUsers.length||1;
+
+  document.getElementById('act-today').textContent=todayUsers.length;
+  document.getElementById('act-week').textContent=weekUsers.length;
+  document.getElementById('act-month').textContent=monthUsers.length;
+  document.getElementById('act-today-pct').textContent=`Jami userlardan ${Math.round(todayUsers.length/total*100)}%`;
+  document.getElementById('act-week-pct').textContent=`Jami userlardan ${Math.round(weekUsers.length/total*100)}%`;
+  document.getElementById('act-month-pct').textContent=`Jami userlardan ${Math.round(monthUsers.length/total*100)}%`;
+
+  const fmt=d=>new Date(d).toLocaleString('uz-UZ');
+  const shortFmt=d=>new Date(d).toLocaleTimeString('uz-UZ',{hour:'2-digit',minute:'2-digit'});
+
+  document.getElementById('today-date').textContent=todayStart.toLocaleDateString('uz-UZ');
+  document.getElementById('week-date').textContent=`${weekStart.toLocaleDateString('uz-UZ')} dan`;
+  document.getElementById('month-date').textContent=monthStart.toLocaleDateString('uz-UZ',{year:'numeric',month:'long'});
+
+  function makeRows(users, timeFormatter){
+    if(!users.length) return '<tr><td colspan="3" class="empty">Yo\'q</td></tr>';
+    return users.map((u,i)=>{
+      const name=((u.first_name||'')+' '+(u.last_name||'')).trim()||'—';
+      const link=u.username?`https://t.me/${u.username}`:`tg://user?id=${u.tg_id}`;
+      return `<tr>
+        <td>${i+1}</td>
+        <td><a href="${link}" target="_blank">${name}</a></td>
+        <td>${timeFormatter(u.last_activity)}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  document.getElementById('today-table').innerHTML=makeRows(todayUsers,shortFmt);
+  document.getElementById('week-table').innerHTML=makeRows(weekUsers,d=>new Date(d).toLocaleDateString('uz-UZ'));
+  document.getElementById('month-table').innerHTML=makeRows(monthUsers,d=>new Date(d).toLocaleDateString('uz-UZ'));
+
+  // Bugun yangi kelganlar
+  const newToday=allUsers.filter(u=>u.created_at&&new Date(u.created_at)>=todayStart);
+  document.getElementById('new-today-count').textContent=`${newToday.length} ta yangi`;
+  document.getElementById('new-today-sub').textContent=todayStart.toLocaleDateString('uz-UZ');
+
+  const newTbody=document.getElementById('new-today-table');
+  if(!newToday.length){
+    newTbody.innerHTML='<tr><td colspan="5" class="empty">Bugun yangi foydalanuvchi yo\'q</td></tr>';
+  } else {
+    newTbody.innerHTML=newToday.map((u,i)=>{
+      const name=((u.first_name||'')+' '+(u.last_name||'')).trim()||'—';
+      const uname=u.username?`@${u.username}`:'—';
+      const link=u.username?`https://t.me/${u.username}`:`tg://user?id=${u.tg_id}`;
+      const time=u.created_at?new Date(u.created_at).toLocaleTimeString('uz-UZ',{hour:'2-digit',minute:'2-digit'}):'—';
+      return `<tr>
+        <td>${i+1}</td>
+        <td><a href="${link}" target="_blank">${name}</a></td>
+        <td>${uname}</td>
+        <td><code>${u.tg_id}</code></td>
+        <td>${time}</td>
+      </tr>`;
+    }).join('');
+  }
+}
 
 init();
 </script>
