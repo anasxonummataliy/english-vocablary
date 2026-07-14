@@ -4,8 +4,10 @@ from aiogram.filters import CommandStart
 from aiogram.types import Message
 from aiogram.enums import ChatAction
 from bot.routers.keyboard import level_keyboard
+from dotenv import load_dotenv
 
 load_dotenv()
+
 router = Router()
 
 
