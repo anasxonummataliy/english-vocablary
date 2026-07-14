@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 
 from bot.middleware.channel import IsJoinChannelMiddleware
 from bot.middleware.user_activity import UserActivityMiddleware
+from bot.middleware.saved_db import UserSaveMiddleware
 from bot.routers import user_router
 from bot.middleware.channel import router as middleware_router
 from bot.admin import admin_router
@@ -42,6 +43,7 @@ async def start_bot() -> None:
         max_connections=40,
     )
     logging.info(f"{await bot.get_webhook_info()}")
+    dp.message.middleware(UserSaveMiddleware())
     dp.message.middleware(IsJoinChannelMiddleware())
     dp.message.middleware(UserActivityMiddleware())
     dp.include_router(middleware_router)
