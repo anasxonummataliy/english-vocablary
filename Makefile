@@ -1,3 +1,6 @@
+test:
+	pytest -v --tb=short
+
 extract:
 	mkdir locales 
 	pybabel extract --input-dirs=. -o locales/message.pot

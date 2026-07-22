@@ -7,11 +7,40 @@ on:
 
 permissions:
   contents: read
-  packages: write  
+  packages: write
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          pip install \
+            "aiogram[i18n]>=3.29.0,<4.0.0" \
+            "python-dotenv>=1.0.0" \
+            "pydantic-settings>=2.12.0,<3.0.0" \
+            "sqlalchemy>=2.0.45,<3.0.0" \
+            "redis>=5.0.0" \
+            "fastapi>=0.115.0,<1.0.0" \
+            "pytest>=8.0.0" \
+            "pytest-asyncio>=0.23.0" \
+            "httpx>=0.27.0" \
+            "python-multipart>=0.0.18"
+
+      - name: Run tests
+        run: pytest -v --tb=short
+
   build-and-push:
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
