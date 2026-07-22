@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from aiogram import Bot
 from aiogram.types import InlineKeyboardButton
@@ -54,6 +54,13 @@ def calculate_next_reminder(
 
 def format_interval(interval_hours: int) -> str:
     return INTERVAL_OPTIONS.get(interval_hours, f"{interval_hours} soat")
+
+
+def format_user_time(value: datetime) -> str:
+    tz = timezone(timedelta(hours=5))
+    if value.tzinfo is None:
+        value = value.replace(tzinfo=timezone.utc)
+    return value.astimezone(tz).strftime("%d.%m.%Y %H:%M")
 
 
 def build_action_keyboard(unit_id: int) -> InlineKeyboardBuilder:
