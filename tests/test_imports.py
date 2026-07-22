@@ -4,6 +4,7 @@ def test_bot_routers_import():
     import bot.routers.level  # noqa: F401
     import bot.routers.flashcard  # noqa: F401
     import bot.routers.review  # noqa: F401
+    import bot.routers.reminder  # noqa: F401
     import bot.routers.test_router  # noqa: F401
 
 

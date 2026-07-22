@@ -12,6 +12,7 @@ async def help_handler(message: Message):
         "Quyidagi buyruqlar orqali botni boshqarishingiz mumkin:\n\n"
         "🚀 /start — Botni qayta ishga tushirish va asosiy menyuga qaytish.\n"
         "📚 /level — 'English Vocabulary in Use' kitobining darajalarini tanlash.\n"
+        "⏰ /reminder — Unitlarni o'rganish uchun eslatma sozlash (9 soat yoki 1 kun).\n"
         "ℹ️ /help — Hozirgi siz ko'rib turgan yordam oynasini ko'rsatish.\n"
         "👨‍💻 /admin — Bot bo'yicha takliflar yoki texnik muammolar yuzasidan adminga murojaat qilish.\n\n"
         "--- \n"
