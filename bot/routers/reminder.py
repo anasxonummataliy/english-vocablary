@@ -19,6 +19,7 @@ from bot.services.reminder_service import (
     disable_reminder,
     enable_reminder,
     format_interval,
+    format_user_time,
     get_user_reminder,
     parse_unit_number,
     save_reminder,
@@ -60,7 +61,7 @@ def _available_levels() -> list[tuple[int, str]]:
 def _status_text(reminder) -> str:
     interval = format_interval(reminder.interval_hours)
     status = "✅ Yoqilgan" if reminder.is_active else "⏸ O'chirilgan"
-    next_at = reminder.next_reminder_at.strftime("%d.%m.%Y %H:%M")
+    next_at = format_user_time(reminder.next_reminder_at)
     return (
         "⏰ <b>Eslatma sozlamalari</b>\n\n"
         f"📚 Kitob: <b>{reminder.level}</b>\n"

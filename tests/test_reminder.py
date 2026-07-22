@@ -3,6 +3,7 @@ import pytest
 from bot.services.reminder_service import (
     calculate_next_reminder,
     format_interval,
+    format_user_time,
     get_next_unit,
     parse_unit_number,
     split_long_text,
@@ -46,6 +47,13 @@ def test_calculate_next_reminder():
 def test_format_interval():
     assert format_interval(9) == "9 soat"
     assert format_interval(24) == "1 kun"
+
+
+def test_format_user_time_uses_asia_tashkent_offset():
+    from datetime import datetime
+
+    utc_time = datetime(2026, 7, 22, 6, 16, 0)
+    assert format_user_time(utc_time) == "22.07.2026 11:16"
 
 
 def test_split_long_text_short():
