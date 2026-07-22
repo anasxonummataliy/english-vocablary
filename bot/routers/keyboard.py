@@ -55,25 +55,38 @@ async def get_page_data(page: int = 0, level: str | None = None):
     return page_data, page, total_pages
 
 
-async def create_units_keyboard(current_page: int, total_pages: int, units: list):
+async def create_units_keyboard(
+    current_page: int,
+    total_pages: int,
+    units: list,
+    *,
+    select_prefix: str = "select_",
+    page_prefix: str = "page_",
+):
     keyboard = []
 
     for i in range(0, len(units), 2):
         row = []
         row.append(
-            InlineKeyboardButton(text=units[i], callback_data=f"select_{units[i]}")
+            InlineKeyboardButton(
+                text=units[i],
+                callback_data=f"{select_prefix}{units[i]}",
+            )
         )
         if i + 1 < len(units):
             row.append(
                 InlineKeyboardButton(
-                    text=units[i + 1], callback_data=f"select_{units[i+1]}"
+                    text=units[i + 1],
+                    callback_data=f"{select_prefix}{units[i + 1]}",
                 )
             )
         keyboard.append(row)
     nav_buttons = []
     if current_page > 0:
         nav_buttons.append(
-            InlineKeyboardButton(text="◀️", callback_data=f"page_{current_page-1}")
+            InlineKeyboardButton(
+                text="◀️", callback_data=f"{page_prefix}{current_page - 1}"
+            )
         )
 
     nav_buttons.append(
@@ -83,7 +96,9 @@ async def create_units_keyboard(current_page: int, total_pages: int, units: list
     )
     if current_page < total_pages - 1:
         nav_buttons.append(
-            InlineKeyboardButton(text="▶️", callback_data=f"page_{current_page+1}")
+            InlineKeyboardButton(
+                text="▶️", callback_data=f"{page_prefix}{current_page + 1}"
+            )
         )
 
     keyboard.append(nav_buttons)

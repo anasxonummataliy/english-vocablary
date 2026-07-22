@@ -17,6 +17,8 @@ from bot.admin import admin_router
 from bot.admin.commands import admin_commands
 from bot.routers.user_commands import user_command
 from bot.database.base import create_db_and_tables
+from bot.database.models import reminders  # noqa: F401
+from bot.services.reminder_scheduler import reminder_scheduler_loop
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
@@ -50,6 +52,7 @@ async def start_bot() -> None:
     dp.include_router(admin_router)
     dp.include_router(user_router)
     await create_db_and_tables()
+    asyncio.create_task(reminder_scheduler_loop(bot))
     await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
     await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
 
