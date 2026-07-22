@@ -9,14 +9,11 @@ from sqlalchemy import select
 
 from bot.database.models.reminders import Reminder
 from bot.database.session import get_async_session_context
-from bot.routers.get_words import format_words_text, get_unit_info, get_unit_words
-from bot.routers.keyboard import get_available_units
 
 logger = logging.getLogger(__name__)
 
 INTERVAL_OPTIONS = {
-    9: "9 soat",
-    24: "1 kun",
+    hour: "1 kun" if hour == 24 else f"{hour} soat" for hour in range(1, 25)
 }
 
 LEVEL_OPTIONS = [
@@ -35,6 +32,8 @@ def parse_unit_number(unit_label: str) -> int:
 
 
 def get_next_unit(level: str, current_unit: int) -> int | None:
+    from bot.routers.keyboard import get_available_units
+
     units = get_available_units(level)
     if not units:
         return None
@@ -46,7 +45,9 @@ def get_next_unit(level: str, current_unit: int) -> int | None:
     return None
 
 
-def calculate_next_reminder(interval_hours: int, from_time: datetime | None = None) -> datetime:
+def calculate_next_reminder(
+    interval_hours: int, from_time: datetime | None = None
+) -> datetime:
     base = from_time or datetime.utcnow()
     return base + timedelta(hours=interval_hours)
 
@@ -122,6 +123,8 @@ async def send_unit_reminder(
     *,
     intro: str | None = None,
 ) -> bool:
+    from bot.routers.get_words import format_words_text, get_unit_info, get_unit_words
+
     clean_level = "".join(filter(str.isalnum, level)).lower()
     unit_info = await get_unit_info(clean_level, unit_id)
     words = await get_unit_words(clean_level, unit_id)
@@ -132,8 +135,7 @@ async def send_unit_reminder(
     await redis.set(f"user:{chat_id}:level", level, ex=86400)
 
     intro_text = intro or (
-        "⏰ <b>Eslatma!</b>\n"
-        "Bugun navbatdagi unitni ishlang 👇\n\n"
+        "⏰ <b>Eslatma!</b>\n" "Bugun navbatdagi unitni ishlang 👇\n\n"
     )
     text = intro_text + format_words_text(words, unit_id, unit_info, clean_level)
     chunks = split_long_text(text)
@@ -158,9 +160,7 @@ async def send_unit_reminder(
 
 async def get_user_reminder(tg_id: int) -> Reminder | None:
     async with get_async_session_context() as session:
-        result = await session.execute(
-            select(Reminder).where(Reminder.tg_id == tg_id)
-        )
+        result = await session.execute(select(Reminder).where(Reminder.tg_id == tg_id))
         return result.scalar_one_or_none()
 
 
@@ -172,9 +172,7 @@ async def save_reminder(
 ) -> Reminder:
     next_at = calculate_next_reminder(interval_hours)
     async with get_async_session_context() as session:
-        result = await session.execute(
-            select(Reminder).where(Reminder.tg_id == tg_id)
-        )
+        result = await session.execute(select(Reminder).where(Reminder.tg_id == tg_id))
         reminder = result.scalar_one_or_none()
 
         if reminder:
@@ -202,9 +200,7 @@ async def save_reminder(
 
 async def disable_reminder(tg_id: int) -> bool:
     async with get_async_session_context() as session:
-        result = await session.execute(
-            select(Reminder).where(Reminder.tg_id == tg_id)
-        )
+        result = await session.execute(select(Reminder).where(Reminder.tg_id == tg_id))
         reminder = result.scalar_one_or_none()
         if not reminder:
             return False
@@ -215,9 +211,7 @@ async def disable_reminder(tg_id: int) -> bool:
 
 async def enable_reminder(tg_id: int) -> Reminder | None:
     async with get_async_session_context() as session:
-        result = await session.execute(
-            select(Reminder).where(Reminder.tg_id == tg_id)
-        )
+        result = await session.execute(select(Reminder).where(Reminder.tg_id == tg_id))
         reminder = result.scalar_one_or_none()
         if not reminder:
             return None
@@ -252,9 +246,7 @@ async def advance_reminder_unit(reminder: Reminder) -> Reminder:
 
 async def skip_to_next_unit(tg_id: int) -> tuple[bool, str]:
     async with get_async_session_context() as session:
-        result = await session.execute(
-            select(Reminder).where(Reminder.tg_id == tg_id)
-        )
+        result = await session.execute(select(Reminder).where(Reminder.tg_id == tg_id))
         reminder = result.scalar_one_or_none()
         if not reminder or not reminder.is_active:
             return False, "Eslatma topilmadi yoki o'chirilgan."

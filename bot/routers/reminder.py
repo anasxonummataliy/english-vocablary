@@ -13,6 +13,8 @@ from bot.routers.keyboard import (
     get_page_data,
 )
 from bot.services.reminder_service import (
+    INTERVAL_OPTIONS,
+    LEVEL_OPTIONS,
     SETUP_TTL,
     disable_reminder,
     enable_reminder,
@@ -132,18 +134,27 @@ async def reminder_command(message: Message, redis: Redis):
 @router.callback_query(F.data == "rem_setup")
 async def setup_start(callback: CallbackQuery, redis: Redis):
     ikb = InlineKeyboardBuilder()
-    ikb.row(
-        InlineKeyboardButton(text="🕘 9 soat", callback_data="rem_int_9", style="success"),
-        InlineKeyboardButton(text="📅 1 kun", callback_data="rem_int_24", style="success"),
-    )
+
+    interval_buttons = [
+        InlineKeyboardButton(
+            text=label,
+            callback_data=f"rem_int_{hour}",
+            style="success",
+        )
+        for hour, label in INTERVAL_OPTIONS.items()
+    ]
+
+    for idx in range(0, len(interval_buttons), 2):
+        ikb.row(*interval_buttons[idx : idx + 2])
+
     ikb.row(
         InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_back"),
     )
 
     await callback.message.edit_text(
         "⏰ <b>Eslatma intervalini tanlang:</b>\n\n"
-        "Bot shu vaqt oralig'ida keyingi unitni "
-        "ishlashingizni eslatib turadi.",
+        "1 dan 24 soatgacha bo'lgan oralig'ni tanlashingiz mumkin. "
+        "24 soat tanlansa, bu 1 kun deb hisoblanadi.",
         parse_mode="HTML",
         reply_markup=ikb.as_markup(),
     )
@@ -159,7 +170,9 @@ async def setup_interval(callback: CallbackQuery, redis: Redis):
 
     levels = _available_levels()
     if not levels:
-        await callback.answer("❌ Hozircha hech qaysi kitob yuklanmagan.", show_alert=True)
+        await callback.answer(
+            "❌ Hozircha hech qaysi kitob yuklanmagan.", show_alert=True
+        )
         return
 
     ikb = InlineKeyboardBuilder()
@@ -250,9 +263,7 @@ async def setup_unit_page(callback: CallbackQuery, redis: Redis):
     )
 
     try:
-        await callback.message.edit_text(
-            text, parse_mode="HTML", reply_markup=keyboard
-        )
+        await callback.message.edit_text(text, parse_mode="HTML", reply_markup=keyboard)
     except TelegramBadRequest:
         pass
     await callback.answer()
@@ -305,7 +316,9 @@ async def setup_confirm(callback: CallbackQuery, redis: Redis):
     user_id = callback.from_user.id
     setup = await _get_setup(redis, user_id)
 
-    if not setup or not all(k in setup for k in ("level", "interval_hours", "start_unit")):
+    if not setup or not all(
+        k in setup for k in ("level", "interval_hours", "start_unit")
+    ):
         await callback.answer("⚠️ Sessiya tugadi. Qaytadan sozlang.", show_alert=True)
         return
 
