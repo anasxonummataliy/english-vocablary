@@ -1,27 +1,41 @@
-name: Build & Publish
+name: CI Tests
 
 on:
   push:
     branches:
       - "main"
+  pull_request:
+    branches:
+      - "main"
 
 permissions:
   contents: read
-  packages: write
-  pull-requests: write
 
 jobs:
-  build-and-publish:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
 
-      - name: Build Docker image
-        run: docker build -t ghcr.io/${{ github.repository_owner }}/english-vocablary:latest .
+      - name: Install dependencies
+        run: |
+          pip install \
+            "aiogram[i18n]>=3.29.0,<4.0.0" \
+            "python-dotenv>=1.0.0" \
+            "pydantic-settings>=2.12.0,<3.0.0" \
+            "sqlalchemy>=2.0.45,<3.0.0" \
+            "redis>=5.0.0" \
+            "fastapi>=0.115.0,<1.0.0" \
+            "pytest>=8.0.0" \
+            "pytest-asyncio>=0.23.0" \
+            "httpx>=0.27.0" \
+            "python-multipart>=0.0.18"
 
-      - name: Push Docker image
-        run: docker push ghcr.io/${{ github.repository_owner }}/english-vocablary:latest
+      - name: Run tests
+        run: pytest -v --tb=short
