@@ -47,9 +47,7 @@ async def process_due_reminders(bot: Bot) -> None:
 
             await postpone_reminder(reminder.tg_id)
         except Exception:
-            logger.exception(
-                "Reminder yuborishda xatolik: user=%s", reminder.tg_id
-            )
+            logger.exception("Reminder yuborishda xatolik: user=%s", reminder.tg_id)
 
 
 async def reminder_scheduler_loop(bot: Bot) -> None:
