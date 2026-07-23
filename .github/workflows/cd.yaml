@@ -57,6 +57,8 @@ jobs:
         with:
           context: .
           push: true
+          provenance: false
+          sbom: false
           tags: ghcr.io/${{ github.repository }}:latest
 
   deploy:
