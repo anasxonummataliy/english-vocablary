@@ -196,6 +196,8 @@ async def get_users_json(session_token: str | None = Cookie(default=None)):
         stmt = select(User).order_by(User.id.desc())
         result = await session.execute(stmt)
         users = result.scalars().all()
+        reminder_result = await session.execute(select(Reminder.tg_id))
+        reminder_tg_ids = set(reminder_result.scalars().all())
 
     TZ5 = timedelta(hours=5)
     return [
@@ -206,6 +208,7 @@ async def get_users_json(session_token: str | None = Cookie(default=None)):
             "last_name": u.last_name,
             "username": u.username,
             "is_blocked": u.is_blocked,
+            "has_reminder": u.tg_id in reminder_tg_ids,
             "last_activity": (
                 (u.last_activity + TZ5).isoformat() if u.last_activity else None
             ),

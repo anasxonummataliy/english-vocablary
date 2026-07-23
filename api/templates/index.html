@@ -994,6 +994,7 @@
                 <th>Foydalanuvchi</th>
                 <th>Username</th>
                 <th>Telegram ID</th>
+                <th>Reminder</th>
                 <th>Holat</th>
                 <th>Oxirgi faollik</th>
                 <th>Qo'shilgan</th>
@@ -1001,7 +1002,7 @@
             </thead>
             <tbody id="users-table">
               <tr>
-                <td colspan="7" class="empty">Yuklanmoqda...</td>
+                <td colspan="8" class="empty">Yuklanmoqda...</td>
               </tr>
             </tbody>
           </table>
@@ -1126,11 +1127,12 @@
 
     function renderUsers(users) {
       const tbody = document.getElementById('users-table');
-      if (!users.length) { tbody.innerHTML = '<tr><td colspan="7" class="empty">Topilmadi</td></tr>'; return; }
+      if (!users.length) { tbody.innerHTML = '<tr><td colspan="8" class="empty">Topilmadi</td></tr>'; return; }
       tbody.innerHTML = users.map((u, i) => {
         const name = ((u.first_name || '') + ' ' + (u.last_name || '')).trim() || '—';
         const uname = u.username ? `@${u.username}` : '—';
         const link = u.username ? `https://t.me/${u.username}` : `tg://user?id=${u.tg_id}`;
+        const reminder = u.has_reminder ? '<span class="badge badge-on">⏰ Bor</span>' : '<span class="badge badge-off">—</span>';
         const badge = u.is_blocked ? '<span class="badge badge-off">🚫</span>' : '<span class="badge badge-on">✅</span>';
         const last = u.last_activity ? new Date(u.last_activity).toLocaleString('uz-UZ') : '—';
         const created = u.created_at ? new Date(u.created_at).toLocaleDateString('uz-UZ') : '—';
@@ -1139,6 +1141,7 @@
       <td><a href="${link}" target="_blank">${name}</a></td>
       <td>${uname}</td>
       <td><code>${u.tg_id}</code></td>
+      <td>${reminder}</td>
       <td>${badge}</td>
       <td>${last}</td>
       <td>${created}</td>
