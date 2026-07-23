@@ -420,7 +420,7 @@ async def skip_from_reminder(callback: CallbackQuery, bot: Bot, redis: Redis):
             redis,
             intro=f"✅ {message}\n\n",
         )
-        await callback.answer("Keyingi unit yuborildi!")
+        await callback.answer("✅ Bajarildi, keyingi unit yuborildi!")
     else:
         await callback.message.answer(message, parse_mode="HTML")
         await callback.answer()

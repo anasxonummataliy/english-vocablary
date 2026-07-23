@@ -8,7 +8,7 @@ from sqlalchemy import select
 from bot.database.base import redis_client
 from bot.database.models.reminders import Reminder
 from bot.database.session import get_async_session_context
-from bot.services.reminder_service import advance_reminder_unit, send_unit_reminder
+from bot.services.reminder_service import postpone_reminder, send_unit_reminder
 
 logger = logging.getLogger(__name__)
 
@@ -45,19 +45,9 @@ async def process_due_reminders(bot: Bot) -> None:
                 )
                 continue
 
-            updated = await advance_reminder_unit(reminder)
-
-            if not updated.is_active:
-                await bot.send_message(
-                    reminder.tg_id,
-                    f"🎉 <b>{reminder.level}</b> kitobidagi barcha unitlar tugadi!\n"
-                    "Eslatmalar avtomatik o'chirildi.",
-                    parse_mode="HTML",
-                )
+            await postpone_reminder(reminder.tg_id)
         except Exception:
-            logger.exception(
-                "Reminder yuborishda xatolik: user=%s", reminder.tg_id
-            )
+            logger.exception("Reminder yuborishda xatolik: user=%s", reminder.tg_id)
 
 
 async def reminder_scheduler_loop(bot: Bot) -> None:

@@ -1,3 +1,4 @@
+import html
 import logging
 from datetime import datetime, timedelta, timezone
 
@@ -63,6 +64,14 @@ def format_user_time(value: datetime) -> str:
     return value.astimezone(tz).strftime("%d.%m.%Y %H:%M")
 
 
+def build_reminder_text(level: str, unit_id: int) -> str:
+    return (
+        f"📚 <b>Kitob:</b> {html.escape(level)}\n"
+        f"✅ <b>Tanlangan:</b> Unit {unit_id}\n\n"
+        "Ushbu unit bo'yicha nima qilmoqchisiz?"
+    )
+
+
 def build_action_keyboard(unit_id: int) -> InlineKeyboardBuilder:
     unit_safe = f"Unit_{unit_id}"
     ikb = InlineKeyboardBuilder()
@@ -89,9 +98,13 @@ def build_action_keyboard(unit_id: int) -> InlineKeyboardBuilder:
     )
     ikb.row(
         InlineKeyboardButton(
-            text="⏭ Keyingi unitga o'tish",
+            text="✅ Bajarildi",
             callback_data=f"rem_skip_{unit_id}",
-        )
+        ),
+        InlineKeyboardButton(
+            text="📕 Unitlar ro'yxatiga qaytish",
+            callback_data="back_to_units",
+        ),
     )
     return ikb
 
@@ -130,21 +143,10 @@ async def send_unit_reminder(
     *,
     intro: str | None = None,
 ) -> bool:
-    from bot.routers.get_words import format_words_text, get_unit_info, get_unit_words
-
-    clean_level = "".join(filter(str.isalnum, level)).lower()
-    unit_info = await get_unit_info(clean_level, unit_id)
-    words = await get_unit_words(clean_level, unit_id)
-
-    if not words or not unit_info:
-        return False
-
     await redis.set(f"user:{chat_id}:level", level, ex=86400)
 
-    intro_text = intro or (
-        "⏰ <b>Eslatma!</b>\n" "Bugun navbatdagi unitni ishlang 👇\n\n"
-    )
-    text = intro_text + format_words_text(words, unit_id, unit_info, clean_level)
+    intro_text = intro or "⏰ <b>Eslatma!</b>\n\n"
+    text = intro_text + build_reminder_text(level, unit_id)
     chunks = split_long_text(text)
     keyboard = build_action_keyboard(unit_id).as_markup()
 
@@ -163,6 +165,23 @@ async def send_unit_reminder(
             reply_markup=keyboard if is_last else None,
         )
     return True
+
+
+async def postpone_reminder(tg_id: int) -> Reminder | None:
+    now = datetime.utcnow()
+    async with get_async_session_context() as session:
+        result = await session.execute(select(Reminder).where(Reminder.tg_id == tg_id))
+        reminder = result.scalar_one_or_none()
+        if not reminder:
+            return None
+
+        reminder.next_reminder_at = calculate_next_reminder(
+            reminder.interval_hours, now
+        )
+        reminder.last_reminded_at = now
+        await session.commit()
+        await session.refresh(reminder)
+        return reminder
 
 
 async def get_user_reminder(tg_id: int) -> Reminder | None:
