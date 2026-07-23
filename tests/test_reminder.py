@@ -2,6 +2,7 @@ import pytest
 
 from bot.services.reminder_service import (
     calculate_next_reminder,
+    build_reminder_text,
     format_interval,
     format_user_time,
     get_next_unit,
@@ -47,6 +48,14 @@ def test_calculate_next_reminder():
 def test_format_interval():
     assert format_interval(9) == "9 soat"
     assert format_interval(24) == "1 kun"
+
+
+def test_build_reminder_text():
+    text = build_reminder_text("📗 Elementary", 1)
+
+    assert "📚 <b>Kitob:</b> 📗 Elementary" in text
+    assert "✅ <b>Tanlangan:</b> Unit 1" in text
+    assert text.endswith("Ushbu unit bo'yicha nima qilmoqchisiz?")
 
 
 def test_format_user_time_uses_asia_tashkent_offset():

@@ -20,3 +20,6 @@ async def help_handler(message: Message):
     )
 
     await message.answer(help_text, parse_mode="Markdown")
+
+
+
