@@ -7,6 +7,7 @@ from fastapi import FastAPI, Request, Response, Cookie
 from fastapi.responses import HTMLResponse, RedirectResponse
 from sqlalchemy import select
 from bot.database.models.users import User
+from bot.database.models.reminders import Reminder
 from bot.database.session import get_async_session_context
 from bot.main import dp, bot, start_bot
 from aiogram.types import Update
@@ -41,7 +42,7 @@ app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None
 async def login_page(error: str = ""):
     error_html = ""
     if error:
-        error_html = '<div class="error">❌ Login yoki parol noto\'g\'ri</div>'
+        error_html = "<div class=\"error\">❌ Login yoki parol noto'g'ri</div>"
 
     html = f"""<!DOCTYPE html>
 <html lang="uz">
@@ -205,7 +206,9 @@ async def get_users_json(session_token: str | None = Cookie(default=None)):
             "last_name": u.last_name,
             "username": u.username,
             "is_blocked": u.is_blocked,
-            "last_activity": (u.last_activity + TZ5).isoformat() if u.last_activity else None,
+            "last_activity": (
+                (u.last_activity + TZ5).isoformat() if u.last_activity else None
+            ),
             "created_at": (u.created_at + TZ5).isoformat() if u.created_at else None,
         }
         for u in users
@@ -229,50 +232,80 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
     # SQL so'rovlarda UTC chegaralarini ishlatamiz
     week_dow = now_tashkent.weekday()  # 0=Monday
 
-    today_start = datetime(now_tashkent.year, now_tashkent.month, now_tashkent.day) - TZ_OFFSET
-    week_start = datetime(now_tashkent.year, now_tashkent.month, now_tashkent.day) - timedelta(days=week_dow) - TZ_OFFSET
+    today_start = (
+        datetime(now_tashkent.year, now_tashkent.month, now_tashkent.day) - TZ_OFFSET
+    )
+    week_start = (
+        datetime(now_tashkent.year, now_tashkent.month, now_tashkent.day)
+        - timedelta(days=week_dow)
+        - TZ_OFFSET
+    )
     month_start = datetime(now_tashkent.year, now_tashkent.month, 1) - TZ_OFFSET
 
     async with get_async_session_context() as session:
         total = (await session.execute(select(func.count(User.id)))).scalar() or 0
-        active = (await session.execute(
-            select(func.count(User.id)).where(User.is_blocked == False)
-        )).scalar() or 0
-        blocked = (await session.execute(
-            select(func.count(User.id)).where(User.is_blocked == True)
-        )).scalar() or 0
-        today_active = (await session.execute(
-            select(func.count(User.id)).where(User.last_activity >= today_start)
-        )).scalar() or 0
-        week_active = (await session.execute(
-            select(func.count(User.id)).where(User.last_activity >= week_start)
-        )).scalar() or 0
-        month_active = (await session.execute(
-            select(func.count(User.id)).where(User.last_activity >= month_start)
-        )).scalar() or 0
-        today_new = (await session.execute(
-            select(func.count(User.id)).where(User.created_at >= today_start)
-        )).scalar() or 0
-        week_new = (await session.execute(
-            select(func.count(User.id)).where(User.created_at >= week_start)
-        )).scalar() or 0
+        active = (
+            await session.execute(
+                select(func.count(User.id)).where(User.is_blocked == False)
+            )
+        ).scalar() or 0
+        blocked = (
+            await session.execute(
+                select(func.count(User.id)).where(User.is_blocked == True)
+            )
+        ).scalar() or 0
+        today_active = (
+            await session.execute(
+                select(func.count(User.id)).where(User.last_activity >= today_start)
+            )
+        ).scalar() or 0
+        week_active = (
+            await session.execute(
+                select(func.count(User.id)).where(User.last_activity >= week_start)
+            )
+        ).scalar() or 0
+        month_active = (
+            await session.execute(
+                select(func.count(User.id)).where(User.last_activity >= month_start)
+            )
+        ).scalar() or 0
+        today_new = (
+            await session.execute(
+                select(func.count(User.id)).where(User.created_at >= today_start)
+            )
+        ).scalar() or 0
+        week_new = (
+            await session.execute(
+                select(func.count(User.id)).where(User.created_at >= week_start)
+            )
+        ).scalar() or 0
+        reminder_users = (
+            await session.execute(select(func.count(Reminder.id)))
+        ).scalar() or 0
 
         # Oxirgi 7 kun (Toshkent kunlari bo'yicha)
         daily_stats = []
         for i in range(6, -1, -1):
             day_tashkent = now_tashkent - timedelta(days=i)
-            day_start_utc = datetime(day_tashkent.year, day_tashkent.month, day_tashkent.day) - TZ_OFFSET
+            day_start_utc = (
+                datetime(day_tashkent.year, day_tashkent.month, day_tashkent.day)
+                - TZ_OFFSET
+            )
             day_end_utc = day_start_utc + timedelta(days=1)
-            count = (await session.execute(
-                select(func.count(User.id)).where(
-                    User.last_activity >= day_start_utc,
-                    User.last_activity < day_end_utc,
+            count = (
+                await session.execute(
+                    select(func.count(User.id)).where(
+                        User.last_activity >= day_start_utc,
+                        User.last_activity < day_end_utc,
+                    )
                 )
-            )).scalar() or 0
-            daily_stats.append({
-                "date": day_tashkent.strftime("%d/%m"),
-                "count": count,
-            })
+            ).scalar() or 0
+            daily_stats.append(
+                {
+                    "date": day_tashkent.strftime("%d/%m"),
+                    "count": count,
+                }
+            )
 
         # Channels
         channels_result = await session.execute(select(Channel))
@@ -280,32 +313,42 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
 
         channels_data = []
         for ch in channels:
-            added_at = ch.created_at if hasattr(ch, 'created_at') and ch.created_at else None
-            users_at_join = ch.users_at_join if hasattr(ch, 'users_at_join') and ch.users_at_join is not None else None
+            added_at = (
+                ch.created_at if hasattr(ch, "created_at") and ch.created_at else None
+            )
+            users_at_join = (
+                ch.users_at_join
+                if hasattr(ch, "users_at_join") and ch.users_at_join is not None
+                else None
+            )
 
             if users_at_join is not None:
                 before_count = users_at_join
                 after_count = total - users_at_join
             elif added_at:
-                before_count = (await session.execute(
-                    select(func.count(User.id)).where(User.created_at < added_at)
-                )).scalar() or 0
+                before_count = (
+                    await session.execute(
+                        select(func.count(User.id)).where(User.created_at < added_at)
+                    )
+                ).scalar() or 0
                 after_count = total - before_count
             else:
                 before_count = 0
                 after_count = total
 
-            channels_data.append({
-                "id": ch.id,
-                "tg_id": ch.tg_id,
-                "title": ch.channel_title,
-                "username": ch.channel_username,
-                "link": ch.channel_link,
-                "is_active": ch.is_active,
-                "added_at": added_at.isoformat() if added_at else None,
-                "users_before": before_count,
-                "users_after": max(after_count, 0),
-            })
+            channels_data.append(
+                {
+                    "id": ch.id,
+                    "tg_id": ch.tg_id,
+                    "title": ch.channel_title,
+                    "username": ch.channel_username,
+                    "link": ch.channel_link,
+                    "is_active": ch.is_active,
+                    "added_at": added_at.isoformat() if added_at else None,
+                    "users_before": before_count,
+                    "users_after": max(after_count, 0),
+                }
+            )
 
     return {
         "total": total,
@@ -316,6 +359,7 @@ async def get_stats_json(session_token: str | None = Cookie(default=None)):
         "month_active": month_active,
         "today_new": today_new,
         "week_new": week_new,
+        "reminder_users": reminder_users,
         "daily_stats": daily_stats,
         "channels": channels_data,
     }
@@ -342,8 +386,14 @@ async def get_channels_json(session_token: str | None = Cookie(default=None)):
         except Exception:
             member_count = None
 
-        added_at = ch.created_at if hasattr(ch, 'created_at') and ch.created_at else None
-        users_at_join = ch.users_at_join if hasattr(ch, 'users_at_join') and ch.users_at_join is not None else None
+        added_at = (
+            ch.created_at if hasattr(ch, "created_at") and ch.created_at else None
+        )
+        users_at_join = (
+            ch.users_at_join
+            if hasattr(ch, "users_at_join") and ch.users_at_join is not None
+            else None
+        )
 
         if users_at_join is not None:
             before_count = users_at_join
@@ -352,19 +402,21 @@ async def get_channels_json(session_token: str | None = Cookie(default=None)):
             before_count = 0
             after_count = total_users
 
-        result.append({
-            "id": ch.id,
-            "tg_id": ch.tg_id,
-            "title": ch.channel_title,
-            "username": ch.channel_username,
-            "link": ch.channel_link,
-            "is_active": ch.is_active,
-            "added_at": added_at.isoformat() if added_at else None,
-            "member_count": member_count,
-            "bot_users_before": before_count,
-            "bot_users_after": after_count,
-            "bot_users_total": total_users,
-        })
+        result.append(
+            {
+                "id": ch.id,
+                "tg_id": ch.tg_id,
+                "title": ch.channel_title,
+                "username": ch.channel_username,
+                "link": ch.channel_link,
+                "is_active": ch.is_active,
+                "added_at": added_at.isoformat() if added_at else None,
+                "member_count": member_count,
+                "bot_users_before": before_count,
+                "bot_users_after": after_count,
+                "bot_users_total": total_users,
+            }
+        )
 
     return result
 

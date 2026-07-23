@@ -4,6 +4,7 @@ from aiogram.filters import Command
 from sqlalchemy import select, func
 
 from bot.database.models.users import User
+from bot.database.models.reminders import Reminder
 from bot.database.session import get_async_session_context
 
 router = Router()
@@ -13,6 +14,7 @@ router = Router()
 async def statistics_handler(message: Message):
     async with get_async_session_context() as session:
         total_users = await session.scalar(select(func.count(User.id)))
+        reminder_users = await session.scalar(select(func.count(Reminder.id)))
 
         blocked_users = (
             await session.scalar(
@@ -25,6 +27,7 @@ async def statistics_handler(message: Message):
     await message.answer(
         f"📊 <b>Bot statistikasi</b>\n\n"
         f"👥 Jami foydalanuvchilar: {total_users}\n"
+        f"⏰ Reminder qo'yganlar: {reminder_users}\n"
         f"✅ Aktiv: {active_users}\n"
         f"❌ Bloklagan: {blocked_users}",
         parse_mode="HTML",
