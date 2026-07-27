@@ -80,3 +80,24 @@ def test_format_words_text_escapes_html():
     assert "<script>" not in text
     assert "&lt;script&gt;" in text
     assert "&amp;" in text
+
+
+def test_preview_shows_only_first_ten_words_with_remaining_note():
+    words = [
+        {
+            "word": f"word{i}",
+            "transcription": "",
+            "part_of_speech": "noun",
+            "uzbek": f"uzbek{i}",
+            "description": f"desc{i}",
+            "example": f"example{i}",
+        }
+        for i in range(1, 13)
+    ]
+    unit_info = {"title": "The family", "topic": "Family members"}
+
+    text = format_words_text(words[:10], 1, unit_info, "elementary")
+
+    assert "word10" in text
+    assert "word11" not in text
+    assert "word12" not in text

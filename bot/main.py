@@ -48,6 +48,8 @@ async def start_bot() -> None:
     dp.message.middleware(UserSaveMiddleware())
     dp.message.middleware(IsJoinChannelMiddleware())
     dp.message.middleware(UserActivityMiddleware())
+    dp.callback_query.middleware(UserSaveMiddleware())
+    dp.callback_query.middleware(UserActivityMiddleware())
     dp.include_router(middleware_router)
     dp.include_router(admin_router)
     dp.include_router(user_router)

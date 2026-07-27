@@ -68,7 +68,10 @@ def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) ->
 @router.callback_query(F.data.startswith("words_"))
 async def show_words_handler(callback: CallbackQuery, redis: Redis):
     raw_data = callback.data.removeprefix("words_").strip()
-    print(f"[DEBUG words] callback.data={callback.data!r} raw_data={raw_data!r}", flush=True)
+    print(
+        f"[DEBUG words] callback.data={callback.data!r} raw_data={raw_data!r}",
+        flush=True,
+    )
 
     try:
         unit_id = int(raw_data.replace("Unit", "").replace("_", "").strip())
@@ -99,7 +102,11 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         )
         return
 
-    text = format_words_text(words, unit_id, unit_info, clean_level)
+    preview_words = words[:10]
+    text = format_words_text(preview_words, unit_id, unit_info, clean_level)
+
+    if len(words) > len(preview_words):
+        text += f"\n<i>... yana {len(words) - len(preview_words)} ta so'z bor</i>\n"
 
     ikb = InlineKeyboardBuilder()
     ikb.row(
@@ -154,7 +161,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
             reply_markup=ikb.as_markup() if len(chunks) == 1 else None,
         )
         for idx, chunk in enumerate(chunks[1:], start=1):
-            is_last = (idx == len(chunks) - 1)
+            is_last = idx == len(chunks) - 1
             await callback.message.answer(
                 chunk,
                 parse_mode="HTML",
@@ -163,7 +170,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
     except TelegramBadRequest as e:
         logger.warning(f"edit_text failed: {e}")
         for idx, chunk in enumerate(chunks):
-            is_last = (idx == len(chunks) - 1)
+            is_last = idx == len(chunks) - 1
             try:
                 await callback.message.answer(
                     chunk,
