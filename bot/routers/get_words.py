@@ -39,7 +39,14 @@ async def get_unit_info(level: str, unit_id: int) -> dict | None:
     return None
 
 
-def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) -> str:
+def format_words_text(
+    words: list,
+    unit_id: int,
+    unit_info: dict,
+    level: str,
+    *,
+    start_index: int = 1,
+) -> str:
     level_display = level.capitalize()
     text = (
         f"📚 <b>{level_display} — Unit {unit_id}</b>\n"
@@ -47,7 +54,7 @@ def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) ->
         f"<i>{html.escape(unit_info['topic'])}</i>\n\n"
         f"{'━' * 20}\n\n"
     )
-    for i, word in enumerate(words, start=1):
+    for i, word in enumerate(words, start=start_index):
         word_str = html.escape(word.get("word", ""))
         transcription = html.escape(word.get("transcription", ""))
         pos = html.escape(word.get("part_of_speech", ""))
@@ -63,6 +70,41 @@ def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) ->
         if i < len(words):
             text += f"\n{'─' * 18}\n\n"
     return text
+
+
+def build_words_keyboard(
+    unit_id: int, *, remaining_count: int = 0
+) -> InlineKeyboardBuilder:
+    ikb = InlineKeyboardBuilder()
+    if remaining_count > 0:
+        ikb.row(
+            InlineKeyboardButton(
+                text=f"📄 Qolgan so'zlar ({remaining_count})",
+                callback_data=f"more_words_{unit_id}",
+                style="primary",
+            )
+        )
+    ikb.row(
+        InlineKeyboardButton(
+            text="🧪 Testni boshlash",
+            callback_data=f"test_Unit_{unit_id}",
+            style="success",
+        )
+    )
+    ikb.row(
+        InlineKeyboardButton(
+            text="🔁 So'zlarni takrorlash",
+            callback_data=f"review_{unit_id}",
+            style="primary",
+        )
+    )
+    ikb.row(
+        InlineKeyboardButton(
+            text="⬅️ Orqaga",
+            callback_data=f"select_Unit {unit_id}",
+        )
+    )
+    return ikb
 
 
 @router.callback_query(F.data.startswith("words_"))
@@ -108,26 +150,8 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
     if len(words) > len(preview_words):
         text += f"\n<i>... yana {len(words) - len(preview_words)} ta so'z bor</i>\n"
 
-    ikb = InlineKeyboardBuilder()
-    ikb.row(
-        InlineKeyboardButton(
-            text="🧪 Testni boshlash",
-            callback_data=f"test_Unit_{unit_id}",
-            style="success",
-        )
-    )
-    ikb.row(
-        InlineKeyboardButton(
-            text="🔁 So'zlarni takrorlash",
-            callback_data=f"review_{unit_id}",
-            style="primary",
-        )
-    )
-    ikb.row(
-        InlineKeyboardButton(
-            text="⬅️ Orqaga",
-            callback_data=f"select_Unit {unit_id}",
-        )
+    ikb = build_words_keyboard(
+        unit_id, remaining_count=max(len(words) - len(preview_words), 0)
     )
 
     MAX_LEN = 4000
@@ -185,3 +209,90 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         return
 
     await callback.answer()
+
+
+@router.callback_query(F.data.startswith("more_words_"))
+async def show_more_words_handler(callback: CallbackQuery, redis: Redis):
+    raw_data = callback.data.removeprefix("more_words_").strip()
+
+    try:
+        unit_id = int(raw_data)
+    except ValueError:
+        await callback.answer("❌ Unit raqamini aniqlashda xatolik.", show_alert=True)
+        return
+
+    user_id = callback.from_user.id
+    raw_level = await redis.get(f"user:{user_id}:level")
+
+    if not raw_level:
+        await callback.answer(
+            "⚠️ Sessiya muddati tugagan. Iltimos, qaytadan boshlang.",
+            show_alert=True,
+        )
+        return
+
+    if isinstance(raw_level, bytes):
+        raw_level = raw_level.decode()
+    clean_level = "".join(filter(str.isalnum, raw_level)).lower()
+
+    unit_info = await get_unit_info(clean_level, unit_id)
+    words = await get_unit_words(clean_level, unit_id)
+
+    if not words or not unit_info:
+        await callback.answer(
+            f"❌ Unit {unit_id} uchun ma'lumot topilmadi.", show_alert=True
+        )
+        return
+
+    remaining_words = words[10:]
+    if not remaining_words:
+        await callback.answer("ℹ️ Qolgan so'zlar yo'q.", show_alert=True)
+        return
+
+    text = format_words_text(
+        remaining_words,
+        unit_id,
+        unit_info,
+        clean_level,
+        start_index=11,
+    )
+
+    MAX_LEN = 4000
+    if len(text) <= MAX_LEN:
+        chunks = [text]
+    else:
+        separator = f"\n{'─' * 18}\n\n"
+        parts = text.split(separator)
+        chunks = []
+        current = ""
+        for part in parts:
+            if len(current) + len(part) + len(separator) > MAX_LEN:
+                if current:
+                    chunks.append(current.rstrip())
+                current = part
+            else:
+                if current:
+                    current += separator + part
+                else:
+                    current = part
+        if current:
+            chunks.append(current.rstrip())
+
+    keyboard = build_words_keyboard(unit_id)
+
+    try:
+        await callback.message.answer(
+            chunks[0],
+            parse_mode="HTML",
+            reply_markup=keyboard.as_markup() if len(chunks) == 1 else None,
+        )
+        for idx, chunk in enumerate(chunks[1:], start=1):
+            is_last = idx == len(chunks) - 1
+            await callback.message.answer(
+                chunk,
+                parse_mode="HTML",
+                reply_markup=keyboard.as_markup() if is_last else None,
+            )
+    except TelegramBadRequest as e:
+        logger.warning(f"more_words send failed: {e}")
+        await callback.answer()

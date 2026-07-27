@@ -1,11 +1,21 @@
 import pytest
-from sqlalchemy import MetaData, Table, Column, Integer, String, DateTime, Boolean, BigInteger, inspect
-from sqlalchemy.ext.asyncio import create_async_engine
+from sqlalchemy import (
+    BigInteger,
+    Boolean,
+    Column,
+    DateTime,
+    Integer,
+    MetaData,
+    String,
+    Table,
+    create_engine,
+    inspect,
+)
 
 
 @pytest.mark.asyncio
 async def test_create_db_and_tables_adds_missing_reminder_columns(monkeypatch):
-    engine = create_async_engine("sqlite+aiosqlite:///:memory:")
+    sync_engine = create_engine("sqlite:///:memory:")
 
     metadata = MetaData()
     Table(
@@ -21,16 +31,38 @@ async def test_create_db_and_tables_adds_missing_reminder_columns(monkeypatch):
         Column("last_reminded_at", DateTime, nullable=True),
     )
 
-    async with engine.begin() as conn:
-        await conn.run_sync(metadata.create_all)
+    metadata.create_all(sync_engine)
+
+    class FakeBeginContext:
+        def __init__(self, connection):
+            self.connection = connection
+
+        async def __aenter__(self):
+            return self
+
+        async def __aexit__(self, exc_type, exc, tb):
+            return None
+
+        async def run_sync(self, fn):
+            return fn(self.connection)
+
+    class FakeAsyncEngine:
+        def __init__(self, connection):
+            self.connection = connection
+
+        def begin(self):
+            return FakeBeginContext(self.connection)
+
+    connection = sync_engine.connect()
+    fake_engine = FakeAsyncEngine(connection)
 
     from bot.database import base as base_module
 
-    monkeypatch.setattr(base_module, "get_async_engine", lambda: engine)
+    monkeypatch.setattr(base_module, "get_async_engine", lambda: fake_engine)
     await base_module.create_db_and_tables()
 
-    async with engine.begin() as conn:
-        columns = await conn.run_sync(lambda sync_conn: [c["name"] for c in inspect(sync_conn).get_columns("reminders")])
+    columns = [c["name"] for c in inspect(connection).get_columns("reminders")]
+    connection.close()
 
     assert "weekdays" in columns
     assert "reminder_times" in columns
