@@ -7,7 +7,7 @@ from starlette.testclient import TestClient
 @pytest.fixture
 def api_client():
     with patch("api.main.start_bot", new_callable=AsyncMock):
-        with patch("api.main.bot.close", new_callable=AsyncMock):
+        with patch("api.main.stop_bot", new_callable=AsyncMock):
             from api.main import active_sessions, app
 
             active_sessions.clear()

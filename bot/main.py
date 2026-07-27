@@ -4,6 +4,11 @@ import os
 import asyncio
 
 from aiogram import Bot, Dispatcher
+from aiogram.exceptions import (
+    TelegramNetworkError,
+    TelegramRetryAfter,
+    TelegramServerError,
+)
 from aiogram.types import BotCommandScopeAllPrivateChats, BotCommandScopeChat
 from dotenv import load_dotenv
 
@@ -23,28 +28,62 @@ from bot.services.reminder_scheduler import reminder_scheduler_loop
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
 
+logger = logging.getLogger(__name__)
 dp = Dispatcher()
 bot = Bot(TOKEN)
 CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 ADMIN = int(os.getenv("ADMIN"))
+WEBHOOK_RETRY_ATTEMPTS = 5
+WEBHOOK_RETRY_BASE_DELAY = 2
 
 
-@dp.startup()
-async def start_bot(bot: Bot):
-    await bot.send_message(ADMIN, "Bot started ✅")
+async def _notify_admin_status(text: str) -> None:
+    try:
+        await bot.send_message(ADMIN, text)
+    except Exception as exc:
+        logger.warning("Admin xabar yuborilmadi: %s", exc)
+
+
+async def _call_with_retry(title: str, action) -> bool:
+    for attempt in range(1, WEBHOOK_RETRY_ATTEMPTS + 1):
+        try:
+            await action()
+            if attempt > 1:
+                logger.info("%s muvaffaqiyatli (urinish %s)", title, attempt)
+            return True
+        except TelegramRetryAfter as exc:
+            delay = max(int(exc.retry_after), 1)
+            logger.warning(
+                "%s rate-limited (urinish %s/%s). %s s kutamiz.",
+                title,
+                attempt,
+                WEBHOOK_RETRY_ATTEMPTS,
+                delay,
+            )
+        except (TelegramServerError, TelegramNetworkError) as exc:
+            delay = min(WEBHOOK_RETRY_BASE_DELAY * attempt, 15)
+            logger.warning(
+                "%s vaqtinchalik xatolik (urinish %s/%s): %s. %s s kutamiz.",
+                title,
+                attempt,
+                WEBHOOK_RETRY_ATTEMPTS,
+                exc,
+                delay,
+            )
+        except Exception as exc:
+            logger.exception("%s kutilmagan xatolik: %s", title, exc)
+            return False
+
+        if attempt < WEBHOOK_RETRY_ATTEMPTS:
+            await asyncio.sleep(delay)
+
+    logger.error("%s bajarilmadi: barcha urinishlar tugadi.", title)
+    return False
 
 
 async def start_bot() -> None:
-    await bot.delete_webhook(drop_pending_updates=True)
-    print(os.getenv("WEBHOOK_URL"))
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-    await bot.set_webhook(
-        url=os.getenv("WEBHOOK_URL") or "",
-        allowed_updates=dp.resolve_used_update_types(),
-        drop_pending_updates=True,
-        max_connections=40,
-    )
-    logging.info(f"{await bot.get_webhook_info()}")
+
     dp.message.middleware(UserSaveMiddleware())
     dp.message.middleware(IsJoinChannelMiddleware())
     dp.message.middleware(UserActivityMiddleware())
@@ -53,10 +92,56 @@ async def start_bot() -> None:
     dp.include_router(middleware_router)
     dp.include_router(admin_router)
     dp.include_router(user_router)
+
     await create_db_and_tables()
     asyncio.create_task(reminder_scheduler_loop(bot))
-    await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
-    await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
+
+    webhook_url = (os.getenv("WEBHOOK_URL") or "").strip()
+    if not webhook_url:
+        logger.error("WEBHOOK_URL bo'sh. Webhook sozlanmadi.")
+        await _notify_admin_status("⚠️ Bot ishga tushdi, lekin WEBHOOK_URL bo'sh.")
+        return
+
+    await _call_with_retry(
+        "delete_webhook",
+        lambda: bot.delete_webhook(drop_pending_updates=True),
+    )
+
+    webhook_ok = await _call_with_retry(
+        "set_webhook",
+        lambda: bot.set_webhook(
+            url=webhook_url,
+            allowed_updates=dp.resolve_used_update_types(),
+            drop_pending_updates=True,
+            max_connections=40,
+        ),
+    )
+
+    if not webhook_ok:
+        await _notify_admin_status("⚠️ Bot ishga tushdi, lekin webhook sozlanmadi.")
+        return
+
+    await _call_with_retry("get_webhook_info", lambda: bot.get_webhook_info())
+
+    await _call_with_retry(
+        "set_my_commands(admin)",
+        lambda: bot.set_my_commands(
+            admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN)
+        ),
+    )
+    await _call_with_retry(
+        "set_my_commands(user)",
+        lambda: bot.set_my_commands(
+            user_command, scope=BotCommandScopeAllPrivateChats()
+        ),
+    )
+
+    await _notify_admin_status("Bot started ✅")
+
+
+async def stop_bot() -> None:
+    await _notify_admin_status("Bot stopped ⛔️")
+    await bot.close()
 
 
 if __name__ == "__main__":
