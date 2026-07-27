@@ -30,7 +30,12 @@ ADMIN = int(os.getenv("ADMIN"))
 
 
 @dp.startup()
-async def start_bot(bot: Bot):
+async def startup(bot: Bot):
+    await bot.send_message(ADMIN, "Bot started ✅")
+
+
+@dp.shutdown()
+async def shutdown(bot: Bot):
     await bot.send_message(ADMIN, "Bot started ✅")
 
 
