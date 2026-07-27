@@ -50,6 +50,7 @@ MAX_MESSAGE_LEN = 4000
 SETUP_TTL = 3600
 SEND_RETRY_ATTEMPTS = 4
 SEND_RETRY_BASE_DELAY = 2
+SEND_REQUEST_TIMEOUT = 10
 
 
 def parse_unit_number(unit_label: str) -> int:
@@ -332,6 +333,7 @@ async def send_unit_reminder(
                     text_chunk,
                     parse_mode="HTML",
                     reply_markup=reply_markup,
+                    request_timeout=SEND_REQUEST_TIMEOUT,
                 )
                 return True
             except TelegramRetryAfter as exc:

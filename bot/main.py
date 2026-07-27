@@ -35,11 +35,12 @@ CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 ADMIN = int(os.getenv("ADMIN"))
 WEBHOOK_RETRY_ATTEMPTS = 5
 WEBHOOK_RETRY_BASE_DELAY = 2
+TELEGRAM_REQUEST_TIMEOUT = 10
 
 
 async def _notify_admin_status(text: str) -> None:
     try:
-        await bot.send_message(ADMIN, text)
+        await bot.send_message(ADMIN, text, request_timeout=TELEGRAM_REQUEST_TIMEOUT)
     except Exception as exc:
         logger.warning("Admin xabar yuborilmadi: %s", exc)
 
@@ -104,7 +105,10 @@ async def start_bot() -> None:
 
     await _call_with_retry(
         "delete_webhook",
-        lambda: bot.delete_webhook(drop_pending_updates=True),
+        lambda: bot.delete_webhook(
+            drop_pending_updates=True,
+            request_timeout=TELEGRAM_REQUEST_TIMEOUT,
+        ),
     )
 
     webhook_ok = await _call_with_retry(
@@ -114,6 +118,7 @@ async def start_bot() -> None:
             allowed_updates=dp.resolve_used_update_types(),
             drop_pending_updates=True,
             max_connections=40,
+            request_timeout=TELEGRAM_REQUEST_TIMEOUT,
         ),
     )
 
@@ -121,18 +126,25 @@ async def start_bot() -> None:
         await _notify_admin_status("⚠️ Bot ishga tushdi, lekin webhook sozlanmadi.")
         return
 
-    await _call_with_retry("get_webhook_info", lambda: bot.get_webhook_info())
+    await _call_with_retry(
+        "get_webhook_info",
+        lambda: bot.get_webhook_info(request_timeout=TELEGRAM_REQUEST_TIMEOUT),
+    )
 
     await _call_with_retry(
         "set_my_commands(admin)",
         lambda: bot.set_my_commands(
-            admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN)
+            admin_commands,
+            scope=BotCommandScopeChat(chat_id=ADMIN),
+            request_timeout=TELEGRAM_REQUEST_TIMEOUT,
         ),
     )
     await _call_with_retry(
         "set_my_commands(user)",
         lambda: bot.set_my_commands(
-            user_command, scope=BotCommandScopeAllPrivateChats()
+            user_command,
+            scope=BotCommandScopeAllPrivateChats(),
+            request_timeout=TELEGRAM_REQUEST_TIMEOUT,
         ),
     )
 
