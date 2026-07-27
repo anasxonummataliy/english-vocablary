@@ -139,6 +139,8 @@ async def _bootstrap_telegram() -> None:
     await _notify_admin_status("Bot started ✅")
 
 
+
+
 async def start_bot() -> None:
     global telegram_bootstrap_task
 
