@@ -11,7 +11,7 @@ from bot.database.session import get_async_session_context
 
 class UserSaveMiddleware(BaseMiddleware):
     async def __call__(self, handler, event: types.Message, data):
-        if isinstance(event, types.Message) and event.from_user:
+        if isinstance(event, (types.Message, types.CallbackQuery)) and event.from_user:
             async with get_async_session_context() as session:
                 result = await session.execute(
                     select(User).where(User.tg_id == event.from_user.id)

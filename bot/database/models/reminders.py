@@ -14,6 +14,8 @@ class Reminder(Base):
     level: Mapped[str] = mapped_column(String)
     current_unit: Mapped[int] = mapped_column(Integer)
     interval_hours: Mapped[int] = mapped_column(Integer)
+    weekdays: Mapped[str | None] = mapped_column(String, nullable=True)
+    reminder_times: Mapped[str | None] = mapped_column(String, nullable=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     next_reminder_at: Mapped[datetime] = mapped_column(DateTime)
     last_reminded_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
