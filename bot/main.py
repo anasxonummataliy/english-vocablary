@@ -2,6 +2,7 @@ import sys
 import logging
 import os
 import asyncio
+from contextlib import suppress
 
 from aiogram import Bot, Dispatcher
 from aiogram.exceptions import (
@@ -36,6 +37,7 @@ ADMIN = int(os.getenv("ADMIN"))
 WEBHOOK_RETRY_ATTEMPTS = 5
 WEBHOOK_RETRY_BASE_DELAY = 2
 TELEGRAM_REQUEST_TIMEOUT = 10
+telegram_bootstrap_task: asyncio.Task | None = None
 
 
 async def _notify_admin_status(text: str) -> None:
@@ -82,21 +84,7 @@ async def _call_with_retry(title: str, action) -> bool:
     return False
 
 
-async def start_bot() -> None:
-    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-
-    dp.message.middleware(UserSaveMiddleware())
-    dp.message.middleware(IsJoinChannelMiddleware())
-    dp.message.middleware(UserActivityMiddleware())
-    dp.callback_query.middleware(UserSaveMiddleware())
-    dp.callback_query.middleware(UserActivityMiddleware())
-    dp.include_router(middleware_router)
-    dp.include_router(admin_router)
-    dp.include_router(user_router)
-
-    await create_db_and_tables()
-    asyncio.create_task(reminder_scheduler_loop(bot))
-
+async def _bootstrap_telegram() -> None:
     webhook_url = (os.getenv("WEBHOOK_URL") or "").strip()
     if not webhook_url:
         logger.error("WEBHOOK_URL bo'sh. Webhook sozlanmadi.")
@@ -151,7 +139,41 @@ async def start_bot() -> None:
     await _notify_admin_status("Bot started ✅")
 
 
+async def start_bot() -> None:
+    global telegram_bootstrap_task
+
+    logging.basicConfig(level=logging.INFO, stream=sys.stdout)
+
+    # Routerni qayta-qayta qo'shib yubormaslik uchun bitta startup jarayonida faqat bir marta sozlaymiz.
+    if not getattr(dp, "_project_initialized", False):
+        dp.message.middleware(UserSaveMiddleware())
+        dp.message.middleware(IsJoinChannelMiddleware())
+        dp.message.middleware(UserActivityMiddleware())
+        dp.callback_query.middleware(UserSaveMiddleware())
+        dp.callback_query.middleware(UserActivityMiddleware())
+        dp.include_router(middleware_router)
+        dp.include_router(admin_router)
+        dp.include_router(user_router)
+        dp._project_initialized = True
+
+    await create_db_and_tables()
+    asyncio.create_task(reminder_scheduler_loop(bot))
+
+    # Telegram API vaqtincha sekin ishlasa ham FastAPI startup bloklanmasin.
+    if not telegram_bootstrap_task or telegram_bootstrap_task.done():
+        telegram_bootstrap_task = asyncio.create_task(_bootstrap_telegram())
+    logger.info("Bot application startup yakunlandi. Telegram bootstrap fon rejimida.")
+
+
 async def stop_bot() -> None:
+    global telegram_bootstrap_task
+
+    if telegram_bootstrap_task and not telegram_bootstrap_task.done():
+        telegram_bootstrap_task.cancel()
+        with suppress(asyncio.CancelledError):
+            await telegram_bootstrap_task
+    telegram_bootstrap_task = None
+
     await _notify_admin_status("Bot stopped ⛔️")
     await bot.close()
 
