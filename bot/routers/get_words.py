@@ -39,7 +39,7 @@ async def get_unit_info(level: str, unit_id: int) -> dict | None:
     return None
 
 
-def format_words_text(words: list, unit_id: int, unit_info: dict, level: str, start_num: int = 1) -> str:
+def format_words_text(words: list, unit_id: int, unit_info: dict, level: str, start_index: int = 1) -> str:
     level_display = level.capitalize()
     text = (
         f"📚 <b>{level_display} — Unit {unit_id}</b>\n"
@@ -47,7 +47,7 @@ def format_words_text(words: list, unit_id: int, unit_info: dict, level: str, st
         f"<i>{html.escape(unit_info['topic'])}</i>\n\n"
         f"{'━' * 20}\n\n"
     )
-    for i, word in enumerate(words, start=start_num):
+    for i, word in enumerate(words, start=start_index):
         word_str = html.escape(word.get("word", ""))
         transcription = html.escape(word.get("transcription", ""))
         pos = html.escape(word.get("part_of_speech", ""))
@@ -60,7 +60,7 @@ def format_words_text(words: list, unit_id: int, unit_info: dict, level: str, st
             f"   📖 <i>{pos}</i> — {description}\n"
             f"   ✏️ <i>{example}</i>\n"
         )
-        if i < start_num + len(words) - 1:
+        if i < start_index + len(words) - 1:
             text += f"\n{'─' * 18}\n\n"
     return text
 
@@ -123,7 +123,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         await callback.answer("❌ Bu sahifada so'zlar yo'q.", show_alert=True)
         return
 
-    text = format_words_text(preview_words, unit_id, unit_info, clean_level, start_num=start_idx + 1)
+    text = format_words_text(preview_words, unit_id, unit_info, clean_level, start_index=start_idx + 1)
     
     page_total = (len(words) + 6) // 7
     text += f"\n📄 Sahifa: <b>{page}/{page_total}</b>\n"
