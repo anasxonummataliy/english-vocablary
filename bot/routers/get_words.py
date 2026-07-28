@@ -39,7 +39,7 @@ async def get_unit_info(level: str, unit_id: int) -> dict | None:
     return None
 
 
-def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) -> str:
+def format_words_text(words: list, unit_id: int, unit_info: dict, level: str, start_num: int = 1) -> str:
     level_display = level.capitalize()
     text = (
         f"📚 <b>{level_display} — Unit {unit_id}</b>\n"
@@ -47,7 +47,7 @@ def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) ->
         f"<i>{html.escape(unit_info['topic'])}</i>\n\n"
         f"{'━' * 20}\n\n"
     )
-    for i, word in enumerate(words, start=1):
+    for i, word in enumerate(words, start=start_num):
         word_str = html.escape(word.get("word", ""))
         transcription = html.escape(word.get("transcription", ""))
         pos = html.escape(word.get("part_of_speech", ""))
@@ -60,7 +60,7 @@ def format_words_text(words: list, unit_id: int, unit_info: dict, level: str) ->
             f"   📖 <i>{pos}</i> — {description}\n"
             f"   ✏️ <i>{example}</i>\n"
         )
-        if i < len(words):
+        if i < start_num + len(words) - 1:
             text += f"\n{'─' * 18}\n\n"
     return text
 
@@ -73,9 +73,22 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         flush=True,
     )
 
+    page = 1
+    if "_page_" in raw_data:
+        raw_data, page_str = raw_data.split("_page_", 1)
+        try:
+            page = int(page_str)
+        except ValueError:
+            page = 1
+
     try:
-        unit_id = int(raw_data.replace("Unit", "").replace("_", "").strip())
-    except ValueError:
+        import re
+        unit_id_match = re.search(r'\d+', raw_data)
+        if unit_id_match:
+            unit_id = int(unit_id_match.group())
+        else:
+            raise ValueError
+    except Exception:
         await callback.answer("❌ Unit raqamini aniqlashda xatolik.", show_alert=True)
         return
 
@@ -102,13 +115,40 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         )
         return
 
-    preview_words = words[:10]
-    text = format_words_text(preview_words, unit_id, unit_info, clean_level)
+    start_idx = (page - 1) * 7
+    end_idx = page * 7
+    preview_words = words[start_idx:end_idx]
 
-    if len(words) > len(preview_words):
-        text += f"\n<i>... yana {len(words) - len(preview_words)} ta so'z bor</i>\n"
+    if not preview_words:
+        await callback.answer("❌ Bu sahifada so'zlar yo'q.", show_alert=True)
+        return
+
+    text = format_words_text(preview_words, unit_id, unit_info, clean_level, start_num=start_idx + 1)
+    
+    page_total = (len(words) + 6) // 7
+    text += f"\n📄 Sahifa: <b>{page}/{page_total}</b>\n"
 
     ikb = InlineKeyboardBuilder()
+    
+    # Pagination buttons row
+    page_row = []
+    if page > 1:
+        page_row.append(
+            InlineKeyboardButton(
+                text="⬅️ Oldingisi",
+                callback_data=f"words_Unit_{unit_id}_page_{page - 1}",
+            )
+        )
+    if len(words) > page * 7:
+        page_row.append(
+            InlineKeyboardButton(
+                text="Keyingisi ➡️",
+                callback_data=f"words_Unit_{unit_id}_page_{page + 1}",
+            )
+        )
+    if page_row:
+        ikb.row(*page_row)
+
     ikb.row(
         InlineKeyboardButton(
             text="🧪 Testni boshlash",
@@ -130,55 +170,22 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         )
     )
 
-    MAX_LEN = 4000
-    # HTML teglar o'rtasida qirqmaslik — so'z chegarasida qirqamiz
-    if len(text) <= MAX_LEN:
-        chunks = [text]
-    else:
-        # So'zlarni ajratib chiqamiz — har bir so'z bloki alohida
-        # So'z bloklari `\n\n{'─' * 18}\n\n` bilan ajratilgan
-        separator = f"\n{'─' * 18}\n\n"
-        parts = text.split(separator)
-        chunks = []
-        current = ""
-        for part in parts:
-            if len(current) + len(part) + len(separator) > MAX_LEN:
-                if current:
-                    chunks.append(current.rstrip())
-                current = part
-            else:
-                if current:
-                    current += separator + part
-                else:
-                    current = part
-        if current:
-            chunks.append(current.rstrip())
-
     try:
         await callback.message.edit_text(
-            chunks[0],
+            text,
             parse_mode="HTML",
-            reply_markup=ikb.as_markup() if len(chunks) == 1 else None,
+            reply_markup=ikb.as_markup(),
         )
-        for idx, chunk in enumerate(chunks[1:], start=1):
-            is_last = idx == len(chunks) - 1
-            await callback.message.answer(
-                chunk,
-                parse_mode="HTML",
-                reply_markup=ikb.as_markup() if is_last else None,
-            )
     except TelegramBadRequest as e:
         logger.warning(f"edit_text failed: {e}")
-        for idx, chunk in enumerate(chunks):
-            is_last = idx == len(chunks) - 1
-            try:
-                await callback.message.answer(
-                    chunk,
-                    parse_mode="HTML",
-                    reply_markup=ikb.as_markup() if is_last else None,
-                )
-            except Exception as send_err:
-                logger.error(f"send chunk error: {send_err}")
+        try:
+            await callback.message.answer(
+                text,
+                parse_mode="HTML",
+                reply_markup=ikb.as_markup(),
+            )
+        except Exception as send_err:
+            logger.error(f"send error: {send_err}")
     except Exception as e:
         logger.error(f"Error in show_words_handler: {e}")
         await callback.answer("❌ Xatolik yuz berdi.", show_alert=True)
