@@ -38,7 +38,7 @@ async def process_due_reminders(bot: Bot) -> None:
 
             if not sent:
                 logger.warning(
-                    "Reminder unit topilmadi: user=%s level=%s unit=%s",
+                    "Reminder yuborilmadi: user=%s level=%s unit=%s",
                     reminder.tg_id,
                     reminder.level,
                     reminder.current_unit,

@@ -1,6 +1,11 @@
 import pytest
 
-from bot.routers.get_words import format_words_text, get_unit_info, get_unit_words
+from bot.routers.get_words import (
+    build_words_keyboard,
+    format_words_text,
+    get_unit_info,
+    get_unit_words,
+)
 
 
 @pytest.mark.asyncio
@@ -62,6 +67,24 @@ def test_format_words_text_contains_key_fields():
     assert "The family" in text
 
 
+def test_format_words_text_can_continue_numbering():
+    words = [
+        {
+            "word": "second",
+            "transcription": "",
+            "part_of_speech": "noun",
+            "uzbek": "ikkinchi",
+            "description": "desc",
+            "example": "ex",
+        }
+    ]
+    unit_info = {"title": "The family", "topic": "Family members"}
+
+    text = format_words_text(words, 1, unit_info, "elementary", start_index=11)
+
+    assert "11. second" in text
+
+
 def test_format_words_text_escapes_html():
     words = [
         {
@@ -101,3 +124,11 @@ def test_preview_shows_only_first_ten_words_with_remaining_note():
     assert "word10" in text
     assert "word11" not in text
     assert "word12" not in text
+
+
+def test_build_words_keyboard_shows_remaining_button():
+    keyboard = build_words_keyboard(1, remaining_count=12).as_markup()
+
+    first_row = keyboard.inline_keyboard[0]
+    assert first_row[0].text == "📄 Qolgan so'zlar (12)"
+    assert first_row[0].callback_data == "more_words_1"

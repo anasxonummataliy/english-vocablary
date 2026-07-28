@@ -9,7 +9,7 @@ from sqlalchemy import select
 from bot.database.models.users import User
 from bot.database.models.reminders import Reminder
 from bot.database.session import get_async_session_context
-from bot.main import dp, bot, start_bot
+from bot.main import dp, bot, start_bot, stop_bot
 from aiogram.types import Update
 from contextlib import asynccontextmanager
 from bot.database.base import redis_client
@@ -32,7 +32,7 @@ def is_authenticated(session_token: str | None) -> bool:
 async def lifespan(app: FastAPI):
     await start_bot()
     yield
-    await bot.close()
+    await stop_bot()
 
 
 app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)

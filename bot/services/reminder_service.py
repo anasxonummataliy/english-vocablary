@@ -2,9 +2,15 @@ import json
 import html
 import logging
 import re
+import asyncio
 from datetime import datetime, timedelta, timezone, time
 
 from aiogram import Bot
+from aiogram.exceptions import (
+    TelegramNetworkError,
+    TelegramRetryAfter,
+    TelegramServerError,
+)
 from aiogram.types import InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
@@ -42,6 +48,9 @@ LEVEL_OPTIONS = [
 
 MAX_MESSAGE_LEN = 4000
 SETUP_TTL = 3600
+SEND_RETRY_ATTEMPTS = 4
+SEND_RETRY_BASE_DELAY = 2
+SEND_REQUEST_TIMEOUT = 10
 
 
 def parse_unit_number(unit_label: str) -> int:
@@ -316,6 +325,50 @@ async def send_unit_reminder(
     *,
     intro: str | None = None,
 ) -> bool:
+    async def _send_message_with_retry(*, text_chunk: str, reply_markup=None) -> bool:
+        for attempt in range(1, SEND_RETRY_ATTEMPTS + 1):
+            try:
+                await bot.send_message(
+                    chat_id,
+                    text_chunk,
+                    parse_mode="HTML",
+                    reply_markup=reply_markup,
+                    request_timeout=SEND_REQUEST_TIMEOUT,
+                )
+                return True
+            except TelegramRetryAfter as exc:
+                delay = max(int(exc.retry_after), 1)
+                logger.warning(
+                    "Reminder send rate-limited: user=%s urinish=%s/%s kutish=%ss",
+                    chat_id,
+                    attempt,
+                    SEND_RETRY_ATTEMPTS,
+                    delay,
+                )
+            except (TelegramServerError, TelegramNetworkError) as exc:
+                delay = min(SEND_RETRY_BASE_DELAY * attempt, 10)
+                logger.warning(
+                    "Reminder send vaqtinchalik xatolik: user=%s urinish=%s/%s xato=%s kutish=%ss",
+                    chat_id,
+                    attempt,
+                    SEND_RETRY_ATTEMPTS,
+                    exc,
+                    delay,
+                )
+            except Exception as exc:
+                logger.warning(
+                    "Reminder send yakuniy xatolik: user=%s xato=%s",
+                    chat_id,
+                    exc,
+                )
+                return False
+
+            if attempt < SEND_RETRY_ATTEMPTS:
+                await asyncio.sleep(delay)
+
+        logger.error("Reminder yuborilmadi: user=%s barcha urinish tugadi", chat_id)
+        return False
+
     await redis.set(f"user:{chat_id}:level", level, ex=86400)
 
     intro_text = intro or "⏰ <b>Eslatma!</b>\n\n"
@@ -323,20 +376,22 @@ async def send_unit_reminder(
     chunks = split_long_text(text)
     keyboard = build_action_keyboard(unit_id).as_markup()
 
-    await bot.send_message(
-        chat_id,
-        chunks[0],
-        parse_mode="HTML",
+    first_sent = await _send_message_with_retry(
+        text_chunk=chunks[0],
         reply_markup=keyboard if len(chunks) == 1 else None,
     )
+    if not first_sent:
+        return False
+
     for idx, chunk in enumerate(chunks[1:], start=1):
         is_last = idx == len(chunks) - 1
-        await bot.send_message(
-            chat_id,
-            chunk,
-            parse_mode="HTML",
+        chunk_sent = await _send_message_with_retry(
+            text_chunk=chunk,
             reply_markup=keyboard if is_last else None,
         )
+        if not chunk_sent:
+            return False
+
     return True
 
 
