@@ -1,7 +1,6 @@
 import pytest
 
 from bot.routers.get_words import (
-    build_words_keyboard,
     format_words_text,
     get_unit_info,
     get_unit_words,
@@ -126,9 +125,3 @@ def test_preview_shows_only_first_ten_words_with_remaining_note():
     assert "word12" not in text
 
 
-def test_build_words_keyboard_shows_remaining_button():
-    keyboard = build_words_keyboard(1, remaining_count=12).as_markup()
-
-    first_row = keyboard.inline_keyboard[0]
-    assert first_row[0].text == "📄 Qolgan so'zlar (12)"
-    assert first_row[0].callback_data == "more_words_1"

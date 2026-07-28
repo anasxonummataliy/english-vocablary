@@ -107,6 +107,9 @@ def _weekday_keyboard(selected_days: list[int]) -> InlineKeyboardBuilder:
 
     ikb.row(
         InlineKeyboardButton(text="✅ Davom etish", callback_data="rem_days_next"),
+    )
+    ikb.row(
+        InlineKeyboardButton(text="📅 Hamma kunlar", callback_data="rem_days_all"),
         InlineKeyboardButton(text="🔄 Tozalash", callback_data="rem_days_clear"),
     )
     ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_back"))
@@ -176,7 +179,9 @@ async def reminder_command(message: Message, redis: Redis):
 @router.callback_query(F.data == "rem_setup")
 async def setup_start(callback: CallbackQuery, redis: Redis):
     await _save_setup(
-        redis, callback.from_user.id, {"step": "choose_days", "selected_days": []}
+        redis,
+        callback.from_user.id,
+        {"step": "choose_days", "selected_days": [], "interval_hours": 24},
     )
 
     await callback.message.edit_text(
@@ -230,6 +235,23 @@ async def setup_days_clear(callback: CallbackQuery, redis: Redis):
     await callback.answer("🧹 Tozalandi")
 
 
+@router.callback_query(F.data == "rem_days_all")
+async def setup_days_all(callback: CallbackQuery, redis: Redis):
+    user_id = callback.from_user.id
+    setup = await _get_setup(redis, user_id)
+
+    if not setup or setup.get("step") != "choose_days":
+        await callback.answer("⚠️ Sessiya tugadi. Qaytadan sozlang.", show_alert=True)
+        return
+
+    setup["selected_days"] = [0, 1, 2, 3, 4, 5, 6]
+    await _save_setup(redis, user_id, setup)
+    await callback.message.edit_reply_markup(
+        reply_markup=_weekday_keyboard([0, 1, 2, 3, 4, 5, 6]).as_markup()
+    )
+    await callback.answer("📅 Barcha kunlar tanlandi")
+
+
 @router.callback_query(F.data == "rem_days_next")
 async def setup_days_next(callback: CallbackQuery, redis: Redis):
     user_id = callback.from_user.id
@@ -261,15 +283,21 @@ async def setup_days_next(callback: CallbackQuery, redis: Redis):
     await callback.answer()
 
 
-@router.message(F.text)
+async def _is_awaiting_times(message: Message, redis: Redis) -> bool:
+    if not message.from_user:
+        return False
+    setup = await _get_setup(redis, message.from_user.id)
+    return setup is not None and setup.get("step") == "await_times"
+
+
+@router.message(F.text, _is_awaiting_times)
 async def setup_times_input(message: Message, redis: Redis):
     if not message.from_user:
         return
 
     user_id = message.from_user.id
     setup = await _get_setup(redis, user_id)
-
-    if not setup or setup.get("step") != "await_times":
+    if not setup:
         return
 
     try:
@@ -391,7 +419,7 @@ async def setup_unit_select(callback: CallbackQuery, redis: Redis):
     user_id = callback.from_user.id
     setup = await _get_setup(redis, user_id)
 
-    if not setup or "level" not in setup or "interval_hours" not in setup:
+    if not setup or "level" not in setup:
         await callback.answer("⚠️ Sessiya tugadi. Qaytadan sozlang.", show_alert=True)
         return
 
@@ -432,7 +460,7 @@ async def setup_confirm(callback: CallbackQuery, redis: Redis):
     setup = await _get_setup(redis, user_id)
 
     if not setup or not all(
-        k in setup for k in ("level", "interval_hours", "start_unit")
+        k in setup for k in ("level", "start_unit")
     ):
         await callback.answer("⚠️ Sessiya tugadi. Qaytadan sozlang.", show_alert=True)
         return
@@ -441,7 +469,7 @@ async def setup_confirm(callback: CallbackQuery, redis: Redis):
         tg_id=user_id,
         level=setup["level"],
         start_unit=setup["start_unit"],
-        interval_hours=setup["interval_hours"],
+        interval_hours=setup.get("interval_hours", 24),
         weekdays=setup.get("selected_days", []),
         reminder_times=setup.get("reminder_times", []),
     )

@@ -1,4 +1,5 @@
 [tool.poetry]
+package-mode = false
 name = "english-vocablary"
 version = "0.1.0"
 description = ""
@@ -6,7 +7,7 @@ authors = ["Anasxon Ummataliyev <aummataliy@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.13"
+python = ">=3.13,<3.15"
 aiogram = {version = ">=3.29.0,<4.0.0", extras = ["i18n"]}
 python-dotenv = ">=1.0.0"
 babel = ">=2.17.0,<3.0.0"
@@ -20,6 +21,7 @@ greenlet = ">=3.3.0,<4.0.0"
 fastapi = ">=0.115.0,<1.0.0"
 uvicorn = ">=0.40.0,<0.41.0"
 asyncpg = ">=0.31.0,<0.32.0"
+python-multipart = "^0.0.32"
 
 [tool.poetry.dev-dependencies]
 pytest = ">=8.0.0"
