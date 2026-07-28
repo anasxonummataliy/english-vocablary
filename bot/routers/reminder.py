@@ -176,7 +176,9 @@ async def reminder_command(message: Message, redis: Redis):
 @router.callback_query(F.data == "rem_setup")
 async def setup_start(callback: CallbackQuery, redis: Redis):
     await _save_setup(
-        redis, callback.from_user.id, {"step": "choose_days", "selected_days": []}
+        redis,
+        callback.from_user.id,
+        {"step": "choose_days", "selected_days": [], "interval_hours": 24},
     )
 
     await callback.message.edit_text(
@@ -391,7 +393,7 @@ async def setup_unit_select(callback: CallbackQuery, redis: Redis):
     user_id = callback.from_user.id
     setup = await _get_setup(redis, user_id)
 
-    if not setup or "level" not in setup or "interval_hours" not in setup:
+    if not setup or "level" not in setup:
         await callback.answer("⚠️ Sessiya tugadi. Qaytadan sozlang.", show_alert=True)
         return
 
@@ -432,7 +434,7 @@ async def setup_confirm(callback: CallbackQuery, redis: Redis):
     setup = await _get_setup(redis, user_id)
 
     if not setup or not all(
-        k in setup for k in ("level", "interval_hours", "start_unit")
+        k in setup for k in ("level", "start_unit")
     ):
         await callback.answer("⚠️ Sessiya tugadi. Qaytadan sozlang.", show_alert=True)
         return
@@ -441,7 +443,7 @@ async def setup_confirm(callback: CallbackQuery, redis: Redis):
         tg_id=user_id,
         level=setup["level"],
         start_unit=setup["start_unit"],
-        interval_hours=setup["interval_hours"],
+        interval_hours=setup.get("interval_hours", 24),
         weekdays=setup.get("selected_days", []),
         reminder_times=setup.get("reminder_times", []),
     )
