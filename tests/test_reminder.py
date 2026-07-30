@@ -15,7 +15,6 @@ from bot.services.reminder_service import (
     parse_unit_number,
     parse_reminder_times,
     split_long_text,
-    should_auto_advance_reminder,
 )
 
 
@@ -115,32 +114,3 @@ def test_split_long_text_splits_on_separator():
     chunks = split_long_text(text)
     assert len(chunks) >= 2
 
-
-def test_should_auto_advance_reminder_allows_first_activity_after_reminder():
-    reminder = Reminder(
-        tg_id=123,
-        level="📗 Elementary",
-        current_unit=1,
-        interval_hours=9,
-        is_active=True,
-        next_reminder_at=datetime(2026, 1, 1, 12, 0, 0),
-        last_reminded_at=datetime(2026, 1, 1, 11, 0, 0),
-    )
-
-    assert should_auto_advance_reminder(reminder, None) is True
-
-
-def test_should_auto_advance_reminder_blocks_repeated_activity():
-    reminder = Reminder(
-        tg_id=123,
-        level="📗 Elementary",
-        current_unit=1,
-        interval_hours=9,
-        is_active=True,
-        next_reminder_at=datetime(2026, 1, 1, 12, 0, 0),
-        last_reminded_at=datetime(2026, 1, 1, 11, 0, 0),
-    )
-
-    previous_last_activity = datetime(2026, 1, 1, 11, 5, 0)
-
-    assert should_auto_advance_reminder(reminder, previous_last_activity) is False

@@ -544,7 +544,8 @@ async def skip_handler(callback: CallbackQuery):
 
 
 @router.callback_query(F.data.startswith("rem_skip_"))
-async def skip_from_reminder(callback: CallbackQuery, bot: Bot, redis: Redis):
+async def skip_from_reminder(callback: CallbackQuery):
+    completed_unit = callback.data.removeprefix("rem_skip_")
     user_id = callback.from_user.id
     ok, message = await skip_to_next_unit(user_id)
 
@@ -554,20 +555,17 @@ async def skip_from_reminder(callback: CallbackQuery, bot: Bot, redis: Redis):
 
     reminder = await get_user_reminder(user_id)
     if reminder and reminder.is_active:
-        from bot.services.reminder_service import send_unit_reminder
-
-        await send_unit_reminder(
-            bot,
-            user_id,
-            reminder.level,
-            reminder.current_unit,
-            redis,
-            intro=f"✅ {message}\n\n",
+        text = (
+            f"✅ <b>Unit {completed_unit} bajarildi!</b>\n\n"
+            f"🎯 Keyingi unit: <b>Unit {reminder.current_unit}</b>\n"
+            f"📅 Keyingi eslatma: <b>{format_user_time(reminder.next_reminder_at)}</b>"
         )
-        await callback.answer("✅ Bajarildi, keyingi unit yuborildi!")
+        await callback.message.edit_text(text, parse_mode="HTML")
+        await callback.answer("✅ Bajarildi!")
     else:
-        await callback.message.answer(message, parse_mode="HTML")
+        await callback.message.edit_text(message, parse_mode="HTML")
         await callback.answer()
+
 
 
 @router.callback_query(F.data == "rem_back")

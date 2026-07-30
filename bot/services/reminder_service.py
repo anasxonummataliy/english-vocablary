@@ -278,18 +278,6 @@ def build_action_keyboard(unit_id: int) -> InlineKeyboardBuilder:
     return ikb
 
 
-def should_auto_advance_reminder(
-    reminder: Reminder,
-    previous_last_activity: datetime | None,
-) -> bool:
-    if not reminder.is_active or reminder.last_reminded_at is None:
-        return False
-
-    if previous_last_activity is None:
-        return True
-
-    return previous_last_activity < reminder.last_reminded_at
-
 
 def split_long_text(text: str) -> list[str]:
     if len(text) <= MAX_MESSAGE_LEN:
@@ -505,26 +493,6 @@ async def advance_reminder_unit(reminder: Reminder) -> Reminder:
         await session.refresh(db_reminder)
         return db_reminder
 
-
-async def auto_advance_reminder_on_activity(
-    tg_id: int,
-    previous_last_activity: datetime | None,
-    *,
-    activity_at: datetime | None = None,
-) -> Reminder | None:
-    now = activity_at or datetime.utcnow()
-    async with get_async_session_context() as session:
-        result = await session.execute(select(Reminder).where(Reminder.tg_id == tg_id))
-        reminder = result.scalar_one_or_none()
-        if not reminder or not should_auto_advance_reminder(
-            reminder, previous_last_activity
-        ):
-            return None
-
-        _advance_reminder_state(reminder, now=now)
-        await session.commit()
-        await session.refresh(reminder)
-        return reminder
 
 
 async def skip_to_next_unit(tg_id: int) -> tuple[bool, str]:
