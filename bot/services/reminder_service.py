@@ -534,3 +534,33 @@ async def skip_to_next_unit(tg_id: int) -> tuple[bool, str]:
         )
         await session.commit()
         return True, f"✅ Keyingi unit: <b>Unit {next_unit}</b>"
+
+
+async def advance_reminder_for_unit(tg_id: int, unit_id: int) -> Reminder | None:
+    now = datetime.utcnow()
+    async with get_async_session_context() as session:
+        result = await session.execute(select(Reminder).where(Reminder.tg_id == tg_id))
+        reminder = result.scalar_one_or_none()
+        if not reminder or not reminder.is_active:
+            return None
+
+        if reminder.current_unit != unit_id:
+            return None
+
+        next_unit = get_next_unit(reminder.level, reminder.current_unit)
+        if next_unit is None:
+            reminder.is_active = False
+        else:
+            reminder.current_unit = next_unit
+            reminder.next_reminder_at = calculate_next_reminder(
+                interval_hours=reminder.interval_hours or 24,
+                weekdays=reminder.weekdays,
+                reminder_times=reminder.reminder_times,
+                from_time=now,
+            )
+
+        reminder.last_reminded_at = now
+        await session.commit()
+        await session.refresh(reminder)
+        return reminder
+

@@ -2,6 +2,7 @@ import pytest
 from datetime import datetime, timedelta, timezone
 
 from bot.database.models.reminders import Reminder
+from bot.middleware.user_activity import _extract_unit_id_from_callback
 from bot.services.reminder_service import (
     calculate_next_reminder,
     build_reminder_text,
@@ -61,10 +62,7 @@ def test_calculate_next_reminder_interval():
 
 
 def test_calculate_next_reminder_schedule_multiple_times():
-    # Thursday 2026-01-01 04:00 UTC = 09:00 Tashkent (UTC+5)
     base_utc = datetime(2026, 1, 1, 4, 0, 0)
-    # Weekdays: Thursday (3). Times: 12:00, 16:00 (Tashkent time)
-    # Target in Tashkent today: 12:00 (7:00 UTC)
     next_at = calculate_next_reminder(
         interval_hours=0,
         weekdays=[3],
@@ -106,31 +104,10 @@ def test_split_long_text_splits_on_separator():
     assert len(chunks) >= 2
 
 
-def test_should_auto_advance_reminder_allows_first_activity_after_reminder():
-    reminder = Reminder(
-        tg_id=123,
-        level="📗 Elementary",
-        current_unit=1,
-        interval_hours=9,
-        is_active=True,
-        next_reminder_at=datetime(2026, 1, 1, 12, 0, 0),
-        last_reminded_at=datetime(2026, 1, 1, 11, 0, 0),
-    )
-
-    assert should_auto_advance_reminder(reminder, None) is True
-
-
-def test_should_auto_advance_reminder_blocks_repeated_activity():
-    reminder = Reminder(
-        tg_id=123,
-        level="📗 Elementary",
-        current_unit=1,
-        interval_hours=9,
-        is_active=True,
-        next_reminder_at=datetime(2026, 1, 1, 12, 0, 0),
-        last_reminded_at=datetime(2026, 1, 1, 11, 0, 0),
-    )
-
-    previous_last_activity = datetime(2026, 1, 1, 11, 5, 0)
-
-    assert should_auto_advance_reminder(reminder, previous_last_activity) is False
+def test_extract_unit_id_from_callback():
+    assert _extract_unit_id_from_callback("words_Unit_5") == 5
+    assert _extract_unit_id_from_callback("flash_Unit_12") == 12
+    assert _extract_unit_id_from_callback("test_Unit_3") == 3
+    assert _extract_unit_id_from_callback("rem_skip_8") == 8
+    assert _extract_unit_id_from_callback("random_callback") is None
+    assert _extract_unit_id_from_callback("rem_setup") is None
