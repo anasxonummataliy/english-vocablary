@@ -64,7 +64,6 @@ def _available_levels() -> list[tuple[int, str]]:
 
 
 def _status_text(reminder) -> str:
-    interval = format_interval(reminder.interval_hours)
     status = "✅ Yoqilgan" if reminder.is_active else "⏸ O'chirilgan"
     next_at = format_user_time(reminder.next_reminder_at)
     schedule = format_schedule(reminder)
@@ -72,11 +71,48 @@ def _status_text(reminder) -> str:
         "⏰ <b>Eslatma sozlamalari</b>\n\n"
         f"📚 Kitob: <b>{reminder.level}</b>\n"
         f"🎯 Joriy unit: <b>Unit {reminder.current_unit}</b>\n"
-        f"🕐 Interval: <b>{interval}</b>\n"
         f"{schedule}\n"
         f"📅 Keyingi eslatma: <b>{next_at}</b>\n"
         f"📌 Holat: {status}"
     )
+
+
+def _mode_selection_keyboard() -> InlineKeyboardBuilder:
+    ikb = InlineKeyboardBuilder()
+    ikb.row(
+        InlineKeyboardButton(
+            text="⏱ Interval bo'yicha (har X soatda)",
+            callback_data="rem_mode_interval",
+            style="primary",
+        )
+    )
+    ikb.row(
+        InlineKeyboardButton(
+            text="📅 Kunlar va vaqtlar bo'yicha",
+            callback_data="rem_mode_schedule",
+            style="primary",
+        )
+    )
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_back"))
+    return ikb
+
+
+def _interval_selection_keyboard() -> InlineKeyboardBuilder:
+    ikb = InlineKeyboardBuilder()
+    options = [1, 2, 3, 4, 6, 8, 9, 12, 24]
+    buttons = []
+    for h in options:
+        label = "1 kun" if h == 24 else f"{h} soat"
+        buttons.append(
+            InlineKeyboardButton(
+                text=label,
+                callback_data=f"rem_int_{h}",
+            )
+        )
+    for idx in range(0, len(buttons), 3):
+        ikb.row(*buttons[idx : idx + 3])
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup"))
+    return ikb
 
 
 def _weekday_keyboard(selected_days: list[int]) -> InlineKeyboardBuilder:
@@ -112,7 +148,7 @@ def _weekday_keyboard(selected_days: list[int]) -> InlineKeyboardBuilder:
         InlineKeyboardButton(text="📅 Hamma kunlar", callback_data="rem_days_all"),
         InlineKeyboardButton(text="🔄 Tozalash", callback_data="rem_days_clear"),
     )
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_back"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup"))
     return ikb
 
 
@@ -164,8 +200,8 @@ async def reminder_command(message: Message, redis: Redis):
             "⏰ <b>Eslatma xizmati</b>\n\n"
             "Bot sizga tanlangan kitob va unit bo'yicha "
             "muntazam eslatmalar yuboradi.\n\n"
-            "Siz kitob, boshlang'ich unit va intervalni "
-            "(9 soat yoki 1 kun) o'zingiz tanlaysiz."
+            "Siz eslatmalarni <b>Interval (har X soatda)</b> yoki "
+            "<b>Kunlar va bir nechta vaqtlar</b> bo'yicha sozlamalishingiz mumkin."
         )
         keyboard = _main_menu_keyboard(False, False)
 
@@ -181,8 +217,81 @@ async def setup_start(callback: CallbackQuery, redis: Redis):
     await _save_setup(
         redis,
         callback.from_user.id,
-        {"step": "choose_days", "selected_days": [], "interval_hours": 24},
+        {"step": "choose_mode"},
     )
+
+    await callback.message.edit_text(
+        "⚙️ <b>Eslatish rejimini tanlang:</b>\n\n"
+        "1. <b>Interval bo'yicha:</b> Har X soatda eslatish (masalan: har 9 soatda, 1 kunda).\n"
+        "2. <b>Kunlar va vaqtlar bo'yicha:</b> Hafta kunlari va kun davomidagi aniq vaqtlarda (masalan: Dush, Chor 08:00, 16:30).",
+        parse_mode="HTML",
+        reply_markup=_mode_selection_keyboard().as_markup(),
+    )
+    await callback.answer()
+
+
+@router.callback_query(F.data == "rem_mode_interval")
+async def setup_mode_interval(callback: CallbackQuery, redis: Redis):
+    user_id = callback.from_user.id
+    setup = await _get_setup(redis, user_id) or {}
+    setup["mode"] = "interval"
+    setup["step"] = "choose_interval"
+    await _save_setup(redis, user_id, setup)
+
+    await callback.message.edit_text(
+        "⏱ <b>Eslatma intervalini tanlang:</b>\n\n"
+        "Har qancha vaqtda eslatish kerakligini tanlang.",
+        parse_mode="HTML",
+        reply_markup=_interval_selection_keyboard().as_markup(),
+    )
+    await callback.answer()
+
+
+@router.callback_query(F.data.startswith("rem_int_"))
+async def setup_interval_select(callback: CallbackQuery, redis: Redis):
+    hours = int(callback.data.removeprefix("rem_int_"))
+    user_id = callback.from_user.id
+    setup = await _get_setup(redis, user_id) or {}
+    setup["mode"] = "interval"
+    setup["interval_hours"] = hours
+    setup["selected_days"] = None
+    setup["reminder_times"] = None
+    setup["step"] = "choose_level"
+    await _save_setup(redis, user_id, setup)
+
+    levels = _available_levels()
+    if not levels:
+        await callback.message.edit_text("❌ Hozircha hech qaysi kitob yuklanmagan.")
+        return
+
+    ikb = InlineKeyboardBuilder()
+    for idx, level in levels:
+        ikb.row(
+            InlineKeyboardButton(
+                text=level,
+                callback_data=f"rem_lvl_{idx}",
+            )
+        )
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup"))
+
+    await callback.message.edit_text(
+        "📚 <b>Qaysi kitobdan eslatish kerak?</b>\n\n"
+        f"🕐 Interval: <b>{format_interval(hours)}</b>",
+        parse_mode="HTML",
+        reply_markup=ikb.as_markup(),
+    )
+    await callback.answer()
+
+
+@router.callback_query(F.data == "rem_mode_schedule")
+async def setup_mode_schedule(callback: CallbackQuery, redis: Redis):
+    user_id = callback.from_user.id
+    setup = await _get_setup(redis, user_id) or {}
+    setup["mode"] = "schedule"
+    setup["interval_hours"] = 0
+    setup["selected_days"] = []
+    setup["step"] = "choose_days"
+    await _save_setup(redis, user_id, setup)
 
     await callback.message.edit_text(
         "📅 <b>Eslatma kunlarini tanlang:</b>\n\n"
@@ -275,7 +384,7 @@ async def setup_days_next(callback: CallbackQuery, redis: Redis):
 
     await callback.message.edit_text(
         "🕐 <b>Eslatma vaqtlarini yuboring:</b>\n\n"
-        "Format: <b>16:21</b> yoki <b>08:00, 16:30</b>\n"
+        "Format: <b>16:21</b> yoki <b>08:00, 16:30</b> (bir nechta vaqtlarni vergul bilan ajratib yuboring).\n"
         "Noto'g'ri format yuborsangiz, qayta kiritishingiz so'raladi.",
         parse_mode="HTML",
         reply_markup=back_keyboard.as_markup(),
@@ -302,6 +411,8 @@ async def setup_times_input(message: Message, redis: Redis):
 
     try:
         reminder_times = parse_reminder_times(message.text)
+        if not reminder_times:
+            raise ValueError("Kiritilgan vaqt bo'sh")
     except ValueError:
         await message.answer(
             "❌ Noto'g'ri formatda kiritdingiz.\n"
@@ -446,7 +557,7 @@ async def setup_unit_select(callback: CallbackQuery, redis: Redis):
         "✅ <b>Sozlamalarni tasdiqlang:</b>\n\n"
         f"📚 Kitob: <b>{setup['level']}</b>\n"
         f"🎯 Boshlang'ich unit: <b>Unit {unit_num}</b>\n"
-        f"{format_schedule_summary(setup.get('selected_days', []), setup.get('reminder_times', []))}\n\n"
+        f"{format_schedule_summary(setup.get('selected_days'), setup.get('reminder_times'), setup.get('interval_hours'))}\n\n"
         "Tasdiqlangandan so'ng eslatmalar avtomatik yuboriladi.",
         parse_mode="HTML",
         reply_markup=ikb.as_markup(),
@@ -459,9 +570,7 @@ async def setup_confirm(callback: CallbackQuery, redis: Redis):
     user_id = callback.from_user.id
     setup = await _get_setup(redis, user_id)
 
-    if not setup or not all(
-        k in setup for k in ("level", "start_unit")
-    ):
+    if not setup or not all(k in setup for k in ("level", "start_unit")):
         await callback.answer("⚠️ Sessiya tugadi. Qaytadan sozlang.", show_alert=True)
         return
 
@@ -470,8 +579,8 @@ async def setup_confirm(callback: CallbackQuery, redis: Redis):
         level=setup["level"],
         start_unit=setup["start_unit"],
         interval_hours=setup.get("interval_hours", 24),
-        weekdays=setup.get("selected_days", []),
-        reminder_times=setup.get("reminder_times", []),
+        weekdays=setup.get("selected_days"),
+        reminder_times=setup.get("reminder_times"),
     )
     await _clear_setup(redis, user_id)
 
@@ -565,7 +674,6 @@ async def skip_from_reminder(callback: CallbackQuery):
     else:
         await callback.message.edit_text(message, parse_mode="HTML")
         await callback.answer()
-
 
 
 @router.callback_query(F.data == "rem_back")
