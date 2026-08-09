@@ -54,15 +54,34 @@ async def cmd_start_group_quiz(message: Message, redis: Redis):
     # Tekshirish: aktiv musobaqa bor-yo'qligi
     existing = await redis.get(f"group_quiz:{chat_id}")
     if existing:
+        quiz_data = json.loads(_to_str(existing) or "{}")
+        is_paused = quiz_data.get("is_paused", False)
+
         ikb = InlineKeyboardBuilder()
+        if is_paused:
+            ikb.row(
+                InlineKeyboardButton(
+                    text="▶️ Musobaqani davom ettirish",
+                    callback_data="gq_resume",
+                    style="success",
+                )
+            )
         ikb.row(
             InlineKeyboardButton(
                 text="🛑 Musobaqani to'xtatish", callback_data="gq_force_stop", style="danger"
             )
         )
+
+        status_text = (
+            "⏸ <b>Bu guruhda musobaqa pauza qilingan!</b>\n\n"
+            "Davom ettirish uchun pastdagi tugmani bosing."
+            if is_paused
+            else "⚠️ <b>Bu guruhda allaqachon aktiv musobaqa ketmoqda!</b>\n\n"
+            "Uning tugashini kuting yoki to'xtatish uchun pastdagi tugmani bosing yoki /stop_quiz yuboring."
+        )
+
         await message.reply(
-            "⚠️ <b>Bu guruhda allaqachon aktiv musobaqa ketmoqda!</b>\n\n"
-            "Uning tugashini kuting yoki to'xtatish uchun pastdagi tugmani bosing yoki /stop_quiz yuboring.",
+            status_text,
             reply_markup=ikb.as_markup(),
             parse_mode="HTML",
         )
@@ -79,6 +98,49 @@ async def cmd_start_group_quiz(message: Message, redis: Redis):
         reply_markup=ikb.as_markup(),
         parse_mode="HTML",
     )
+
+
+# ==================== MUSOBAQANI PAUZADAN CHIQARISH (RESUME) ====================
+@router.callback_query(F.data == "gq_resume")
+async def resume_gquiz_callback(callback: CallbackQuery, redis: Redis, bot: Bot):
+    chat_id = callback.message.chat.id
+    raw = _to_str(await redis.get(f"group_quiz:{chat_id}"))
+    if not raw:
+        await callback.answer(
+            "⚠️ Aktiv yoki pauza qilingan musobaqa topilmadi.", show_alert=True
+        )
+        return
+
+    quiz_data = json.loads(raw)
+    if not quiz_data.get("is_paused", False):
+        await callback.answer("⚠️ Musobaqa allaqachon aktiv holatda!", show_alert=True)
+        return
+
+    # Paused holatini yechish va indexni oshirish
+    quiz_data["is_paused"] = False
+    quiz_data["unanswered_count"] = 0
+    quiz_data["current_index"] += 1
+
+    await redis.set(f"group_quiz:{chat_id}", json.dumps(quiz_data), ex=3600)
+
+    try:
+        await callback.message.delete()
+    except Exception:
+        pass
+
+    user_name = callback.from_user.first_name or callback.from_user.username or "Foydalanuvchi"
+    await callback.answer("▶️ Musobaqa qayta davom ettirilmoqda!")
+
+    await bot.send_message(
+        chat_id=chat_id,
+        text=(
+            f"▶️ <b>Musobaqa {user_name} tomonidan davom ettirildi!</b>\n\n"
+            "Navbatdagi savol yuborilmoqda..."
+        ),
+        parse_mode="HTML",
+    )
+    await asyncio.sleep(1)
+    await send_next_gquiz_question(bot, chat_id, redis)
 
 
 # ==================== MUSOBAQANI MAJBURIY TO'XTATISH ====================
@@ -203,6 +265,7 @@ async def start_gquiz_session(callback: CallbackQuery, redis: Redis, bot: Bot):
         "current_index": 0,
         "unanswered_count": 0,
         "current_question_answered": False,
+        "is_paused": False,
         "scores": {},  # user_id_str: {"name": str, "score": int}
         "current_poll_id": None,
         "correct_option_id": None,
@@ -238,6 +301,11 @@ async def send_next_gquiz_question(bot: Bot, chat_id: int, redis: Redis):
         return
 
     quiz_data = json.loads(raw)
+
+    # Agar musobaqa pauza holatida bo'lsa, savol yubormaslik
+    if quiz_data.get("is_paused", False):
+        return
+
     idx = quiz_data["current_index"]
     questions = quiz_data["questions"]
 
@@ -294,6 +362,8 @@ async def _schedule_next_gquiz_step(
             return
 
         quiz_data = json.loads(raw)
+        if quiz_data.get("is_paused", False):
+            return
         if quiz_data["current_index"] != expected_idx:
             return
 
@@ -303,18 +373,30 @@ async def _schedule_next_gquiz_step(
         else:
             quiz_data["unanswered_count"] = 0
 
-        # Ketma-ket 2 ta savolga javob berilmagan bo'lsa, musobaqani to'xtatish
+        # Ketma-ket 2 ta savolga javob berilmagan bo'lsa, musobaqani pauza qilish
         if quiz_data["unanswered_count"] >= 2:
             _cancel_gquiz_task(chat_id)
+            quiz_data["is_paused"] = True
+            await redis.set(f"group_quiz:{chat_id}", json.dumps(quiz_data), ex=3600)
+
+            ikb = InlineKeyboardBuilder()
+            ikb.row(
+                InlineKeyboardButton(
+                    text="▶️ Musobaqani davom ettirish",
+                    callback_data="gq_resume",
+                    style="success",
+                )
+            )
             await bot.send_message(
                 chat_id=chat_id,
                 text=(
-                    "⏸ <b>Musobaqa to'xtatildi!</b>\n\n"
-                    "⚠️ Ketma-ket <b>2 ta</b> savolga hech kim javob bermadi."
+                    "⏸ <b>Musobaqa pauza qilindi!</b>\n\n"
+                    "⚠️ Ketma-ket <b>2 ta</b> savolga hech kim javob bermadi.\n\n"
+                    "▶️ Istalgan foydalanuvchi tugmani bosib musobaqani davom ettirishi mumkin:"
                 ),
+                reply_markup=ikb.as_markup(),
                 parse_mode="HTML",
             )
-            await finish_group_quiz(bot, chat_id, quiz_data, redis)
             return
 
         # Keyingi savolga o'tkazish
