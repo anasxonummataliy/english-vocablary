@@ -103,17 +103,18 @@ async def cmd_start_group_quiz(message: Message, redis: Redis):
 # ==================== MUSOBAQANI PAUZADAN CHIQARISH (RESUME) ====================
 @router.callback_query(F.data == "gq_resume")
 async def resume_gquiz_callback(callback: CallbackQuery, redis: Redis, bot: Bot):
+    try:
+        await callback.answer("▶️ Musobaqa qayta davom ettirilmoqda!")
+    except Exception:
+        pass
+
     chat_id = callback.message.chat.id
     raw = _to_str(await redis.get(f"group_quiz:{chat_id}"))
     if not raw:
-        await callback.answer(
-            "⚠️ Aktiv yoki pauza qilingan musobaqa topilmadi.", show_alert=True
-        )
         return
 
     quiz_data = json.loads(raw)
     if not quiz_data.get("is_paused", False):
-        await callback.answer("⚠️ Musobaqa allaqachon aktiv holatda!", show_alert=True)
         return
 
     # Paused holatini yechish va indexni oshirish
@@ -129,16 +130,19 @@ async def resume_gquiz_callback(callback: CallbackQuery, redis: Redis, bot: Bot)
         pass
 
     user_name = callback.from_user.first_name or callback.from_user.username or "Foydalanuvchi"
-    await callback.answer("▶️ Musobaqa qayta davom ettirilmoqda!")
 
-    await bot.send_message(
-        chat_id=chat_id,
-        text=(
-            f"▶️ <b>Musobaqa {user_name} tomonidan davom ettirildi!</b>\n\n"
-            "Navbatdagi savol yuborilmoqda..."
-        ),
-        parse_mode="HTML",
-    )
+    try:
+        await bot.send_message(
+            chat_id=chat_id,
+            text=(
+                f"▶️ <b>Musobaqa {user_name} tomonidan davom ettirildi!</b>\n\n"
+                "Navbatdagi savol yuborilmoqda..."
+            ),
+            parse_mode="HTML",
+        )
+    except Exception:
+        pass
+
     await asyncio.sleep(1)
     await send_next_gquiz_question(bot, chat_id, redis)
 
@@ -338,6 +342,8 @@ async def start_gquiz_session(callback: CallbackQuery, redis: Redis, bot: Bot):
 
 
 async def send_next_gquiz_question(bot: Bot, chat_id: int, redis: Redis):
+    _cancel_gquiz_task(chat_id)
+
     raw = _to_str(await redis.get(f"group_quiz:{chat_id}"))
     if not raw:
         return
@@ -368,16 +374,20 @@ async def send_next_gquiz_question(bot: Bot, chat_id: int, redis: Redis):
     random.shuffle(options)
     correct_idx = options.index(correct)
 
-    poll_msg = await bot.send_poll(
-        chat_id=chat_id,
-        question=question_text[:255],
-        options=options,
-        type="quiz",
-        correct_option_id=correct_idx,
-        explanation=explanation,
-        is_anonymous=False,
-        open_period=TIMER_SECONDS,
-    )
+    try:
+        poll_msg = await bot.send_poll(
+            chat_id=chat_id,
+            question=question_text[:255],
+            options=options,
+            type="quiz",
+            correct_option_id=correct_idx,
+            explanation=explanation,
+            is_anonymous=False,
+            open_period=TIMER_SECONDS,
+        )
+    except Exception as e:
+        print(f"[GQUIZ SEND POLL ERROR] Chat {chat_id}: {e}")
+        return
 
     poll_id = str(poll_msg.poll.id)
     quiz_data["current_poll_id"] = poll_id
@@ -406,7 +416,9 @@ async def _schedule_next_gquiz_step(
         quiz_data = json.loads(raw)
         if quiz_data.get("is_paused", False):
             return
-        if quiz_data["current_index"] != expected_idx:
+        if quiz_data.get("current_index") != expected_idx:
+            return
+        if str(quiz_data.get("current_poll_id")) != str(expected_poll_id):
             return
 
         # Ushbu savolga javob berildimi?
@@ -429,16 +441,19 @@ async def _schedule_next_gquiz_step(
                     style="success",
                 )
             )
-            await bot.send_message(
-                chat_id=chat_id,
-                text=(
-                    "⏸ <b>Musobaqa pauza qilindi!</b>\n\n"
-                    "⚠️ Ketma-ket <b>2 ta</b> savolga hech kim javob bermadi.\n\n"
-                    "▶️ Istalgan foydalanuvchi tugmani bosib musobaqani davom ettirishi mumkin:"
-                ),
-                reply_markup=ikb.as_markup(),
-                parse_mode="HTML",
-            )
+            try:
+                await bot.send_message(
+                    chat_id=chat_id,
+                    text=(
+                        "⏸ <b>Musobaqa pauza qilindi!</b>\n\n"
+                        "⚠️ Ketma-ket <b>2 ta</b> savolga hech kim javob bermadi.\n\n"
+                        "▶️ Istalgan foydalanuvchi tugmani bosib musobaqani davom ettirishi mumkin:"
+                    ),
+                    reply_markup=ikb.as_markup(),
+                    parse_mode="HTML",
+                )
+            except Exception as msg_err:
+                print(f"[GQUIZ PAUSE MSG ERROR] Chat {chat_id}: {msg_err}")
             return
 
         # Keyingi savolga o'tkazish
