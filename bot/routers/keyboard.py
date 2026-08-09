@@ -9,10 +9,10 @@ from aiogram.types import (
 
 
 LEVEL_DEFINITIONS = [
-    ("🟢 Elementary", "elementary"),
-    ("🔵 Pre-Intermediate & Intermediate", "preintermediateintermediate"),
-    ("📙 Upper Intermediate", "upperintermediate"),
-    ("🔴 Advanced", "advanced"),
+    ("📗 Elementary", "elementary"),
+    ("📘 Pre-intermediate & Intermediate", "preintermediateintermediate"),
+    ("📙 Upper intermediate", "upperintermediate"),
+    ("📕 Advanced", "advanced"),
 ]
 
 

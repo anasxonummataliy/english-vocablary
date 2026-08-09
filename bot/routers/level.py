@@ -51,16 +51,21 @@ async def level_handler(message: Message):
     )
 
 
-@router.message(
-    F.text.in_(
-        {
-            "📗 Elementary",
-            "📘 Pre-intermediate & Intermediate",
-            "📙 Upper intermediate",
-            "📕 Advanced",
-        }
-    )
-)
+VALID_LEVEL_BUTTONS = {
+    "📗 Elementary",
+    "🟢 Elementary",
+    "📘 Pre-intermediate & Intermediate",
+    "📘 Pre-Intermediate & Intermediate",
+    "🔵 Pre-intermediate & Intermediate",
+    "🔵 Pre-Intermediate & Intermediate",
+    "📙 Upper intermediate",
+    "📙 Upper Intermediate",
+    "📕 Advanced",
+    "🔴 Advanced",
+}
+
+
+@router.message(F.text.in_(VALID_LEVEL_BUTTONS))
 async def section_selection_handler(message: Message, redis: Redis):
     level_name = message.text
     user_id = message.from_user.id
