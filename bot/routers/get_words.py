@@ -24,6 +24,18 @@ async def get_unit_words(level: str, unit_id: int) -> list | None:
     return None
 
 
+async def get_all_level_words(level: str) -> list:
+    file_path = f"data/{level}.json"
+    if not os.path.exists(file_path):
+        return []
+    with open(file_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    all_words = []
+    for unit in data.get("units", []):
+        all_words.extend(unit.get("words", []))
+    return all_words
+
+
 async def get_unit_info(level: str, unit_id: int) -> dict | None:
     file_path = f"data/{level}.json"
     if not os.path.exists(file_path):
