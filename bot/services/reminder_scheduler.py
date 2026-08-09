@@ -1,6 +1,6 @@
 import asyncio
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 from aiogram import Bot
 from aiogram.exceptions import TelegramBadRequest, TelegramForbiddenError
@@ -33,7 +33,7 @@ async def handle_blocked_user(tg_id: int) -> None:
 
 
 async def process_due_reminders(bot: Bot) -> None:
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc).replace(tzinfo=None)
     async with get_async_session_context() as session:
         result = await session.execute(
             select(Reminder).where(

@@ -55,6 +55,10 @@ async def start_bot() -> None:
     asyncio.create_task(reminder_scheduler_loop(bot))
     if ADMIN:
         await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
+        try:
+            await bot.send_message(chat_id=ADMIN, text="started")
+        except Exception as e:
+            logging.warning(f"Adminga startup xabarini yuborishda xatolik: {e}")
     await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
     await bot.set_my_commands(group_command, scope=BotCommandScopeAllGroupChats())
 
