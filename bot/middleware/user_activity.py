@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
 from aiogram import BaseMiddleware, types
 from aiogram.enums import ChatType
@@ -37,7 +37,7 @@ class UserActivityMiddleware(BaseMiddleware):
             )
             user = result.scalar_one_or_none()
             if user:
-                user.last_activity = datetime.utcnow()
+                user.last_activity = datetime.now(timezone.utc).replace(tzinfo=None)
                 if user.is_blocked:
                     user.is_blocked = False
                 await session.commit()

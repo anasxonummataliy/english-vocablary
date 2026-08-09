@@ -1,28 +1,43 @@
 import pytest
-from datetime import datetime
+from datetime import datetime, timezone
 from unittest.mock import AsyncMock, MagicMock, patch
 from aiogram.exceptions import TelegramForbiddenError
 from aiogram.methods import SendMessage
 
 from bot.database.models.reminders import Reminder
 from bot.database.models.users import User
-from bot.services.reminder_scheduler import handle_blocked_user, process_due_reminders
+from bot.services.reminder_scheduler import (
+    handle_blocked_user,
+    process_due_reminders,
+)
 
 
 @pytest.mark.asyncio
 async def test_handle_blocked_user_deactivates_reminder_and_marks_user_blocked():
-    tg_id = 6908516354
-    reminder = Reminder(tg_id=tg_id, is_active=True)
+    tg_id = 123456789
+    reminder = Reminder(
+        tg_id=tg_id,
+        level="📗 Elementary",
+        current_unit=1,
+        interval_hours=24,
+        is_active=True,
+    )
     user = User(tg_id=tg_id, is_blocked=False)
 
     mock_session = AsyncMock()
-    mock_res_rem = MagicMock()
-    mock_res_rem.scalar_one_or_none.return_value = reminder
 
-    mock_res_usr = MagicMock()
-    mock_res_usr.scalar_one_or_none.return_value = user
+    def mock_execute(stmt):
+        stmt_str = str(stmt)
+        res = MagicMock()
+        if "FROM reminders" in stmt_str or "reminders" in stmt_str:
+            res.scalar_one_or_none.return_value = reminder
+        elif "FROM users" in stmt_str or "users" in stmt_str:
+            res.scalar_one_or_none.return_value = user
+        else:
+            res.scalar_one_or_none.return_value = None
+        return res
 
-    mock_session.execute.side_effect = [mock_res_rem, mock_res_usr]
+    mock_session.execute.side_effect = mock_execute
 
     class FakeSessionContext:
         async def __aenter__(self):
@@ -51,7 +66,7 @@ async def test_process_due_reminders_catches_forbidden_error():
         current_unit=1,
         interval_hours=24,
         is_active=True,
-        next_reminder_at=datetime.utcnow(),
+        next_reminder_at=datetime.now(timezone.utc).replace(tzinfo=None),
     )
 
     mock_session = AsyncMock()
