@@ -28,7 +28,12 @@ def _to_str(value) -> str | None:
 
 def _cancel_gquiz_task(chat_id: int):
     task = gquiz_tasks.pop(chat_id, None)
-    if task and not task.done():
+    try:
+        current = asyncio.current_task()
+    except RuntimeError:
+        current = None
+
+    if task and task != current and not task.done():
         task.cancel()
 
 
