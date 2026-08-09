@@ -10,10 +10,22 @@ from .test_router import router as test_router
 from .review import router as review_router
 from .flashcard import router as flashcard_router
 from .reminder import router as reminder_router
+from .group_quiz import router as group_quiz_router
+from .leaderboard import router as leaderboard_router
 
 
 user_router = Router()
 user_router.message.filter(~isAdmin())
 user_router.include_routers(
-    flashcard_router, review_router, test_router, get_words, level, reminder_router, message_to_admin, help, start
+    group_quiz_router,
+    leaderboard_router,
+    flashcard_router,
+    review_router,
+    test_router,
+    get_words,
+    level,
+    reminder_router,
+    message_to_admin,
+    help,
+    start,
 )

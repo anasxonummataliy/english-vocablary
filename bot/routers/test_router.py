@@ -8,6 +8,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
 
 from bot.routers.get_words import get_unit_words
+from bot.services.score_service import save_score
 
 router = Router()
 
@@ -432,6 +433,24 @@ async def _send_result(bot: Bot, chat_id: int, user_id: int, data: dict, redis: 
         parse_mode="HTML",
         reply_markup=ikb.as_markup(),
     )
+    # Natijani bazaga saqlash
+    try:
+        user_level_raw = _to_str(await redis.get(f"user:{user_id}:level")) or "elementary"
+        level = "".join(filter(str.isalnum, user_level_raw)).lower()
+        unit_num = int(str(data["unit_id"]).replace("Unit", "").strip())
+        await save_score(
+            user_id=user_id,
+            user_name=None,
+            chat_id=chat_id,
+            level=level,
+            unit_num=unit_num,
+            test_mode=data.get("mode", "uz_en"),
+            score=score,
+            total_questions=total,
+        )
+    except Exception as e:
+        print(f"[SCORE SAVE ERROR] User {user_id}: {e}")
+
     await redis.delete(f"test_state:{user_id}")
 
 

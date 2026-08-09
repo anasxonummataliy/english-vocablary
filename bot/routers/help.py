@@ -1,25 +1,34 @@
 from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
+from aiogram.enums import ChatType
 
 router = Router()
 
 
 @router.message(Command("help"))
 async def help_handler(message: Message):
-    help_text = (
-        "❓ **Botdan qanday foydalanish mumkin?**\n\n"
+    if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+        group_help = (
+            "👥 <b>Guruhda botdan foydalanish bo'yicha yordam:</b>\n\n"
+            "🚀 <b>/quiz</b> (yoki <code>/musobaqa</code>) — Guruhda unitlar yoki 20 ta aralash (Mix) savollar bo'yicha viktorina musobaqasini boshlash.\n"
+            "🏆 <b>/top</b> (yoki <code>/leaderboard</code>) — Guruh a'zolarining jami ballari hamda har bir unit bo'yicha yetakchilar reytingini ko'rish.\n"
+            "ℹ️ <b>/help</b> — Hozirgi yordam qo'llanmasini ko'rsatish.\n\n"
+            "💡 <i>Maslahat: Musobaqa boshlash uchun guruhda /quiz buyrug'ini yuboring!</i>"
+        )
+        await message.answer(group_help, parse_mode="HTML")
+        return
+
+    private_help = (
+        "❓ <b>Botdan qanday foydalanish mumkin?</b>\n\n"
         "Quyidagi buyruqlar orqali botni boshqarishingiz mumkin:\n\n"
-        "🚀 /start — Botni qayta ishga tushirish va asosiy menyuga qaytish.\n"
-        "📚 /level — 'English Vocabulary in Use' kitobining darajalarini tanlash.\n"
-        "⏰ /reminder — Unitlarni o'rganish uchun eslatma sozlash (1-24 soat, jumladan 1 kun).\n"
-        "ℹ️ /help — Hozirgi siz ko'rib turgan yordam oynasini ko'rsatish.\n"
-        "👨‍💻 /admin — Bot bo'yicha takliflar yoki texnik muammolar yuzasidan adminga murojaat qilish.\n\n"
-        "--- \n"
-        "💡 *Maslahat:* Agar bot javob bermay qolsa, /start buyrug'ini yuboring."
+        "🚀 <b>/start</b> — Botni qayta ishga tushirish va asosiy menyuga qaytish.\n"
+        "📚 <b>/level</b> — 'English Vocabulary in Use' kitobining darajalarini tanlash.\n"
+        "🏆 <b>/top</b> — Unitlar va umumiy reytinglarni ko'rish.\n"
+        "⏰ <b>/reminder</b> — Unitlarni o'rganish uchun eslatma sozlash.\n"
+        "ℹ️ <b>/help</b> — Hozirgi yordam oynasini ko'rsatish.\n"
+        "👨‍💻 <b>/admin</b> — Adminga murojaat qilish.\n\n"
+        "💡 <i>Maslahat: Agar bot javob bermay qolsa, /start buyrug'ini yuboring.</i>"
     )
 
-    await message.answer(help_text, parse_mode="Markdown")
-
-
-
+    await message.answer(private_help, parse_mode="HTML")

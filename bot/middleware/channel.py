@@ -67,9 +67,6 @@ class IsJoinChannelMiddleware(BaseMiddleware):
                     ),
                 )
                 return
-        if event.chat.type != ChatType.PRIVATE:
-            await event.answer("❗️ Bot faqat private chatda ishlaydi")
-            return
         return await handler(event, data)
 
 

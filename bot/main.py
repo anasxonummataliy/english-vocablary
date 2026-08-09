@@ -4,7 +4,11 @@ import os
 import asyncio
 
 from aiogram import Bot, Dispatcher
-from aiogram.types import BotCommandScopeAllPrivateChats, BotCommandScopeChat
+from aiogram.types import (
+    BotCommandScopeAllPrivateChats,
+    BotCommandScopeAllGroupChats,
+    BotCommandScopeChat,
+)
 from dotenv import load_dotenv
 
 from bot.middleware.channel import IsJoinChannelMiddleware
@@ -15,9 +19,9 @@ from bot.middleware.channel import router as middleware_router
 from bot.admin import admin_router
 
 from bot.admin.commands import admin_commands
-from bot.routers.user_commands import user_command
+from bot.routers.user_commands import user_command, group_command
 from bot.database.base import create_db_and_tables
-from bot.database.models import reminders  # noqa: F401
+import bot.database.models  # noqa: F401
 from bot.services.reminder_scheduler import reminder_scheduler_loop
 
 load_dotenv()
@@ -52,6 +56,7 @@ async def start_bot() -> None:
     if ADMIN:
         await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
     await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
+    await bot.set_my_commands(group_command, scope=BotCommandScopeAllGroupChats())
 
 
 async def stop_bot() -> None:
