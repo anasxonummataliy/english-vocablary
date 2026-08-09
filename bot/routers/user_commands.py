@@ -11,6 +11,7 @@ user_command = [
 
 group_command = [
     BotCommand(command="quiz", description="Guruhda musobaqa boshlash"),
+    BotCommand(command="stop_quiz", description="Aktiv musobaqani to'xtatish"),
     BotCommand(command="top", description="Reytinglar jadvalini ko'rish"),
     BotCommand(command="help", description="Guruh bot qo'llanmasi"),
 ]

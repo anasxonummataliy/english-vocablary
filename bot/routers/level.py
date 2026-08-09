@@ -1,6 +1,7 @@
 from aiogram import Router, F
 from aiogram.exceptions import TelegramBadRequest
 from aiogram.filters import Command
+from aiogram.enums import ChatType
 from aiogram.types import (
     InlineKeyboardButton,
     Message,
@@ -35,6 +36,13 @@ async def get_user_context(user_id: int, redis: Redis) -> str | None:
 
 @router.message(Command("level"))
 async def level_handler(message: Message):
+    if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+        await message.answer(
+            "👥 Guruhda musobaqa va viktorina o'tkazish uchun <b>/quiz</b> buyrug'idan foydalaning!\n"
+            "Reytinglarni ko'rish uchun <b>/top</b> buyrug'ini bosing.",
+            parse_mode="HTML",
+        )
+        return
     kb = await level_keyboard()
     await message.answer(
         "📚 <b>English Vocabulary in Use</b>\n\nQaysi darajadagi kitobdan boshlamoqchisiz?",

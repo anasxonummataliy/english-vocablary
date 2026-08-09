@@ -8,12 +8,34 @@ from aiogram.types import (
 )
 
 
+LEVEL_DEFINITIONS = [
+    ("🟢 Elementary", "elementary"),
+    ("🔵 Pre-Intermediate & Intermediate", "preintermediateintermediate"),
+    ("📙 Upper Intermediate", "upperintermediate"),
+    ("🔴 Advanced", "advanced"),
+]
+
+
+def get_available_levels() -> list[tuple[str, str]]:
+    """Faqat data/ papkasida joylashgan va so'zlari bor bo'lgan kitoblar darajasini qaytaradi."""
+    result = []
+    for title, code in LEVEL_DEFINITIONS:
+        file_path = f"data/{code}.json"
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if data.get("units"):
+                    result.append((title, code))
+            except Exception:
+                pass
+    return result
+
+
 async def level_keyboard():
     kb = ReplyKeyboardBuilder()
-    kb.button(text="📗 Elementary")
-    kb.button(text="📘 Pre-intermediate & Intermediate")
-    kb.button(text="📙 Upper intermediate")
-    kb.button(text="📕 Advanced")
+    for title, code in get_available_levels():
+        kb.button(text=title)
     kb.adjust(1)
     return kb
 

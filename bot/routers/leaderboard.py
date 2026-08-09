@@ -8,6 +8,7 @@ from bot.services.score_service import (
     get_group_leaderboard,
     get_global_leaderboard,
 )
+from bot.routers.keyboard import get_available_levels, get_available_units
 
 router = Router()
 
@@ -29,19 +30,13 @@ async def cmd_leaderboard(message: Message):
 
     ikb = InlineKeyboardBuilder()
     ikb.row(
-        InlineKeyboardButton(text="👥 Guruh Reytingi", callback_data="lb_group"),
-        InlineKeyboardButton(text="🌍 Umumiy Reyting", callback_data="lb_global"),
+        InlineKeyboardButton(text="👥 Guruh Reytingi", callback_data="lb_group", style="success"),
+        InlineKeyboardButton(text="🌍 Umumiy Reyting", callback_data="lb_global", style="primary"),
     )
 
-    levels = [
-        ("🟢 Elementary", "lb_lvl_elementary"),
-        ("🔵 Pre-Intermediate", "lb_lvl_preintermediate"),
-        ("🟡 Intermediate", "lb_lvl_intermediate"),
-        ("🟠 Upper-Intermediate", "lb_lvl_upperintermediate"),
-        ("🔴 Advanced", "lb_lvl_advanced"),
-    ]
-    for name, code in levels:
-        ikb.row(InlineKeyboardButton(text=name, callback_data=code))
+    available_levels = get_available_levels()
+    for title, code in available_levels:
+        ikb.row(InlineKeyboardButton(text=title, callback_data=f"lb_lvl_{code}", style="primary"))
 
     await message.answer(
         "🏆 <b>REYTING JADVALI</b>\n\n"
@@ -56,20 +51,26 @@ async def cmd_leaderboard(message: Message):
 async def select_leaderboard_level(callback: CallbackQuery):
     level = callback.data.removeprefix("lb_lvl_")
 
+    units = get_available_units(level)
+
     ikb = InlineKeyboardBuilder()
     row = []
-    for u in range(1, 11):
+    for u_str in units:
+        try:
+            u_num = int(u_str.replace("Unit", "").strip())
+        except ValueError:
+            continue
         row.append(
             InlineKeyboardButton(
-                text=f"Unit {u}", callback_data=f"lb_unit_{level}_{u}"
+                text=u_str, callback_data=f"lb_unit_{level}_{u_num}", style="primary"
             )
         )
-        if len(row) == 5:
+        if len(row) == 2:
             ikb.row(*row)
             row = []
     if row:
         ikb.row(*row)
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="lb_main"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="lb_main", style="danger"))
 
     await callback.message.edit_text(
         f"📖 Daraja: <b>{level.capitalize()}</b>\n"
@@ -84,18 +85,12 @@ async def select_leaderboard_level(callback: CallbackQuery):
 async def back_to_main_leaderboard(callback: CallbackQuery):
     ikb = InlineKeyboardBuilder()
     ikb.row(
-        InlineKeyboardButton(text="👥 Guruh Reytingi", callback_data="lb_group"),
-        InlineKeyboardButton(text="🌍 Umumiy Reyting", callback_data="lb_global"),
+        InlineKeyboardButton(text="👥 Guruh Reytingi", callback_data="lb_group", style="success"),
+        InlineKeyboardButton(text="🌍 Umumiy Reyting", callback_data="lb_global", style="primary"),
     )
-    levels = [
-        ("🟢 Elementary", "lb_lvl_elementary"),
-        ("🔵 Pre-Intermediate", "lb_lvl_preintermediate"),
-        ("🟡 Intermediate", "lb_lvl_intermediate"),
-        ("🟠 Upper-Intermediate", "lb_lvl_upperintermediate"),
-        ("🔴 Advanced", "lb_lvl_advanced"),
-    ]
-    for name, code in levels:
-        ikb.row(InlineKeyboardButton(text=name, callback_data=code))
+    available_levels = get_available_levels()
+    for title, code in available_levels:
+        ikb.row(InlineKeyboardButton(text=title, callback_data=f"lb_lvl_{code}", style="primary"))
 
     await callback.message.edit_text(
         "🏆 <b>REYTING JADVALI</b>\n\n"
@@ -116,7 +111,7 @@ async def show_unit_leaderboard_cb(callback: CallbackQuery):
     rows = await get_unit_leaderboard(level, unit_num)
 
     ikb = InlineKeyboardBuilder()
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data=f"lb_lvl_{level}"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data=f"lb_lvl_{level}", style="danger"))
 
     text = f"🏆 <b>Unit {unit_num} ({level.capitalize()}) REYTINGI</b>\n\n"
     if not rows:
@@ -141,7 +136,7 @@ async def show_group_leaderboard_cb(callback: CallbackQuery):
     rows = await get_group_leaderboard(chat_id)
 
     ikb = InlineKeyboardBuilder()
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="lb_main"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="lb_main", style="danger"))
 
     text = "👥 <b>GURUH REYTINGI (Jami Ballar)</b>\n\n"
     if not rows:
@@ -165,7 +160,7 @@ async def show_global_leaderboard_cb(callback: CallbackQuery):
     rows = await get_global_leaderboard()
 
     ikb = InlineKeyboardBuilder()
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="lb_main"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="lb_main", style="danger"))
 
     text = "🌍 <b>UMUMIY BOT REYTINGI</b>\n\n"
     if not rows:
