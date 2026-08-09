@@ -56,7 +56,7 @@ async def start_bot() -> None:
     if ADMIN:
         await bot.set_my_commands(admin_commands, scope=BotCommandScopeChat(chat_id=ADMIN))
         try:
-            await bot.send_message(chat_id=ADMIN, text="started")
+            await bot.send_message(chat_id=ADMIN, text="Bot started ✅")
         except Exception as e:
             logging.warning(f"Adminga startup xabarini yuborishda xatolik: {e}")
     await bot.set_my_commands(user_command, scope=BotCommandScopeAllPrivateChats())
@@ -64,6 +64,11 @@ async def start_bot() -> None:
 
 
 async def stop_bot() -> None:
+    if ADMIN:
+        try:
+            await bot.send_message(chat_id=ADMIN, text="Bot stopped ❌")
+        except Exception as e:
+            logging.warning(f"Adminga shutdown xabarini yuborishda xatolik: {e}")
     try:
         await bot.delete_webhook()
         await bot.session.close()
