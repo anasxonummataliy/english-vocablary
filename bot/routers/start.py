@@ -1,8 +1,8 @@
 import os
-from aiogram import Bot, Router, F
+from aiogram import Bot, Router
 from aiogram.filters import CommandStart
 from aiogram.types import Message
-from aiogram.enums import ChatAction
+from aiogram.enums import ChatAction, ChatType
 from bot.routers.keyboard import level_keyboard
 from dotenv import load_dotenv
 
@@ -36,9 +36,15 @@ async def start_handler(message: Message, bot: Bot):
     if not message.from_user:
         return
 
-    await send_welcome_message(message, bot)
+    if message.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+        await message.answer(
+            "👥 <b>Guruhda faqat Musobaqa (Quiz) rejimi ishlaydi!</b>\n\n"
+            "🏆 Musobaqa boshlash uchun <b>/quiz</b> buyrug'ini bosing.\n"
+            "📊 Reytinglarni ko'rish uchun <b>/top</b> buyrug'ini bosing.\n"
+            "ℹ️ Yordam uchun <b>/help</b> buyrug'ini bosing.\n\n"
+            "<i>So'zlarni shaxsan o'rganish va eslatma sozlash uchun botga shaxsiy (private) chatda yozing.</i>",
+            parse_mode="HTML",
+        )
+        return
 
-
-@router.message()
-async def some(message: Message, bot: Bot):
     await send_welcome_message(message, bot)

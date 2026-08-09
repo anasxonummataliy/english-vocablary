@@ -1,14 +1,17 @@
 import random
 import json
+import os
 import asyncio
 from aiogram import Router, F, Bot
 from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery, InlineKeyboardButton, PollAnswer
+from aiogram.enums import ChatMemberStatus, ChatType
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
 
 from bot.routers.get_words import get_unit_words, get_all_level_words
 from bot.services.score_service import save_score
+from bot.routers.keyboard import get_available_levels, get_available_units
 
 router = Router()
 
@@ -29,6 +32,20 @@ def _cancel_gquiz_task(chat_id: int):
         task.cancel()
 
 
+async def _is_group_admin_or_bot_admin(bot: Bot, chat_id: int, user_id: int) -> bool:
+    bot_admin_id = int(os.getenv("ADMIN") or 0)
+    if user_id == bot_admin_id:
+        return True
+    try:
+        member = await bot.get_chat_member(chat_id=chat_id, user_id=user_id)
+        return member.status in (
+            ChatMemberStatus.ADMINISTRATOR,
+            ChatMemberStatus.CREATOR,
+        )
+    except Exception:
+        return False
+
+
 # ==================== /quiz KOMANDASI ====================
 @router.message(Command("quiz", "musobaqa"))
 async def cmd_start_group_quiz(message: Message, redis: Redis):
@@ -37,23 +54,24 @@ async def cmd_start_group_quiz(message: Message, redis: Redis):
     # Tekshirish: aktiv musobaqa bor-yo'qligi
     existing = await redis.get(f"group_quiz:{chat_id}")
     if existing:
+        ikb = InlineKeyboardBuilder()
+        ikb.row(
+            InlineKeyboardButton(
+                text="🛑 Musobaqani to'xtatish", callback_data="gq_force_stop", style="danger"
+            )
+        )
         await message.reply(
-            "⚠️ <b>Bu guruhda allaqachon aktiv musobaqa ketmoqda!</b>\n"
-            "Uning tugashini kuting yoki navbatdagi savollarga javob bering.",
+            "⚠️ <b>Bu guruhda allaqachon aktiv musobaqa ketmoqda!</b>\n\n"
+            "Uning tugashini kuting yoki to'xtatish uchun pastdagi tugmani bosing yoki /stop_quiz yuboring.",
+            reply_markup=ikb.as_markup(),
             parse_mode="HTML",
         )
         return
 
     ikb = InlineKeyboardBuilder()
-    levels = [
-        ("🟢 Elementary", "gq_lvl_elementary"),
-        ("🔵 Pre-Intermediate", "gq_lvl_preintermediate"),
-        ("🟡 Intermediate", "gq_lvl_intermediate"),
-        ("🟠 Upper-Intermediate", "gq_lvl_upperintermediate"),
-        ("🔴 Advanced", "gq_lvl_advanced"),
-    ]
-    for name, code in levels:
-        ikb.row(InlineKeyboardButton(text=name, callback_data=code))
+    available_levels = get_available_levels()
+    for title, code in available_levels:
+        ikb.row(InlineKeyboardButton(text=title, callback_data=f"gq_lvl_{code}", style="primary"))
 
     await message.answer(
         "🏆 <b>Guruh musobaqasi!</b>\n\n"
@@ -63,25 +81,64 @@ async def cmd_start_group_quiz(message: Message, redis: Redis):
     )
 
 
+# ==================== MUSOBAQANI MAJBURIY TO'XTATISH ====================
+@router.message(Command("stop_quiz", "stopquiz", "cancel_quiz", "stop"))
+@router.callback_query(F.data == "gq_force_stop")
+async def force_stop_gquiz(event: Message | CallbackQuery, redis: Redis, bot: Bot):
+    chat = event.chat if isinstance(event, Message) else event.message.chat
+    chat_id = chat.id
+    user_id = event.from_user.id
+
+    if chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+        is_admin = await _is_group_admin_or_bot_admin(bot, chat_id, user_id)
+        if not is_admin:
+            warning_msg = "⚠️ Musobaqani faqat guruh adminlari to'xtata oladi!"
+            if isinstance(event, CallbackQuery):
+                await event.answer(warning_msg, show_alert=True)
+            else:
+                await event.reply(warning_msg)
+            return
+
+    _cancel_gquiz_task(chat_id)
+    await redis.delete(f"group_quiz:{chat_id}")
+
+    if isinstance(event, CallbackQuery):
+        try:
+            await event.message.delete()
+        except Exception:
+            pass
+        await event.answer("🛑 Musobaqa to'xtatildi!")
+
+    text = (
+        "🛑 <b>Guruh musobaqasi admin tomonidan to'xtatildi.</b>\n\n"
+        "Endi yangi musobaqa boshlashingiz mumkin (/quiz)."
+    )
+    await bot.send_message(chat_id=chat_id, text=text, parse_mode="HTML")
+
+
 @router.callback_query(F.data.startswith("gq_lvl_"))
 async def select_gquiz_level(callback: CallbackQuery):
     level = callback.data.removeprefix("gq_lvl_")
+    units = get_available_units(level)
 
     ikb = InlineKeyboardBuilder()
     ikb.row(
         InlineKeyboardButton(
-            text="🔀 Mix (20 ta aralash savol)", callback_data=f"gq_start_{level}_mix"
+            text="🔀 Mix (20 ta aralash savol)", callback_data=f"gq_start_{level}_mix", style="success"
         )
     )
-    # Har bir level uchun 1-10 unitlar
     row = []
-    for u in range(1, 11):
+    for u_str in units:
+        try:
+            u_num = int(u_str.replace("Unit", "").strip())
+        except ValueError:
+            continue
         row.append(
             InlineKeyboardButton(
-                text=f"Unit {u}", callback_data=f"gq_start_{level}_{u}"
+                text=u_str, callback_data=f"gq_start_{level}_{u_num}", style="primary"
             )
         )
-        if len(row) == 5:
+        if len(row) == 2:
             ikb.row(*row)
             row = []
     if row:
@@ -134,7 +191,7 @@ async def start_gquiz_session(callback: CallbackQuery, redis: Redis, bot: Bot):
             return
 
         random.shuffle(words)
-        selected_words = words[:10]  # Standard unit uchun 10-20 ta savol
+        selected_words = words  # Shu unitdagi barcha so'zlar
         unit_display = f"Unit {unit_num}"
 
     quiz_data = {
@@ -144,6 +201,8 @@ async def start_gquiz_session(callback: CallbackQuery, redis: Redis, bot: Bot):
         "unit_display": unit_display,
         "questions": selected_words,
         "current_index": 0,
+        "unanswered_count": 0,
+        "current_question_answered": False,
         "scores": {},  # user_id_str: {"name": str, "score": int}
         "current_poll_id": None,
         "correct_option_id": None,
@@ -213,6 +272,7 @@ async def send_next_gquiz_question(bot: Bot, chat_id: int, redis: Redis):
     poll_id = str(poll_msg.poll.id)
     quiz_data["current_poll_id"] = poll_id
     quiz_data["correct_option_id"] = correct_idx
+    quiz_data["current_question_answered"] = False
 
     await redis.set(f"group_quiz:{chat_id}", json.dumps(quiz_data), ex=3600)
     await redis.set(f"gquiz_poll:{poll_id}", str(chat_id), ex=3600)
@@ -235,6 +295,26 @@ async def _schedule_next_gquiz_step(
 
         quiz_data = json.loads(raw)
         if quiz_data["current_index"] != expected_idx:
+            return
+
+        # Ushbu savolga javob berildimi?
+        if not quiz_data.get("current_question_answered", False):
+            quiz_data["unanswered_count"] = quiz_data.get("unanswered_count", 0) + 1
+        else:
+            quiz_data["unanswered_count"] = 0
+
+        # Ketma-ket 2 ta savolga javob berilmagan bo'lsa, musobaqani to'xtatish
+        if quiz_data["unanswered_count"] >= 2:
+            _cancel_gquiz_task(chat_id)
+            await bot.send_message(
+                chat_id=chat_id,
+                text=(
+                    "⏸ <b>Musobaqa to'xtatildi!</b>\n\n"
+                    "⚠️ Ketma-ket <b>2 ta</b> savolga hech kim javob bermadi."
+                ),
+                parse_mode="HTML",
+            )
+            await finish_group_quiz(bot, chat_id, quiz_data, redis)
             return
 
         # Keyingi savolga o'tkazish
@@ -277,55 +357,68 @@ async def on_gquiz_poll_answer(poll_answer: PollAnswer, redis: Redis):
     if chosen_idx == correct_idx:
         scores[user_id_str]["score"] += 1
 
+    quiz_data["current_question_answered"] = True
+    quiz_data["unanswered_count"] = 0
+
     await redis.set(f"group_quiz:{chat_id}", json.dumps(quiz_data), ex=3600)
 
 
 # ==================== MUSOBAQANI YAKUNLASH ====================
 async def finish_group_quiz(bot: Bot, chat_id: int, quiz_data: dict, redis: Redis):
     _cancel_gquiz_task(chat_id)
-    scores = quiz_data.get("scores", {})
-    total_q = len(quiz_data.get("questions", []))
-    level = quiz_data.get("level", "elementary")
-    unit_num = quiz_data.get("unit_num", 1)
+    try:
+        scores = quiz_data.get("scores", {})
+        total_q = len(quiz_data.get("questions", []))
+        level = quiz_data.get("level", "elementary")
+        raw_unit = quiz_data.get("unit_num", 1)
+        try:
+            unit_num = int(raw_unit)
+        except (ValueError, TypeError):
+            unit_num = 0
 
-    # Natijalarni bazaga saqlash va tartiblash
-    sorted_players = sorted(
-        scores.items(), key=lambda item: item[1]["score"], reverse=True
-    )
+        unit_disp = quiz_data.get("unit_display", f"Unit {unit_num}")
 
-    text = (
-        f"🏆 <b>MUSOBAQA YAKUNLANDI!</b>\n\n"
-        f"📚 Daraja: <b>{level.capitalize()}</b> | Unit: <b>Unit {unit_num}</b>\n"
-        f"❓ Jami savollar: <b>{total_q} ta</b>\n\n"
-        f"🥇 <b>G'OLIBLAR VA REYTING:</b>\n"
-    )
+        # Natijalarni bazaga saqlash va tartiblash
+        sorted_players = sorted(
+            scores.items(), key=lambda item: item[1]["score"], reverse=True
+        )
 
-    if not sorted_players:
-        text += "\n<i>Afsuski, hech kim musobaqada qatnashmadi.</i>"
-    else:
-        medals = ["🥇", "🥈", "🥉"]
-        for i, (user_id_str, player_info) in enumerate(sorted_players):
-            uid = int(user_id_str)
-            p_score = player_info["score"]
-            name = player_info["name"]
-            medal = medals[i] if i < 3 else f"{i+1}."
-            percent = (p_score / total_q * 100) if total_q > 0 else 0
-            text += f"{medal} <b>{name}</b> — {p_score}/{total_q} ({percent:.0f}%)\n"
+        text = (
+            f"🏆 <b>MUSOBAQA YAKUNLANDI!</b>\n\n"
+            f"📚 Daraja: <b>{level.capitalize()}</b> | Rejim: <b>{unit_disp}</b>\n"
+            f"❓ Jami savollar: <b>{total_q} ta</b>\n\n"
+            f"🥇 <b>G'OLIBLAR VA REYTING:</b>\n"
+        )
 
-            # Bazaga saqlash
-            try:
-                await save_score(
-                    user_id=uid,
-                    user_name=name,
-                    chat_id=chat_id,
-                    level=level,
-                    unit_num=unit_num,
-                    test_mode="group_quiz",
-                    score=p_score,
-                    total_questions=total_q,
-                )
-            except Exception as e:
-                print(f"[GQUIZ SAVE SCORE ERROR] User {uid}: {e}")
+        if not sorted_players:
+            text += "\n<i>Afsuski, hech kim musobaqada qatnashmadi.</i>"
+        else:
+            medals = ["🥇", "🥈", "🥉"]
+            for i, (user_id_str, player_info) in enumerate(sorted_players):
+                uid = int(user_id_str)
+                p_score = player_info["score"]
+                name = player_info["name"]
+                medal = medals[i] if i < 3 else f"{i+1}."
+                percent = (p_score / total_q * 100) if total_q > 0 else 0
+                text += f"{medal} <b>{name}</b> — {p_score}/{total_q} ({percent:.0f}%)\n"
 
-    await bot.send_message(chat_id=chat_id, text=text, parse_mode="HTML")
-    await redis.delete(f"group_quiz:{chat_id}")
+                # Bazaga saqlash
+                try:
+                    await save_score(
+                        user_id=uid,
+                        user_name=name,
+                        chat_id=chat_id,
+                        level=level,
+                        unit_num=unit_num,
+                        test_mode="group_quiz",
+                        score=p_score,
+                        total_questions=total_q,
+                    )
+                except Exception as e:
+                    print(f"[GQUIZ SAVE SCORE ERROR] User {uid}: {e}")
+
+        await bot.send_message(chat_id=chat_id, text=text, parse_mode="HTML")
+    except Exception as e:
+        print(f"[GQUIZ FINISH ERROR] Chat {chat_id}: {e}")
+    finally:
+        await redis.delete(f"group_quiz:{chat_id}")
