@@ -1,4 +1,8 @@
 .env
+.env.*
+.env.bak
+*.env
+*.bak
 .idea
 db.sqlite3
 __pycache__/
