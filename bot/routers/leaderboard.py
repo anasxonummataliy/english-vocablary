@@ -47,37 +47,72 @@ async def cmd_leaderboard(message: Message):
     )
 
 
+from bot.routers.keyboard import (
+    get_available_levels,
+    get_available_units,
+    get_page_data,
+    create_units_keyboard,
+)
+
+
 @router.callback_query(F.data.startswith("lb_lvl_"))
 async def select_leaderboard_level(callback: CallbackQuery):
     level = callback.data.removeprefix("lb_lvl_")
+    page_data, current_page, total_pages = await get_page_data(0, level)
 
-    units = get_available_units(level)
+    bottom_btn = [
+        [InlineKeyboardButton(text="⬅️ Orqaga", callback_data="lb_main", style="danger")]
+    ]
 
-    ikb = InlineKeyboardBuilder()
-    row = []
-    for u_str in units:
-        try:
-            u_num = int(u_str.replace("Unit", "").strip())
-        except ValueError:
-            continue
-        row.append(
-            InlineKeyboardButton(
-                text=u_str, callback_data=f"lb_unit_{level}_{u_num}", style="primary"
-            )
-        )
-        if len(row) == 2:
-            ikb.row(*row)
-            row = []
-    if row:
-        ikb.row(*row)
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="lb_main", style="danger"))
+    kb = await create_units_keyboard(
+        current_page=current_page,
+        total_pages=total_pages,
+        units=page_data,
+        select_prefix=f"lb_unit_{level}_",
+        page_prefix=f"lb_page_{level}_",
+        extra_bottom_buttons=bottom_btn,
+        raw_number_payload=True,
+    )
 
     await callback.message.edit_text(
         f"📖 Daraja: <b>{level.capitalize()}</b>\n"
         "🎯 <b>Qaysi Unit bo'yicha reytingni ko'rmoqchisiz?</b>",
-        reply_markup=ikb.as_markup(),
+        reply_markup=kb,
         parse_mode="HTML",
     )
+    await callback.answer()
+
+
+@router.callback_query(F.data.startswith("lb_page_"))
+async def leaderboard_pagination_handler(callback: CallbackQuery):
+    raw = callback.data.removeprefix("lb_page_")
+    parts = raw.split("_")
+    level = parts[0]
+    page = int(parts[1])
+
+    page_data, current_page, total_pages = await get_page_data(page, level)
+
+    bottom_btn = [
+        [InlineKeyboardButton(text="⬅️ Orqaga", callback_data="lb_main", style="danger")]
+    ]
+
+    kb = await create_units_keyboard(
+        current_page=current_page,
+        total_pages=total_pages,
+        units=page_data,
+        select_prefix=f"lb_unit_{level}_",
+        page_prefix=f"lb_page_{level}_",
+        extra_bottom_buttons=bottom_btn,
+        raw_number_payload=True,
+    )
+
+    await callback.message.edit_text(
+        f"📖 Daraja: <b>{level.capitalize()}</b>\n"
+        "🎯 <b>Qaysi Unit bo'yicha reytingni ko'rmoqchisiz?</b>",
+        reply_markup=kb,
+        parse_mode="HTML",
+    )
+    await callback.answer()
     await callback.answer()
 
 

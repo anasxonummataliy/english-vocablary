@@ -178,38 +178,80 @@ async def force_stop_gquiz(event: Message | CallbackQuery, redis: Redis, bot: Bo
     await bot.send_message(chat_id=chat_id, text=text, parse_mode="HTML")
 
 
+from bot.routers.keyboard import (
+    get_available_levels,
+    get_available_units,
+    get_page_data,
+    create_units_keyboard,
+)
+
+
 @router.callback_query(F.data.startswith("gq_lvl_"))
 async def select_gquiz_level(callback: CallbackQuery):
     level = callback.data.removeprefix("gq_lvl_")
-    units = get_available_units(level)
+    page_data, current_page, total_pages = await get_page_data(0, level)
 
-    ikb = InlineKeyboardBuilder()
-    ikb.row(
-        InlineKeyboardButton(
-            text="🔀 Mix (20 ta aralash savol)", callback_data=f"gq_start_{level}_mix", style="success"
-        )
-    )
-    row = []
-    for u_str in units:
-        try:
-            u_num = int(u_str.replace("Unit", "").strip())
-        except ValueError:
-            continue
-        row.append(
+    top_btn = [
+        [
             InlineKeyboardButton(
-                text=u_str, callback_data=f"gq_start_{level}_{u_num}", style="primary"
+                text="🔀 Mix (20 ta aralash savol)",
+                callback_data=f"gq_start_{level}_mix",
+                style="success",
             )
-        )
-        if len(row) == 2:
-            ikb.row(*row)
-            row = []
-    if row:
-        ikb.row(*row)
+        ]
+    ]
+
+    kb = await create_units_keyboard(
+        current_page=current_page,
+        total_pages=total_pages,
+        units=page_data,
+        select_prefix=f"gq_start_{level}_",
+        page_prefix=f"gq_page_{level}_",
+        extra_top_buttons=top_btn,
+        raw_number_payload=True,
+    )
 
     await callback.message.edit_text(
         f"📖 Tanlangan daraja: <b>{level.capitalize()}</b>\n"
         "🎯 <b>Musobaqa turini yoki Unitni tanlang:</b>",
-        reply_markup=ikb.as_markup(),
+        reply_markup=kb,
+        parse_mode="HTML",
+    )
+    await callback.answer()
+
+
+@router.callback_query(F.data.startswith("gq_page_"))
+async def gquiz_pagination_handler(callback: CallbackQuery):
+    raw = callback.data.removeprefix("gq_page_")
+    parts = raw.split("_")
+    level = parts[0]
+    page = int(parts[1])
+
+    page_data, current_page, total_pages = await get_page_data(page, level)
+    top_btn = [
+        [
+            InlineKeyboardButton(
+                text="🔀 Mix (20 ta aralash savol)",
+                callback_data=f"gq_start_{level}_mix",
+                style="success",
+            )
+        ]
+    ]
+
+    kb = await create_units_keyboard(
+        current_page=current_page,
+        total_pages=total_pages,
+        units=page_data,
+        select_prefix=f"gq_start_{level}_",
+        page_prefix=f"gq_page_{level}_",
+        extra_top_buttons=top_btn,
+        raw_number_payload=True,
+    )
+
+    await callback.message.edit_text(
+        f"📖 Tanlangan daraja: <b>{level.capitalize()}</b>\n"
+        "🎯 <b>Musobaqa turini yoki Unitni tanlang:</b>",
+        reply_markup=kb,
         parse_mode="HTML",
     )
     await callback.answer()

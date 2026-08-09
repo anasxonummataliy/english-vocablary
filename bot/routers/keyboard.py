@@ -84,25 +84,37 @@ async def create_units_keyboard(
     *,
     select_prefix: str = "select_",
     page_prefix: str = "page_",
+    extra_top_buttons: list | None = None,
+    extra_bottom_buttons: list | None = None,
+    btn_style: str = "primary",
+    raw_number_payload: bool = False,
 ):
     keyboard = []
 
+    if extra_top_buttons:
+        keyboard.extend(extra_top_buttons)
+
     for i in range(0, len(units), 2):
         row = []
+        val1 = units[i].replace("Unit ", "") if raw_number_payload else units[i]
         row.append(
             InlineKeyboardButton(
                 text=units[i],
-                callback_data=f"{select_prefix}{units[i]}",
+                callback_data=f"{select_prefix}{val1}",
+                style=btn_style,
             )
         )
         if i + 1 < len(units):
+            val2 = units[i + 1].replace("Unit ", "") if raw_number_payload else units[i + 1]
             row.append(
                 InlineKeyboardButton(
                     text=units[i + 1],
-                    callback_data=f"{select_prefix}{units[i + 1]}",
+                    callback_data=f"{select_prefix}{val2}",
+                    style=btn_style,
                 )
             )
         keyboard.append(row)
+
     nav_buttons = []
     if current_page > 0:
         nav_buttons.append(
@@ -124,5 +136,8 @@ async def create_units_keyboard(
         )
 
     keyboard.append(nav_buttons)
+
+    if extra_bottom_buttons:
+        keyboard.extend(extra_bottom_buttons)
 
     return InlineKeyboardMarkup(inline_keyboard=keyboard)
