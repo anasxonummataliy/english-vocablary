@@ -471,8 +471,13 @@ async def _schedule_next_gquiz_step(
         print(f"[GQUIZ TIMEOUT ERROR] Chat {chat_id}: {e}")
 
 
+async def _is_gquiz_poll(poll_answer: PollAnswer, redis: Redis) -> bool:
+    poll_id = str(poll_answer.poll_id)
+    return bool(await redis.exists(f"gquiz_poll:{poll_id}"))
+
+
 # ==================== POLL ANSWER HODISASI ====================
-@router.poll_answer()
+@router.poll_answer(_is_gquiz_poll)
 async def on_gquiz_poll_answer(poll_answer: PollAnswer, redis: Redis):
     poll_id = str(poll_answer.poll_id)
     chat_id_str = _to_str(await redis.get(f"gquiz_poll:{poll_id}"))

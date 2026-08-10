@@ -271,8 +271,13 @@ async def _check_after_timeout(
         print(f"[Timeout ERROR] User {user_id}: {e}")
 
 
+async def _is_test_poll(poll_answer: PollAnswer, redis: Redis) -> bool:
+    poll_id = str(poll_answer.poll_id)
+    return bool(await redis.exists(f"poll_user:{poll_id}"))
+
+
 # ==================== POLL JAVOBI ====================
-@router.poll_answer()
+@router.poll_answer(_is_test_poll)
 async def on_poll_answer(poll_answer: PollAnswer, redis: Redis, bot: Bot):
     user_id = poll_answer.user.id
     poll_id = str(poll_answer.poll_id)  # str sifatida
