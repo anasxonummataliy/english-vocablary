@@ -54,6 +54,14 @@ async def _is_group_admin_or_bot_admin(bot: Bot, chat_id: int, user_id: int) -> 
 # ==================== /quiz KOMANDASI ====================
 @router.message(Command("quiz", "musobaqa"))
 async def cmd_start_group_quiz(message: Message, redis: Redis):
+    if message.chat.type not in (ChatType.GROUP, ChatType.SUPERGROUP):
+        await message.answer(
+            "⚠️ <b>Bu buyruq faqat guruhlarda ishlaydi!</b>\n\n"
+            "Musobaqa (Quiz) o'tkazish uchun botni biror guruhga qo'shing va guruhda <b>/quiz</b> buyrug'ini yuboring.",
+            parse_mode="HTML",
+        )
+        return
+
     chat_id = message.chat.id
 
     # Tekshirish: aktiv musobaqa bor-yo'qligi
@@ -160,15 +168,22 @@ async def force_stop_gquiz(event: Message | CallbackQuery, redis: Redis, bot: Bo
     chat_id = chat.id
     user_id = event.from_user.id
 
-    if chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-        is_admin = await _is_group_admin_or_bot_admin(bot, chat_id, user_id)
-        if not is_admin:
-            warning_msg = "⚠️ Musobaqani faqat guruh adminlari to'xtata oladi!"
-            if isinstance(event, CallbackQuery):
-                await event.answer(warning_msg, show_alert=True)
-            else:
-                await event.reply(warning_msg)
-            return
+    if chat.type not in (ChatType.GROUP, ChatType.SUPERGROUP):
+        warning_msg = "⚠️ <b>Bu buyruq faqat guruhlarda ishlaydi!</b>"
+        if isinstance(event, CallbackQuery):
+            await event.answer("⚠️ Bu buyruq faqat guruhlarda ishlaydi!", show_alert=True)
+        else:
+            await event.answer(warning_msg, parse_mode="HTML")
+        return
+
+    is_admin = await _is_group_admin_or_bot_admin(bot, chat_id, user_id)
+    if not is_admin:
+        warning_msg = "⚠️ Musobaqani faqat guruh adminlari to'xtata oladi!"
+        if isinstance(event, CallbackQuery):
+            await event.answer(warning_msg, show_alert=True)
+        else:
+            await event.reply(warning_msg)
+        return
 
     _cancel_gquiz_task(chat_id)
     await redis.delete(f"group_quiz:{chat_id}")
