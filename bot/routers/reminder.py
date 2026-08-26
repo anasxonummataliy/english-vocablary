@@ -29,6 +29,8 @@ from bot.services.reminder_service import (
     parse_reminder_times,
     save_reminder,
     skip_to_next_unit,
+    update_reminder_unit,
+    update_reminder_schedule,
 )
 
 router = Router()
@@ -157,21 +159,38 @@ def _weekday_keyboard(selected_days: list[int]) -> InlineKeyboardBuilder:
 
 def _main_menu_keyboard(has_reminder: bool, is_active: bool) -> InlineKeyboardBuilder:
     ikb = InlineKeyboardBuilder()
-    ikb.row(
-        InlineKeyboardButton(
-            text="⚙️ Sozlash",
-            callback_data="rem_setup",
-            style="primary",
-        )
-    )
     if has_reminder:
+        ikb.row(
+            InlineKeyboardButton(
+                text="📌 Unitni o'zgartirish",
+                callback_data="rem_edit_unit",
+                style="primary",
+            ),
+            InlineKeyboardButton(
+                text="⏰ Vaqtlarni o'zgartirish",
+                callback_data="rem_edit_schedule",
+                style="primary",
+            ),
+        )
+        ikb.row(
+            InlineKeyboardButton(
+                text="⚙️ To'liq qayta sozlash",
+                callback_data="rem_setup",
+                style="primary",
+            )
+        )
         if is_active:
             ikb.row(
                 InlineKeyboardButton(
                     text="⏸ O'chirish",
                     callback_data="rem_disable",
                     style="danger",
-                )
+                ),
+                InlineKeyboardButton(
+                    text="⏭ Keyingi unitga",
+                    callback_data="rem_skip",
+                    style="success",
+                ),
             )
         else:
             ikb.row(
@@ -181,14 +200,116 @@ def _main_menu_keyboard(has_reminder: bool, is_active: bool) -> InlineKeyboardBu
                     style="success",
                 )
             )
+    else:
         ikb.row(
             InlineKeyboardButton(
-                text="⏭ Keyingi unitga o'tish",
-                callback_data="rem_skip",
-                style="primary",
+                text="⚙️ Sozlash",
+                callback_data="rem_setup",
+                style="success",
             )
         )
     return ikb
+
+
+@router.callback_query(F.data == "rem_edit_unit")
+async def edit_unit_start(callback: CallbackQuery, redis: Redis):
+    user_id = callback.from_user.id
+    reminder = await get_user_reminder(user_id)
+    if not reminder:
+        await callback.answer("❌ Eslatma topilmadi. Avval sozlang.", show_alert=True)
+        return
+
+    setup = {
+        "edit_mode": "unit_only",
+        "level": reminder.level,
+        "level_idx": 0,
+    }
+    await _save_setup(redis, user_id, setup)
+
+    page_data, current_page, total_pages = await get_page_data(0, reminder.level)
+    extra_bottom = [
+        [
+            InlineKeyboardButton(
+                text="📚 Boshqa kitobni tanlash",
+                callback_data="rem_edit_level_select",
+                style="primary",
+            )
+        ],
+        [
+            InlineKeyboardButton(
+                text="⬅️ Orqaga",
+                callback_data="rem_back",
+                style="danger",
+            )
+        ],
+    ]
+    keyboard = await create_units_keyboard(
+        current_page,
+        total_pages,
+        page_data,
+        select_prefix="rem_sel_",
+        page_prefix="rem_page_",
+        extra_bottom_buttons=extra_bottom,
+    )
+
+    await callback.message.edit_text(
+        f"📖 Kitob: <b>{reminder.level}</b>\n"
+        f"📌 Hozirgi unit: <b>Unit {reminder.current_unit}</b>\n\n"
+        "🎯 <b>Yangi unitni tanlang:</b>\n"
+        "<i>(Vaqt va kun sozlamalari o'zgarishsiz saqlanadi)</i>",
+        parse_mode="HTML",
+        reply_markup=keyboard,
+    )
+    await callback.answer()
+
+
+@router.callback_query(F.data == "rem_edit_level_select")
+async def edit_level_select(callback: CallbackQuery):
+    levels = _available_levels()
+    ikb = InlineKeyboardBuilder()
+    for idx, level in levels:
+        ikb.row(
+            InlineKeyboardButton(
+                text=level,
+                callback_data=f"rem_lvl_{idx}",
+                style="primary",
+            )
+        )
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_edit_unit", style="danger"))
+
+    await callback.message.edit_text(
+        "📚 <b>Qaysi kitobga o'zgartirmoqchisiz?</b>",
+        parse_mode="HTML",
+        reply_markup=ikb.as_markup(),
+    )
+    await callback.answer()
+
+
+@router.callback_query(F.data == "rem_edit_schedule")
+async def edit_schedule_start(callback: CallbackQuery, redis: Redis):
+    user_id = callback.from_user.id
+    reminder = await get_user_reminder(user_id)
+    if not reminder:
+        await callback.answer("❌ Eslatma topilmadi. Avval sozlang.", show_alert=True)
+        return
+
+    setup = {
+        "edit_mode": "schedule_only",
+        "level": reminder.level,
+        "start_unit": reminder.current_unit,
+        "step": "choose_mode",
+    }
+    await _save_setup(redis, user_id, setup)
+
+    await callback.message.edit_text(
+        f"⏰ <b>Eslatma vaqtlarini o'zgartirish</b>\n"
+        f"📚 Kitob: <b>{reminder.level}</b> (Unit {reminder.current_unit})\n\n"
+        "Yangi eslatish rejimini tanlang:\n"
+        "<i>(Kitob va hozirgi unit o'zgarishsiz saqlanadi)</i>",
+        parse_mode="HTML",
+        reply_markup=_mode_selection_keyboard().as_markup(),
+    )
+    await callback.answer()
 
 
 @router.message(Command("reminder"))
@@ -260,6 +381,22 @@ async def setup_interval_select(callback: CallbackQuery, redis: Redis):
     setup["interval_hours"] = hours
     setup["selected_days"] = None
     setup["reminder_times"] = None
+
+    # Faqat vaqtni o'zgartirish rejimi bo'lsa
+    if setup.get("edit_mode") == "schedule_only":
+        updated_reminder = await update_reminder_schedule(
+            user_id, interval_hours=hours, weekdays=None, reminder_times=None
+        )
+        await _clear_setup(redis, user_id)
+        if updated_reminder:
+            await callback.message.edit_text(
+                _status_text(updated_reminder) + f"\n\n✅ <b>Eslatma intervali {format_interval(hours)} ga o'zgartirildi!</b>",
+                parse_mode="HTML",
+                reply_markup=_main_menu_keyboard(True, updated_reminder.is_active).as_markup(),
+            )
+            await callback.answer("✅ Yangi interval saqlandi!")
+            return
+
     setup["step"] = "choose_level"
     await _save_setup(redis, user_id, setup)
 
@@ -426,6 +563,23 @@ async def setup_times_input(message: Message, redis: Redis):
         )
         return
 
+    # Faqat vaqtni o'zgartirish rejimi bo'lsa
+    if setup.get("edit_mode") == "schedule_only":
+        updated_reminder = await update_reminder_schedule(
+            user_id,
+            interval_hours=0,
+            weekdays=setup.get("selected_days"),
+            reminder_times=reminder_times,
+        )
+        await _clear_setup(redis, user_id)
+        if updated_reminder:
+            await message.answer(
+                _status_text(updated_reminder) + "\n\n✅ <b>Eslatma kunlari va vaqtlari muvaffaqiyatli yangilandi!</b>",
+                parse_mode="HTML",
+                reply_markup=_main_menu_keyboard(True, updated_reminder.is_active).as_markup(),
+            )
+            return
+
     setup["reminder_times"] = reminder_times
     setup["step"] = "choose_level"
     await _save_setup(redis, user_id, setup)
@@ -474,12 +628,32 @@ async def setup_level(callback: CallbackQuery, redis: Redis):
     await _save_setup(redis, user_id, setup)
 
     page_data, current_page, total_pages = await get_page_data(0, level)
+    extra_bottom = None
+    if setup.get("edit_mode") == "unit_only":
+        extra_bottom = [
+            [
+                InlineKeyboardButton(
+                    text="📚 Boshqa kitobni tanlash",
+                    callback_data="rem_edit_level_select",
+                    style="primary",
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    text="⬅️ Orqaga",
+                    callback_data="rem_back",
+                    style="danger",
+                )
+            ],
+        ]
+
     keyboard = await create_units_keyboard(
         current_page,
         total_pages,
         page_data,
         select_prefix="rem_sel_",
         page_prefix="rem_page_",
+        extra_bottom_buttons=extra_bottom,
     )
 
     await callback.message.edit_text(
@@ -509,12 +683,32 @@ async def setup_unit_page(callback: CallbackQuery, redis: Redis):
         await callback.answer("❌ Bu sahifada unit yo'q.", show_alert=True)
         return
 
+    extra_bottom = None
+    if setup.get("edit_mode") == "unit_only":
+        extra_bottom = [
+            [
+                InlineKeyboardButton(
+                    text="📚 Boshqa kitobni tanlash",
+                    callback_data="rem_edit_level_select",
+                    style="primary",
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    text="⬅️ Orqaga",
+                    callback_data="rem_back",
+                    style="danger",
+                )
+            ],
+        ]
+
     keyboard = await create_units_keyboard(
         current_page,
         total_pages,
         page_data,
         select_prefix="rem_sel_",
         page_prefix="rem_page_",
+        extra_bottom_buttons=extra_bottom,
     )
 
     text = (
@@ -541,6 +735,22 @@ async def setup_unit_select(callback: CallbackQuery, redis: Redis):
         return
 
     unit_num = parse_unit_number(unit_label)
+
+    # Faqat unitni o'zgartirish rejimi bo'lsa
+    if setup.get("edit_mode") == "unit_only":
+        updated_reminder = await update_reminder_unit(
+            user_id, unit_num, setup.get("level")
+        )
+        await _clear_setup(redis, user_id)
+        if updated_reminder:
+            await callback.message.edit_text(
+                _status_text(updated_reminder) + f"\n\n✅ <b>Eslatma uniti Unit {unit_num} ga o'zgartirildi!</b>",
+                parse_mode="HTML",
+                reply_markup=_main_menu_keyboard(True, updated_reminder.is_active).as_markup(),
+            )
+            await callback.answer(f"✅ Unit {unit_num} saqlandi!")
+            return
+
     setup["start_unit"] = unit_num
     await _save_setup(redis, user_id, setup)
 

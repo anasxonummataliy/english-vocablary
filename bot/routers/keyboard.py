@@ -1,7 +1,7 @@
 import os
 import json
 
-from aiogram.utils.keyboard import ReplyKeyboardBuilder
+from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 from aiogram.types import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -78,6 +78,31 @@ async def main_menu_keyboard():
     return kb
 
 
+async def main_menu_inline_keyboard() -> InlineKeyboardMarkup:
+    """Bosh menyu: 2 ta kitob (ko'k) va Savatcha (yashil)"""
+    ikb = InlineKeyboardBuilder()
+    ikb.row(
+        InlineKeyboardButton(
+            text=BOOK_VOCABULARY_IN_USE,
+            callback_data="menu_vocab_in_use",
+            style="primary",
+        ),
+        InlineKeyboardButton(
+            text="🔵 Essential Words",
+            callback_data="menu_essential_words",
+            style="primary",
+        ),
+    )
+    ikb.row(
+        InlineKeyboardButton(
+            text=MAIN_MENU_BASKET,
+            callback_data="baskets_list",
+            style="success",
+        )
+    )
+    return ikb.as_markup()
+
+
 async def vocabulary_in_use_keyboard():
     """English Vocabulary in Use kitoblari levellari"""
     kb = ReplyKeyboardBuilder()
@@ -88,6 +113,25 @@ async def vocabulary_in_use_keyboard():
     return kb
 
 
+async def vocabulary_in_use_inline_keyboard() -> InlineKeyboardMarkup:
+    ikb = InlineKeyboardBuilder()
+    for title, code in VOCABULARY_IN_USE_LEVELS:
+        ikb.button(
+            text=title,
+            callback_data=f"lvl_sel_{code}",
+            style="primary",
+        )
+    ikb.adjust(2)
+    ikb.row(
+        InlineKeyboardButton(
+            text="⬅️ Asosiy menyu",
+            callback_data="menu_main",
+            style="danger",
+        )
+    )
+    return ikb.as_markup()
+
+
 async def essential_words_keyboard():
     """4000 Essential English Words kitoblari levellari"""
     kb = ReplyKeyboardBuilder()
@@ -96,6 +140,25 @@ async def essential_words_keyboard():
     kb.button(text=BTN_BACK_MAIN)
     kb.adjust(2, 2, 2, 1)
     return kb
+
+
+async def essential_words_inline_keyboard() -> InlineKeyboardMarkup:
+    ikb = InlineKeyboardBuilder()
+    for title, code in ESSENTIAL_WORDS_LEVELS:
+        ikb.button(
+            text=title,
+            callback_data=f"lvl_sel_{code}",
+            style="primary",
+        )
+    ikb.adjust(2)
+    ikb.row(
+        InlineKeyboardButton(
+            text="⬅️ Asosiy menyu",
+            callback_data="menu_main",
+            style="danger",
+        )
+    )
+    return ikb.as_markup()
 
 
 async def level_keyboard():

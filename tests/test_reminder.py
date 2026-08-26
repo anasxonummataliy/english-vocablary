@@ -111,3 +111,73 @@ def test_extract_unit_id_from_callback():
     assert _extract_unit_id_from_callback("rem_skip_8") == 8
     assert _extract_unit_id_from_callback("random_callback") is None
     assert _extract_unit_id_from_callback("rem_setup") is None
+
+
+@pytest.mark.asyncio
+async def test_update_reminder_unit_independent(monkeypatch):
+    from unittest.mock import AsyncMock, MagicMock
+    from contextlib import asynccontextmanager
+    import bot.services.reminder_service as rem_service
+    from bot.services.reminder_service import update_reminder_unit
+
+    reminder = Reminder(
+        id=1,
+        tg_id=999,
+        level="📘 Elementary",
+        current_unit=1,
+        interval_hours=24,
+        is_active=True,
+    )
+
+    mock_session = AsyncMock()
+    mock_session.commit = AsyncMock()
+    mock_session.refresh = AsyncMock()
+    mock_result = MagicMock()
+    mock_result.scalar_one_or_none.return_value = reminder
+    mock_session.execute.return_value = mock_result
+
+    @asynccontextmanager
+    async def mock_get_session():
+        yield mock_session
+
+    monkeypatch.setattr(rem_service, "get_async_session_context", mock_get_session)
+
+    res = await update_reminder_unit(999, 15, "📘 Elementary")
+    assert res is not None
+    assert res.current_unit == 15
+    assert res.interval_hours == 24
+
+
+@pytest.mark.asyncio
+async def test_update_reminder_schedule_independent(monkeypatch):
+    from unittest.mock import AsyncMock, MagicMock
+    from contextlib import asynccontextmanager
+    import bot.services.reminder_service as rem_service
+    from bot.services.reminder_service import update_reminder_schedule
+
+    reminder = Reminder(
+        id=1,
+        tg_id=999,
+        level="📘 Elementary",
+        current_unit=5,
+        interval_hours=24,
+        is_active=True,
+    )
+
+    mock_session = AsyncMock()
+    mock_session.commit = AsyncMock()
+    mock_session.refresh = AsyncMock()
+    mock_result = MagicMock()
+    mock_result.scalar_one_or_none.return_value = reminder
+    mock_session.execute.return_value = mock_result
+
+    @asynccontextmanager
+    async def mock_get_session():
+        yield mock_session
+
+    monkeypatch.setattr(rem_service, "get_async_session_context", mock_get_session)
+
+    res = await update_reminder_schedule(999, interval_hours=4)
+    assert res is not None
+    assert res.interval_hours == 4
+    assert res.current_unit == 5

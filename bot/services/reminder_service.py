@@ -572,3 +572,55 @@ async def advance_reminder_for_unit(tg_id: int, unit_id: int) -> Reminder | None
         await session.refresh(reminder)
         return reminder
 
+
+async def update_reminder_unit(
+    tg_id: int, new_unit: int, new_level: str | None = None
+) -> Reminder | None:
+    async with get_async_session_context() as session:
+        result = await session.execute(select(Reminder).where(Reminder.tg_id == tg_id))
+        reminder = result.scalar_one_or_none()
+        if not reminder:
+            return None
+        reminder.current_unit = new_unit
+        if new_level:
+            reminder.level = new_level
+        reminder.next_reminder_at = calculate_next_reminder(
+            interval_hours=reminder.interval_hours or 24,
+            weekdays=reminder.weekdays,
+            reminder_times=reminder.reminder_times,
+        )
+        await session.commit()
+        await session.refresh(reminder)
+        return reminder
+
+
+async def update_reminder_schedule(
+    tg_id: int,
+    interval_hours: int = 24,
+    weekdays: Any = None,
+    reminder_times: Any = None,
+) -> Reminder | None:
+    days_list = parse_weekdays_input(weekdays)
+    times_list = parse_reminder_times(reminder_times)
+    days_json = json.dumps(days_list) if days_list else None
+    times_json = json.dumps(times_list) if times_list else None
+
+    next_at = calculate_next_reminder(
+        interval_hours=interval_hours,
+        weekdays=days_json,
+        reminder_times=times_json,
+    )
+
+    async with get_async_session_context() as session:
+        result = await session.execute(select(Reminder).where(Reminder.tg_id == tg_id))
+        reminder = result.scalar_one_or_none()
+        if not reminder:
+            return None
+        reminder.interval_hours = interval_hours
+        reminder.weekdays = days_json
+        reminder.reminder_times = times_json
+        reminder.next_reminder_at = next_at
+        await session.commit()
+        await session.refresh(reminder)
+        return reminder
+

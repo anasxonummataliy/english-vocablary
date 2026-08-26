@@ -13,8 +13,11 @@ from redis.asyncio import Redis
 
 from bot.routers.keyboard import (
     main_menu_keyboard,
+    main_menu_inline_keyboard,
     vocabulary_in_use_keyboard,
+    vocabulary_in_use_inline_keyboard,
     essential_words_keyboard,
+    essential_words_inline_keyboard,
     level_keyboard,
     get_page_data,
     create_units_keyboard,
@@ -23,6 +26,9 @@ from bot.routers.keyboard import (
     BOOK_ESSENTIAL_WORDS,
     MAIN_MENU_BASKET,
     BTN_BACK_MAIN,
+    LEVEL_DEFINITIONS,
+    VOCABULARY_IN_USE_LEVELS,
+    ESSENTIAL_WORDS_LEVELS,
 )
 
 router = Router()
@@ -50,32 +56,132 @@ async def level_handler(message: Message):
             parse_mode="HTML",
         )
         return
-    kb = await main_menu_keyboard()
+    ikb = await main_menu_inline_keyboard()
     await message.answer(
         "📚 <b>Kitoblar va Savatcha</b>\n\nQaysi bo'limdan boshlamoqchisiz?",
-        reply_markup=kb.as_markup(resize_keyboard=True),
+        reply_markup=ikb,
         parse_mode="HTML",
     )
+
+
+# ==================== INLINE ASOSIY MENYU HANDLERLARI ====================
+
+@router.callback_query(F.data == "menu_main")
+async def callback_menu_main(callback: CallbackQuery):
+    ikb = await main_menu_inline_keyboard()
+    try:
+        await callback.message.edit_text(
+            "📚 <b>Kitoblar va Savatcha</b>\n\nQuyidagi bo'limlardan birini tanlang:",
+            reply_markup=ikb,
+            parse_mode="HTML",
+        )
+    except TelegramBadRequest:
+        pass
+    await callback.answer()
+
+
+@router.callback_query(F.data == "menu_vocab_in_use")
+async def callback_menu_vocab_in_use(callback: CallbackQuery):
+    ikb = await vocabulary_in_use_inline_keyboard()
+    try:
+        await callback.message.edit_text(
+            "📘 <b>English Vocabulary in Use</b>\n\nKerakli darajani tanlang:",
+            reply_markup=ikb,
+            parse_mode="HTML",
+        )
+    except TelegramBadRequest:
+        pass
+    await callback.answer()
+
+
+@router.callback_query(F.data == "menu_essential_words")
+async def callback_menu_essential_words(callback: CallbackQuery):
+    ikb = await essential_words_inline_keyboard()
+    try:
+        await callback.message.edit_text(
+            "🔵 <b>Essential Words</b>\n\nKerakli kitobni tanlang:",
+            reply_markup=ikb,
+            parse_mode="HTML",
+        )
+    except TelegramBadRequest:
+        pass
+    await callback.answer()
+
+
+@router.callback_query(F.data.startswith("lvl_sel_"))
+async def callback_level_select(callback: CallbackQuery, redis: Redis):
+    code = callback.data.removeprefix("lvl_sel_")
+    level_title = None
+    for title, c in LEVEL_DEFINITIONS:
+        if c == code:
+            level_title = title
+            break
+    if not level_title:
+        level_title = code
+
+    user_id = callback.from_user.id
+    await redis.set(f"user:{user_id}:level", level_title, ex=86400)
+
+    available_units = get_available_units(level_title)
+    if not available_units:
+        await callback.answer(
+            f"⚠️ {level_title} kitobidagi so'zlar hali yuklanmagan.",
+            show_alert=True,
+        )
+        return
+
+    page_data, current_page, total_pages = await get_page_data(0, level_title)
+    back_target = (
+        "menu_vocab_in_use"
+        if any(c == code for _, c in VOCABULARY_IN_USE_LEVELS)
+        else "menu_essential_words"
+    )
+    extra_bottom = [
+        [
+            InlineKeyboardButton(
+                text="⬅️ Kitoblar ro'yxatiga",
+                callback_data=back_target,
+                style="danger",
+            )
+        ]
+    ]
+
+    keyboard = await create_units_keyboard(
+        current_page,
+        total_pages,
+        page_data,
+        extra_bottom_buttons=extra_bottom,
+    )
+
+    text = f"📖 Kitob: <b>{level_title}</b>\n"
+    text += "🎯 <b>Unit tanlang:</b>\n\n"
+    text += f"📊 Jami: {len(available_units)} ta unit mavjud"
+
+    try:
+        await callback.message.edit_text(text, reply_markup=keyboard, parse_mode="HTML")
+    except TelegramBadRequest:
+        pass
+    await callback.answer()
 
 
 # ==================== KITOBLAR VA ASOSIY MENYU TUGMALARI ====================
 
 @router.message(F.text.in_({BOOK_VOCABULARY_IN_USE, "📚 English Vocabulary in Use", "📘 English Vocabulary in Use", "English Vocabulary in Use", "Vocabulary in Use"}))
 async def handle_vocabulary_in_use_selection(message: Message):
-    kb = await vocabulary_in_use_keyboard()
+    ikb = await vocabulary_in_use_inline_keyboard()
     await message.answer(
         "📘 <b>English Vocabulary in Use</b>\n\nKerakli darajani tanlang:",
-        reply_markup=kb.as_markup(resize_keyboard=True),
+        reply_markup=ikb,
         parse_mode="HTML",
     )
 
 
 @router.message(F.text.in_({BOOK_ESSENTIAL_WORDS, "📖 4000 Essential English Words", "🔵 4000 Essential English Words", "4000 Essential English Words", "Essential Words"}))
 async def handle_essential_words_selection(message: Message):
-    kb = await essential_words_keyboard()
+    ikb = await essential_words_inline_keyboard()
     await message.answer(
         "🔵 <b>4000 Essential English Words</b>\n\nKerakli kitobni tanlang:",
-        reply_markup=kb.as_markup(resize_keyboard=True),
+        reply_markup=ikb,
         parse_mode="HTML",
     )
 
@@ -88,10 +194,10 @@ async def handle_basket_button(message: Message):
 
 @router.message(F.text.in_({BTN_BACK_MAIN, "⬅️ Bosh menyu", "⬅️ Orqaga", "Asosiy menyu"}))
 async def handle_back_to_main_menu(message: Message):
-    kb = await main_menu_keyboard()
+    ikb = await main_menu_inline_keyboard()
     await message.answer(
         "🏠 <b>Asosiy menyu</b>\n\nQaysi bo'limdan boshlamoqchisiz?",
-        reply_markup=kb.as_markup(resize_keyboard=True),
+        reply_markup=ikb,
         parse_mode="HTML",
     )
 
