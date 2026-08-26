@@ -9,9 +9,9 @@ from aiogram.types import (
 
 
 # Main menu categories
-BOOK_VOCABULARY_IN_USE = "📚 English Vocabulary in Use"
-BOOK_ESSENTIAL_WORDS = "📖 4000 Essential English Words"
-MAIN_MENU_BASKET = "🧺 Mening savatcham"
+BOOK_VOCABULARY_IN_USE = "📘 English Vocabulary in Use"
+BOOK_ESSENTIAL_WORDS = "🔵 4000 Essential English Words"
+MAIN_MENU_BASKET = "🟢 Mening savatcham"
 BTN_BACK_MAIN = "⬅️ Asosiy menyu"
 
 VOCABULARY_IN_USE_LEVELS = [

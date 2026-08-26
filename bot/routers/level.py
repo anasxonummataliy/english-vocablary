@@ -60,27 +60,27 @@ async def level_handler(message: Message):
 
 # ==================== KITOBLAR VA ASOSIY MENYU TUGMALARI ====================
 
-@router.message(F.text.in_({BOOK_VOCABULARY_IN_USE, "English Vocabulary in Use", "Vocabulary in Use"}))
+@router.message(F.text.in_({BOOK_VOCABULARY_IN_USE, "📚 English Vocabulary in Use", "📘 English Vocabulary in Use", "English Vocabulary in Use", "Vocabulary in Use"}))
 async def handle_vocabulary_in_use_selection(message: Message):
     kb = await vocabulary_in_use_keyboard()
     await message.answer(
-        "📚 <b>English Vocabulary in Use</b>\n\nKerakli darajani tanlang:",
+        "📘 <b>English Vocabulary in Use</b>\n\nKerakli darajani tanlang:",
         reply_markup=kb.as_markup(resize_keyboard=True),
         parse_mode="HTML",
     )
 
 
-@router.message(F.text.in_({BOOK_ESSENTIAL_WORDS, "4000 Essential English Words", "4000 Essential Words"}))
+@router.message(F.text.in_({BOOK_ESSENTIAL_WORDS, "📖 4000 Essential English Words", "🔵 4000 Essential English Words", "4000 Essential English Words", "Essential Words"}))
 async def handle_essential_words_selection(message: Message):
     kb = await essential_words_keyboard()
     await message.answer(
-        "📖 <b>4000 Essential English Words</b>\n\nKerakli kitobni tanlang:",
+        "🔵 <b>4000 Essential English Words</b>\n\nKerakli kitobni tanlang:",
         reply_markup=kb.as_markup(resize_keyboard=True),
         parse_mode="HTML",
     )
 
 
-@router.message(F.text.in_({MAIN_MENU_BASKET, "🧺 Savatcham", "Mening savatcham", "Savatcham"}))
+@router.message(F.text.in_({MAIN_MENU_BASKET, "🟢 Mening savatcham", "🧺 Mening savatcham", "🧺 Savatcham", "Mening savatcham", "Savatcham"}))
 async def handle_basket_button(message: Message):
     from bot.routers.basket import cmd_basket
     await cmd_basket(message)
