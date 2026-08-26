@@ -1,8 +1,10 @@
 import os
 import json
 
+from aiogram.enums import ButtonStyle
 from aiogram.utils.keyboard import ReplyKeyboardBuilder, InlineKeyboardBuilder
 from aiogram.types import (
+    KeyboardButton,
     InlineKeyboardButton,
     InlineKeyboardMarkup,
 )
@@ -12,7 +14,7 @@ from aiogram.types import (
 BOOK_VOCABULARY_IN_USE = "📘 English Vocabulary in Use"
 BOOK_ESSENTIAL_WORDS = "🔵 4000 Essential English Words"
 MAIN_MENU_BASKET = "🟢 Mening savatcham"
-BTN_BACK_MAIN = "⬅️ Asosiy menyu"
+BTN_BACK_MAIN = "🔴 Asosiy menyu"
 
 VOCABULARY_IN_USE_LEVELS = [
     ("📘 Elementary", "elementary"),
@@ -69,11 +71,11 @@ def get_available_levels(only_with_words: bool = False) -> list[tuple[str, str]]
 
 
 async def main_menu_keyboard():
-    """Bosh menyu: 2 ta kitob va Savatcha"""
+    """Bosh menyu: 2 ta kitob (PRIMARY) va Savatcha (SUCCESS)"""
     kb = ReplyKeyboardBuilder()
-    kb.button(text=BOOK_VOCABULARY_IN_USE)
-    kb.button(text=BOOK_ESSENTIAL_WORDS)
-    kb.button(text=MAIN_MENU_BASKET)
+    kb.button(text=BOOK_VOCABULARY_IN_USE, style=ButtonStyle.PRIMARY)
+    kb.button(text=BOOK_ESSENTIAL_WORDS, style=ButtonStyle.PRIMARY)
+    kb.button(text=MAIN_MENU_BASKET, style=ButtonStyle.SUCCESS)
     kb.adjust(2, 1)
     return kb
 
@@ -104,11 +106,11 @@ async def main_menu_inline_keyboard() -> InlineKeyboardMarkup:
 
 
 async def vocabulary_in_use_keyboard():
-    """English Vocabulary in Use kitoblari levellari"""
+    """English Vocabulary in Use kitoblari levellari (PRIMARY) va Asosiy menyu (DANGER)"""
     kb = ReplyKeyboardBuilder()
     for title, _ in VOCABULARY_IN_USE_LEVELS:
-        kb.button(text=title)
-    kb.button(text=BTN_BACK_MAIN)
+        kb.button(text=title, style=ButtonStyle.PRIMARY)
+    kb.button(text=BTN_BACK_MAIN, style=ButtonStyle.DANGER)
     kb.adjust(2, 2, 1)
     return kb
 
@@ -133,11 +135,11 @@ async def vocabulary_in_use_inline_keyboard() -> InlineKeyboardMarkup:
 
 
 async def essential_words_keyboard():
-    """4000 Essential English Words kitoblari levellari"""
+    """4000 Essential English Words kitoblari levellari (PRIMARY) va Asosiy menyu (DANGER)"""
     kb = ReplyKeyboardBuilder()
     for title, _ in ESSENTIAL_WORDS_LEVELS:
-        kb.button(text=title)
-    kb.button(text=BTN_BACK_MAIN)
+        kb.button(text=title, style=ButtonStyle.PRIMARY)
+    kb.button(text=BTN_BACK_MAIN, style=ButtonStyle.DANGER)
     kb.adjust(2, 2, 2, 1)
     return kb
 

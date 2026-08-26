@@ -56,10 +56,10 @@ async def level_handler(message: Message):
             parse_mode="HTML",
         )
         return
-    ikb = await main_menu_inline_keyboard()
+    kb = await main_menu_keyboard()
     await message.answer(
         "📚 <b>Kitoblar va Savatcha</b>\n\nQaysi bo'limdan boshlamoqchisiz?",
-        reply_markup=ikb,
+        reply_markup=kb.as_markup(resize_keyboard=True),
         parse_mode="HTML",
     )
 
@@ -168,20 +168,20 @@ async def callback_level_select(callback: CallbackQuery, redis: Redis):
 
 @router.message(F.text.in_({BOOK_VOCABULARY_IN_USE, "📚 English Vocabulary in Use", "📘 English Vocabulary in Use", "English Vocabulary in Use", "Vocabulary in Use"}))
 async def handle_vocabulary_in_use_selection(message: Message):
-    ikb = await vocabulary_in_use_inline_keyboard()
+    kb = await vocabulary_in_use_keyboard()
     await message.answer(
         "📘 <b>English Vocabulary in Use</b>\n\nKerakli darajani tanlang:",
-        reply_markup=ikb,
+        reply_markup=kb.as_markup(resize_keyboard=True),
         parse_mode="HTML",
     )
 
 
 @router.message(F.text.in_({BOOK_ESSENTIAL_WORDS, "📖 4000 Essential English Words", "🔵 4000 Essential English Words", "4000 Essential English Words", "Essential Words"}))
 async def handle_essential_words_selection(message: Message):
-    ikb = await essential_words_inline_keyboard()
+    kb = await essential_words_keyboard()
     await message.answer(
         "🔵 <b>4000 Essential English Words</b>\n\nKerakli kitobni tanlang:",
-        reply_markup=ikb,
+        reply_markup=kb.as_markup(resize_keyboard=True),
         parse_mode="HTML",
     )
 
@@ -192,12 +192,12 @@ async def handle_basket_button(message: Message):
     await cmd_basket(message)
 
 
-@router.message(F.text.in_({BTN_BACK_MAIN, "⬅️ Bosh menyu", "⬅️ Orqaga", "Asosiy menyu"}))
+@router.message(F.text.in_({BTN_BACK_MAIN, "🔴 Asosiy menyu", "⬅️ Asosiy menyu", "⬅️ Bosh menyu", "⬅️ Orqaga", "Asosiy menyu"}))
 async def handle_back_to_main_menu(message: Message):
-    ikb = await main_menu_inline_keyboard()
+    kb = await main_menu_keyboard()
     await message.answer(
         "🏠 <b>Asosiy menyu</b>\n\nQaysi bo'limdan boshlamoqchisiz?",
-        reply_markup=ikb,
+        reply_markup=kb.as_markup(resize_keyboard=True),
         parse_mode="HTML",
     )
 

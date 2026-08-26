@@ -3,7 +3,7 @@ from aiogram import Bot, Router
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 from aiogram.enums import ChatAction, ChatType
-from bot.routers.keyboard import main_menu_inline_keyboard
+from bot.routers.keyboard import main_menu_keyboard
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -13,7 +13,7 @@ router = Router()
 
 async def send_welcome_message(message: Message, bot: Bot):
     await bot.send_chat_action(chat_id=message.chat.id, action=ChatAction.TYPING)
-    ikb = await main_menu_inline_keyboard()
+    kb = await main_menu_keyboard()
 
     full_name = message.from_user.full_name if message.from_user else "Foydalanuvchi"
 
@@ -27,7 +27,7 @@ async def send_welcome_message(message: Message, bot: Bot):
 
     await message.answer(
         welcome_text,
-        reply_markup=ikb,
+        reply_markup=kb.as_markup(resize_keyboard=True),
         parse_mode="HTML",
     )
 
