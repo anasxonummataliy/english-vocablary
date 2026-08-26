@@ -9,15 +9,28 @@ from aiogram.types import (
 
 
 LEVEL_DEFINITIONS = [
-    ("📗 Elementary", "elementary"),
+    # English Vocabulary in Use
+    ("📘 Elementary", "elementary"),
     ("📘 Pre-intermediate & Intermediate", "preintermediateintermediate"),
-    ("📙 Upper intermediate", "upperintermediate"),
-    ("📕 Advanced", "advanced"),
+    ("📘 Upper intermediate", "upperintermediate"),
+    ("📘 Advanced", "advanced"),
+    # 4000 Essential English Words
+    ("🔵 4000 Essential English Words 1", "4000essentialenglishwords1"),
+    ("🔵 4000 Essential English Words 2", "4000essentialenglishwords2"),
+    ("🔵 4000 Essential English Words 3", "4000essentialenglishwords3"),
+    ("🔵 4000 Essential English Words 4", "4000essentialenglishwords4"),
+    ("🔵 4000 Essential English Words 5", "4000essentialenglishwords5"),
+    ("🔵 4000 Essential English Words 6", "4000essentialenglishwords6"),
 ]
 
 
-def get_available_levels() -> list[tuple[str, str]]:
-    """Faqat data/ papkasida joylashgan va so'zlari bor bo'lgan kitoblar darajasini qaytaradi."""
+def get_available_levels(only_with_words: bool = False) -> list[tuple[str, str]]:
+    """Kitoblar darajasini qaytaradi.
+    Agar only_with_words=True bo'lsa, faqat so'zlari bor kitoblarni qaytaradi.
+    Aks holda barcha kitoblar ro'yxatini qaytaradi.
+    """
+    if not only_with_words:
+        return list(LEVEL_DEFINITIONS)
     result = []
     for title, code in LEVEL_DEFINITIONS:
         file_path = f"data/{code}.json"
@@ -25,7 +38,7 @@ def get_available_levels() -> list[tuple[str, str]]:
             try:
                 with open(file_path, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                if data.get("units"):
+                if data.get("units") and any(u.get("words") for u in data.get("units", [])):
                     result.append((title, code))
             except Exception:
                 pass
@@ -36,7 +49,7 @@ async def level_keyboard():
     kb = ReplyKeyboardBuilder()
     for title, code in get_available_levels():
         kb.button(text=title)
-    kb.adjust(1)
+    kb.adjust(2)
     return kb
 
 

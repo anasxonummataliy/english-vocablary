@@ -101,9 +101,10 @@ async def cmd_start_group_quiz(message: Message, redis: Redis):
         return
 
     ikb = InlineKeyboardBuilder()
-    available_levels = get_available_levels()
+    available_levels = get_available_levels(only_with_words=True)
     for title, code in available_levels:
-        ikb.row(InlineKeyboardButton(text=title, callback_data=f"gq_lvl_{code}", style="primary"))
+        ikb.button(text=title, callback_data=f"gq_lvl_{code}", style="primary")
+    ikb.adjust(2)
 
     await message.answer(
         "🏆 <b>Guruh musobaqasi!</b>\n\n"

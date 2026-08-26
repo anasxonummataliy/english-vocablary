@@ -2,7 +2,8 @@ from aiogram.types import BotCommand
 
 user_command = [
     BotCommand(command="start", description="Boshlash"),
-    BotCommand(command="level", description="Level tanlash"),
+    BotCommand(command="level", description="Kitob va Level tanlash"),
+    BotCommand(command="savat", description="Mening savatcham (Lug'atlarim)"),
     BotCommand(command="top", description="Reytinglar (Leaderboard)"),
     BotCommand(command="reminder", description="Eslatma sozlash"),
     BotCommand(command="help", description="Yordam"),

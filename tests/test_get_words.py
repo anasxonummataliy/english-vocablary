@@ -25,6 +25,15 @@ async def test_get_unit_words_preintermediate():
 
 
 @pytest.mark.asyncio
+async def test_get_unit_words_essential_words():
+    words = await get_unit_words("4000essentialenglishwords1", 1)
+    assert words is not None
+    assert len(words) == 20
+    assert words[0]["word"] == "afraid"
+    assert words[0]["uzbek"] == "qo'rqqan, cho'chigan"
+
+
+@pytest.mark.asyncio
 async def test_get_unit_words_missing_file():
     words = await get_unit_words("nonexistentlevel", 1)
     assert words is None

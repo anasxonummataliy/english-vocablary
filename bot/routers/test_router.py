@@ -43,14 +43,14 @@ async def test_type_selection(callback: CallbackQuery):
         InlineKeyboardButton(
             text="🇺🇿 O'zbekcha → 🇬🇧 Inglizcha",
             callback_data=f"tmode_uz_en_{unit_safe}",
-            style="success",
+            style="primary",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="🇬🇧 Inglizcha → 🇺🇿 O'zbekcha",
             callback_data=f"tmode_en_uz_{unit_safe}",
-            style="success",
+            style="primary",
         )
     )
     ikb.row(
@@ -317,6 +317,11 @@ async def on_poll_answer(poll_answer: PollAnswer, redis: Redis, bot: Bot):
 
     if is_correct:
         data["score"] += 1
+    else:
+        if "wrong_words" not in data:
+            data["wrong_words"] = []
+        current_w = data["questions"][data["current_index"]]
+        data["wrong_words"].append(current_w)
 
     # Har qanday javobda (to'g'ri yoki noto'g'ri) skips nollanadi
     # Pauza faqat javob BERILMAGAN hollarda (timeout) ishga tushadi
@@ -327,9 +332,6 @@ async def on_poll_answer(poll_answer: PollAnswer, redis: Redis, bot: Bot):
     await redis.delete(f"poll_user:{poll_id}")
     await redis.delete(f"poll_correct_idx:{poll_id}")
     await redis.set(f"test_state:{user_id}", json.dumps(data), ex=3600)
-
-    # Pauza faqat timeout orqali ishga tushadi (ketma-ket javobsiz qolish)
-    # Noto'g'ri javob pauza qilmaydi
 
     await _next_step(bot, user_id, data, redis)
 
@@ -346,14 +348,27 @@ async def _send_pause(bot: Bot, chat_id: int, data: dict):
 
     ikb = InlineKeyboardBuilder()
     ikb.row(InlineKeyboardButton(text="▶️ Davom ettirish", callback_data="resume_test", style="success"))
-    ikb.row(
-        InlineKeyboardButton(
-            text="🔄 Qayta boshlash",
-            callback_data=f"test_{data['unit_id']}",
-            style="primary",
-        ),
-        InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units", style="danger"),
-    )
+    if data.get("is_basket"):
+        ikb.row(
+            InlineKeyboardButton(
+                text="🔄 Qayta boshlash",
+                callback_data=f"btest_{data.get('basket_id')}",
+                style="primary",
+            ),
+            InlineKeyboardButton(
+                text="⬅️ Savatchaga qaytish",
+                callback_data=f"bview_{data.get('basket_id')}",
+            ),
+        )
+    else:
+        ikb.row(
+            InlineKeyboardButton(
+                text="🔄 Qayta boshlash",
+                callback_data=f"test_{data['unit_id']}",
+                style="primary",
+            ),
+            InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units", style="danger"),
+        )
 
     answered = data["current_index"]
     total = len(data["questions"])
@@ -363,10 +378,9 @@ async def _send_pause(bot: Bot, chat_id: int, data: dict):
         chat_id=chat_id,
         text=(
             "⏸ <b>Test to'xtatildi!</b>\n\n"
-            f"⚠️ Ketma-ket <b>{MAX_SKIPS} ta</b> savolga javob berilmadi.\n\n"
-            f"📊 Hozirgi natija: <b>{data['score']}/{answered}</b>\n"
-            f"📝 Qolgan savollar: <b>{remaining} ta</b>\n\n"
-            "Nima qilmoqchisiz?"
+            f"⚠️ Ketma-ket {MAX_SKIPS} ta savolga javob berilmadi.\n\n"
+            f"📊 Qolgan savollar: <b>{remaining} ta</b>\n"
+            "Davom ettirish uchun pastdagi tugmani bosing."
         ),
         reply_markup=ikb.as_markup(),
         parse_mode="HTML",
@@ -402,6 +416,9 @@ async def _send_result(bot: Bot, chat_id: int, user_id: int, data: dict, redis: 
     score = data["score"]
     total = len(data["questions"])
     percent = score / total if total > 0 else 0
+    is_basket = data.get("is_basket", False)
+    basket_id = data.get("basket_id")
+    wrong_words = data.get("wrong_words", [])
 
     if percent == 1.0:
         emoji, comment = "🏆", "Mukammal natija! Zo'r!"
@@ -418,14 +435,43 @@ async def _send_result(bot: Bot, chat_id: int, user_id: int, data: dict, redis: 
     bar = "🟩" * filled + "⬜" * (10 - filled)
 
     ikb = InlineKeyboardBuilder()
-    ikb.row(
-        InlineKeyboardButton(
-            text="🔄 Qayta topshirish",
-            callback_data=f"test_{data['unit_id']}",
-            style="primary",
-        ),
-        InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units", style="danger"),
-    )
+    if is_basket:
+        ikb.row(
+            InlineKeyboardButton(
+                text="🔄 Qayta topshirish",
+                callback_data=f"btest_{basket_id}",
+                style="primary",
+            ),
+            InlineKeyboardButton(
+                text="⬅️ Savatchaga qaytish",
+                callback_data=f"bview_{basket_id}",
+            ),
+        )
+    else:
+        ikb.row(
+            InlineKeyboardButton(
+                text="🔄 Qayta topshirish",
+                callback_data=f"test_{data['unit_id']}",
+                style="primary",
+            ),
+            InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units", style="danger"),
+        )
+        if wrong_words:
+            await redis.set(f"test_mistakes:{user_id}", json.dumps(wrong_words), ex=3600)
+            ikb.row(
+                InlineKeyboardButton(
+                    text=f"📥 Xatolarni savatga qo'shish ({len(wrong_words)})",
+                    callback_data="add_test_mistakes",
+                    style="primary",
+                )
+            )
+        ikb.row(
+            InlineKeyboardButton(
+                text="🧺 Savatcham",
+                callback_data="baskets_list",
+                style="primary",
+            )
+        )
 
     await bot.send_message(
         chat_id=chat_id,
@@ -438,23 +484,24 @@ async def _send_result(bot: Bot, chat_id: int, user_id: int, data: dict, redis: 
         parse_mode="HTML",
         reply_markup=ikb.as_markup(),
     )
-    # Natijani bazaga saqlash
-    try:
-        user_level_raw = _to_str(await redis.get(f"user:{user_id}:level")) or "elementary"
-        level = "".join(filter(str.isalnum, user_level_raw)).lower()
-        unit_num = int(str(data["unit_id"]).replace("Unit", "").strip())
-        await save_score(
-            user_id=user_id,
-            user_name=None,
-            chat_id=chat_id,
-            level=level,
-            unit_num=unit_num,
-            test_mode=data.get("mode", "uz_en"),
-            score=score,
-            total_questions=total,
-        )
-    except Exception as e:
-        print(f"[SCORE SAVE ERROR] User {user_id}: {e}")
+    # Natijani bazaga saqlash (faqat oddiy unit testlari uchun)
+    if not is_basket:
+        try:
+            user_level_raw = _to_str(await redis.get(f"user:{user_id}:level")) or "elementary"
+            level = "".join(filter(str.isalnum, user_level_raw)).lower()
+            unit_num = int(str(data["unit_id"]).replace("Unit", "").strip())
+            await save_score(
+                user_id=user_id,
+                user_name=None,
+                chat_id=chat_id,
+                level=level,
+                unit_num=unit_num,
+                test_mode=data.get("mode", "uz_en"),
+                score=score,
+                total_questions=total,
+            )
+        except Exception as e:
+            print(f"[SCORE SAVE ERROR] User {user_id}: {e}")
 
     await redis.delete(f"test_state:{user_id}")
 
@@ -495,3 +542,31 @@ async def back_to_units(callback: CallbackQuery, redis: Redis):
     keyboard = await create_units_keyboard(current_page, total_pages, page_data)
     await callback.message.answer(text, reply_markup=keyboard, parse_mode="HTML")
     await callback.answer()
+
+
+# ==================== XATOLARNI SAVATGA QO'SHISH ====================
+@router.callback_query(F.data == "add_test_mistakes")
+async def callback_add_test_mistakes_to_basket(callback: CallbackQuery, redis: Redis):
+    user_id = callback.from_user.id
+    raw_mistakes = _to_str(await redis.get(f"test_mistakes:{user_id}"))
+
+    if not raw_mistakes:
+        await callback.answer("ℹ️ Xato so'zlar topilmadi yoki allaqachon qo'shilgan.", show_alert=True)
+        return
+
+    mistakes = json.loads(raw_mistakes)
+    from bot.services.basket_service import add_word_to_basket
+
+    added_count = 0
+    basket_name = ""
+    for w in mistakes:
+        success, msg, b_name, _ = await add_word_to_basket(user_id, w)
+        if success:
+            added_count += 1
+            basket_name = b_name
+
+    await redis.delete(f"test_mistakes:{user_id}")
+    if added_count > 0:
+        await callback.answer(f"✅ {added_count} ta so'z {basket_name}ga qo'shildi!", show_alert=True)
+    else:
+        await callback.answer("ℹ️ Bu so'zlar allaqachon savatchangizda mavjud.", show_alert=True)

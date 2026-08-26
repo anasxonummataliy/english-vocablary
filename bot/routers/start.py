@@ -20,8 +20,8 @@ async def send_welcome_message(message: Message, bot: Bot):
     welcome_text = (
         f"🌟 **Assalomu alaykum, {full_name}!**\n\n"
         f"Sizni ko'rib turganimizdan xursandmiz! Ushbu bot orqali "
-        f"**'English Vocabulary in Use'** kitoblari asosida so'z boyligingizni oshirishingiz mumkin. 🚀\n\n"
-        f"📚 Qaysi darajadan boshlashni xohlaysiz?"
+        f"**'English Vocabulary in Use'** va **'4000 Essential English Words'** kitoblari asosida so'z boyligingizni oshirishingiz mumkin. 🚀\n\n"
+        f"📚 Qaysi kitobdan boshlashni xohlaysiz?"
     )
 
     await message.answer(

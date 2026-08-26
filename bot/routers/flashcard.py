@@ -24,14 +24,14 @@ async def flash_mode_selection(callback: CallbackQuery):
         InlineKeyboardButton(
             text="🇺🇿 O'zbekcha → 🇬🇧 Inglizcha",
             callback_data=f"fmode_uz_en_{unit_safe}",
-            style="success",
+            style="primary",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="🇬🇧 Inglizcha → 🇺🇿 O'zbekcha",
             callback_data=f"fmode_en_uz_{unit_safe}",
-            style="success",
+            style="primary",
         )
     )
     ikb.row(
@@ -154,8 +154,13 @@ async def show_flash_card(callback: CallbackQuery, state: dict, user_id: int):
         InlineKeyboardButton(
             text="👀 Javobni ko'rish",
             callback_data=f"fshow_{user_id}",
-            style="success",
-        )
+            style="primary",
+        ),
+        InlineKeyboardButton(
+            text="📥 Savatga",
+            callback_data=f"fadd_{user_id}",
+            style="primary",
+        ),
     )
     ikb.row(
         InlineKeyboardButton(
@@ -237,15 +242,25 @@ async def show_flash_answer(callback: CallbackQuery, redis: Redis):
                 text="➡️ Keyingi",
                 callback_data=f"fnext_{user_id}",
                 style="primary",
-            )
+            ),
+            InlineKeyboardButton(
+                text="📥 Savatga",
+                callback_data=f"fadd_{user_id}",
+                style="primary",
+            ),
         )
     else:
         ikb.row(
             InlineKeyboardButton(
                 text="🎉 Tugatish",
                 callback_data=f"fend_{user_id}",
-                style="success",
-            )
+                style="primary",
+            ),
+            InlineKeyboardButton(
+                text="📥 Savatga",
+                callback_data=f"fadd_{user_id}",
+                style="primary",
+            ),
         )
 
     ikb.row(
@@ -264,6 +279,29 @@ async def show_flash_answer(callback: CallbackQuery, redis: Redis):
         pass
 
     await callback.answer()
+
+
+# ==================== SAVATGA QO'SHISH ====================
+@router.callback_query(F.data.startswith("fadd_"))
+async def add_flashcard_to_basket(callback: CallbackQuery, redis: Redis):
+    user_id = callback.from_user.id
+
+    state_raw = await redis.get(f"flash_state:{user_id}")
+    if not state_raw:
+        await callback.answer("⚠️ Sessiya topilmadi.", show_alert=True)
+        return
+
+    if isinstance(state_raw, bytes):
+        state_raw = state_raw.decode()
+
+    state = json.loads(state_raw)
+    idx = state["current_index"]
+    word_data = state["words"][idx]
+
+    from bot.services.basket_service import add_word_to_basket
+    success, msg, basket_name, count = await add_word_to_basket(user_id, word_data)
+    clean_msg = msg.replace("<b>", "").replace("</b>", "")
+    await callback.answer(clean_msg, show_alert=True)
 
 
 # ==================== KEYINGI CARD ====================
@@ -286,21 +324,38 @@ async def next_flash_card(callback: CallbackQuery, redis: Redis):
         # Tugadi
         total = len(state["words"])
         unit_id = state["unit_id"]
+        is_basket = state.get("is_basket", False)
+        basket_id = state.get("basket_id")
 
         ikb = InlineKeyboardBuilder()
-        ikb.row(
-            InlineKeyboardButton(
-                text="🔄 Qayta boshlash",
-                callback_data=f"flash_{unit_id}",
-                style="primary",
+        if is_basket:
+            ikb.row(
+                InlineKeyboardButton(
+                    text="🔄 Qayta boshlash",
+                    callback_data=f"bflash_{basket_id}",
+                    style="primary",
+                )
             )
-        )
-        ikb.row(
-            InlineKeyboardButton(
-                text="⬅️ Unitga qaytish",
-                callback_data=f"select_{unit_id}",
+            ikb.row(
+                InlineKeyboardButton(
+                    text="⬅️ Savatchaga qaytish",
+                    callback_data=f"bview_{basket_id}",
+                )
             )
-        )
+        else:
+            ikb.row(
+                InlineKeyboardButton(
+                    text="🔄 Qayta boshlash",
+                    callback_data=f"flash_{unit_id}",
+                    style="primary",
+                )
+            )
+            ikb.row(
+                InlineKeyboardButton(
+                    text="⬅️ Unitga qaytish",
+                    callback_data=f"select_{unit_id}",
+                )
+            )
 
         try:
             await callback.message.edit_text(
@@ -329,21 +384,33 @@ async def end_flashcard(callback: CallbackQuery, redis: Redis):
 
     state_raw = await redis.get(f"flash_state:{user_id}")
     unit_id = "Unit 1"
+    is_basket = False
+    basket_id = None
 
     if state_raw:
         if isinstance(state_raw, bytes):
             state_raw = state_raw.decode()
         state = json.loads(state_raw)
         unit_id = state.get("unit_id", "Unit 1")
+        is_basket = state.get("is_basket", False)
+        basket_id = state.get("basket_id")
         await redis.delete(f"flash_state:{user_id}")
 
     ikb = InlineKeyboardBuilder()
-    ikb.row(
-        InlineKeyboardButton(
-            text="⬅️ Unitga qaytish",
-            callback_data=f"select_{unit_id}",
+    if is_basket:
+        ikb.row(
+            InlineKeyboardButton(
+                text="⬅️ Savatchaga qaytish",
+                callback_data=f"bview_{basket_id}",
+            )
         )
-    )
+    else:
+        ikb.row(
+            InlineKeyboardButton(
+                text="⬅️ Unitga qaytish",
+                callback_data=f"select_{unit_id}",
+            )
+        )
 
     try:
         await callback.message.edit_text(

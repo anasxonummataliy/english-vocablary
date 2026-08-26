@@ -45,23 +45,53 @@ async def level_handler(message: Message):
         return
     kb = await level_keyboard()
     await message.answer(
-        "📚 <b>English Vocabulary in Use</b>\n\nQaysi darajadagi kitobdan boshlamoqchisiz?",
+        "📚 <b>Kitoblar va darajalar</b>\n\nQaysi kitobdan boshlamoqchisiz?",
         reply_markup=kb.as_markup(resize_keyboard=True),
         parse_mode="HTML",
     )
 
 
 VALID_LEVEL_BUTTONS = {
+    # English Vocabulary in Use
+    "📘 Elementary",
     "📗 Elementary",
     "🟢 Elementary",
     "📘 Pre-intermediate & Intermediate",
     "📘 Pre-Intermediate & Intermediate",
     "🔵 Pre-intermediate & Intermediate",
     "🔵 Pre-Intermediate & Intermediate",
+    "📘 Upper intermediate",
+    "📘 Upper Intermediate",
     "📙 Upper intermediate",
     "📙 Upper Intermediate",
+    "📘 Advanced",
     "📕 Advanced",
     "🔴 Advanced",
+    # 4000 Essential English Words
+    "🔵 4000 Essential English Words 1",
+    "🔵 4000 Essential English Words 2",
+    "🔵 4000 Essential English Words 3",
+    "🔵 4000 Essential English Words 4",
+    "🔵 4000 Essential English Words 5",
+    "🔵 4000 Essential English Words 6",
+    "📕 4000 Essential English Words 1",
+    "📗 4000 Essential English Words 2",
+    "📘 4000 Essential English Words 3",
+    "📙 4000 Essential English Words 4",
+    "📓 4000 Essential English Words 5",
+    "📔 4000 Essential English Words 6",
+    "📚 4000 Essential English Words 1",
+    "📚 4000 Essential English Words 2",
+    "📚 4000 Essential English Words 3",
+    "📚 4000 Essential English Words 4",
+    "📚 4000 Essential English Words 5",
+    "📚 4000 Essential English Words 6",
+    "4000 Essential English Words 1",
+    "4000 Essential English Words 2",
+    "4000 Essential English Words 3",
+    "4000 Essential English Words 4",
+    "4000 Essential English Words 5",
+    "4000 Essential English Words 6",
 }
 
 
@@ -148,14 +178,14 @@ async def select_handler(callback: CallbackQuery, redis: Redis):
         InlineKeyboardButton(
             text="📖 So'zlarni o'rganish",
             callback_data=f"words_{selected_unit_safe}",
-            style="success",
+            style="primary",
         ),
     )
     ikb.row(
         InlineKeyboardButton(
             text="🃏 Flash card",
             callback_data=f"flash_{selected_unit_safe}",
-            style="success",
+            style="primary",
         ),
     )
     ikb.row(

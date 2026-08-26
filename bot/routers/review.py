@@ -50,7 +50,7 @@ async def review_handler(callback: CallbackQuery, redis: Redis):
         InlineKeyboardButton(
             text="👀 Javob",
             callback_data=f"show_review_{unit_id}_{word_text}",
-            style="success",
+            style="primary",
         )
     )
 

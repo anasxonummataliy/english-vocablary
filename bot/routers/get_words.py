@@ -51,8 +51,25 @@ async def get_unit_info(level: str, unit_id: int) -> dict | None:
     return None
 
 
+def get_level_display_name(level: str) -> str:
+    clean = "".join(filter(str.isalnum, level)).lower()
+    mapping = {
+        "elementary": "Elementary",
+        "preintermediateintermediate": "Pre-Intermediate & Intermediate",
+        "upperintermediate": "Upper Intermediate",
+        "advanced": "Advanced",
+        "4000essentialenglishwords1": "4000 Essential English Words 1",
+        "4000essentialenglishwords2": "4000 Essential English Words 2",
+        "4000essentialenglishwords3": "4000 Essential English Words 3",
+        "4000essentialenglishwords4": "4000 Essential English Words 4",
+        "4000essentialenglishwords5": "4000 Essential English Words 5",
+        "4000essentialenglishwords6": "4000 Essential English Words 6",
+    }
+    return mapping.get(clean, level.capitalize())
+
+
 def format_words_text(words: list, unit_id: int, unit_info: dict, level: str, start_index: int = 1) -> str:
-    level_display = level.capitalize()
+    level_display = get_level_display_name(level)
     text = (
         f"📚 <b>{level_display} — Unit {unit_id}</b>\n"
         f"📌 <b>{html.escape(unit_info['title'])}</b>\n"
@@ -139,8 +156,24 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
     
     page_total = (len(words) + 6) // 7
     text += f"\n📄 Sahifa: <b>{page}/{page_total}</b>\n"
+    text += "<i>💡 So'zni savatchaga saqlash uchun 📥 [Raqam] tugmasini bosing:</i>\n"
 
     ikb = InlineKeyboardBuilder()
+
+    # Savatga qo'shish tugmalari
+    basket_row = []
+    for i, w in enumerate(preview_words, start=start_idx + 1):
+        actual_idx = start_idx + (i - start_idx - 1)  # 0-indexed in words list
+        basket_row.append(
+            InlineKeyboardButton(
+                text=f"📥 {i}",
+                callback_data=f"addw_{unit_id}_{actual_idx}",
+            )
+        )
+    if basket_row:
+        ikb.row(*basket_row[:4])
+        if len(basket_row) > 4:
+            ikb.row(*basket_row[4:])
     
     # Pagination buttons row
     page_row = []
@@ -165,7 +198,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         InlineKeyboardButton(
             text="🧪 Testni boshlash",
             callback_data=f"test_Unit_{unit_id}",
-            style="success",
+            style="primary",
         )
     )
     ikb.row(
@@ -177,9 +210,14 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
     )
     ikb.row(
         InlineKeyboardButton(
+            text="🧺 Savatcham",
+            callback_data="baskets_list",
+            style="primary",
+        ),
+        InlineKeyboardButton(
             text="⬅️ Orqaga",
             callback_data=f"select_Unit {unit_id}",
-        )
+        ),
     )
 
     try:
@@ -200,7 +238,34 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
             logger.error(f"send error: {send_err}")
     except Exception as e:
         logger.error(f"Error in show_words_handler: {e}")
-        await callback.answer("❌ Xatolik yuz berdi.", show_alert=True)
+    await callback.answer()
+
+
+@router.callback_query(F.data.startswith("addw_"))
+async def callback_add_word_to_basket(callback: CallbackQuery, redis: Redis):
+    parts = callback.data.split("_")
+    unit_id = int(parts[1])
+    word_idx = int(parts[2])
+
+    user_id = callback.from_user.id
+    raw_level = await redis.get(f"user:{user_id}:level")
+
+    if not raw_level:
+        await callback.answer("⚠️ Sessiya muddati tugagan.", show_alert=True)
         return
 
-    await callback.answer()
+    if isinstance(raw_level, bytes):
+        raw_level = raw_level.decode()
+    clean_level = "".join(filter(str.isalnum, raw_level)).lower()
+
+    words = await get_unit_words(clean_level, unit_id)
+    if not words or word_idx >= len(words):
+        await callback.answer("❌ So'z topilmadi.", show_alert=True)
+        return
+
+    selected_word = words[word_idx]
+    from bot.services.basket_service import add_word_to_basket
+
+    success, msg, basket_name, count = await add_word_to_basket(user_id, selected_word)
+    clean_msg = msg.replace("<b>", "").replace("</b>", "")
+    await callback.answer(clean_msg, show_alert=True)

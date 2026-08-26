@@ -7,8 +7,14 @@ import pytest
 DATA_DIR = Path("data")
 REQUIRED_WORD_FIELDS = {"word", "uzbek", "description", "example"}
 LEVEL_BUTTON_TO_FILE = {
-    "📗 Elementary": "elementary.json",
+    "📘 Elementary": "elementary.json",
     "📘 Pre-intermediate & Intermediate": "preintermediateintermediate.json",
+    "🔵 4000 Essential English Words 1": "4000essentialenglishwords1.json",
+    "🔵 4000 Essential English Words 2": "4000essentialenglishwords2.json",
+    "🔵 4000 Essential English Words 3": "4000essentialenglishwords3.json",
+    "🔵 4000 Essential English Words 4": "4000essentialenglishwords4.json",
+    "🔵 4000 Essential English Words 5": "4000essentialenglishwords5.json",
+    "🔵 4000 Essential English Words 6": "4000essentialenglishwords6.json",
 }
 
 

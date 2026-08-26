@@ -30,13 +30,14 @@ async def cmd_leaderboard(message: Message):
 
     ikb = InlineKeyboardBuilder()
     ikb.row(
-        InlineKeyboardButton(text="👥 Guruh Reytingi", callback_data="lb_group", style="success"),
+        InlineKeyboardButton(text="👥 Guruh Reytingi", callback_data="lb_group", style="primary"),
         InlineKeyboardButton(text="🌍 Umumiy Reyting", callback_data="lb_global", style="primary"),
     )
 
     available_levels = get_available_levels()
     for title, code in available_levels:
-        ikb.row(InlineKeyboardButton(text=title, callback_data=f"lb_lvl_{code}", style="primary"))
+        ikb.button(text=title, callback_data=f"lb_lvl_{code}", style="primary")
+    ikb.adjust(2)
 
     await message.answer(
         "🏆 <b>REYTING JADVALI</b>\n\n"

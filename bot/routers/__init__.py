@@ -11,12 +11,14 @@ from .flashcard import router as flashcard_router
 from .reminder import router as reminder_router
 from .group_quiz import router as group_quiz_router
 from .leaderboard import router as leaderboard_router
+from .basket import router as basket_router
 
 
 user_router = Router()
 user_router.include_routers(
     group_quiz_router,
     leaderboard_router,
+    basket_router,
     flashcard_router,
     review_router,
     test_router,

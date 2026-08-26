@@ -9,7 +9,7 @@ from bot.routers.keyboard import (
 
 
 def test_get_available_units_elementary():
-    units = get_available_units("📗 Elementary")
+    units = get_available_units("📘 Elementary")
     assert len(units) > 0
     assert units[0] == "Unit 1"
     assert all(u.startswith("Unit ") for u in units)
@@ -22,8 +22,16 @@ def test_get_available_units_preintermediate():
 
 
 def test_get_available_units_missing_level():
-    units = get_available_units("📙 Upper intermediate")
+    units = get_available_units("📘 Upper intermediate")
     assert units == []
+
+
+def test_get_available_units_essential_words():
+    for book_num in range(1, 7):
+        units = get_available_units(f"🔵 4000 Essential English Words {book_num}")
+        assert len(units) == 30
+        assert units[0] == "Unit 1"
+        assert units[-1] == "Unit 30"
 
 
 @pytest.mark.asyncio

@@ -24,6 +24,12 @@ LEVEL_OPTIONS = [
     "📘 Pre-intermediate & Intermediate",
     "📙 Upper intermediate",
     "📕 Advanced",
+    "📕 4000 Essential English Words 1",
+    "📗 4000 Essential English Words 2",
+    "📘 4000 Essential English Words 3",
+    "📙 4000 Essential English Words 4",
+    "📓 4000 Essential English Words 5",
+    "📔 4000 Essential English Words 6",
 ]
 
 WEEKDAY_LABELS = {
@@ -245,14 +251,14 @@ def build_action_keyboard(unit_id: int) -> InlineKeyboardBuilder:
         InlineKeyboardButton(
             text="📖 So'zlarni o'rganish",
             callback_data=f"words_{unit_safe}",
-            style="success",
+            style="primary",
         )
     )
     ikb.row(
         InlineKeyboardButton(
             text="🃏 Flash card",
             callback_data=f"flash_{unit_safe}",
-            style="success",
+            style="primary",
         )
     )
     ikb.row(
