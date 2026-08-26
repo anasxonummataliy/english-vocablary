@@ -168,6 +168,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
             InlineKeyboardButton(
                 text=f"📥 {i}",
                 callback_data=f"addw_{unit_id}_{actual_idx}",
+                style="primary",
             )
         )
     if basket_row:
@@ -182,6 +183,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
             InlineKeyboardButton(
                 text="⬅️ Oldingisi",
                 callback_data=f"words_Unit_{unit_id}_page_{page - 1}",
+                style="primary",
             )
         )
     if len(words) > page * 7:
@@ -189,6 +191,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
             InlineKeyboardButton(
                 text="Keyingisi ➡️",
                 callback_data=f"words_Unit_{unit_id}_page_{page + 1}",
+                style="primary",
             )
         )
     if page_row:
@@ -198,7 +201,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         InlineKeyboardButton(
             text="🧪 Testni boshlash",
             callback_data=f"test_Unit_{unit_id}",
-            style="primary",
+            style="success",
         )
     )
     ikb.row(
@@ -217,6 +220,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         InlineKeyboardButton(
             text="⬅️ Orqaga",
             callback_data=f"select_Unit {unit_id}",
+            style="danger",
         ),
     )
 

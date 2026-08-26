@@ -45,6 +45,7 @@ async def flash_mode_selection(callback: CallbackQuery):
         InlineKeyboardButton(
             text="⬅️ Orqaga",
             callback_data=f"select_{unit_raw}",
+            style="danger",
         )
     )
 
@@ -166,6 +167,7 @@ async def show_flash_card(callback: CallbackQuery, state: dict, user_id: int):
         InlineKeyboardButton(
             text=f"⏭ O'tkazish ({idx + 1}/{total})",
             callback_data=f"fnext_{user_id}",
+            style="primary",
         ),
     )
     ikb.row(
@@ -263,7 +265,7 @@ async def show_flash_answer(callback: CallbackQuery, redis: Redis):
             InlineKeyboardButton(
                 text="🎉 Tugatish",
                 callback_data=f"fend_{user_id}",
-                style="primary",
+                style="success",
             ),
             basket_btn,
         )
@@ -361,13 +363,14 @@ async def next_flash_card(callback: CallbackQuery, redis: Redis):
                 InlineKeyboardButton(
                     text="🔄 Qayta boshlash",
                     callback_data=f"bflash_{basket_id}",
-                    style="primary",
+                    style="success",
                 )
             )
             ikb.row(
                 InlineKeyboardButton(
                     text="⬅️ Savatchaga qaytish",
                     callback_data=f"bview_{basket_id}",
+                    style="danger",
                 )
             )
         else:
@@ -375,13 +378,14 @@ async def next_flash_card(callback: CallbackQuery, redis: Redis):
                 InlineKeyboardButton(
                     text="🔄 Qayta boshlash",
                     callback_data=f"flash_{unit_id}",
-                    style="primary",
+                    style="success",
                 )
             )
             ikb.row(
                 InlineKeyboardButton(
                     text="⬅️ Unitga qaytish",
                     callback_data=f"select_{unit_id}",
+                    style="danger",
                 )
             )
 
@@ -430,6 +434,7 @@ async def end_flashcard(callback: CallbackQuery, redis: Redis):
             InlineKeyboardButton(
                 text="⬅️ Savatchaga qaytish",
                 callback_data=f"bview_{basket_id}",
+                style="danger",
             )
         )
     else:
@@ -437,6 +442,7 @@ async def end_flashcard(callback: CallbackQuery, redis: Redis):
             InlineKeyboardButton(
                 text="⬅️ Unitga qaytish",
                 callback_data=f"select_{unit_id}",
+                style="danger",
             )
         )
 

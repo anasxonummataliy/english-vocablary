@@ -245,6 +245,7 @@ async def select_handler(callback: CallbackQuery, redis: Redis):
         InlineKeyboardButton(
             text="⬅️ Unitlar ro'yxatiga qaytish",
             callback_data="page_0",
+            style="danger",
         )
     )
 

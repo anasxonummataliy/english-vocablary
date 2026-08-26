@@ -177,7 +177,7 @@ async def callback_view_basket(callback: CallbackQuery, state: FSMContext = None
             InlineKeyboardButton(
                 text="⭐️ Faol savat qilish (Yangi so'zlar uchun)",
                 callback_data=f"bsetactive_{basket_id}",
-                style="primary",
+                style="success",
             )
         )
 
@@ -192,6 +192,7 @@ async def callback_view_basket(callback: CallbackQuery, state: FSMContext = None
         InlineKeyboardButton(
             text="⬅️ Savatchalar ro'yxatiga",
             callback_data="baskets_list",
+            style="danger",
         )
     )
 
@@ -228,6 +229,7 @@ async def callback_start_rename_basket(callback: CallbackQuery, state: FSMContex
         InlineKeyboardButton(
             text="❌ Bekor qilish",
             callback_data=f"bview_{basket_id}",
+            style="danger",
         )
     )
 
@@ -265,6 +267,7 @@ async def message_save_new_basket_name(message: Message, state: FSMContext):
         InlineKeyboardButton(
             text="⬅️ Savatchalar ro'yxatiga",
             callback_data="baskets_list",
+            style="danger",
         ),
     )
     await message.answer(msg, reply_markup=ikb.as_markup(), parse_mode="HTML")
@@ -290,6 +293,7 @@ async def callback_confirm_delete_basket(callback: CallbackQuery):
         InlineKeyboardButton(
             text="❌ Bekor qilish",
             callback_data=f"bview_{basket_id}",
+            style="success",
         ),
     )
 
@@ -368,6 +372,7 @@ async def callback_basket_words_view(callback: CallbackQuery):
             InlineKeyboardButton(
                 text=f"🗑 {i}",
                 callback_data=f"bdelw_{basket_id}_{w['id']}_{page}",
+                style="danger",
             )
         )
     if del_row:
@@ -383,6 +388,7 @@ async def callback_basket_words_view(callback: CallbackQuery):
             InlineKeyboardButton(
                 text="⬅️ Oldingisi",
                 callback_data=f"bwords_{basket_id}_{page - 1}",
+                style="primary",
             )
         )
     if len(words) > page * 7:
@@ -390,6 +396,7 @@ async def callback_basket_words_view(callback: CallbackQuery):
             InlineKeyboardButton(
                 text="Keyingisi ➡️",
                 callback_data=f"bwords_{basket_id}_{page + 1}",
+                style="primary",
             )
         )
     if nav_row:
@@ -399,6 +406,7 @@ async def callback_basket_words_view(callback: CallbackQuery):
         InlineKeyboardButton(
             text="⬅️ Savatchaga qaytish",
             callback_data=f"bview_{basket_id}",
+            style="danger",
         )
     )
 
@@ -473,6 +481,7 @@ async def callback_basket_flash_start(callback: CallbackQuery, redis: Redis):
         InlineKeyboardButton(
             text="⬅️ Orqaga",
             callback_data=f"bview_{basket_id}",
+            style="danger",
         )
     )
 
@@ -568,6 +577,7 @@ async def callback_basket_test_start(callback: CallbackQuery):
         InlineKeyboardButton(
             text="⬅️ Orqaga",
             callback_data=f"bview_{basket_id}",
+            style="danger",
         )
     )
 

@@ -53,6 +53,13 @@ async def review_handler(callback: CallbackQuery, redis: Redis):
             style="primary",
         )
     )
+    ikb.row(
+        InlineKeyboardButton(
+            text="⬅️ Unitga qaytish",
+            callback_data=f"select_Unit {unit_id}",
+            style="danger",
+        )
+    )
 
     try:
         await callback.message.edit_text(
@@ -97,6 +104,13 @@ async def show_review_answer(callback: CallbackQuery, redis: Redis):
             text="➡️ Keyingi",
             callback_data=f"review_{unit_id}",
             style="primary",
+        )
+    )
+    ikb.row(
+        InlineKeyboardButton(
+            text="⬅️ Unitga qaytish",
+            callback_data=f"select_Unit {unit_id}",
+            style="danger",
         )
     )
 

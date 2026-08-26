@@ -28,7 +28,7 @@ class IsJoinChannelMiddleware(BaseMiddleware):
             channel = await bot.get_chat(chat_id=channel_id)
             url = channel.invite_link or f"https://t.me/{channel.username}"
             ikb.row(InlineKeyboardButton(text=channel.title, url=url))
-        ikb.row(InlineKeyboardButton(text="Tekshirish✅", callback_data="joined"))
+        ikb.row(InlineKeyboardButton(text="Tekshirish ✅", callback_data="joined", style="success"))
         return ikb.as_markup()
 
     async def check_user_subscriptions(self, bot: Bot, user_id: int):

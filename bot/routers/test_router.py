@@ -60,7 +60,7 @@ async def test_type_selection(callback: CallbackQuery):
             style="primary",
         )
     )
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data=f"select_{unit_raw}"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data=f"select_{unit_raw}", style="danger"))
 
     try:
         await callback.message.edit_text(
@@ -353,11 +353,12 @@ async def _send_pause(bot: Bot, chat_id: int, data: dict):
             InlineKeyboardButton(
                 text="🔄 Qayta boshlash",
                 callback_data=f"btest_{data.get('basket_id')}",
-                style="primary",
+                style="success",
             ),
             InlineKeyboardButton(
                 text="⬅️ Savatchaga qaytish",
                 callback_data=f"bview_{data.get('basket_id')}",
+                style="danger",
             ),
         )
     else:
@@ -365,7 +366,7 @@ async def _send_pause(bot: Bot, chat_id: int, data: dict):
             InlineKeyboardButton(
                 text="🔄 Qayta boshlash",
                 callback_data=f"test_{data['unit_id']}",
-                style="primary",
+                style="success",
             ),
             InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units", style="danger"),
         )
@@ -440,11 +441,12 @@ async def _send_result(bot: Bot, chat_id: int, user_id: int, data: dict, redis: 
             InlineKeyboardButton(
                 text="🔄 Qayta topshirish",
                 callback_data=f"btest_{basket_id}",
-                style="primary",
+                style="success",
             ),
             InlineKeyboardButton(
                 text="⬅️ Savatchaga qaytish",
                 callback_data=f"bview_{basket_id}",
+                style="danger",
             ),
         )
     else:
@@ -452,7 +454,7 @@ async def _send_result(bot: Bot, chat_id: int, user_id: int, data: dict, redis: 
             InlineKeyboardButton(
                 text="🔄 Qayta topshirish",
                 callback_data=f"test_{data['unit_id']}",
-                style="primary",
+                style="success",
             ),
             InlineKeyboardButton(text="📕 Unitlar", callback_data="back_to_units", style="danger"),
         )

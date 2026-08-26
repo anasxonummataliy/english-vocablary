@@ -93,7 +93,7 @@ def _mode_selection_keyboard() -> InlineKeyboardBuilder:
             style="primary",
         )
     )
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_back"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_back", style="danger"))
     return ikb
 
 
@@ -107,11 +107,12 @@ def _interval_selection_keyboard() -> InlineKeyboardBuilder:
             InlineKeyboardButton(
                 text=label,
                 callback_data=f"rem_int_{h}",
+                style="primary",
             )
         )
     for idx in range(0, len(buttons), 3):
         ikb.row(*buttons[idx : idx + 3])
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup", style="danger"))
     return ikb
 
 
@@ -131,10 +132,12 @@ def _weekday_keyboard(selected_days: list[int]) -> InlineKeyboardBuilder:
 
     for day_index, short_label in weekday_labels:
         prefix = "✅ " if day_index in selected else ""
+        btn_style = "success" if day_index in selected else "primary"
         buttons.append(
             InlineKeyboardButton(
                 text=f"{prefix}{short_label}",
                 callback_data=f"rem_day_{day_index}",
+                style=btn_style,
             )
         )
 
@@ -142,13 +145,13 @@ def _weekday_keyboard(selected_days: list[int]) -> InlineKeyboardBuilder:
         ikb.row(*buttons[idx : idx + 2])
 
     ikb.row(
-        InlineKeyboardButton(text="✅ Davom etish", callback_data="rem_days_next"),
+        InlineKeyboardButton(text="✅ Davom etish", callback_data="rem_days_next", style="success"),
     )
     ikb.row(
-        InlineKeyboardButton(text="📅 Hamma kunlar", callback_data="rem_days_all"),
-        InlineKeyboardButton(text="🔄 Tozalash", callback_data="rem_days_clear"),
+        InlineKeyboardButton(text="📅 Hamma kunlar", callback_data="rem_days_all", style="primary"),
+        InlineKeyboardButton(text="🔄 Tozalash", callback_data="rem_days_clear", style="danger"),
     )
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup", style="danger"))
     return ikb
 
 
@@ -182,6 +185,7 @@ def _main_menu_keyboard(has_reminder: bool, is_active: bool) -> InlineKeyboardBu
             InlineKeyboardButton(
                 text="⏭ Keyingi unitga o'tish",
                 callback_data="rem_skip",
+                style="primary",
             )
         )
     return ikb
@@ -270,9 +274,10 @@ async def setup_interval_select(callback: CallbackQuery, redis: Redis):
             InlineKeyboardButton(
                 text=level,
                 callback_data=f"rem_lvl_{idx}",
+                style="primary",
             )
         )
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup", style="danger"))
 
     await callback.message.edit_text(
         "📚 <b>Qaysi kitobdan eslatish kerak?</b>\n\n"
@@ -380,7 +385,7 @@ async def setup_days_next(callback: CallbackQuery, redis: Redis):
     await _save_setup(redis, user_id, setup)
 
     back_keyboard = InlineKeyboardBuilder()
-    back_keyboard.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup"))
+    back_keyboard.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup", style="danger"))
 
     await callback.message.edit_text(
         "🕐 <b>Eslatma vaqtlarini yuboring:</b>\n\n"
@@ -436,9 +441,10 @@ async def setup_times_input(message: Message, redis: Redis):
             InlineKeyboardButton(
                 text=level,
                 callback_data=f"rem_lvl_{idx}",
+                style="primary",
             )
         )
-    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup"))
+    ikb.row(InlineKeyboardButton(text="⬅️ Orqaga", callback_data="rem_setup", style="danger"))
 
     await message.answer(
         "📚 <b>Qaysi kitobdan eslatish kerak?</b>\n\n"
@@ -550,6 +556,7 @@ async def setup_unit_select(callback: CallbackQuery, redis: Redis):
         InlineKeyboardButton(
             text="⬅️ Orqaga",
             callback_data=f"rem_lvl_{setup.get('level_idx', 0)}",
+            style="danger",
         ),
     )
 

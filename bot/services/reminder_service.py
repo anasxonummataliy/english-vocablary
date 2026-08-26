@@ -272,10 +272,12 @@ def build_action_keyboard(unit_id: int) -> InlineKeyboardBuilder:
         InlineKeyboardButton(
             text="✅ Bajarildi",
             callback_data=f"rem_skip_{unit_id}",
+            style="success",
         ),
         InlineKeyboardButton(
             text="📕 Unitlar ro'yxatiga qaytish",
             callback_data="back_to_units",
+            style="danger",
         ),
     )
     return ikb

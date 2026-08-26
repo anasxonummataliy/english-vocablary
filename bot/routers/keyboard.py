@@ -168,19 +168,25 @@ async def create_units_keyboard(
     if current_page > 0:
         nav_buttons.append(
             InlineKeyboardButton(
-                text="◀️", callback_data=f"{page_prefix}{current_page - 1}"
+                text="◀️",
+                callback_data=f"{page_prefix}{current_page - 1}",
+                style="primary",
             )
         )
 
     nav_buttons.append(
         InlineKeyboardButton(
-            text=f"{current_page + 1}/{total_pages}", callback_data="current"
+            text=f"{current_page + 1}/{total_pages}",
+            callback_data="current",
+            style="primary",
         )
     )
     if current_page < total_pages - 1:
         nav_buttons.append(
             InlineKeyboardButton(
-                text="▶️", callback_data=f"{page_prefix}{current_page + 1}"
+                text="▶️",
+                callback_data=f"{page_prefix}{current_page + 1}",
+                style="primary",
             )
         )
 

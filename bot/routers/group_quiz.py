@@ -225,6 +225,15 @@ async def select_gquiz_level(callback: CallbackQuery):
             )
         ]
     ]
+    bottom_btn = [
+        [
+            InlineKeyboardButton(
+                text="⬅️ Orqaga",
+                callback_data="gq_main",
+                style="danger",
+            )
+        ]
+    ]
 
     kb = await create_units_keyboard(
         current_page=current_page,
@@ -233,6 +242,7 @@ async def select_gquiz_level(callback: CallbackQuery):
         select_prefix=f"gq_start_{level}_",
         page_prefix=f"gq_page_{level}_",
         extra_top_buttons=top_btn,
+        extra_bottom_buttons=bottom_btn,
         raw_number_payload=True,
     )
 
@@ -262,6 +272,15 @@ async def gquiz_pagination_handler(callback: CallbackQuery):
             )
         ]
     ]
+    bottom_btn = [
+        [
+            InlineKeyboardButton(
+                text="⬅️ Orqaga",
+                callback_data="gq_main",
+                style="danger",
+            )
+        ]
+    ]
 
     kb = await create_units_keyboard(
         current_page=current_page,
@@ -270,6 +289,7 @@ async def gquiz_pagination_handler(callback: CallbackQuery):
         select_prefix=f"gq_start_{level}_",
         page_prefix=f"gq_page_{level}_",
         extra_top_buttons=top_btn,
+        extra_bottom_buttons=bottom_btn,
         raw_number_payload=True,
     )
 
@@ -277,6 +297,23 @@ async def gquiz_pagination_handler(callback: CallbackQuery):
         f"📖 Tanlangan daraja: <b>{level.capitalize()}</b>\n"
         "🎯 <b>Musobaqa turini yoki Unitni tanlang:</b>",
         reply_markup=kb,
+        parse_mode="HTML",
+    )
+    await callback.answer()
+
+
+@router.callback_query(F.data == "gq_main")
+async def back_to_gquiz_main(callback: CallbackQuery):
+    ikb = InlineKeyboardBuilder()
+    available_levels = get_available_levels(only_with_words=True)
+    for title, code in available_levels:
+        ikb.button(text=title, callback_data=f"gq_lvl_{code}", style="primary")
+    ikb.adjust(2)
+
+    await callback.message.edit_text(
+        "🏆 <b>Guruh musobaqasi!</b>\n\n"
+        "Qaysi daraja (level) bo'yicha musobaqa o'tkazmoqchisiz?",
+        reply_markup=ikb.as_markup(),
         parse_mode="HTML",
     )
     await callback.answer()
