@@ -112,7 +112,19 @@ VALID_LEVEL_BUTTONS = {
     "📘 Advanced",
     "📕 Advanced",
     "🔴 Advanced",
-    # 4000 Essential English Words
+    # 4000 Essential English Words / Essential Words
+    "🔵 Essential Words 1",
+    "🔵 Essential Words 2",
+    "🔵 Essential Words 3",
+    "🔵 Essential Words 4",
+    "🔵 Essential Words 5",
+    "🔵 Essential Words 6",
+    "Essential Words 1",
+    "Essential Words 2",
+    "Essential Words 3",
+    "Essential Words 4",
+    "Essential Words 5",
+    "Essential Words 6",
     "🔵 4000 Essential English Words 1",
     "🔵 4000 Essential English Words 2",
     "🔵 4000 Essential English Words 3",
@@ -237,7 +249,7 @@ async def select_handler(callback: CallbackQuery, redis: Redis):
         InlineKeyboardButton(
             text="📝 Test yechish",
             callback_data=f"test_{selected_unit_safe}",
-            style="primary",
+            style="success",
         ),
     )
 

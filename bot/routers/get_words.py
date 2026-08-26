@@ -183,7 +183,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
             InlineKeyboardButton(
                 text="⬅️ Oldingisi",
                 callback_data=f"words_Unit_{unit_id}_page_{page - 1}",
-                style="primary",
+                style="success",
             )
         )
     if len(words) > page * 7:
@@ -191,7 +191,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
             InlineKeyboardButton(
                 text="Keyingisi ➡️",
                 callback_data=f"words_Unit_{unit_id}_page_{page + 1}",
-                style="primary",
+                style="success",
             )
         )
     if page_row:

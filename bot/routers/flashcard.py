@@ -278,6 +278,8 @@ async def show_flash_answer(callback: CallbackQuery, redis: Redis):
         )
     )
 
+    text = f"🃏 <b>Flash Card</b> [{idx + 1}/{total}]\n\n{answer_text}"
+
     try:
         await callback.message.edit_text(
             text, parse_mode="HTML", reply_markup=ikb.as_markup()

@@ -265,7 +265,7 @@ def build_action_keyboard(unit_id: int) -> InlineKeyboardBuilder:
         InlineKeyboardButton(
             text="📝 Test yechish",
             callback_data=f"test_{unit_safe}",
-            style="primary",
+            style="success",
         )
     )
     ikb.row(

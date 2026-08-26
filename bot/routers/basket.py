@@ -160,7 +160,7 @@ async def callback_view_basket(callback: CallbackQuery, state: FSMContext = None
         InlineKeyboardButton(
             text="📝 Test yechish",
             callback_data=f"btest_{basket_id}",
-            style="primary",
+            style="success",
         ),
     )
 
@@ -388,7 +388,7 @@ async def callback_basket_words_view(callback: CallbackQuery):
             InlineKeyboardButton(
                 text="⬅️ Oldingisi",
                 callback_data=f"bwords_{basket_id}_{page - 1}",
-                style="primary",
+                style="success",
             )
         )
     if len(words) > page * 7:
@@ -396,7 +396,7 @@ async def callback_basket_words_view(callback: CallbackQuery):
             InlineKeyboardButton(
                 text="Keyingisi ➡️",
                 callback_data=f"bwords_{basket_id}_{page + 1}",
-                style="primary",
+                style="success",
             )
         )
     if nav_row:

@@ -22,15 +22,29 @@ VOCABULARY_IN_USE_LEVELS = [
 ]
 
 ESSENTIAL_WORDS_LEVELS = [
-    ("🔵 4000 Essential English Words 1", "4000essentialenglishwords1"),
-    ("🔵 4000 Essential English Words 2", "4000essentialenglishwords2"),
-    ("🔵 4000 Essential English Words 3", "4000essentialenglishwords3"),
-    ("🔵 4000 Essential English Words 4", "4000essentialenglishwords4"),
-    ("🔵 4000 Essential English Words 5", "4000essentialenglishwords5"),
-    ("🔵 4000 Essential English Words 6", "4000essentialenglishwords6"),
+    ("🔵 Essential Words 1", "4000essentialenglishwords1"),
+    ("🔵 Essential Words 2", "4000essentialenglishwords2"),
+    ("🔵 Essential Words 3", "4000essentialenglishwords3"),
+    ("🔵 Essential Words 4", "4000essentialenglishwords4"),
+    ("🔵 Essential Words 5", "4000essentialenglishwords5"),
+    ("🔵 Essential Words 6", "4000essentialenglishwords6"),
 ]
 
 LEVEL_DEFINITIONS = VOCABULARY_IN_USE_LEVELS + ESSENTIAL_WORDS_LEVELS
+
+
+def normalize_level_code(level: str) -> str:
+    """Level nomidan data fayli nomini aniqlaydi."""
+    clean = "".join(filter(str.isalnum, level)).lower()
+    if clean.startswith("essentialwords"):
+        suffix = clean.replace("essentialwords", "")
+        return f"4000essentialenglishwords{suffix}"
+    if clean.startswith("essentialenglishwords"):
+        suffix = clean.replace("essentialenglishwords", "")
+        return f"4000essentialenglishwords{suffix}"
+    if clean == "preintermediate":
+        return "preintermediateintermediate"
+    return clean
 
 
 def get_available_levels(only_with_words: bool = False) -> list[tuple[str, str]]:
@@ -95,7 +109,7 @@ ITEMS_PER_PAGE = 8
 
 def get_available_units(level: str) -> list[str]:
     """Berilgan level uchun data faylidan mavjud unitlarni qaytaradi."""
-    clean_level = "".join(filter(str.isalnum, level)).lower()
+    clean_level = normalize_level_code(level)
     file_path = f"data/{clean_level}.json"
 
     if not os.path.exists(file_path):
@@ -170,7 +184,7 @@ async def create_units_keyboard(
             InlineKeyboardButton(
                 text="◀️",
                 callback_data=f"{page_prefix}{current_page - 1}",
-                style="primary",
+                style="success",
             )
         )
 
@@ -178,7 +192,7 @@ async def create_units_keyboard(
         InlineKeyboardButton(
             text=f"{current_page + 1}/{total_pages}",
             callback_data="current",
-            style="primary",
+            style="success",
         )
     )
     if current_page < total_pages - 1:
@@ -186,7 +200,7 @@ async def create_units_keyboard(
             InlineKeyboardButton(
                 text="▶️",
                 callback_data=f"{page_prefix}{current_page + 1}",
-                style="primary",
+                style="success",
             )
         )
 

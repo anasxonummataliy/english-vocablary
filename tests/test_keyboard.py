@@ -28,10 +28,13 @@ def test_get_available_units_missing_level():
 
 def test_get_available_units_essential_words():
     for book_num in range(1, 7):
-        units = get_available_units(f"🔵 4000 Essential English Words {book_num}")
+        units = get_available_units(f"🔵 Essential Words {book_num}")
         assert len(units) == 30
         assert units[0] == "Unit 1"
         assert units[-1] == "Unit 30"
+        # Eski to'liq nomi bilan ham ishlashi kerak:
+        units_old = get_available_units(f"🔵 4000 Essential English Words {book_num}")
+        assert len(units_old) == 30
 
 
 @pytest.mark.asyncio
@@ -91,6 +94,6 @@ async def test_main_menu_and_sub_keyboards():
 
     ess_kb = await essential_words_keyboard()
     ess_buttons = [btn.text for row in ess_kb.export() for btn in row]
-    assert "🔵 4000 Essential English Words 1" in ess_buttons
-    assert "🔵 4000 Essential English Words 6" in ess_buttons
+    assert "🔵 Essential Words 1" in ess_buttons
+    assert "🔵 Essential Words 6" in ess_buttons
     assert BTN_BACK_MAIN in ess_buttons
