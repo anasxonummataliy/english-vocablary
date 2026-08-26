@@ -158,7 +158,7 @@ async def show_flash_card(callback: CallbackQuery, state: dict, user_id: int):
             style="primary",
         ),
         InlineKeyboardButton(
-            text="📥 Savatga",
+            text="🛒 Savatga",
             callback_data=f"fadd_{user_id}",
             style="primary",
         ),
@@ -245,7 +245,7 @@ async def show_flash_answer(callback: CallbackQuery, redis: Redis):
         )
         if is_basket
         else InlineKeyboardButton(
-            text="📥 Savatga",
+            text="🛒 Savatga",
             callback_data=f"fadd_{user_id}",
             style="primary",
         )

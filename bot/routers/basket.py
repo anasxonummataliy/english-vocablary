@@ -67,7 +67,7 @@ async def cmd_basket(message: Message):
         text = (
             "🧺 <b>Sizning Savatchangiz bo'sh!</b>\n\n"
             "So'zlarni o'rganish, Flash card yoki Test ishlash vaqtida bilmagan so'zlaringizni "
-            "<b>'📥 Savatga qo'shish'</b> tugmasi orqali saqlab borishingiz mumkin.\n\n"
+            "<b>'🛒 Savatga qo'shish'</b> tugmasi orqali saqlab borishingiz mumkin.\n\n"
             f"Har bir savatchaga ko'pi bilan <b>{MAX_BASKET_SIZE} ta so'z</b> sig'adi."
         )
         await message.answer(text, parse_mode="HTML")
@@ -100,7 +100,7 @@ async def callback_baskets_list(callback: CallbackQuery):
     if not baskets:
         await callback.message.edit_text(
             "🧺 <b>Sizning Savatchangiz bo'sh!</b>\n\n"
-            "So'zlarni o'rganish yoki test vaqtida <b>'📥 Savatga qo'shish'</b> tugmasini bosing.",
+            "So'zlarni o'rganish yoki test vaqtida <b>'🛒 Savatga qo'shish'</b> tugmasini bosing.",
             parse_mode="HTML",
         )
         await callback.answer()

@@ -156,7 +156,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
     
     page_total = (len(words) + 6) // 7
     text += f"\n📄 Sahifa: <b>{page}/{page_total}</b>\n"
-    text += "<i>💡 So'zni savatchaga saqlash uchun 📥 [Raqam] tugmasini bosing:</i>\n"
+    text += "<i>💡 So'zni savatchaga saqlash uchun 🛒 [Raqam] tugmasini bosing:</i>\n"
 
     ikb = InlineKeyboardBuilder()
 
@@ -166,7 +166,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
         actual_idx = start_idx + (i - start_idx - 1)  # 0-indexed in words list
         basket_row.append(
             InlineKeyboardButton(
-                text=f"📥 {i}",
+                text=f"🛒 {i}",
                 callback_data=f"addw_{unit_id}_{actual_idx}",
                 style="primary",
             )

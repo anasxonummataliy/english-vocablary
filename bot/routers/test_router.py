@@ -462,7 +462,7 @@ async def _send_result(bot: Bot, chat_id: int, user_id: int, data: dict, redis: 
             await redis.set(f"test_mistakes:{user_id}", json.dumps(wrong_words), ex=3600)
             ikb.row(
                 InlineKeyboardButton(
-                    text=f"📥 Xatolarni savatga qo'shish ({len(wrong_words)})",
+                    text=f"🛒 Xatolarni savatga qo'shish ({len(wrong_words)})",
                     callback_data="add_test_mistakes",
                     style="primary",
                 )
