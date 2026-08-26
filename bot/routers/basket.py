@@ -64,13 +64,20 @@ async def cmd_basket(message: Message):
 
     if not baskets:
         ikb = InlineKeyboardBuilder()
+        ikb.row(
+            InlineKeyboardButton(
+                text="🏠 Asosiy menyu (Kitoblar)",
+                callback_data="menu_main",
+                style="primary",
+            )
+        )
         text = (
             "🧺 <b>Sizning Savatchangiz bo'sh!</b>\n\n"
             "So'zlarni o'rganish, Flash card yoki Test ishlash vaqtida bilmagan so'zlaringizni "
             "<b>'🛒 Savatga qo'shish'</b> tugmasi orqali saqlab borishingiz mumkin.\n\n"
             f"Har bir savatchaga ko'pi bilan <b>{MAX_BASKET_SIZE} ta so'z</b> sig'adi."
         )
-        await message.answer(text, parse_mode="HTML")
+        await message.answer(text, reply_markup=ikb.as_markup(), parse_mode="HTML")
         return
 
     ikb = InlineKeyboardBuilder()
@@ -84,6 +91,13 @@ async def cmd_basket(message: Message):
                 style="primary",
             )
         )
+    ikb.row(
+        InlineKeyboardButton(
+            text="🏠 Asosiy menyu (Kitoblar)",
+            callback_data="menu_main",
+            style="danger",
+        )
+    )
 
     text = (
         "🧺 <b>SIZNING SAVATCHALARINGIZ:</b>\n\n"
@@ -98,11 +112,23 @@ async def callback_baskets_list(callback: CallbackQuery):
     baskets = await get_user_baskets(user_id)
 
     if not baskets:
-        await callback.message.edit_text(
-            "🧺 <b>Sizning Savatchangiz bo'sh!</b>\n\n"
-            "So'zlarni o'rganish yoki test vaqtida <b>'🛒 Savatga qo'shish'</b> tugmasini bosing.",
-            parse_mode="HTML",
+        ikb = InlineKeyboardBuilder()
+        ikb.row(
+            InlineKeyboardButton(
+                text="🏠 Asosiy menyu (Kitoblar)",
+                callback_data="menu_main",
+                style="primary",
+            )
         )
+        try:
+            await callback.message.edit_text(
+                "🧺 <b>Sizning Savatchangiz bo'sh!</b>\n\n"
+                "So'zlarni o'rganish yoki test vaqtida <b>'🛒 Savatga qo'shish'</b> tugmasini bosing.",
+                reply_markup=ikb.as_markup(),
+                parse_mode="HTML",
+            )
+        except TelegramBadRequest:
+            pass
         await callback.answer()
         return
 
@@ -117,6 +143,13 @@ async def callback_baskets_list(callback: CallbackQuery):
                 style="primary",
             )
         )
+    ikb.row(
+        InlineKeyboardButton(
+            text="🏠 Asosiy menyu (Kitoblar)",
+            callback_data="menu_main",
+            style="danger",
+        )
+    )
 
     text = (
         "🧺 <b>SIZNING SAVATCHALARINGIZ:</b>\n\n"
@@ -193,7 +226,12 @@ async def callback_view_basket(callback: CallbackQuery, state: FSMContext = None
             text="⬅️ Savatchalar ro'yxatiga",
             callback_data="baskets_list",
             style="danger",
-        )
+        ),
+        InlineKeyboardButton(
+            text="🏠 Asosiy menyu",
+            callback_data="menu_main",
+            style="primary",
+        ),
     )
 
     status_str = "⭐️ <b>Hozirgi faol savat</b> (yangi so'zlar shu yerga tushadi)" if basket["is_active"] else "Oddiy savat"
@@ -407,7 +445,12 @@ async def callback_basket_words_view(callback: CallbackQuery):
             text="⬅️ Savatchaga qaytish",
             callback_data=f"bview_{basket_id}",
             style="danger",
-        )
+        ),
+        InlineKeyboardButton(
+            text="🏠 Asosiy menyu",
+            callback_data="menu_main",
+            style="primary",
+        ),
     )
 
     try:

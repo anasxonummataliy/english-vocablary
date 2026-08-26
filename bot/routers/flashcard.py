@@ -8,6 +8,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
 
 from bot.routers.get_words import get_unit_words
+from bot.routers.keyboard import normalize_level_code
 
 router = Router()
 
@@ -93,7 +94,7 @@ async def start_flashcard(callback: CallbackQuery, redis: Redis):
         await callback.answer("⚠️ Sessiya muddati tugagan.", show_alert=True)
         return
 
-    level = "".join(filter(str.isalnum, raw_level)).lower()
+    level = normalize_level_code(raw_level)
 
     try:
         unit_num = int(unit_id_str.replace("Unit", "").replace("_", "").strip())

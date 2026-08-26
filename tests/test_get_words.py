@@ -134,3 +134,17 @@ def test_preview_shows_only_first_ten_words_with_remaining_note():
     assert "word12" not in text
 
 
+@pytest.mark.asyncio
+async def test_get_unit_words_raw_essential_words_title():
+    words = await get_unit_words("📗 Essential Words 1", 1)
+    assert words is not None
+    assert len(words) == 20
+    assert words[0]["word"] == "afraid"
+
+
+@pytest.mark.asyncio
+async def test_get_unit_info_raw_essential_words_title():
+    info = await get_unit_info("📗 Essential Words 1", 1)
+    assert info is not None
+
+

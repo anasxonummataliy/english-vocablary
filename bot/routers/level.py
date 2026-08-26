@@ -68,13 +68,14 @@ async def level_handler(message: Message):
 
 @router.callback_query(F.data == "menu_main")
 async def callback_menu_main(callback: CallbackQuery):
-    ikb = await main_menu_inline_keyboard()
+    kb = await main_menu_keyboard()
+    await callback.message.answer(
+        "🏠 <b>Asosiy menyu</b>\n\nQaysi bo'limdan boshlamoqchisiz?",
+        reply_markup=kb.as_markup(resize_keyboard=True),
+        parse_mode="HTML",
+    )
     try:
-        await callback.message.edit_text(
-            "📚 <b>Kitoblar va Savatcha</b>\n\nQuyidagi bo'limlardan birini tanlang:",
-            reply_markup=ikb,
-            parse_mode="HTML",
-        )
+        await callback.message.delete()
     except TelegramBadRequest:
         pass
     await callback.answer()
@@ -281,19 +282,29 @@ async def section_selection_handler(message: Message, redis: Redis):
         )
         return
 
-    loading_msg = await message.answer(
-        "⏳ Unitlar ro'yxati yuklanmoqda...", reply_markup=ReplyKeyboardRemove()
-    )
-
     page_data, current_page, total_pages = await get_page_data(0, level_name)
 
     text = f"📖 Kitob: <b>{level_name}</b>\n"
     text += "🎯 <b>Unit tanlang:</b>\n\n"
     text += f"📊 Jami: {len(available_units)} ta unit mavjud"
 
-    keyboard = await create_units_keyboard(current_page, total_pages, page_data)
+    extra_bottom = [
+        [
+            InlineKeyboardButton(
+                text="🏠 Asosiy menyu",
+                callback_data="menu_main",
+                style="danger",
+            )
+        ]
+    ]
 
-    await loading_msg.delete()
+    keyboard = await create_units_keyboard(
+        current_page,
+        total_pages,
+        page_data,
+        extra_bottom_buttons=extra_bottom,
+    )
+
     await message.answer(text, reply_markup=keyboard, parse_mode="HTML")
 
 
@@ -320,7 +331,22 @@ async def pagination_handler(callback: CallbackQuery, redis: Redis):
     text += "🎯 <b>Unit tanlang:</b>\n\n"
     text += f"📊 Sahifa: {current_page + 1}/{total_pages}"
 
-    keyboard = await create_units_keyboard(current_page, total_pages, page_data)
+    extra_bottom = [
+        [
+            InlineKeyboardButton(
+                text="🏠 Asosiy menyu",
+                callback_data="menu_main",
+                style="danger",
+            )
+        ]
+    ]
+
+    keyboard = await create_units_keyboard(
+        current_page,
+        total_pages,
+        page_data,
+        extra_bottom_buttons=extra_bottom,
+    )
 
     try:
         await callback.message.edit_text(text, reply_markup=keyboard, parse_mode="HTML")

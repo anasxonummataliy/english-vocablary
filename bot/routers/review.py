@@ -7,6 +7,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
 
 from bot.routers.get_words import get_unit_words
+from bot.routers.keyboard import normalize_level_code
 
 router = Router()
 
@@ -28,7 +29,7 @@ async def review_handler(callback: CallbackQuery, redis: Redis):
         )
         return
 
-    level = "".join(filter(str.isalnum, raw_level)).lower()
+    level = normalize_level_code(raw_level)
 
     words = await get_unit_words(level, unit_id)
 

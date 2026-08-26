@@ -8,6 +8,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
 
 from bot.routers.get_words import get_unit_words
+from bot.routers.keyboard import normalize_level_code
 from bot.services.score_service import save_score
 
 router = Router()
@@ -111,7 +112,7 @@ async def start_test_by_mode(callback: CallbackQuery, redis: Redis, bot: Bot):
         )
         return
 
-    level = "".join(filter(str.isalnum, user_level_raw)).lower()
+    level = normalize_level_code(user_level_raw)
     words = await get_unit_words(level, unit_num)
     if not words:
         await callback.answer(

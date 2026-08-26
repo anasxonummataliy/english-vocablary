@@ -8,12 +8,15 @@ from aiogram.types import CallbackQuery, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
 
+from bot.routers.keyboard import normalize_level_code
+
 router = Router()
 logger = logging.getLogger(__name__)
 
 
 async def get_unit_words(level: str, unit_id: int) -> list | None:
-    file_path = f"data/{level}.json"
+    clean_level = normalize_level_code(level)
+    file_path = f"data/{clean_level}.json"
     if not os.path.exists(file_path):
         return None
     with open(file_path, "r", encoding="utf-8") as f:
@@ -25,7 +28,8 @@ async def get_unit_words(level: str, unit_id: int) -> list | None:
 
 
 async def get_all_level_words(level: str) -> list:
-    file_path = f"data/{level}.json"
+    clean_level = normalize_level_code(level)
+    file_path = f"data/{clean_level}.json"
     if not os.path.exists(file_path):
         return []
     with open(file_path, "r", encoding="utf-8") as f:
@@ -37,7 +41,8 @@ async def get_all_level_words(level: str) -> list:
 
 
 async def get_unit_info(level: str, unit_id: int) -> dict | None:
-    file_path = f"data/{level}.json"
+    clean_level = normalize_level_code(level)
+    file_path = f"data/{clean_level}.json"
     if not os.path.exists(file_path):
         return None
     with open(file_path, "r", encoding="utf-8") as f:
@@ -52,7 +57,7 @@ async def get_unit_info(level: str, unit_id: int) -> dict | None:
 
 
 def get_level_display_name(level: str) -> str:
-    clean = "".join(filter(str.isalnum, level)).lower()
+    clean = normalize_level_code(level)
     mapping = {
         "elementary": "Elementary",
         "preintermediateintermediate": "Pre-Intermediate & Intermediate",
@@ -133,7 +138,7 @@ async def show_words_handler(callback: CallbackQuery, redis: Redis):
 
     if isinstance(raw_level, bytes):
         raw_level = raw_level.decode()
-    clean_level = "".join(filter(str.isalnum, raw_level)).lower()
+    clean_level = normalize_level_code(raw_level)
 
     unit_info = await get_unit_info(clean_level, unit_id)
     words = await get_unit_words(clean_level, unit_id)
