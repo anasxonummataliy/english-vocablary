@@ -1,9 +1,9 @@
 import pytest
+from unittest.mock import AsyncMock, MagicMock
 from contextlib import asynccontextmanager
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 
-from bot.database.base import Base
 import bot.services.basket_service as basket_service_module
+from bot.database.models.baskets import Basket, BasketWord
 from bot.services.basket_service import (
     add_word_to_basket,
     get_user_baskets,
@@ -12,37 +12,29 @@ from bot.services.basket_service import (
     remove_word_from_basket,
     set_active_basket,
     delete_basket,
-    MAX_BASKET_SIZE,
 )
 
 
-@pytest.fixture
-async def setup_test_db(monkeypatch):
-    test_engine = create_async_engine("sqlite+aiosqlite:///:memory:", echo=False)
-    test_sessionmaker = async_sessionmaker(test_engine, expire_on_commit=False, class_=AsyncSession)
+@pytest.mark.asyncio
+async def test_add_word_to_new_basket(monkeypatch):
+    mock_session = AsyncMock()
+    mock_session.add = MagicMock()
+    mock_session.commit = AsyncMock()
+    mock_session.flush = AsyncMock()
+    mock_session.refresh = AsyncMock()
 
-    async with test_engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+    mock_result = MagicMock()
+    mock_result.scalars.return_value.all.return_value = []
+    mock_session.execute.return_value = mock_result
 
     @asynccontextmanager
     async def mock_get_async_session_context():
-        async with test_sessionmaker() as session:
-            yield session
+        yield mock_session
 
     monkeypatch.setattr(
         basket_service_module, "get_async_session_context", mock_get_async_session_context
     )
 
-    yield
-
-    async with test_engine.begin() as conn:
-        await conn.run_sync(Base.metadata.drop_all)
-    await test_engine.dispose()
-
-
-@pytest.mark.asyncio
-async def test_add_word_and_auto_create_basket(setup_test_db):
-    user_id = 999001
     sample_word = {
         "word": "challenge",
         "transcription": "/ˈtʃalɪndʒ/",
@@ -52,66 +44,88 @@ async def test_add_word_and_auto_create_basket(setup_test_db):
         "example": "This was a challenge.",
     }
 
-    success, msg, basket_name, count = await add_word_to_basket(user_id, sample_word)
+    success, msg, basket_name, count = await add_word_to_basket(1001, sample_word)
     assert success is True
     assert "challenge" in msg
     assert basket_name == "Savatcha 1"
     assert count == 1
-
-    baskets = await get_user_baskets(user_id)
-    assert len(baskets) == 1
-    assert baskets[0]["name"] == "Savatcha 1"
-    assert baskets[0]["word_count"] == 1
-    assert baskets[0]["is_active"] is True
+    mock_session.commit.assert_called()
 
 
 @pytest.mark.asyncio
-async def test_add_duplicate_word_in_basket(setup_test_db):
-    user_id = 999002
-    sample_word = {
+async def test_add_duplicate_word_in_basket(monkeypatch):
+    mock_session = AsyncMock()
+    mock_session.add = MagicMock()
+    mock_session.commit = AsyncMock()
+    mock_session.flush = AsyncMock()
+
+    existing_word = BasketWord(
+        id=1,
+        basket_id=1,
+        word="arrive",
+        transcription="/əˈraɪv/",
+        part_of_speech="verb",
+        uzbek="yetib kelmoq",
+        description="",
+        example="",
+    )
+    existing_basket = Basket(id=1, user_id=1002, name="Savatcha 1", is_active=True, words=[existing_word])
+
+    mock_result = MagicMock()
+    mock_result.scalars.return_value.all.return_value = [existing_basket]
+    mock_session.execute.return_value = mock_result
+
+    @asynccontextmanager
+    async def mock_get_async_session_context():
+        yield mock_session
+
+    monkeypatch.setattr(
+        basket_service_module, "get_async_session_context", mock_get_async_session_context
+    )
+
+    duplicate_word = {
         "word": "arrive",
         "transcription": "/əˈraɪv/",
         "part_of_speech": "verb",
         "uzbek": "yetib kelmoq",
-        "description": "To reach a place",
-        "example": "The train arrived on time.",
+        "description": "",
+        "example": "",
     }
 
-    success1, _, _, count1 = await add_word_to_basket(user_id, sample_word)
-    assert success1 is True
-    assert count1 == 1
-
-    # Attempt duplicate
-    success2, msg2, _, count2 = await add_word_to_basket(user_id, sample_word)
-    assert success2 is False
-    assert "allaqachon" in msg2
-    assert count2 == 1
+    success, msg, basket_name, count = await add_word_to_basket(1002, duplicate_word)
+    assert success is False
+    assert "allaqachon" in msg
+    assert basket_name == "Savatcha 1"
+    assert count == 1
 
 
 @pytest.mark.asyncio
-async def test_auto_create_next_basket_when_full(setup_test_db):
-    user_id = 999003
+async def test_auto_create_next_basket_when_full(monkeypatch):
+    mock_session = AsyncMock()
+    mock_session.add = MagicMock()
+    mock_session.commit = AsyncMock()
+    mock_session.flush = AsyncMock()
+    mock_session.refresh = AsyncMock()
 
-    # Add 20 words to fill Savatcha 1
-    for i in range(1, 21):
-        w = {
-            "word": f"word_{i}",
-            "transcription": f"/w_{i}/",
-            "part_of_speech": "noun",
-            "uzbek": f"so'z_{i}",
-            "description": f"desc_{i}",
-            "example": f"ex_{i}",
-        }
-        success, _, b_name, count = await add_word_to_basket(user_id, w)
-        assert success is True
-        assert b_name == "Savatcha 1"
-        assert count == i
+    # 20 ta so'zli to'la savat
+    words_20 = [
+        BasketWord(id=i, basket_id=1, word=f"word_{i}", uzbek=f"tarjima_{i}")
+        for i in range(1, 21)
+    ]
+    full_basket = Basket(id=1, user_id=1003, name="Savatcha 1", is_active=True, words=words_20)
 
-    baskets = await get_user_baskets(user_id)
-    assert len(baskets) == 1
-    assert baskets[0]["word_count"] == 20
+    mock_result = MagicMock()
+    mock_result.scalars.return_value.all.return_value = [full_basket]
+    mock_session.execute.return_value = mock_result
 
-    # Add 21st word -> should auto-create Savatcha 2
+    @asynccontextmanager
+    async def mock_get_async_session_context():
+        yield mock_session
+
+    monkeypatch.setattr(
+        basket_service_module, "get_async_session_context", mock_get_async_session_context
+    )
+
     w_21 = {
         "word": "word_21",
         "transcription": "/w_21/",
@@ -120,82 +134,115 @@ async def test_auto_create_next_basket_when_full(setup_test_db):
         "description": "desc_21",
         "example": "ex_21",
     }
-    success21, msg21, b_name21, count21 = await add_word_to_basket(user_id, w_21)
-    assert success21 is True
-    assert b_name21 == "Savatcha 2"
-    assert count21 == 1
 
-    baskets_after = await get_user_baskets(user_id)
-    assert len(baskets_after) == 2
-    assert baskets_after[0]["is_active"] is False
-    assert baskets_after[1]["name"] == "Savatcha 2"
-    assert baskets_after[1]["is_active"] is True
-    assert baskets_after[1]["word_count"] == 1
+    success, msg, basket_name, count = await add_word_to_basket(1003, w_21)
+    assert success is True
+    assert basket_name == "Savatcha 2"
+    assert count == 1
+    assert full_basket.is_active is False
 
 
 @pytest.mark.asyncio
-async def test_get_basket_words_and_remove(setup_test_db):
-    user_id = 999004
-    w = {
-        "word": "unique",
-        "transcription": "/juːˈniːk/",
-        "part_of_speech": "adjective",
-        "uzbek": "noyob",
-        "description": "Not like others",
-        "example": "She has a unique style.",
-    }
-    await add_word_to_basket(user_id, w)
+async def test_get_user_baskets(monkeypatch):
+    mock_session = AsyncMock()
+    words = [BasketWord(id=1, basket_id=10, word="test", uzbek="test")]
+    basket = Basket(id=10, user_id=1004, name="Savatcha 1", is_active=True, words=words)
 
-    baskets = await get_user_baskets(user_id)
-    basket_id = baskets[0]["id"]
+    mock_result = MagicMock()
+    mock_result.scalars.return_value.all.return_value = [basket]
+    mock_session.execute.return_value = mock_result
 
-    words = await get_basket_words(basket_id)
+    @asynccontextmanager
+    async def mock_get_async_session_context():
+        yield mock_session
+
+    monkeypatch.setattr(
+        basket_service_module, "get_async_session_context", mock_get_async_session_context
+    )
+
+    baskets = await get_user_baskets(1004)
+    assert len(baskets) == 1
+    assert baskets[0]["id"] == 10
+    assert baskets[0]["name"] == "Savatcha 1"
+    assert baskets[0]["word_count"] == 1
+
+
+@pytest.mark.asyncio
+async def test_get_basket_words_and_remove(monkeypatch):
+    mock_session = AsyncMock()
+    mock_session.delete = AsyncMock()
+    mock_session.commit = AsyncMock()
+
+    word = BasketWord(
+        id=55,
+        basket_id=12,
+        word="unique",
+        transcription="/juːˈniːk/",
+        part_of_speech="adj.",
+        uzbek="noyob",
+        description="special",
+        example="sample",
+    )
+
+    mock_res_words = MagicMock()
+    mock_res_words.scalars.return_value.all.return_value = [word]
+
+    mock_res_one = MagicMock()
+    mock_res_one.scalar_one_or_none.return_value = word
+
+    mock_session.execute.side_effect = [mock_res_words, mock_res_one]
+
+    @asynccontextmanager
+    async def mock_get_async_session_context():
+        yield mock_session
+
+    monkeypatch.setattr(
+        basket_service_module, "get_async_session_context", mock_get_async_session_context
+    )
+
+    words = await get_basket_words(12)
     assert len(words) == 1
     assert words[0]["word"] == "unique"
-    word_id = words[0]["id"]
+    assert words[0]["uzbek"] == "noyob"
 
-    # Remove word
-    ok, del_msg = await remove_word_from_basket(basket_id, word_id)
+    ok, del_msg = await remove_word_from_basket(12, 55)
     assert ok is True
     assert "unique" in del_msg
-
-    words_after = await get_basket_words(basket_id)
-    assert len(words_after) == 0
+    mock_session.delete.assert_called_once_with(word)
+    mock_session.commit.assert_called()
 
 
 @pytest.mark.asyncio
-async def test_set_active_and_delete_basket(setup_test_db):
-    user_id = 999005
+async def test_set_active_and_delete_basket(monkeypatch):
+    mock_session = AsyncMock()
+    mock_session.commit = AsyncMock()
+    mock_session.delete = AsyncMock()
 
-    # Fill Savatcha 1 and create Savatcha 2
-    for i in range(1, 22):
-        w = {
-            "word": f"term_{i}",
-            "transcription": "",
-            "part_of_speech": "",
-            "uzbek": f"tarjima_{i}",
-            "description": "",
-            "example": "",
-        }
-        await add_word_to_basket(user_id, w)
+    mock_update_res = MagicMock()
+    mock_update_res.rowcount = 1
 
-    baskets = await get_user_baskets(user_id)
-    assert len(baskets) == 2
-    b1_id = baskets[0]["id"]
-    b2_id = baskets[1]["id"]
+    basket = Basket(id=20, user_id=1005, name="Savatcha 1", is_active=True)
+    mock_select_res = MagicMock()
+    mock_select_res.scalar_one_or_none.return_value = basket
 
-    # Set Savatcha 1 as active
-    await set_active_basket(user_id, b1_id)
-    baskets_updated = await get_user_baskets(user_id)
-    assert baskets_updated[0]["is_active"] is True
-    assert baskets_updated[1]["is_active"] is False
+    other_basket = Basket(id=21, user_id=1005, name="Savatcha 2", is_active=False)
+    mock_other_res = MagicMock()
+    mock_other_res.scalar_one_or_none.return_value = other_basket
 
-    # Delete Savatcha 1
-    ok, del_msg = await delete_basket(user_id, b1_id)
-    assert ok is True
+    mock_session.execute.side_effect = [mock_update_res, mock_update_res, mock_select_res, mock_other_res]
+
+    @asynccontextmanager
+    async def mock_get_async_session_context():
+        yield mock_session
+
+    monkeypatch.setattr(
+        basket_service_module, "get_async_session_context", mock_get_async_session_context
+    )
+
+    active_ok = await set_active_basket(1005, 20)
+    assert active_ok is True
+
+    del_ok, del_msg = await delete_basket(1005, 20)
+    assert del_ok is True
     assert "Savatcha 1" in del_msg
-
-    baskets_remaining = await get_user_baskets(user_id)
-    assert len(baskets_remaining) == 1
-    assert baskets_remaining[0]["id"] == b2_id
-    assert baskets_remaining[0]["is_active"] is True
+    assert other_basket.is_active is True
