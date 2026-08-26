@@ -88,12 +88,12 @@ async def test_main_menu_and_sub_keyboards():
 
     vocab_kb = await vocabulary_in_use_keyboard()
     vocab_buttons = [btn.text for row in vocab_kb.export() for btn in row]
-    assert "📘 Elementary" in vocab_buttons
-    assert "📘 Advanced" in vocab_buttons
+    assert "📗 Elementary" in vocab_buttons
+    assert "📕 Advanced" in vocab_buttons
     assert BTN_BACK_MAIN in vocab_buttons
 
     ess_kb = await essential_words_keyboard()
     ess_buttons = [btn.text for row in ess_kb.export() for btn in row]
-    assert "🔵 Essential Words 1" in ess_buttons
-    assert "🔵 Essential Words 6" in ess_buttons
+    assert "📗 Essential Words 1" in ess_buttons
+    assert "📓 Essential Words 6" in ess_buttons
     assert BTN_BACK_MAIN in ess_buttons

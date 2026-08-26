@@ -10,6 +10,7 @@ from bot.admin.clear import clear_router
 
 admin_router = Router()
 admin_router.message.filter(isAdmin())
+admin_router.callback_query.filter(isAdmin())
 
 admin_router.include_routers(
     clear_router, broadcast, channels, reply, statistics, start

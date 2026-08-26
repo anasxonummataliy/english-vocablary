@@ -17,19 +17,19 @@ MAIN_MENU_BASKET = "🟢 Mening savatcham"
 BTN_BACK_MAIN = "🔴 Asosiy menyu"
 
 VOCABULARY_IN_USE_LEVELS = [
-    ("📘 Elementary", "elementary"),
+    ("📗 Elementary", "elementary"),
     ("📘 Pre-intermediate & Intermediate", "preintermediateintermediate"),
-    ("📘 Upper intermediate", "upperintermediate"),
-    ("📘 Advanced", "advanced"),
+    ("📙 Upper intermediate", "upperintermediate"),
+    ("📕 Advanced", "advanced"),
 ]
 
 ESSENTIAL_WORDS_LEVELS = [
-    ("🔵 Essential Words 1", "4000essentialenglishwords1"),
-    ("🔵 Essential Words 2", "4000essentialenglishwords2"),
-    ("🔵 Essential Words 3", "4000essentialenglishwords3"),
-    ("🔵 Essential Words 4", "4000essentialenglishwords4"),
-    ("🔵 Essential Words 5", "4000essentialenglishwords5"),
-    ("🔵 Essential Words 6", "4000essentialenglishwords6"),
+    ("📗 Essential Words 1", "4000essentialenglishwords1"),
+    ("📘 Essential Words 2", "4000essentialenglishwords2"),
+    ("📙 Essential Words 3", "4000essentialenglishwords3"),
+    ("📕 Essential Words 4", "4000essentialenglishwords4"),
+    ("📔 Essential Words 5", "4000essentialenglishwords5"),
+    ("📓 Essential Words 6", "4000essentialenglishwords6"),
 ]
 
 LEVEL_DEFINITIONS = VOCABULARY_IN_USE_LEVELS + ESSENTIAL_WORDS_LEVELS

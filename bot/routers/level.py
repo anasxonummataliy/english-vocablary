@@ -219,6 +219,12 @@ VALID_LEVEL_BUTTONS = {
     "📕 Advanced",
     "🔴 Advanced",
     # 4000 Essential English Words / Essential Words
+    "📗 Essential Words 1",
+    "📘 Essential Words 2",
+    "📙 Essential Words 3",
+    "📕 Essential Words 4",
+    "📔 Essential Words 5",
+    "📓 Essential Words 6",
     "🔵 Essential Words 1",
     "🔵 Essential Words 2",
     "🔵 Essential Words 3",
