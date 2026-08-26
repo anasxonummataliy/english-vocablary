@@ -1,7 +1,8 @@
-from aiogram import Router
+from aiogram import Router, F
 from aiogram.filters import Command
 from aiogram.types import Message
 from aiogram.enums import ChatType
+from bot.routers.keyboard import main_menu_keyboard
 
 router = Router()
 
@@ -21,15 +22,43 @@ async def help_handler(message: Message):
 
     private_help = (
         "❓ <b>Botdan qanday foydalanish mumkin?</b>\n\n"
-        "Quyidagi buyruqlar orqali botni boshqarishingiz mumkin:\n\n"
+        "Quyidagi buyruqlar va menyu orqali botni boshqarishingiz mumkin:\n\n"
         "🚀 <b>/start</b> — Botni qayta ishga tushirish va asosiy menyuga qaytish.\n"
         "📚 <b>/level</b> — Kitoblarni (Vocabulary in Use va 4000 Essential Words) tanlash.\n"
-        "🧺 <b>/savat</b> — O'zingiz saqlagan notanish so'zlar savatchalari (o'rganish, flash card, test).\n"
+        "🟢 <b>/savat</b> — O'zingiz saqlagan notanish so'zlar savatchalari (o'rganish, flash card, test).\n"
         "🏆 <b>/top</b> — Unitlar va umumiy reytinglarni ko'rish.\n"
         "⏰ <b>/reminder</b> — Unitlarni o'rganish uchun eslatma sozlash.\n"
         "ℹ️ <b>/help</b> — Hozirgi yordam oynasini ko'rsatish.\n"
         "👨‍💻 <b>/admin</b> — Adminga murojaat qilish.\n\n"
-        "💡 <i>Maslahat: Agar bot javob bermay qolsa, /start buyrug'ini yuboring.</i>"
+        "💡 <i>Maslahat: Istalgan payt pastdagi menyu tugmalaridan foydalanishingiz mumkin!</i>"
     )
 
-    await message.answer(private_help, parse_mode="HTML")
+    kb = await main_menu_keyboard()
+    await message.answer(
+        private_help,
+        parse_mode="HTML",
+        reply_markup=kb.as_markup(resize_keyboard=True),
+    )
+
+
+@router.message(F.chat.type == ChatType.PRIVATE)
+async def fallback_user_message_handler(message: Message):
+    """Foydalanuvchi noma'lum matn yoki boshqa narsa yuborganda tushunarli yo'riqnoma ko'rsatish."""
+    kb = await main_menu_keyboard()
+    text = (
+        "👋 <b>Sizga qanday yordam bera olaman?</b>\n\n"
+        "Men sizga ingliz tili so'zlarini kitoblar bo'yicha o'rganishda, testlar va flash cardlar orqali "
+        "bilimingizni sinashda yordam beraman! 🚀\n\n"
+        "👇 <b>Quyidagi bo'limlardan birini tanlang:</b>\n\n"
+        "📘 <b>English Vocabulary in Use</b> — Darslik bo'yicha so'zlar\n"
+        "🔵 <b>4000 Essential English Words</b> — 1-6 kitoblar bo'yicha so'zlar\n"
+        "🟢 <b>Mening savatcham</b> — Saqlangan so'zlaringiz\n"
+        "⏰ <b>/reminder</b> — Kunlik/interval eslatmalar sozlash\n"
+        "🏆 <b>/top</b> — Peshqadamlar reytingi\n"
+        "ℹ️ <b>/help</b> — Qo'llanma"
+    )
+    await message.answer(
+        text,
+        parse_mode="HTML",
+        reply_markup=kb.as_markup(resize_keyboard=True),
+    )

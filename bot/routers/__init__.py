@@ -26,6 +26,6 @@ user_router.include_routers(
     level,
     reminder_router,
     message_to_admin,
-    help,
     start,
+    help,
 )
