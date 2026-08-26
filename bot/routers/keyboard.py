@@ -60,7 +60,7 @@ async def main_menu_keyboard():
     kb.button(text=BOOK_VOCABULARY_IN_USE)
     kb.button(text=BOOK_ESSENTIAL_WORDS)
     kb.button(text=MAIN_MENU_BASKET)
-    kb.adjust(1, 1, 1)
+    kb.adjust(2, 1)
     return kb
 
 
