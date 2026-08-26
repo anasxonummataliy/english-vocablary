@@ -63,3 +63,34 @@ async def test_create_units_keyboard_structure():
     assert len(keyboard.inline_keyboard) >= 2  # unitlar + navigatsiya
     nav_row = keyboard.inline_keyboard[-1]
     assert any(btn.callback_data == "current" for btn in nav_row)
+
+
+@pytest.mark.asyncio
+async def test_main_menu_and_sub_keyboards():
+    from bot.routers.keyboard import (
+        main_menu_keyboard,
+        vocabulary_in_use_keyboard,
+        essential_words_keyboard,
+        BOOK_VOCABULARY_IN_USE,
+        BOOK_ESSENTIAL_WORDS,
+        MAIN_MENU_BASKET,
+        BTN_BACK_MAIN,
+    )
+
+    main_kb = await main_menu_keyboard()
+    main_buttons = [btn.text for row in main_kb.export() for btn in row]
+    assert BOOK_VOCABULARY_IN_USE in main_buttons
+    assert BOOK_ESSENTIAL_WORDS in main_buttons
+    assert MAIN_MENU_BASKET in main_buttons
+
+    vocab_kb = await vocabulary_in_use_keyboard()
+    vocab_buttons = [btn.text for row in vocab_kb.export() for btn in row]
+    assert "📘 Elementary" in vocab_buttons
+    assert "📘 Advanced" in vocab_buttons
+    assert BTN_BACK_MAIN in vocab_buttons
+
+    ess_kb = await essential_words_keyboard()
+    ess_buttons = [btn.text for row in ess_kb.export() for btn in row]
+    assert "🔵 4000 Essential English Words 1" in ess_buttons
+    assert "🔵 4000 Essential English Words 6" in ess_buttons
+    assert BTN_BACK_MAIN in ess_buttons

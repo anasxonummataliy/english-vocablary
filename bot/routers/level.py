@@ -12,10 +12,17 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from redis.asyncio import Redis
 
 from bot.routers.keyboard import (
+    main_menu_keyboard,
+    vocabulary_in_use_keyboard,
+    essential_words_keyboard,
     level_keyboard,
     get_page_data,
     create_units_keyboard,
     get_available_units,
+    BOOK_VOCABULARY_IN_USE,
+    BOOK_ESSENTIAL_WORDS,
+    MAIN_MENU_BASKET,
+    BTN_BACK_MAIN,
 )
 
 router = Router()
@@ -43,9 +50,47 @@ async def level_handler(message: Message):
             parse_mode="HTML",
         )
         return
-    kb = await level_keyboard()
+    kb = await main_menu_keyboard()
     await message.answer(
-        "📚 <b>Kitoblar va darajalar</b>\n\nQaysi kitobdan boshlamoqchisiz?",
+        "📚 <b>Kitoblar va Savatcha</b>\n\nQaysi bo'limdan boshlamoqchisiz?",
+        reply_markup=kb.as_markup(resize_keyboard=True),
+        parse_mode="HTML",
+    )
+
+
+# ==================== KITOBLAR VA ASOSIY MENYU TUGMALARI ====================
+
+@router.message(F.text.in_({BOOK_VOCABULARY_IN_USE, "English Vocabulary in Use", "Vocabulary in Use"}))
+async def handle_vocabulary_in_use_selection(message: Message):
+    kb = await vocabulary_in_use_keyboard()
+    await message.answer(
+        "📚 <b>English Vocabulary in Use</b>\n\nKerakli darajani tanlang:",
+        reply_markup=kb.as_markup(resize_keyboard=True),
+        parse_mode="HTML",
+    )
+
+
+@router.message(F.text.in_({BOOK_ESSENTIAL_WORDS, "4000 Essential English Words", "4000 Essential Words"}))
+async def handle_essential_words_selection(message: Message):
+    kb = await essential_words_keyboard()
+    await message.answer(
+        "📖 <b>4000 Essential English Words</b>\n\nKerakli kitobni tanlang:",
+        reply_markup=kb.as_markup(resize_keyboard=True),
+        parse_mode="HTML",
+    )
+
+
+@router.message(F.text.in_({MAIN_MENU_BASKET, "🧺 Savatcham", "Mening savatcham", "Savatcham"}))
+async def handle_basket_button(message: Message):
+    from bot.routers.basket import cmd_basket
+    await cmd_basket(message)
+
+
+@router.message(F.text.in_({BTN_BACK_MAIN, "⬅️ Bosh menyu", "⬅️ Orqaga", "Asosiy menyu"}))
+async def handle_back_to_main_menu(message: Message):
+    kb = await main_menu_keyboard()
+    await message.answer(
+        "🏠 <b>Asosiy menyu</b>\n\nQaysi bo'limdan boshlamoqchisiz?",
         reply_markup=kb.as_markup(resize_keyboard=True),
         parse_mode="HTML",
     )

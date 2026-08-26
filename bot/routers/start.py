@@ -18,16 +18,17 @@ async def send_welcome_message(message: Message, bot: Bot):
     full_name = message.from_user.full_name if message.from_user else "Foydalanuvchi"
 
     welcome_text = (
-        f"🌟 **Assalomu alaykum, {full_name}!**\n\n"
-        f"Sizni ko'rib turganimizdan xursandmiz! Ushbu bot orqali "
-        f"**'English Vocabulary in Use'** va **'4000 Essential English Words'** kitoblari asosida so'z boyligingizni oshirishingiz mumkin. 🚀\n\n"
-        f"📚 Qaysi kitobdan boshlashni xohlaysiz?"
+        f"🌟 <b>Assalomu alaykum, {full_name}!</b>\n\n"
+        f"Bot orqali <b>English Vocabulary in Use</b> va <b>4000 Essential English Words</b> kitoblari "
+        f"asosida so'zlarni o'rganishingiz, flash card va testlar orqali bilimingizni sinashingiz hamda "
+        f"bilmagan so'zlaringizni <b>Savatchaga</b> saqlab borishingiz mumkin. 🚀\n\n"
+        f"Quyidagi bo'limlardan birini tanlang:"
     )
 
     await message.answer(
         welcome_text,
         reply_markup=kb.as_markup(resize_keyboard=True),
-        parse_mode="Markdown",
+        parse_mode="HTML",
     )
 
 

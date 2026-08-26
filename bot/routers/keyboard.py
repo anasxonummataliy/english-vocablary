@@ -8,13 +8,20 @@ from aiogram.types import (
 )
 
 
-LEVEL_DEFINITIONS = [
-    # English Vocabulary in Use
+# Main menu categories
+BOOK_VOCABULARY_IN_USE = "📚 English Vocabulary in Use"
+BOOK_ESSENTIAL_WORDS = "📖 4000 Essential English Words"
+MAIN_MENU_BASKET = "🧺 Mening savatcham"
+BTN_BACK_MAIN = "⬅️ Asosiy menyu"
+
+VOCABULARY_IN_USE_LEVELS = [
     ("📘 Elementary", "elementary"),
     ("📘 Pre-intermediate & Intermediate", "preintermediateintermediate"),
     ("📘 Upper intermediate", "upperintermediate"),
     ("📘 Advanced", "advanced"),
-    # 4000 Essential English Words
+]
+
+ESSENTIAL_WORDS_LEVELS = [
     ("🔵 4000 Essential English Words 1", "4000essentialenglishwords1"),
     ("🔵 4000 Essential English Words 2", "4000essentialenglishwords2"),
     ("🔵 4000 Essential English Words 3", "4000essentialenglishwords3"),
@@ -22,6 +29,8 @@ LEVEL_DEFINITIONS = [
     ("🔵 4000 Essential English Words 5", "4000essentialenglishwords5"),
     ("🔵 4000 Essential English Words 6", "4000essentialenglishwords6"),
 ]
+
+LEVEL_DEFINITIONS = VOCABULARY_IN_USE_LEVELS + ESSENTIAL_WORDS_LEVELS
 
 
 def get_available_levels(only_with_words: bool = False) -> list[tuple[str, str]]:
@@ -45,12 +54,39 @@ def get_available_levels(only_with_words: bool = False) -> list[tuple[str, str]]
     return result
 
 
-async def level_keyboard():
+async def main_menu_keyboard():
+    """Bosh menyu: 2 ta kitob va Savatcha"""
     kb = ReplyKeyboardBuilder()
-    for title, code in get_available_levels():
-        kb.button(text=title)
-    kb.adjust(2)
+    kb.button(text=BOOK_VOCABULARY_IN_USE)
+    kb.button(text=BOOK_ESSENTIAL_WORDS)
+    kb.button(text=MAIN_MENU_BASKET)
+    kb.adjust(1, 1, 1)
     return kb
+
+
+async def vocabulary_in_use_keyboard():
+    """English Vocabulary in Use kitoblari levellari"""
+    kb = ReplyKeyboardBuilder()
+    for title, _ in VOCABULARY_IN_USE_LEVELS:
+        kb.button(text=title)
+    kb.button(text=BTN_BACK_MAIN)
+    kb.adjust(2, 2, 1)
+    return kb
+
+
+async def essential_words_keyboard():
+    """4000 Essential English Words kitoblari levellari"""
+    kb = ReplyKeyboardBuilder()
+    for title, _ in ESSENTIAL_WORDS_LEVELS:
+        kb.button(text=title)
+    kb.button(text=BTN_BACK_MAIN)
+    kb.adjust(2, 2, 2, 1)
+    return kb
+
+
+async def level_keyboard():
+    """Default bosh menyu klaviaturasi"""
+    return await main_menu_keyboard()
 
 
 ALL_UNITS = [f"Unit {i}" for i in range(1, 61)]
