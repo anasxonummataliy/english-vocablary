@@ -18,16 +18,19 @@ from bot.routers import user_router
 from bot.middleware.channel import router as middleware_router
 from bot.admin import admin_router
 
+from aiogram.fsm.storage.redis import RedisStorage, DefaultKeyBuilder
+
 from bot.admin.commands import admin_commands
 from bot.routers.user_commands import user_command, group_command
-from bot.database.base import create_db_and_tables
+from bot.database.base import create_db_and_tables, redis_client
 import bot.database.models  # noqa: F401
 from bot.services.reminder_scheduler import reminder_scheduler_loop
 
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or ""
 
-dp = Dispatcher()
+storage = RedisStorage(redis=redis_client, key_builder=DefaultKeyBuilder(with_bot_id=True))
+dp = Dispatcher(storage=storage)
 bot = Bot(TOKEN)
 CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 ADMIN = int(os.getenv("ADMIN") or 0)
