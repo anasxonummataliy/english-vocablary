@@ -8,6 +8,9 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.exceptions import TelegramBadRequest
 from redis.asyncio import Redis
 
+from aiogram.fsm.context import FSMContext
+from aiogram.fsm.state import State, StatesGroup
+
 from bot.services.basket_service import (
     get_user_baskets,
     get_basket_by_id,
@@ -15,9 +18,14 @@ from bot.services.basket_service import (
     remove_word_from_basket,
     set_active_basket,
     delete_basket,
+    rename_basket,
     add_word_to_basket,
     MAX_BASKET_SIZE,
 )
+
+
+class BasketRenameState(StatesGroup):
+    waiting_for_new_name = State()
 
 router = Router()
 
@@ -122,7 +130,9 @@ async def callback_baskets_list(callback: CallbackQuery):
 
 
 @router.callback_query(F.data.startswith("bview_"))
-async def callback_view_basket(callback: CallbackQuery):
+async def callback_view_basket(callback: CallbackQuery, state: FSMContext = None):
+    if state:
+        await state.clear()
     basket_id = int(callback.data.removeprefix("bview_"))
     user_id = callback.from_user.id
 
@@ -154,6 +164,14 @@ async def callback_view_basket(callback: CallbackQuery):
         ),
     )
 
+    ikb.row(
+        InlineKeyboardButton(
+            text="✏️ Nomini o'zgartirish",
+            callback_data=f"brename_{basket_id}",
+            style="primary",
+        )
+    )
+
     if not basket["is_active"]:
         ikb.row(
             InlineKeyboardButton(
@@ -166,7 +184,7 @@ async def callback_view_basket(callback: CallbackQuery):
     ikb.row(
         InlineKeyboardButton(
             text="🗑 Savatchani o'chirish",
-            callback_data=f"bdel_{basket_id}",
+            callback_data=f"bdelconfirm_{basket_id}",
             style="danger",
         )
     )
@@ -185,6 +203,101 @@ async def callback_view_basket(callback: CallbackQuery):
         f"Ushbu savatcha bilan nima qilmoqchisiz?"
     )
 
+    try:
+        await callback.message.edit_text(text, reply_markup=ikb.as_markup(), parse_mode="HTML")
+    except TelegramBadRequest:
+        pass
+    await callback.answer()
+
+
+@router.callback_query(F.data.startswith("brename_"))
+async def callback_start_rename_basket(callback: CallbackQuery, state: FSMContext):
+    basket_id = int(callback.data.removeprefix("brename_"))
+    user_id = callback.from_user.id
+
+    basket = await get_basket_by_id(basket_id, user_id=user_id)
+    if not basket:
+        await callback.answer("❌ Savatcha topilmadi.", show_alert=True)
+        return
+
+    await state.set_state(BasketRenameState.waiting_for_new_name)
+    await state.update_data(basket_id=basket_id, old_name=basket["name"])
+
+    ikb = InlineKeyboardBuilder()
+    ikb.row(
+        InlineKeyboardButton(
+            text="❌ Bekor qilish",
+            callback_data=f"bview_{basket_id}",
+        )
+    )
+
+    text = (
+        f"✏️ <b>{html.escape(basket['name'])}</b> savatchasi uchun yangi nom yozib yuboring:\n\n"
+        "<i>(Masalan: Qiyin so'zlar, IELTS lug'at, Unit 5 xatolari...)</i>"
+    )
+    try:
+        await callback.message.edit_text(text, reply_markup=ikb.as_markup(), parse_mode="HTML")
+    except TelegramBadRequest:
+        pass
+    await callback.answer()
+
+
+@router.message(BasketRenameState.waiting_for_new_name)
+async def message_save_new_basket_name(message: Message, state: FSMContext):
+    new_name = (message.text or "").strip()
+    if not new_name:
+        await message.answer("⚠️ Iltimos, savatcha uchun yangi nom yozing:")
+        return
+
+    data = await state.get_data()
+    basket_id = data.get("basket_id")
+    user_id = message.from_user.id
+    await state.clear()
+
+    success, msg = await rename_basket(user_id, basket_id, new_name)
+    ikb = InlineKeyboardBuilder()
+    ikb.row(
+        InlineKeyboardButton(
+            text="🧺 Savatchani ko'rish",
+            callback_data=f"bview_{basket_id}",
+            style="primary",
+        ),
+        InlineKeyboardButton(
+            text="⬅️ Savatchalar ro'yxatiga",
+            callback_data="baskets_list",
+        ),
+    )
+    await message.answer(msg, reply_markup=ikb.as_markup(), parse_mode="HTML")
+
+
+@router.callback_query(F.data.startswith("bdelconfirm_"))
+async def callback_confirm_delete_basket(callback: CallbackQuery):
+    basket_id = int(callback.data.removeprefix("bdelconfirm_"))
+    user_id = callback.from_user.id
+
+    basket = await get_basket_by_id(basket_id, user_id=user_id)
+    if not basket:
+        await callback.answer("❌ Savatcha topilmadi.", show_alert=True)
+        return
+
+    ikb = InlineKeyboardBuilder()
+    ikb.row(
+        InlineKeyboardButton(
+            text="✅ Ha, o'chirilsin",
+            callback_data=f"bdel_{basket_id}",
+            style="danger",
+        ),
+        InlineKeyboardButton(
+            text="❌ Bekor qilish",
+            callback_data=f"bview_{basket_id}",
+        ),
+    )
+
+    text = (
+        f"⚠️ <b>{html.escape(basket['name'])}</b> savatchasini va undagi barcha ({basket['word_count']} ta) so'zlarni "
+        "o'chirib tashlamoqchimisiz?\n\n"
+        "<i>Bu amalni ortga qaytarib bo'lmaydi.</i>"
+    )
     try:
         await callback.message.edit_text(text, reply_markup=ikb.as_markup(), parse_mode="HTML")
     except TelegramBadRequest:

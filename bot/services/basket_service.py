@@ -219,3 +219,24 @@ async def delete_basket(user_id: int, basket_id: int) -> Tuple[bool, str]:
 
         await session.commit()
         return True, f"🗑 <b>{name}</b> muvaffaqiyatli o'chirildi."
+
+
+async def rename_basket(user_id: int, basket_id: int, new_name: str) -> Tuple[bool, str]:
+    """Savatcha nomini o'zgartiradi."""
+    new_name = new_name.strip()
+    if not new_name:
+        return False, "❌ Savatcha nomi bo'sh bo'lishi mumkin emas."
+    if len(new_name) > 50:
+        new_name = new_name[:50]
+
+    async with get_async_session_context() as session:
+        stmt = (
+            update(Basket)
+            .where(Basket.user_id == user_id, Basket.id == basket_id)
+            .values(name=new_name)
+        )
+        result = await session.execute(stmt)
+        await session.commit()
+        if result.rowcount > 0:
+            return True, f"✏️ Savatcha nomi <b>{new_name}</b> ga o'zgartirildi."
+        return False, "❌ Savatcha topilmadi."

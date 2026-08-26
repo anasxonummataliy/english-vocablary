@@ -232,9 +232,22 @@ async def show_flash_answer(callback: CallbackQuery, redis: Redis):
             f"✏️ <i>{example}</i>"
         )
 
-    text = f"🃏 <b>Flash Card</b> [{idx + 1}/{total}]\n\n{answer_text}"
-
     ikb = InlineKeyboardBuilder()
+    is_basket = state.get("is_basket", False)
+
+    basket_btn = (
+        InlineKeyboardButton(
+            text="🗑 Savatdan o'chirish",
+            callback_data=f"fremw_{user_id}",
+            style="danger",
+        )
+        if is_basket
+        else InlineKeyboardButton(
+            text="📥 Savatga",
+            callback_data=f"fadd_{user_id}",
+            style="primary",
+        )
+    )
 
     if idx + 1 < total:
         ikb.row(
@@ -243,11 +256,7 @@ async def show_flash_answer(callback: CallbackQuery, redis: Redis):
                 callback_data=f"fnext_{user_id}",
                 style="primary",
             ),
-            InlineKeyboardButton(
-                text="📥 Savatga",
-                callback_data=f"fadd_{user_id}",
-                style="primary",
-            ),
+            basket_btn,
         )
     else:
         ikb.row(
@@ -256,11 +265,7 @@ async def show_flash_answer(callback: CallbackQuery, redis: Redis):
                 callback_data=f"fend_{user_id}",
                 style="primary",
             ),
-            InlineKeyboardButton(
-                text="📥 Savatga",
-                callback_data=f"fadd_{user_id}",
-                style="primary",
-            ),
+            basket_btn,
         )
 
     ikb.row(
@@ -279,6 +284,29 @@ async def show_flash_answer(callback: CallbackQuery, redis: Redis):
         pass
 
     await callback.answer()
+
+
+# ==================== SAVATDAN O'CHIRISH ====================
+@router.callback_query(F.data.startswith("fremw_"))
+async def remove_flashcard_from_basket_handler(callback: CallbackQuery, redis: Redis):
+    user_id = callback.from_user.id
+    state_raw = await redis.get(f"flash_state:{user_id}")
+    if not state_raw:
+        await callback.answer("⚠️ Sessiya topilmadi.", show_alert=True)
+        return
+
+    if isinstance(state_raw, bytes):
+        state_raw = state_raw.decode()
+    state = json.loads(state_raw)
+    idx = state["current_index"]
+    word_data = state["words"][idx]
+    basket_id = state.get("basket_id")
+
+    if basket_id and "id" in word_data:
+        from bot.services.basket_service import remove_word_from_basket
+        await remove_word_from_basket(basket_id, word_data["id"])
+
+    await callback.answer("🗑 So'z savatchadan o'chirildi!", show_alert=True)
 
 
 # ==================== SAVATGA QO'SHISH ====================

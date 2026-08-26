@@ -12,6 +12,7 @@ from bot.services.basket_service import (
     remove_word_from_basket,
     set_active_basket,
     delete_basket,
+    rename_basket,
 )
 
 
@@ -246,3 +247,26 @@ async def test_set_active_and_delete_basket(monkeypatch):
     assert del_ok is True
     assert "Savatcha 1" in del_msg
     assert other_basket.is_active is True
+
+
+@pytest.mark.asyncio
+async def test_rename_basket(monkeypatch):
+    mock_session = AsyncMock()
+    mock_session.commit = AsyncMock()
+
+    mock_update_res = MagicMock()
+    mock_update_res.rowcount = 1
+    mock_session.execute.return_value = mock_update_res
+
+    @asynccontextmanager
+    async def mock_get_async_session_context():
+        yield mock_session
+
+    monkeypatch.setattr(
+        basket_service_module, "get_async_session_context", mock_get_async_session_context
+    )
+
+    ok, msg = await rename_basket(1006, 15, "IELTS Lug'at")
+    assert ok is True
+    assert "IELTS Lug'at" in msg
+    mock_session.commit.assert_called_once()
