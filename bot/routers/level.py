@@ -187,7 +187,7 @@ async def handle_essential_words_selection(message: Message):
     )
 
 
-@router.message(F.text.in_({MAIN_MENU_BASKET, "🟢 Mening savatcham", "🧺 Mening savatcham", "🧺 Savatcham", "Mening savatcham", "Savatcham"}))
+@router.message(F.text.in_({MAIN_MENU_BASKET, "🧺 Mening savatcham", "🧺 Savatcham", "🛒 Mening savatcham", "🛒 Savatcham", "🟢 Mening savatcham", "Mening savatcham", "Savatcham"}))
 async def handle_basket_button(message: Message):
     from bot.routers.basket import cmd_basket
     await cmd_basket(message)
