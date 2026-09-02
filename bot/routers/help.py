@@ -51,7 +51,7 @@ async def fallback_user_message_handler(message: Message):
         "bilimingizni sinashda yordam beraman! 🚀\n\n"
         "👇 <b>Quyidagi bo'limlardan birini tanlang:</b>\n\n"
         "📘 <b>English Vocabulary in Use</b> — Darslik bo'yicha so'zlar\n"
-        "🔵 <b>4000 Essential English Words</b> — 1-6 kitoblar bo'yicha so'zlar\n"
+        "📗 <b>4000 Essential English Words</b> — 1-6 kitoblar bo'yicha so'zlar\n"
         "🧺 <b>Mening savatcham</b> — Saqlangan so'zlaringiz\n"
         "⏰ <b>/reminder</b> — Kunlik/interval eslatmalar sozlash\n"
         "🏆 <b>/top</b> — Peshqadamlar reytingi\n"
