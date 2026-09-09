@@ -29,6 +29,6 @@ RUN uv pip install --system --no-cache \
 
 COPY . .
 
-EXPOSE 8001
+EXPOSE 9002
 
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8001"]
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "9002"]
