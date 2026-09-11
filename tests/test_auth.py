@@ -22,8 +22,8 @@ def test_login_page_returns_html(api_client):
     assert "Admin Panel" in response.text
 
 
-def test_index_redirects_without_session(api_client):
-    response = api_client.get("/", follow_redirects=False)
+def test_admin_redirects_without_session(api_client):
+    response = api_client.get("/admin", follow_redirects=False)
     assert response.status_code == 303
     assert response.headers["location"] == "/login"
 
@@ -35,7 +35,7 @@ def test_login_with_valid_credentials(api_client):
         follow_redirects=False,
     )
     assert response.status_code == 303
-    assert response.headers["location"] == "/"
+    assert response.headers["location"] == "/admin"
     assert "session_token" in response.cookies
 
 

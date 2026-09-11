@@ -1,10 +1,12 @@
+import os
 import logging
 import secrets
 from datetime import timedelta
 from pathlib import Path
 
 from fastapi import FastAPI, Request, Response, Cookie
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import select
 from bot.database.models.users import User
 from bot.database.models.reminders import Reminder
@@ -13,8 +15,15 @@ from bot.main import dp, bot, start_bot, stop_bot
 from aiogram.types import Update
 from contextlib import asynccontextmanager
 from bot.database.base import redis_client
+from api.database import init_sqlite_db
+from api.routers.webapp import router as webapp_router
+
+from api.services.notification_service import reminder_scheduler_loop
+from api.services.bot_code_handler import bot_code_router
+import asyncio
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
+STATIC_DIR = Path(__file__).parent / "static"
 
 # Session tokenlari saqlanadi (oddiy in-memory)
 active_sessions: set[str] = set()
@@ -30,12 +39,49 @@ def is_authenticated(session_token: str | None) -> bool:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await start_bot()
+    await init_sqlite_db()
+    if bot_code_router.parent_router is None:
+        dp.include_router(bot_code_router)
+    reminder_task = asyncio.create_task(reminder_scheduler_loop())
+    try:
+        await start_bot()
+        webhook_url = os.getenv("WEBHOOK_URL") or ""
+        if webhook_url:
+            await bot.set_webhook(
+                url=webhook_url,
+                allowed_updates=dp.resolve_used_update_types(),
+                drop_pending_updates=True,
+                max_connections=40,
+            )
+    except Exception as e:
+        logging.warning(f"Bot startup skipped or failed (local dev mode): {e}")
     yield
-    await stop_bot()
+    reminder_task.cancel()
+    try:
+        await stop_bot()
+    except Exception:
+        pass
 
 
-app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)
+app = FastAPI(lifespan=lifespan, docs_url="/docs", redoc_url=None, openapi_url="/openapi.json")
+if STATIC_DIR.exists():
+    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+app.include_router(webapp_router)
+
+
+@app.get("/manifest.json")
+async def get_manifest():
+    return FileResponse(STATIC_DIR / "manifest.json", media_type="application/manifest+json")
+
+
+@app.get("/sw.js")
+async def get_service_worker():
+    return FileResponse(STATIC_DIR / "sw.js", media_type="application/javascript")
+
+
+@app.get("/favicon.ico")
+async def get_favicon():
+    return FileResponse(STATIC_DIR / "icons" / "favicon.png", media_type="image/png")
 
 
 @app.get("/login", response_class=HTMLResponse)
@@ -49,22 +95,24 @@ async def login_page(error: str = ""):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login — English Vocabulary Bot</title>
+    <title>Login — English Vocabulary Admin</title>
     <style>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f0f2f5;
+            background: #090d0b;
+            color: #e2e8f0;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
         }}
         .login-card {{
-            background: white;
+            background: #111a14;
+            border: 1px solid rgba(16, 185, 129, 0.2);
             border-radius: 16px;
             padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
             width: 100%;
             max-width: 380px;
         }}
@@ -72,11 +120,11 @@ async def login_page(error: str = ""):
             text-align: center;
             margin-bottom: 8px;
             font-size: 1.5rem;
-            color: #16213e;
+            color: #10b981;
         }}
         .login-card p {{
             text-align: center;
-            color: #666;
+            color: #94a3b8;
             margin-bottom: 24px;
             font-size: 0.9rem;
         }}
@@ -87,41 +135,52 @@ async def login_page(error: str = ""):
             display: block;
             margin-bottom: 6px;
             font-weight: 500;
-            color: #333;
+            color: #cbd5e1;
             font-size: 0.9rem;
         }}
         .form-group input {{
             width: 100%;
             padding: 12px 14px;
-            border: 1px solid #ddd;
+            background: #090d0b;
+            color: #fff;
+            border: 1px solid rgba(16, 185, 129, 0.3);
             border-radius: 8px;
             font-size: 0.95rem;
             outline: none;
             transition: border-color 0.2s;
         }}
-        .form-group input:focus {{ border-color: #2980b9; }}
+        .form-group input:focus {{ border-color: #10b981; box-shadow: 0 0 10px rgba(16, 185, 129, 0.3); }}
         .btn {{
             width: 100%;
             padding: 12px;
-            background: #16213e;
-            color: white;
+            background: #10b981;
+            color: #052e16;
             border: none;
             border-radius: 8px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             margin-top: 8px;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }}
-        .btn:hover {{ background: #0f3460; }}
+        .btn:hover {{ background: #34d399; transform: translateY(-1px); }}
         .error {{
-            background: #fdecea;
-            color: #e74c3c;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
             padding: 10px 14px;
             border-radius: 8px;
             margin-bottom: 16px;
             font-size: 0.9rem;
             text-align: center;
+        }}
+        .back-link {{
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+            color: #10b981;
+            text-decoration: none;
+            font-size: 0.85rem;
         }}
     </style>
 </head>
@@ -140,6 +199,7 @@ async def login_page(error: str = ""):
                 <input type="password" id="password" name="password" required autocomplete="current-password">
             </div>
             <button type="submit" class="btn">Kirish</button>
+            <a href="/" class="back-link">← Web App ga qaytish</a>
         </form>
     </div>
 </body>
@@ -156,7 +216,7 @@ async def login_submit(request: Request):
     if verify_credentials(login, password):
         token = secrets.token_hex(32)
         active_sessions.add(token)
-        response = RedirectResponse(url="/", status_code=303)
+        response = RedirectResponse(url="/admin", status_code=303)
         response.set_cookie(
             key="session_token",
             value=token,
@@ -179,7 +239,16 @@ async def logout(session_token: str | None = Cookie(default=None)):
 
 
 @app.get("/", response_class=HTMLResponse)
-async def index(session_token: str | None = Cookie(default=None)):
+@app.get("/app", response_class=HTMLResponse)
+async def webapp_page():
+    html_path = TEMPLATES_DIR / "webapp.html"
+    if not html_path.exists():
+        return HTMLResponse(content="<h1>Web App yuklanmoqda...</h1>")
+    return HTMLResponse(content=html_path.read_text(encoding="utf-8"))
+
+
+@app.get("/admin", response_class=HTMLResponse)
+async def admin_dashboard(session_token: str | None = Cookie(default=None)):
     if not is_authenticated(session_token):
         return RedirectResponse(url="/login", status_code=303)
 

@@ -1,0 +1,2258 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>English Vocabulary — VocabGreen</title>
+  <meta name="theme-color" content="#0a0e14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="VocabGreen">
+  <meta name="application-name" content="VocabGreen">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="/static/icons/favicon.png">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    :root {
+      /* Calm, elegant, eye-friendly palette */
+      --bg-base: #0a0e14;
+      --bg-surface: #121820;
+      --bg-surface-elevated: #18222d;
+      --bg-surface-hover: #1f2b38;
+      --border-subtle: #222f3e;
+      --border-focus: #10b981;
+      --text-title: #ffffff;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --green-primary: #10b981;
+      --green-dark: #059669;
+      --green-soft: rgba(16, 185, 129, 0.12);
+      --green-border: rgba(16, 185, 129, 0.3);
+      --red-accent: #ef4444;
+      --red-soft: rgba(239, 68, 68, 0.12);
+      --amber-accent: #f59e0b;
+      --amber-soft: rgba(245, 158, 11, 0.12);
+      --blue-telegram: #2aabee;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --safe-top: env(safe-area-inset-top, 16px);
+      --safe-bottom: env(safe-area-inset-bottom, 16px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-top: calc(var(--safe-top) + 64px);
+      padding-bottom: calc(var(--safe-bottom) + 76px);
+      line-height: 1.5;
+    }
+
+    /* Topbar */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: calc(var(--safe-top) + 64px);
+      padding-top: var(--safe-top);
+      padding-left: 16px;
+      padding-right: 16px;
+      background: rgba(10, 14, 20, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--green-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #042416;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-title);
+      letter-spacing: -0.3px;
+    }
+
+    .top-user-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 5px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .top-user-pill img {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+    }
+
+    .top-user-pill .tg-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green-primary);
+    }
+
+    /* Bottom Dock Navigation */
+    .bottom-dock {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: calc(var(--safe-bottom) + 68px);
+      padding-bottom: var(--safe-bottom);
+      background: rgba(18, 24, 32, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding-left: 8px;
+      padding-right: 8px;
+      z-index: 100;
+    }
+
+    .dock-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 6px 2px;
+      transition: all 0.2s;
+    }
+
+    .dock-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+    }
+
+    .dock-btn span {
+      font-size: 0.68rem;
+      font-weight: 600;
+    }
+
+    .dock-btn.active {
+      color: var(--green-primary);
+    }
+
+    /* Container */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        max-width: 800px;
+        padding: 24px;
+      }
+    }
+
+    .view-section {
+      display: none;
+    }
+
+    .view-section.active {
+      display: block;
+      animation: viewFadeIn 0.25s ease-out;
+    }
+
+    @keyframes viewFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Telegram Auth Banner */
+    .tg-banner {
+      background: #101924;
+      border: 1px solid #1e3a5f;
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      gap: 12px;
+    }
+
+    .tg-banner-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .tg-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: var(--blue-telegram);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .tg-banner-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .tg-banner-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .tg-btn {
+      background: var(--blue-telegram);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Hero Book Card */
+    .book-hero {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .book-hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .badge-chip {
+      background: var(--green-soft);
+      border: 1px solid var(--green-border);
+      color: var(--green-primary);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    .book-hero-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-title);
+      margin-bottom: 6px;
+    }
+
+    .book-hero-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .book-change-btn {
+      width: 100%;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 11px 16px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .book-change-btn:hover {
+      background: var(--bg-surface-hover);
+      border-color: var(--border-focus);
+    }
+
+    /* Section Header */
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-title);
+    }
+
+    /* Unit Grid */
+    .unit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    @media (min-width: 600px) {
+      .unit-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 14px;
+      }
+    }
+
+    .unit-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 115px;
+      transition: all 0.2s;
+    }
+
+    .unit-item:hover {
+      background: var(--bg-surface-elevated);
+      border-color: var(--border-focus);
+      transform: translateY(-2px);
+    }
+
+    .unit-item.active {
+      border-color: var(--green-primary);
+      background: #14241d;
+    }
+
+    .unit-item-num {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .unit-item-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-title);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .unit-item-count {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    /* 3D Flashcard */
+    .card-scene {
+      perspective: 1000px;
+      margin-bottom: 20px;
+    }
+
+    .flashcard {
+      width: 100%;
+      min-height: 360px;
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .flashcard.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-side {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-side.back {
+      transform: rotateY(180deg);
+      background: #141c26;
+      border-color: var(--border-focus);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pos-tag {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--green-primary);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--green-primary);
+      color: var(--green-primary);
+    }
+
+    .icon-btn.active {
+      background: var(--amber-soft);
+      border-color: var(--amber-accent);
+      color: var(--amber-accent);
+    }
+
+    .card-center {
+      text-align: center;
+      margin: auto 0;
+    }
+
+    .card-main-word {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-title);
+      margin-bottom: 6px;
+    }
+
+    .card-phonetic {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .audio-play-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      color: var(--green-primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .audio-play-chip:hover {
+      background: var(--green-soft);
+      border-color: var(--green-border);
+    }
+
+    .card-uzbek-title {
+      font-family: var(--font-heading);
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--green-primary);
+      margin-bottom: 12px;
+    }
+
+    .card-desc-text {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .card-example-box {
+      background: var(--bg-surface-elevated);
+      border-left: 3px solid var(--green-primary);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: left;
+    }
+
+    .card-example-box b {
+      color: #fff;
+      font-style: normal;
+    }
+
+    .card-bottom-hint {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-dim);
+      font-size: 0.78rem;
+    }
+
+    /* Actions */
+    .controls-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-action {
+      padding: 13px 18px;
+      border-radius: var(--radius-md);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .btn-action:active {
+      transform: scale(0.97);
+    }
+
+    .btn-action-repeat {
+      background: var(--bg-surface);
+      border-color: var(--border-subtle);
+      color: #f87171;
+    }
+
+    .btn-action-repeat:hover {
+      background: var(--red-soft);
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .btn-action-learned {
+      background: var(--green-primary);
+      color: #032415;
+      font-weight: 800;
+    }
+
+    .btn-action-learned:hover {
+      background: var(--green-dark);
+      color: #ffffff;
+    }
+
+    /* Progress bar */
+    .progress-track {
+      width: 100%;
+      height: 5px;
+      background: var(--border-subtle);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: var(--green-primary);
+      border-radius: var(--radius-full);
+      transition: width 0.3s;
+    }
+
+    /* Quiz */
+    .quiz-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-modes {
+      display: flex;
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .quiz-mode-btn {
+      flex: 1;
+      padding: 8px;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+    }
+
+    .quiz-mode-btn.active {
+      background: var(--green-primary);
+      color: #032415;
+    }
+
+    .quiz-question-title {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      text-align: center;
+      margin: 12px 0 6px 0;
+    }
+
+    .quiz-question-sub {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 600px) {
+      .quiz-options {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .quiz-opt-btn {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .quiz-opt-btn:hover {
+      border-color: var(--green-primary);
+      background: var(--bg-surface-hover);
+    }
+
+    .quiz-opt-btn.correct {
+      background: var(--green-soft) !important;
+      border-color: var(--green-primary) !important;
+      color: var(--green-primary) !important;
+    }
+
+    .quiz-opt-btn.wrong {
+      background: var(--red-soft) !important;
+      border-color: var(--red-accent) !important;
+      color: #fca5a5 !important;
+    }
+
+    /* Speed Match */
+    .match-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .match-tile {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+      min-height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .match-tile:hover {
+      border-color: var(--green-primary);
+    }
+
+    .match-tile.selected {
+      background: var(--green-soft);
+      border-color: var(--green-primary);
+      color: var(--green-primary);
+    }
+
+    .match-tile.matched {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.9);
+      transition: all 0.3s;
+    }
+
+    /* Reminder Section */
+    .reminder-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .form-row:last-child {
+      border-bottom: none;
+    }
+
+    .form-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .form-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .time-selector {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-weight: 700;
+      outline: none;
+    }
+
+    .time-selector:focus {
+      border-color: var(--green-primary);
+    }
+
+    .switch-toggle {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 26px;
+    }
+
+    .switch-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .switch-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: var(--border-subtle);
+      transition: 0.3s;
+      border-radius: 34px;
+    }
+
+    .switch-slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .switch-slider {
+      background-color: var(--green-primary);
+    }
+
+    input:checked + .switch-slider:before {
+      transform: translateX(22px);
+    }
+
+    /* Modals & Drawers */
+    .modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 200;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    @media (min-width: 600px) {
+      .modal-backdrop {
+        align-items: center;
+      }
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-window {
+      width: 100%;
+      max-width: 520px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px 24px 0 0;
+      padding: 24px;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    @media (min-width: 600px) {
+      .modal-window {
+        border-radius: var(--radius-lg);
+      }
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .book-pick-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .book-pick-item:hover, .book-pick-item.active {
+      border-color: var(--green-primary);
+      background: #16241c;
+    }
+
+    .book-pick-icon {
+      font-size: 24px;
+    }
+
+    /* Word List / Saved */
+    .word-row {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .word-row-en {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .word-row-uz {
+      font-size: 0.88rem;
+      color: var(--green-primary);
+    }
+
+    .word-row-sub {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    /* Toast notification */
+    .toast-msg {
+      position: fixed;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: #14221a;
+      border: 1px solid var(--green-primary);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      z-index: 300;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s;
+    }
+
+    .toast-msg.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Utility */
+    .hidden { display: none !important; }
+    .w-full { width: 100%; }
+    .mt-4 { margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <!-- Toast -->
+  <div class="toast-msg" id="toastBox">Xabar</div>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand-wrap" onclick="switchTab('units')">
+      <div class="brand-logo">EN</div>
+      <div class="brand-name">English Vocabulary</div>
+    </div>
+    <div class="top-user-pill" onclick="switchTab('profile')">
+      <img id="topBarUserAvatar" src="" class="hidden" style="width:20px; height:20px; border-radius:50%; object-fit:cover;">
+      <span class="tg-indicator" id="tgStatusDot"></span>
+      <span id="topBarUserName">O'quvchi</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Telegram Sync Card (if opened outside Telegram) -->
+    <div class="tg-banner" id="tgBannerBox">
+      <div class="tg-banner-left">
+        <div class="tg-icon">✈</div>
+        <div>
+          <div class="tg-banner-title" id="tgBannerTitle">Telegram orqali bog'lanish</div>
+          <div class="tg-banner-desc" id="tgBannerDesc">Eslatmalar va natijalarni Telegram botingizda saqlang</div>
+        </div>
+      </div>
+      <a href="https://t.me/eng_vocablary_in_use_bot?start=webapp" target="_blank" class="tg-btn" id="tgBannerBtn">
+        Botda ochish
+      </a>
+    </div>
+
+    <!-- PWA Install Banner (iPhone, Android, macOS, Windows) -->
+    <div class="tg-banner" id="pwaInstallBanner" style="background: #111a15; border-color: rgba(16, 185, 129, 0.3);">
+      <div class="tg-banner-left">
+        <div class="tg-icon" style="background: var(--green-primary); color: #042416; font-size: 18px;">📲</div>
+        <div>
+          <div class="tg-banner-title">Ilovani yuklab olish (PWA)</div>
+          <div class="tg-banner-desc" id="pwaDeviceLabel">iPhone, Android, Mac yoki Windows ga o'rnating</div>
+        </div>
+      </div>
+      <button class="tg-btn" style="background: var(--green-primary); color: #032415; font-weight:800;" onclick="openPwaInstallModal()">
+        O'rnatish
+      </button>
+    </div>
+
+    <!-- VIEW 1: UNITS & BOOK -->
+    <section id="tab-units" class="view-section active">
+      <div class="book-hero">
+        <div class="book-hero-top">
+          <span class="badge-chip" id="bookLevelBadge">A1 - A2</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);" id="bookWordCount">1313 so'z</span>
+        </div>
+        <h1 class="book-hero-title" id="bookMainTitle">English Vocabulary in Use</h1>
+        <p class="book-hero-desc" id="bookMainDesc">Boshlang'ich daraja uchun 60 ta kundalik mavzu va 1300+ so'z</p>
+        <button class="book-change-btn" onclick="openBookModal()">
+          <span id="bookDropdownLabel">📚 Elementary</span>
+          <span>O'zgartirish ▾</span>
+        </button>
+      </div>
+
+      <div class="section-header">
+        <h2 class="section-title">Bo'limlar (Unitlar)</h2>
+        <span style="font-size: 0.8rem; color: var(--text-muted);" id="unitsTotalLabel">60 ta bo'lim</span>
+      </div>
+
+      <div class="unit-grid" id="unitsGridContainer">
+        <!-- Units populated dynamically -->
+      </div>
+    </section>
+
+    <!-- VIEW 2: FLASHCARDS -->
+    <section id="tab-flashcards" class="view-section">
+      <div class="section-header">
+        <div>
+          <span style="color: var(--green-primary); font-size: 0.78rem; font-weight: 700;" id="cardUnitBadge">Unit 1</span>
+          <h2 class="section-title" id="cardUnitTitle">The family</h2>
+        </div>
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted);" id="cardCounter">1 / 20</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-bar" id="cardProgressBar" style="width: 5%;"></div>
+      </div>
+
+      <div class="card-scene">
+        <div class="flashcard" id="flashcardElement" onclick="flipCurrentCard()">
+          <!-- Front -->
+          <div class="card-side front">
+            <div class="card-top">
+              <span class="pos-tag" id="cardPosTag">noun</span>
+              <button class="icon-btn" id="cardBookmarkBtn" onclick="event.stopPropagation(); toggleSaveWord()">
+                ★
+              </button>
+            </div>
+            <div class="card-center">
+              <div class="card-main-word" id="cardEnWord">mother</div>
+              <div class="card-phonetic" id="cardPhonetic">/ˈmʌðər/</div>
+              <div class="audio-play-chip" onclick="event.stopPropagation(); speakWord()">
+                <span>🔊</span> Talaffuz
+              </div>
+            </div>
+            <div class="card-bottom-hint">
+              <span>👆 Tarjimasini ko'rish</span>
+              <span>↔️ Surish (Swipe)</span>
+            </div>
+          </div>
+
+          <!-- Back -->
+          <div class="card-side back">
+            <div class="card-top">
+              <span class="pos-tag" id="cardPosTagBack">noun</span>
+              <div class="audio-play-chip" onclick="event.stopPropagation(); speakWord()">
+                <span>🔊</span>
+              </div>
+            </div>
+            <div class="card-center">
+              <div class="card-uzbek-title" id="cardUzWord">ona</div>
+              <div class="card-desc-text" id="cardDesc">A woman who has children; the female parent</div>
+              <div class="card-example-box" id="cardExampleBox">"My mother is a teacher."</div>
+            </div>
+            <div class="card-bottom-hint">
+              <span>🔄 Qaytarish uchun bosing</span>
+              <span>VocabGreen</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls-grid">
+        <button class="btn-action btn-action-repeat" onclick="nextCard(false)">
+          <span>🔄</span> Qaytarish
+        </button>
+        <button class="icon-btn" onclick="prevCard()" title="Oldingi">
+          ◀
+        </button>
+        <button class="btn-action btn-action-learned" onclick="nextCard(true)">
+          <span>✅</span> Yodladim
+        </button>
+      </div>
+    </section>
+
+    <!-- VIEW 3: QUIZ -->
+    <section id="tab-quiz" class="view-section">
+      <div class="quiz-modes">
+        <div class="quiz-mode-btn active" id="modeEnUz" onclick="setQuizMode('en_uz')">EN ➔ UZ</div>
+        <div class="quiz-mode-btn" id="modeUzEn" onclick="setQuizMode('uz_en')">UZ ➔ EN</div>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-bar" id="quizProgressBar" style="width: 10%;"></div>
+      </div>
+
+      <div class="quiz-box" id="quizActiveBox">
+        <div style="text-align:center; font-size:0.8rem; font-weight:700; color:var(--green-primary);" id="quizQuestionBadge">
+          Savol 1 / 10
+        </div>
+        <div class="quiz-question-title" id="quizQuestionText">mother</div>
+        <div class="quiz-question-sub" id="quizQuestionSub">To'g'ri o'zbekcha tarjimasini tanlang:</div>
+
+        <div class="quiz-options" id="quizOptionsContainer">
+          <!-- Options loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- Quiz Finished Screen -->
+      <div class="quiz-box hidden" id="quizDoneBox">
+        <div style="text-align: center; padding: 20px 0;">
+          <div style="font-size: 48px; margin-bottom: 8px;" id="quizDoneIcon">🏆</div>
+          <h2 class="quiz-question-title" id="quizDoneScore">8 / 10</h2>
+          <p class="quiz-question-sub" id="quizDoneDesc">Ajoyib natija! So'zlarni yaxshi o'zlashtirdingiz.</p>
+          <div class="controls-grid" style="grid-template-columns: 1fr 1fr; margin-top: 20px;">
+            <button class="btn-action btn-action-repeat" onclick="startQuiz()">Qayta topshirish</button>
+            <button class="btn-action btn-action-learned" onclick="switchTab('units')">Keyingi dars</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: SPEED MATCH -->
+    <section id="tab-match" class="view-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">⚡ Tezkor Juftliklar</h2>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Inglizcha so'z va uning tarjimasini bog'lang</span>
+        </div>
+        <span style="font-size: 0.9rem; font-weight: 800; color: #f87171;" id="matchTimerPill">⏱️ 45s</span>
+      </div>
+
+      <div class="match-board" id="matchBoard">
+        <!-- Tile pairs loaded dynamically -->
+      </div>
+
+      <div class="quiz-box hidden" id="matchDoneBox" style="text-align:center; padding: 30px;">
+        <div style="font-size: 44px; margin-bottom: 8px;">🎉</div>
+        <h2 class="section-title" style="margin-bottom: 6px;">Barchasi to'g'ri bog'landi!</h2>
+        <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 20px;">Xotirangiz a'lo darajada ishlayapti.</p>
+        <button class="btn-action btn-action-learned w-full" onclick="startSpeedMatch()">Yana o'ynash</button>
+      </div>
+    </section>
+
+    <!-- VIEW 5: REMINDERS & TELEGRAM NOTIFICATION -->
+    <section id="tab-reminder" class="view-section">
+      <div class="section-header">
+        <h2 class="section-title">⏰ Telegram Eslatmalari</h2>
+      </div>
+
+      <div class="reminder-card">
+        <div class="form-row">
+          <div>
+            <div class="form-label">Kundalik eslatma</div>
+            <div class="form-sub">Har kuni belgilangan vaqtda bot orqali so'zlar yuboriladi</div>
+          </div>
+          <label class="switch-toggle">
+            <input type="checkbox" id="reminderToggle" onchange="toggleReminderActive(this.checked)" checked>
+            <span class="switch-slider"></span>
+          </label>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <div class="form-label">Eslatma vaqti (Toshkent)</div>
+            <div class="form-sub">Qaysi soatda bildirishnoma kelishini belgilang</div>
+          </div>
+          <select class="time-selector" id="reminderTimeSelect" onchange="updateReminderTime(this.value)">
+            <option value="08:00">08:00 (Ertalab)</option>
+            <option value="12:00">12:00 (Tushlik)</option>
+            <option value="18:00">18:00 (Kechki)</option>
+            <option value="20:00" selected>20:00 (Kechki)</option>
+            <option value="21:30">21:30 (Uyqudan oldin)</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <div class="form-label">O'rganilayotgan bo'lim</div>
+            <div class="form-sub" id="reminderCurrentUnitLabel">Elementary — Unit 1</div>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--green-primary); font-weight:700;">Avtomatik</span>
+        </div>
+
+        <div class="mt-4">
+          <button class="btn-action btn-action-learned w-full" onclick="sendTestNotification()">
+            🔔 Telegram botimga test eslatma yuborish
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 6: PROFILE & ADMIN USER LIST -->
+    <section id="tab-profile" class="view-section">
+      <div class="book-hero" style="margin-bottom: 18px; display:flex; gap:16px; align-items:center;">
+        <img id="profileUserAvatar" src="" class="hidden" style="width:60px; height:60px; border-radius:50%; object-fit:cover; border:2px solid var(--green-primary); flex-shrink:0;">
+        <div style="flex:1;">
+          <div class="book-hero-top" style="margin-bottom:4px;">
+            <span class="badge-chip" id="profileTgBadge">Mehmon</span>
+          </div>
+          <h1 class="book-hero-title" id="profileFullName" style="font-size:1.25rem; margin-bottom:2px;">O'quvchi</h1>
+          <p class="book-hero-desc" id="profileUsername" style="margin-bottom:0;">@foydalanuvchi</p>
+        </div>
+      </div>
+
+      <!-- Telegram Code Verification Card -->
+      <div class="reminder-card" id="telegramCodeLoginBox">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+          <div class="tg-icon" style="width:34px; height:34px; font-size:16px; border-radius:8px;">✈</div>
+          <div>
+            <div class="form-label">Telegram orqali kirish (/code)</div>
+            <div class="form-sub">Rasmingiz, ismingiz va profilingizni bot orqali oling</div>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-surface-elevated); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:14px; margin-bottom:14px;">
+          <div style="font-size:0.85rem; color:#fff; font-weight:600; margin-bottom:8px;">
+            1. Telegram botimizga kiring:
+          </div>
+          <a href="https://t.me/eng_vocablary_in_use_bot" target="_blank" class="tg-btn" style="width:100%; justify-content:center; padding:10px; margin-bottom:10px; text-decoration:none;">
+            ✈️ @eng_vocablary_in_use_bot ni ochish
+          </a>
+          <div style="font-size:0.85rem; color:#fff; font-weight:600; margin-bottom:4px;">
+            2. Botga <code style="background:rgba(16,185,129,0.2); color:var(--green-primary); padding:2px 6px; border-radius:4px;">/code</code> buyrug'ini yuboring
+          </div>
+          <div style="font-size:0.78rem; color:var(--text-muted);">
+            Bot sizga 6 xonali maxsus bir martalik tasdiqlash kodini yuboradi.
+          </div>
+        </div>
+
+        <div class="form-label" style="margin-bottom: 6px;">3. Bot yuborgan 6 xonali kodni kiriting:</div>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="telegramLoginCodeInput" maxlength="6" placeholder="Masalan: 749201" style="flex: 1; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); color: #fff; padding: 12px 14px; border-radius: var(--radius-sm); font-size:1.1rem; font-weight:700; letter-spacing:2px; text-align:center; outline: none;">
+          <button class="btn-action btn-action-learned" onclick="submitTelegramLoginCode()">
+            Kirish
+          </button>
+        </div>
+      </div>
+
+      <!-- Real Registered Users monitoring (Admin) -->
+      <div class="section-header" style="margin-top: 24px;">
+        <h3 class="section-title">👥 Ro'yxatdan o'tgan o'quvchilar</h3>
+        <button class="badge-chip" onclick="loadAllRegisteredUsers()">Yangilash</button>
+      </div>
+      <div class="word-list" id="registeredUsersContainer">
+        <!-- Loaded dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Dock Navigation -->
+  <nav class="bottom-dock">
+    <div class="dock-btn active" id="nav-units" onclick="switchTab('units')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+      </svg>
+      <span>Darslar</span>
+    </div>
+
+    <div class="dock-btn" id="nav-flashcards" onclick="switchTab('flashcards')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+        <path d="M7 7h10"></path>
+        <path d="M7 12h10"></path>
+      </svg>
+      <span>Kartochka</span>
+    </div>
+
+    <div class="dock-btn" id="nav-quiz" onclick="switchTab('quiz')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="m9 12 2 2 4-4"></path>
+      </svg>
+      <span>Viktorina</span>
+    </div>
+
+    <div class="dock-btn" id="nav-match" onclick="switchTab('match')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path>
+      </svg>
+      <span>Tezkor</span>
+    </div>
+
+    <div class="dock-btn" id="nav-reminder" onclick="switchTab('reminder')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      <span>Eslatma</span>
+    </div>
+
+    <div class="dock-btn" id="nav-profile" onclick="switchTab('profile')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>Profil</span>
+    </div>
+  </nav>
+
+  <!-- Books Drawer Modal -->
+  <div class="modal-backdrop" id="bookModalBackdrop" onclick="closeBookModal(event)">
+    <div class="modal-window" onclick="event.stopPropagation()">
+      <div class="modal-head">
+        <h3 class="section-title">Kitobni Tanlang</h3>
+        <button class="icon-btn" onclick="closeBookModal()">✕</button>
+      </div>
+      <div id="booksDrawerList">
+        <!-- Books list -->
+      </div>
+    </div>
+  </div>
+
+  <!-- PWA Install Guide Modal (iPhone, Android, macOS, Windows) -->
+  <div class="modal-backdrop" id="pwaInstallModal" onclick="closePwaInstallModal(event)">
+    <div class="modal-window" onclick="event.stopPropagation()">
+      <div class="modal-head">
+        <h3 class="section-title">📲 Ilovani O'rnatish (PWA)</h3>
+        <button class="icon-btn" onclick="closePwaInstallModal()">✕</button>
+      </div>
+      <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:16px;">
+        VocabGreen ilovasini o'rnatib, App Store yoki Play Market siz to'g'ridan-to'g'ri alohida ilova sifatida ishlating.
+      </p>
+
+      <!-- OS Device Selector Tabs -->
+      <div class="quiz-modes" style="margin-bottom: 16px;">
+        <div class="quiz-mode-btn active" id="pwaTabIos" onclick="showPwaDevice('ios')">🍏 iPhone / iPad</div>
+        <div class="quiz-mode-btn" id="pwaTabAndroid" onclick="showPwaDevice('android')">🤖 Android</div>
+        <div class="quiz-mode-btn" id="pwaTabDesktop" onclick="showPwaDevice('desktop')">💻 Mac / Windows</div>
+      </div>
+
+      <!-- iOS Instructions -->
+      <div id="pwaGuideIos">
+        <div class="form-row">
+          <div style="font-size: 1.1rem; color:var(--green-primary); font-weight:800; margin-right:12px;">1</div>
+          <div style="flex:1;">
+            <div class="form-label">Safari pastidagi "Ulashish" tugmasini bosing</div>
+            <div class="form-sub">Ekranning pastki qismidagi kvadrat va yuqoriga strelka <b>[ ⎋ ]</b> belgisini bosing.</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div style="font-size: 1.1rem; color:var(--green-primary); font-weight:800; margin-right:12px;">2</div>
+          <div style="flex:1;">
+            <div class="form-label">"Bosh ekranga qo'shish" bandini tanlang</div>
+            <div class="form-sub">Ochilgan menyuni biroz pastga surib, <b>"Add to Home Screen" ➕</b> ni bosing.</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div style="font-size: 1.1rem; color:var(--green-primary); font-weight:800; margin-right:12px;">3</div>
+          <div style="flex:1;">
+            <div class="form-label">"Qo'shish" (Add) tugmasini bosing</div>
+            <div class="form-sub">Ilova iPhone bosh ekraningizda alohida App sifatida paydo bo'ladi!</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Android Instructions -->
+      <div id="pwaGuideAndroid" class="hidden">
+        <div class="form-row">
+          <div style="font-size: 1.1rem; color:var(--green-primary); font-weight:800; margin-right:12px;">1</div>
+          <div style="flex:1;">
+            <div class="form-label">Chrome brauzer menyusini oching</div>
+            <div class="form-sub">Yuqori o'ng burchakdagi uch nuqta <b>(⋮)</b> ni bosing.</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div style="font-size: 1.1rem; color:var(--green-primary); font-weight:800; margin-right:12px;">2</div>
+          <div style="flex:1;">
+            <div class="form-label">"Ilovani o'rnatish" ni tanlang</div>
+            <div class="form-sub"><b>"Install app"</b> yoki <b>"Bosh ekranga qo'shish"</b> bandini bosing.</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <button class="btn-action btn-action-learned w-full" onclick="triggerNativeInstall()">
+            📲 Hozir o'rnatish
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop Mac/Windows Instructions -->
+      <div id="pwaGuideDesktop" class="hidden">
+        <div class="form-row">
+          <div style="font-size: 1.1rem; color:var(--green-primary); font-weight:800; margin-right:12px;">1</div>
+          <div style="flex:1;">
+            <div class="form-label">Chrome yoki Edge qidiruv satri</div>
+            <div class="form-sub">URL manzili satrining o'ng tomonidagi kompyuter/strelka <b>(⊕) O'rnatish</b> belgisini bosing.</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div style="font-size: 1.1rem; color:var(--green-primary); font-weight:800; margin-right:12px;">2</div>
+          <div style="flex:1;">
+            <div class="form-label">Yoki quyidagi tugmani bosing:</div>
+            <div class="form-sub">Tizim darajasida alohida darcha ochiladi.</div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <button class="btn-action btn-action-learned w-full" onclick="triggerNativeInstall()">
+            💻 Kompyuterga o'rnatish
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const app = {
+      tgId: null,
+      userId: null,
+      username: '',
+      fullName: 'O\'quvchi',
+      photoUrl: '',
+      isTelegram: false,
+      currentBook: 'elementary',
+      currentUnit: 1,
+      currentUnitTitle: 'The family',
+      books: [],
+      units: [],
+      words: [],
+      cardIndex: 0,
+      savedWords: new Set(),
+      // Quiz
+      quizMode: 'en_uz',
+      quizQuestions: [],
+      quizIndex: 0,
+      quizScore: 0,
+      // Match
+      matchPairs: [],
+      matchSelected: null,
+      matchTimer: null,
+      matchSeconds: 45,
+      // Reminder
+      reminderTime: '20:00',
+      reminderActive: true
+    };
+
+    // Show Toast
+    function showToast(msg) {
+      const el = document.getElementById('toastBox');
+      el.innerText = msg;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 2500);
+    }
+
+    // Audio tone
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playTone(type) {
+      try {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        if (type === 'correct') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(520, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(780, audioCtx.currentTime + 0.12);
+          gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.25);
+        } else if (type === 'wrong') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(140, audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.2);
+        }
+      } catch (e) {}
+    }
+
+    function triggerHaptic(type = 'light') {
+      if (window.Telegram?.WebApp?.HapticFeedback) {
+        if (type === 'success') window.Telegram.WebApp.HapticFeedback.notificationOccurred('success');
+        else if (type === 'error') window.Telegram.WebApp.HapticFeedback.notificationOccurred('error');
+        else window.Telegram.WebApp.HapticFeedback.impactOccurred(type);
+      } else if (navigator.vibrate) {
+        navigator.vibrate(type === 'error' ? [30, 30] : 15);
+      }
+    }
+
+    function speakWord() {
+      if (!app.words || !app.words[app.cardIndex]) return;
+      const w = app.words[app.cardIndex].word;
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utt = new SpeechSynthesisUtterance(w);
+      utt.lang = 'en-US';
+      window.speechSynthesis.speak(utt);
+    }
+
+    // PWA Service Worker & Install Logic
+    let deferredPrompt = null;
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then((reg) => {
+          console.log('SW registered:', reg.scope);
+        }).catch((err) => {
+          console.log('SW registration failed:', err);
+        });
+      });
+    }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const banner = document.getElementById('pwaInstallBanner');
+      if (banner) banner.classList.remove('hidden');
+    });
+
+    function isAppStandalone() {
+      return (window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches);
+    }
+
+    function initPwaState() {
+      if (isAppStandalone()) {
+        const banner = document.getElementById('pwaInstallBanner');
+        if (banner) banner.classList.add('hidden');
+        return;
+      }
+      const ua = navigator.userAgent || '';
+      const isIos = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+      const isAndroid = /android/i.test(ua);
+      const isMac = /Macintosh|Mac OS X/i.test(ua);
+      const isWindows = /Windows/i.test(ua);
+
+      const label = document.getElementById('pwaDeviceLabel');
+      if (label) {
+        if (isIos) label.innerText = "iPhone bosh ekraniga ilova qilib qo'shish";
+        else if (isAndroid) label.innerText = "Android telefoningizga ilovani o'rnatish";
+        else if (isMac) label.innerText = "macOS kompyuteringizga ilova qilib o'rnatish";
+        else if (isWindows) label.innerText = "Windows kompyuteringizga ilova qilib o'rnatish";
+      }
+    }
+
+    function openPwaInstallModal() {
+      triggerHaptic('light');
+      const ua = navigator.userAgent || '';
+      if (/iPad|iPhone|iPod/.test(ua)) showPwaDevice('ios');
+      else if (/android/i.test(ua)) showPwaDevice('android');
+      else showPwaDevice('desktop');
+
+      document.getElementById('pwaInstallModal').classList.add('active');
+    }
+
+    function closePwaInstallModal() {
+      document.getElementById('pwaInstallModal').classList.remove('active');
+    }
+
+    function showPwaDevice(dev) {
+      triggerHaptic('light');
+      document.getElementById('pwaTabIos').classList.toggle('active', dev === 'ios');
+      document.getElementById('pwaTabAndroid').classList.toggle('active', dev === 'android');
+      document.getElementById('pwaTabDesktop').classList.toggle('active', dev === 'desktop');
+
+      document.getElementById('pwaGuideIos').classList.toggle('hidden', dev !== 'ios');
+      document.getElementById('pwaGuideAndroid').classList.toggle('hidden', dev !== 'android');
+      document.getElementById('pwaGuideDesktop').classList.toggle('hidden', dev !== 'desktop');
+    }
+
+    async function triggerNativeInstall() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const choice = await deferredPrompt.userChoice;
+        if (choice.outcome === 'accepted') {
+          showToast("Ilova muvaffaqiyatli o'rnatildi! 🎉");
+          closePwaInstallModal();
+          document.getElementById('pwaInstallBanner').classList.add('hidden');
+        }
+        deferredPrompt = null;
+      } else {
+        showToast("Brauzer menyusi yoki manzil satridan 'O'rnatish' bandini tanlang");
+      }
+    }
+
+    // App Startup
+    window.addEventListener('DOMContentLoaded', async () => {
+      initPwaState();
+      initTelegramAuth();
+      await loadBooks();
+      await loadUnits(app.currentBook);
+      await loadReminderConfig();
+    });
+
+    // Telegram Authentication Check
+    async function initTelegramAuth() {
+      const tg = window.Telegram?.WebApp;
+      if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
+        // Opened inside Telegram WebApp
+        tg.ready();
+        tg.expand();
+        const u = tg.initDataUnsafe.user;
+        app.isTelegram = true;
+        app.tgId = u.id;
+        app.username = u.username || '';
+        app.fullName = (u.first_name || '') + (u.last_name ? ' ' + u.last_name : '');
+        app.photoUrl = u.photo_url || '';
+        app.userId = `tg_${u.id}`;
+
+        const banner = document.getElementById('tgBannerBox');
+        if (banner) banner.classList.add('hidden');
+        const box = document.getElementById('telegramCodeLoginBox');
+        if (box) box.classList.add('hidden');
+        updateUserUI();
+
+        // Register / sync in SQLite database
+        try {
+          await fetch('/api/webapp/auth/telegram', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              tg_id: app.tgId,
+              username: app.username,
+              first_name: u.first_name || '',
+              last_name: u.last_name || '',
+              photo_url: app.photoUrl
+            })
+          });
+        } catch (e) {}
+      } else {
+        // Check localStorage for previously linked Telegram ID
+        const storedTgId = localStorage.getItem('vocab_tg_id');
+        const storedName = localStorage.getItem('vocab_tg_name');
+        const storedUser = localStorage.getItem('vocab_tg_user');
+        const storedPhoto = localStorage.getItem('vocab_tg_photo');
+        if (storedTgId) {
+          app.tgId = parseInt(storedTgId);
+          app.userId = `tg_${storedTgId}`;
+          app.fullName = storedName || 'O\'quvchi';
+          app.username = storedUser || '';
+          app.photoUrl = storedPhoto || '';
+          updateUserUI();
+          const banner = document.getElementById('tgBannerBox');
+          if (banner) banner.classList.add('hidden');
+          const box = document.getElementById('telegramCodeLoginBox');
+          if (box) box.classList.add('hidden');
+        } else {
+          app.userId = 'guest_' + Math.random().toString(36).substring(2, 8);
+          document.getElementById('topBarUserName').innerText = 'Mehmon';
+          document.getElementById('tgStatusDot').style.background = '#94a3b8';
+        }
+      }
+    }
+
+    function updateUserUI() {
+      document.getElementById('topBarUserName').innerText = app.fullName.split(' ')[0];
+      document.getElementById('profileFullName').innerText = app.fullName;
+      document.getElementById('profileUsername').innerText = app.username ? '@' + app.username : `ID: ${app.tgId}`;
+      document.getElementById('tgStatusDot').style.background = 'var(--green-primary)';
+      document.getElementById('profileTgBadge').innerText = 'Telegram Faol';
+
+      if (app.photoUrl) {
+        const topAvatar = document.getElementById('topBarUserAvatar');
+        if (topAvatar) {
+          topAvatar.src = app.photoUrl;
+          topAvatar.classList.remove('hidden');
+        }
+        const profAvatar = document.getElementById('profileUserAvatar');
+        if (profAvatar) {
+          profAvatar.src = app.photoUrl;
+          profAvatar.classList.remove('hidden');
+        }
+      }
+    }
+
+    async function submitTelegramLoginCode() {
+      const input = document.getElementById('telegramLoginCodeInput');
+      const code = input.value.trim();
+      if (!code || code.length < 6) {
+        showToast("Iltimos 6 xonali kodni to'liq kiriting");
+        return;
+      }
+
+      showToast("Kod tekshirilmoqda...");
+      try {
+        const res = await fetch('/api/webapp/auth/verify-code', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: code })
+        });
+        const data = await res.json();
+        if (data.status === 'ok' && data.user) {
+          const u = data.user;
+          app.tgId = u.tg_id;
+          app.userId = `tg_${u.tg_id}`;
+          app.fullName = (u.first_name || '') + (u.last_name ? ' ' + u.last_name : '') || 'Telegram O\'quvchi';
+          app.username = u.username || '';
+          app.photoUrl = u.photo_url || '';
+
+          localStorage.setItem('vocab_tg_id', u.tg_id);
+          localStorage.setItem('vocab_tg_name', app.fullName);
+          localStorage.setItem('vocab_tg_user', app.username);
+          localStorage.setItem('vocab_tg_photo', app.photoUrl);
+
+          updateUserUI();
+          const codeBox = document.getElementById('telegramCodeLoginBox');
+          if (codeBox) codeBox.classList.add('hidden');
+          const banner = document.getElementById('tgBannerBox');
+          if (banner) banner.classList.add('hidden');
+
+          playTone('correct');
+          triggerHaptic('success');
+          showToast(`✅ Xush kelibsiz, ${app.fullName.split(' ')[0]}!`);
+          loadReminderConfig();
+          loadAllRegisteredUsers();
+        } else {
+          playTone('wrong');
+          triggerHaptic('error');
+          showToast(data.message || "Kod noto'g'ri yoki muddati tugagan");
+        }
+      } catch (e) {
+        showToast("Ulanishda xatolik yuz berdi");
+      }
+    }
+
+    // Tab Switching
+    function switchTab(tabId) {
+      triggerHaptic('light');
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.dock-btn').forEach(el => el.classList.remove('active'));
+
+      const sec = document.getElementById('tab-' + tabId);
+      if (sec) sec.classList.add('active');
+
+      const nav = document.getElementById('nav-' + tabId);
+      if (nav) nav.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (tabId === 'flashcards' && (!app.words || app.words.length === 0)) {
+        loadUnitWords(app.currentBook, app.currentUnit);
+      } else if (tabId === 'quiz' && (!app.quizQuestions || app.quizQuestions.length === 0)) {
+        startQuiz();
+      } else if (tabId === 'match') {
+        startSpeedMatch();
+      } else if (tabId === 'profile') {
+        loadAllRegisteredUsers();
+      }
+    }
+
+    // Books Logic
+    async function loadBooks() {
+      try {
+        const res = await fetch('/api/webapp/books');
+        app.books = await res.json();
+        renderBooksDrawer(app.books);
+        const cur = app.books.find(b => b.slug === app.currentBook) || app.books[0];
+        if (cur) updateBookUI(cur);
+      } catch (e) {}
+    }
+
+    function updateBookUI(b) {
+      document.getElementById('bookLevelBadge').innerText = b.level;
+      document.getElementById('bookWordCount').innerText = b.total_words + ' so\'z';
+      document.getElementById('bookMainTitle').innerText = b.title;
+      document.getElementById('bookMainDesc').innerText = b.description;
+      document.getElementById('bookDropdownLabel').innerText = b.icon + ' ' + b.short_title;
+      document.getElementById('reminderCurrentUnitLabel').innerText = `${b.short_title} — Unit ${app.currentUnit}`;
+    }
+
+    function renderBooksDrawer(books) {
+      const container = document.getElementById('booksDrawerList');
+      container.innerHTML = books.map(b => `
+        <div class="book-pick-item ${b.slug === app.currentBook ? 'active' : ''}" onclick="selectBook('${b.slug}')">
+          <div class="book-pick-icon">${b.icon}</div>
+          <div style="flex:1;">
+            <div style="font-weight:700; color:#fff; font-size:0.95rem;">${b.title}</div>
+            <div style="font-size:0.78rem; color:var(--text-muted);">${b.level} • ${b.total_units} ta unit • ${b.total_words} ta so'z</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openBookModal() {
+      document.getElementById('bookModalBackdrop').classList.add('active');
+    }
+
+    function closeBookModal() {
+      document.getElementById('bookModalBackdrop').classList.remove('active');
+    }
+
+    async function selectBook(slug) {
+      app.currentBook = slug;
+      app.currentUnit = 1;
+      closeBookModal();
+      const b = app.books.find(x => x.slug === slug);
+      if (b) updateBookUI(b);
+      renderBooksDrawer(app.books);
+      await loadUnits(slug);
+    }
+
+    // Units Logic
+    async function loadUnits(bookSlug) {
+      try {
+        const res = await fetch(`/api/webapp/units?book=${bookSlug}`);
+        app.units = await res.json();
+        document.getElementById('unitsTotalLabel').innerText = app.units.length + ' ta bo\'lim';
+        const container = document.getElementById('unitsGridContainer');
+        container.innerHTML = app.units.map(u => `
+          <div class="unit-item ${u.unit_num === app.currentUnit ? 'active' : ''}" onclick="selectUnit(${u.unit_num}, '${escapeStr(u.title)}')">
+            <div class="unit-item-num">Unit ${u.unit_num}</div>
+            <div class="unit-item-title">${u.title}</div>
+            <div class="unit-item-count">${u.word_count} so'z</div>
+          </div>
+        `).join('');
+      } catch (e) {}
+    }
+
+    async function selectUnit(num, title) {
+      app.currentUnit = num;
+      app.currentUnitTitle = title;
+      const b = app.books.find(x => x.slug === app.currentBook);
+      if (b) document.getElementById('reminderCurrentUnitLabel').innerText = `${b.short_title} — Unit ${num}`;
+      await loadUnitWords(app.currentBook, num);
+      switchTab('flashcards');
+    }
+
+    // Flashcards
+    async function loadUnitWords(bookSlug, unitNum) {
+      try {
+        const res = await fetch(`/api/webapp/words?book=${bookSlug}&unit=${unitNum}`);
+        const data = await res.json();
+        app.words = data.words || [];
+        app.cardIndex = 0;
+        document.getElementById('cardUnitBadge').innerText = `Unit ${unitNum}`;
+        document.getElementById('cardUnitTitle').innerText = data.title || `Unit ${unitNum}`;
+        renderCard();
+      } catch (e) {}
+    }
+
+    function renderCard() {
+      if (!app.words || app.words.length === 0) return;
+      const w = app.words[app.cardIndex];
+      const card = document.getElementById('flashcardElement');
+      card.classList.remove('flipped');
+
+      document.getElementById('cardPosTag').innerText = w.part_of_speech || 'word';
+      document.getElementById('cardPosTagBack').innerText = w.part_of_speech || 'word';
+      document.getElementById('cardEnWord').innerText = w.word;
+      document.getElementById('cardPhonetic').innerText = w.transcription || '';
+      document.getElementById('cardUzWord').innerText = w.uzbek;
+      document.getElementById('cardDesc').innerText = w.description || '';
+
+      const ex = w.example || '';
+      const formattedEx = ex.replace(new RegExp(w.word, 'gi'), match => `<b>${match}</b>`);
+      document.getElementById('cardExampleBox').innerHTML = formattedEx ? `"${formattedEx}"` : '';
+
+      document.getElementById('cardCounter').innerText = `${app.cardIndex + 1} / ${app.words.length}`;
+      const pct = Math.round(((app.cardIndex + 1) / app.words.length) * 100);
+      document.getElementById('cardProgressBar').style.width = pct + '%';
+    }
+
+    function flipCurrentCard() {
+      triggerHaptic('light');
+      document.getElementById('flashcardElement').classList.toggle('flipped');
+    }
+
+    function nextCard(learned = true) {
+      triggerHaptic(learned ? 'success' : 'light');
+      if (app.cardIndex < app.words.length - 1) {
+        app.cardIndex++;
+        renderCard();
+      } else {
+        showToast('Ushbu unitdagi barcha so\'zlar ko\'rib chiqildi!');
+      }
+    }
+
+    function prevCard() {
+      if (app.cardIndex > 0) {
+        app.cardIndex--;
+        renderCard();
+      }
+    }
+
+    function toggleSaveWord() {
+      if (!app.words || !app.words[app.cardIndex]) return;
+      const w = app.words[app.cardIndex];
+      triggerHaptic('medium');
+      fetch('/api/webapp/toggle-save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user_id: app.userId, word_data: w })
+      });
+      const btn = document.getElementById('cardBookmarkBtn');
+      btn.classList.toggle('active');
+      showToast('So\'z savatchaga saqlandi');
+    }
+
+    // Touch Swipe
+    let touchStartX = 0;
+    const cardEl = document.getElementById('flashcardElement');
+    cardEl.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    cardEl.addEventListener('touchend', e => {
+      const diff = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(diff) > 70) {
+        if (diff > 0) nextCard(true);
+        else nextCard(false);
+      }
+    }, { passive: true });
+
+    // Quiz
+    function setQuizMode(m) {
+      app.quizMode = m;
+      document.getElementById('modeEnUz').classList.toggle('active', m === 'en_uz');
+      document.getElementById('modeUzEn').classList.toggle('active', m === 'uz_en');
+      startQuiz();
+    }
+
+    async function startQuiz() {
+      try {
+        document.getElementById('quizActiveBox').classList.remove('hidden');
+        document.getElementById('quizDoneBox').classList.add('hidden');
+        const res = await fetch(`/api/webapp/quiz?book=${app.currentBook}&unit=${app.currentUnit}&count=10&mode=${app.quizMode}`);
+        app.quizQuestions = await res.json();
+        app.quizIndex = 0;
+        app.quizScore = 0;
+        renderQuiz();
+      } catch (e) {}
+    }
+
+    function renderQuiz() {
+      if (!app.quizQuestions || app.quizIndex >= app.quizQuestions.length) {
+        finishQuiz();
+        return;
+      }
+
+      const q = app.quizQuestions[app.quizIndex];
+      document.getElementById('quizQuestionBadge').innerText = `Savol ${app.quizIndex + 1} / ${app.quizQuestions.length}`;
+      document.getElementById('quizQuestionText').innerText = q.question;
+      document.getElementById('quizQuestionSub').innerText = q.mode === 'en_uz' ? 'To\'g\'ri o\'zbekcha tarjimasini tanlang:' : 'To\'g\'ri inglizcha so\'zni tanlang:';
+
+      const pct = Math.round((app.quizIndex / app.quizQuestions.length) * 100);
+      document.getElementById('quizProgressBar').style.width = pct + '%';
+
+      const container = document.getElementById('quizOptionsContainer');
+      container.innerHTML = q.options.map(opt => `
+        <button class="quiz-opt-btn" onclick="checkQuizAnswer(this, '${escapeStr(opt)}', '${escapeStr(q.correct)}')">
+          ${opt}
+        </button>
+      `).join('');
+    }
+
+    function checkQuizAnswer(btn, chosen, correct) {
+      const all = document.querySelectorAll('.quiz-opt-btn');
+      all.forEach(b => b.disabled = true);
+
+      if (chosen === correct) {
+        playTone('correct');
+        triggerHaptic('success');
+        btn.classList.add('correct');
+        app.quizScore++;
+      } else {
+        playTone('wrong');
+        triggerHaptic('error');
+        btn.classList.add('wrong');
+        all.forEach(b => {
+          if (b.innerText.trim() === correct) b.classList.add('correct');
+        });
+      }
+
+      setTimeout(() => {
+        app.quizIndex++;
+        renderQuiz();
+      }, 800);
+    }
+
+    function finishQuiz() {
+      document.getElementById('quizProgressBar').style.width = '100%';
+      document.getElementById('quizActiveBox').classList.add('hidden');
+      document.getElementById('quizDoneBox').classList.remove('hidden');
+
+      const total = app.quizQuestions.length;
+      const score = app.quizScore;
+      document.getElementById('quizDoneScore').innerText = `${score} / ${total}`;
+
+      if (app.tgId) {
+        fetch('/api/webapp/score', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            user_id: app.userId,
+            book_slug: app.currentBook,
+            unit_num: app.currentUnit,
+            score: score,
+            total: total
+          })
+        });
+      }
+    }
+
+    // Speed Match
+    async function startSpeedMatch() {
+      try {
+        document.getElementById('matchDoneBox').classList.add('hidden');
+        document.getElementById('matchBoard').classList.remove('hidden');
+        clearInterval(app.matchTimer);
+
+        const res = await fetch(`/api/webapp/speed-match?book=${app.currentBook}&unit=${app.currentUnit}&count=6`);
+        app.matchPairs = await res.json();
+        app.matchSelected = null;
+        app.matchSeconds = 45;
+        document.getElementById('matchTimerPill').innerText = '⏱️ 45s';
+
+        const enTiles = app.matchPairs.map(p => ({ id: p.id, text: p.word, type: 'en' }));
+        const uzTiles = app.matchPairs.map(p => ({ id: p.id, text: p.uzbek, type: 'uz' }));
+        shuffle(enTiles);
+        shuffle(uzTiles);
+
+        const container = document.getElementById('matchBoard');
+        container.innerHTML = `
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            ${enTiles.map(t => `<div class="match-tile" data-id="${t.id}" data-type="en" onclick="onTileClick(this)">${t.text}</div>`).join('')}
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            ${uzTiles.map(t => `<div class="match-tile" data-id="${t.id}" data-type="uz" onclick="onTileClick(this)">${t.text}</div>`).join('')}
+          </div>
+        `;
+
+        app.matchTimer = setInterval(() => {
+          app.matchSeconds--;
+          document.getElementById('matchTimerPill').innerText = `⏱️ ${app.matchSeconds}s`;
+          if (app.matchSeconds <= 0) {
+            clearInterval(app.matchTimer);
+            showToast('Vaqt tugadi!');
+            startSpeedMatch();
+          }
+        }, 1000);
+      } catch (e) {}
+    }
+
+    function onTileClick(tile) {
+      if (tile.classList.contains('matched')) return;
+      triggerHaptic('light');
+
+      if (!app.matchSelected) {
+        app.matchSelected = tile;
+        tile.classList.add('selected');
+        return;
+      }
+
+      if (app.matchSelected === tile) {
+        tile.classList.remove('selected');
+        app.matchSelected = null;
+        return;
+      }
+
+      const first = app.matchSelected;
+      const second = tile;
+
+      if (first.dataset.type === second.dataset.type) {
+        first.classList.remove('selected');
+        app.matchSelected = second;
+        second.classList.add('selected');
+        return;
+      }
+
+      if (first.dataset.id === second.dataset.id) {
+        playTone('correct');
+        triggerHaptic('success');
+        first.classList.add('matched');
+        second.classList.add('matched');
+        first.classList.remove('selected');
+        app.matchSelected = null;
+
+        const remaining = document.querySelectorAll('.match-tile:not(.matched)');
+        if (remaining.length === 0) {
+          clearInterval(app.matchTimer);
+          document.getElementById('matchBoard').classList.add('hidden');
+          document.getElementById('matchDoneBox').classList.remove('hidden');
+        }
+      } else {
+        playTone('wrong');
+        triggerHaptic('error');
+        second.classList.add('wrong');
+        setTimeout(() => {
+          first.classList.remove('selected');
+          second.classList.remove('wrong');
+          app.matchSelected = null;
+        }, 350);
+      }
+    }
+
+    // Reminders & Telegram Notifications
+    async function loadReminderConfig() {
+      if (!app.tgId) return;
+      try {
+        const res = await fetch(`/api/webapp/reminder?tg_id=${app.tgId}`);
+        const data = await res.json();
+        if (data) {
+          app.reminderTime = data.reminder_time || '20:00';
+          app.reminderActive = data.is_active !== undefined ? !!data.is_active : true;
+          document.getElementById('reminderTimeSelect').value = app.reminderTime;
+          document.getElementById('reminderToggle').checked = app.reminderActive;
+        }
+      } catch (e) {}
+    }
+
+    async function toggleReminderActive(isActive) {
+      app.reminderActive = isActive;
+      await saveReminderSettings();
+      showToast(isActive ? 'Eslatma yoqildi' : 'Eslatma o\'chirildi');
+    }
+
+    async function updateReminderTime(val) {
+      app.reminderTime = val;
+      await saveReminderSettings();
+      showToast(`Eslatma vaqti: ${val} ga o'rnatildi`);
+    }
+
+    async function saveReminderSettings() {
+      if (!app.tgId) {
+        showToast('Eslatmani sozlash uchun Telegram ID kerak');
+        return;
+      }
+      try {
+        await fetch('/api/webapp/reminder', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tg_id: app.tgId,
+            reminder_time: app.reminderTime,
+            is_active: app.reminderActive,
+            book_slug: app.currentBook,
+            unit_num: app.currentUnit
+          })
+        });
+      } catch (e) {}
+    }
+
+    async function sendTestNotification() {
+      if (!app.tgId) {
+        showToast('Iltimos avval Telegram hisobingizni ulang!');
+        switchTab('profile');
+        return;
+      }
+
+      showToast('Telegram botga xabar yuborilmoqda...');
+      try {
+        const res = await fetch('/api/webapp/reminder/send-test', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tg_id: app.tgId,
+            first_name: app.fullName,
+            book_slug: app.currentBook,
+            unit_num: app.currentUnit
+          })
+        });
+        const data = await res.json();
+        if (data.status === 'ok') {
+          playTone('correct');
+          triggerHaptic('success');
+          showToast('✅ Test eslatma Telegram botingizga bordi!');
+        } else {
+          showToast(data.message || 'Xatolik yuz berdi');
+        }
+      } catch (e) {
+        showToast('Xabar yuborishda xatolik yuz berdi');
+      }
+    }
+
+    // Admin Users Monitoring
+    async function loadAllRegisteredUsers() {
+      const container = document.getElementById('registeredUsersContainer');
+      container.innerHTML = '<div style="color:var(--text-muted); font-size:0.85rem; padding:10px;">Yuklanmoqda...</div>';
+      try {
+        const res = await fetch('/api/webapp/admin/users?limit=50');
+        const users = await res.json();
+        if (!users || users.length === 0) {
+          container.innerHTML = '<div style="color:var(--text-muted); font-size:0.85rem; padding:10px;">Hozircha o\'quvchilar yo\'q.</div>';
+          return;
+        }
+
+        container.innerHTML = users.map(u => `
+          <div class="word-row">
+            <div>
+              <div class="word-row-en">${u.first_name || 'Foydalanuvchi'} ${u.last_name || ''}</div>
+              <div class="word-row-uz">${u.username ? '@' + u.username : 'ID: ' + (u.tg_id || u.user_id)}</div>
+              <div class="word-row-sub">🔥 ${u.streak || 1} kun streak • Yodlagan: ${u.mastered_count || 0} ta so'z</div>
+            </div>
+            <div style="text-align: right;">
+              <span class="badge-chip">${u.reminder_time ? '⏰ ' + u.reminder_time : 'Eslatmasiz'}</span>
+            </div>
+          </div>
+        `).join('');
+      } catch (e) {
+        container.innerHTML = '<div style="color:#f87171; font-size:0.85rem; padding:10px;">Yuklashda xatolik.</div>';
+      }
+    }
+
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
+
+    function escapeStr(s) {
+      if (!s) return '';
+      return String(s).replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+  </script>
+</body>
+</html>
