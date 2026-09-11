@@ -1,3 +1,6 @@
+import html
+import logging
+
 from aiogram import Router, F
 from aiogram.exceptions import TelegramBadRequest
 from aiogram.filters import Command
@@ -358,14 +361,30 @@ async def pagination_handler(callback: CallbackQuery, redis: Redis):
 
 @router.callback_query(F.data.startswith("select_"))
 async def select_handler(callback: CallbackQuery, redis: Redis):
-    selected_unit = callback.data.replace("select_", "")  # "Unit 3"
-    selected_unit_safe = selected_unit.replace(" ", "_")   # "Unit_3" — callback_data uchun
-    user_id = callback.from_user.id
+    raw_unit = callback.data.replace("select_", "").strip()  # "Unit 3" yoki "3"
+    if raw_unit.isdigit():
+        selected_unit = f"Unit {raw_unit}"
+        selected_unit_safe = f"Unit_{raw_unit}"
+    else:
+        selected_unit = raw_unit
+        selected_unit_safe = raw_unit.replace(" ", "_")
 
+    user_id = callback.from_user.id
     user_level = await get_user_context(user_id, redis)
 
     if not user_level:
-        await callback.answer("⚠️ Sessiya muddati tugagan.", show_alert=True)
+        # Sessiya tugagan bo'lsa, xabar matnidan kitob nomini tiklashga harakat qilamiz
+        if callback.message and callback.message.text:
+            for line in callback.message.text.split("\n"):
+                if "Kitob:" in line:
+                    recovered = line.split("Kitob:", 1)[1].strip()
+                    if recovered:
+                        user_level = recovered
+                        await redis.set(f"user:{user_id}:level", user_level, ex=86400)
+                        break
+
+    if not user_level:
+        await callback.answer("⚠️ Sessiya muddati tugagan. Qaytadan darajani tanlang.", show_alert=True)
         return
 
     ikb = InlineKeyboardBuilder()
@@ -399,16 +418,16 @@ async def select_handler(callback: CallbackQuery, redis: Redis):
         )
     )
 
-    text = f"📚 <b>Kitob:</b> {user_level}\n"
-    text += f"✅ <b>Tanlangan:</b> {selected_unit}\n\n"
+    text = f"📚 <b>Kitob:</b> {html.escape(user_level)}\n"
+    text += f"✅ <b>Tanlangan:</b> {html.escape(selected_unit)}\n\n"
     text += "Ushbu unit bo'yicha nima qilmoqchisiz?"
 
     try:
         await callback.message.edit_text(
             text, parse_mode="HTML", reply_markup=ikb.as_markup()
         )
-    except TelegramBadRequest:
-        pass
+    except TelegramBadRequest as e:
+        logging.warning(f"select_handler edit_text error: {e}")
 
     await callback.answer()
 

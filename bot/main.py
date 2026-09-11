@@ -35,25 +35,29 @@ bot = Bot(TOKEN)
 CHANNEL_ID = os.getenv("CHANNEL_ID") or ""
 ADMIN = int(os.getenv("ADMIN") or 0)
 
-
 async def start_bot() -> None:
-    await bot.delete_webhook(drop_pending_updates=True)
     logging.basicConfig(level=logging.INFO, stream=sys.stdout)
-    await bot.set_webhook(
-        url=os.getenv("WEBHOOK_URL") or "",
-        allowed_updates=dp.resolve_used_update_types(),
-        drop_pending_updates=True,
-        max_connections=40,
-    )
-    logging.info(f"{await bot.get_webhook_info()}")
     dp.message.middleware(UserSaveMiddleware())
     dp.message.middleware(IsJoinChannelMiddleware())
     dp.message.middleware(UserActivityMiddleware())
     dp.callback_query.middleware(UserSaveMiddleware())
     dp.callback_query.middleware(UserActivityMiddleware())
-    dp.include_router(middleware_router)
-    dp.include_router(admin_router)
-    dp.include_router(user_router)
+    if middleware_router.parent_router is None:
+        dp.include_router(middleware_router)
+    if admin_router.parent_router is None:
+        dp.include_router(admin_router)
+    if user_router.parent_router is None:
+        dp.include_router(user_router)
+
+    webhook_url = os.getenv("WEBHOOK_URL") or ""
+    if webhook_url:
+        await bot.set_webhook(
+            url=webhook_url,
+            allowed_updates=["message", "callback_query", "inline_query", "poll", "poll_answer"],
+            drop_pending_updates=False,
+            max_connections=40,
+        )
+        logging.info(f"{await bot.get_webhook_info()}")
     await create_db_and_tables()
     asyncio.create_task(reminder_scheduler_loop(bot))
     if ADMIN:

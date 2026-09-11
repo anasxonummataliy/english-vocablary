@@ -1851,20 +1851,28 @@
         document.getElementById('unitsTotalLabel').innerText = app.units.length + ' ta bo\'lim';
         const container = document.getElementById('unitsGridContainer');
         container.innerHTML = app.units.map(u => `
-          <div class="unit-item ${u.unit_num === app.currentUnit ? 'active' : ''}" onclick="selectUnit(${u.unit_num}, '${escapeStr(u.title)}')">
+          <div class="unit-item ${u.unit_num === app.currentUnit ? 'active' : ''}" data-unit="${u.unit_num}" onclick="selectUnit(${u.unit_num})">
             <div class="unit-item-num">Unit ${u.unit_num}</div>
-            <div class="unit-item-title">${u.title}</div>
-            <div class="unit-item-count">${u.word_count} so'z</div>
+            <div class="unit-item-title">${u.title || ''}</div>
+            <div class="unit-item-count">${u.word_count || 0} so'z</div>
           </div>
         `).join('');
       } catch (e) {}
     }
 
-    async function selectUnit(num, title) {
+    async function selectUnit(num) {
       app.currentUnit = num;
-      app.currentUnitTitle = title;
+      const u = app.units.find(x => x.unit_num === num);
+      app.currentUnitTitle = u ? u.title : `Unit ${num}`;
+
+      document.querySelectorAll('#unitsGridContainer .unit-item').forEach(el => el.classList.remove('active'));
+      const activeEl = document.querySelector(`#unitsGridContainer .unit-item[data-unit="${num}"]`);
+      if (activeEl) activeEl.classList.add('active');
+
       const b = app.books.find(x => x.slug === app.currentBook);
-      if (b) document.getElementById('reminderCurrentUnitLabel').innerText = `${b.short_title} — Unit ${num}`;
+      const reminderLbl = document.getElementById('reminderCurrentUnitLabel');
+      if (b && reminderLbl) reminderLbl.innerText = `${b.short_title} — Unit ${num}`;
+
       await loadUnitWords(app.currentBook, num);
       switchTab('flashcards');
     }
