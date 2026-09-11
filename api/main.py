@@ -43,18 +43,23 @@ async def lifespan(app: FastAPI):
     if bot_code_router.parent_router is None:
         dp.include_router(bot_code_router)
     reminder_task = asyncio.create_task(reminder_scheduler_loop())
+    webhook_url = os.getenv("WEBHOOK_URL") or ""
     try:
         await start_bot()
-        webhook_url = os.getenv("WEBHOOK_URL") or ""
-        if webhook_url:
-            await bot.set_webhook(
-                url=webhook_url,
-                allowed_updates=dp.resolve_used_update_types(),
-                drop_pending_updates=True,
-                max_connections=40,
-            )
     except Exception as e:
-        logging.warning(f"Bot startup skipped or failed (local dev mode): {e}")
+        logging.warning(f"Bot startup warning: {e}")
+    finally:
+        if webhook_url:
+            try:
+                await bot.set_webhook(
+                    url=webhook_url,
+                    allowed_updates=["message", "callback_query", "inline_query", "poll", "poll_answer"],
+                    drop_pending_updates=True,
+                    max_connections=40,
+                )
+                logging.info("Webhook set with all required updates (message, callback_query, etc.)")
+            except Exception as e:
+                logging.warning(f"Webhook configuration warning: {e}")
     yield
     reminder_task.cancel()
     try:
