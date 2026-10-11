@@ -92,3 +92,30 @@ async def test_send_unit_to_channel_includes_finish_message():
             last_call_kwargs = mock_send.call_args_list[-1].kwargs
             assert last_call_kwargs["text"] == "Unit 1 tugadi!"
             assert last_call_kwargs["chat_id"] == "@testchannel"
+
+
+@pytest.mark.asyncio
+async def test_cb_test_send_starts_task():
+    from bot.admin.scheduler import cb_test_send
+    call = AsyncMock()
+    call.data = "sched:test:-1001234567890"
+    call.message.chat.id = 12345
+
+    mock_sched = {
+        "channel_id": "-1001234567890",
+        "book_slug": "essential1",
+        "current_unit": 1,
+        "finish_message": "Tugadi",
+    }
+
+    with patch("bot.admin.scheduler.get_channel_scheduler", new_callable=AsyncMock) as mock_get:
+        mock_get.return_value = mock_sched
+        with patch("api.services.channel_scheduler_service.send_unit_to_channel", new_callable=AsyncMock) as mock_send:
+            mock_send.return_value = True
+            await cb_test_send(call)
+
+            call.answer.assert_awaited()
+            call.message.answer.assert_awaited()
+            answer_text = call.message.answer.call_args[0][0]
+            assert "jo'natilishi boshlandi" in answer_text
+

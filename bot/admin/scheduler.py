@@ -1,12 +1,16 @@
 import os
 import re
 import html
+import asyncio
+import logging
 from typing import Optional
 from aiogram import Router, Bot, F
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
+
+logger = logging.getLogger(__name__)
 
 from api.database import (
     get_all_channel_schedulers,
@@ -147,23 +151,71 @@ async def cb_toggle(call: CallbackQuery):
 
 @router.callback_query(F.data.startswith("sched:test:"))
 async def cb_test_send(call: CallbackQuery):
+    await call.answer()
     channel_id = call.data.split(":", 2)[2]
+
+    from api.services.channel_scheduler_service import currently_sending, send_unit_to_channel
+
+    if channel_id in currently_sending:
+        await call.message.answer(
+            f"⚠️ <b>Kanal <code>{html.escape(channel_id)}</code> ga ayni paytda testlar yuborilmoqda!</b>\n"
+            f"Iltimos, oldingi jarayon tugashini kuting.",
+            parse_mode="HTML"
+        )
+        return
+
     s = await get_channel_scheduler(channel_id)
     if not s:
-        await call.answer("Scheduler topilmadi!", show_alert=True)
+        await call.message.answer("❌ Scheduler sozlamasi topilmadi!", parse_mode="HTML")
         return
 
     book_slug = s.get("book_slug", "essential1")
-    unit_num = s.get("current_unit", 1)
+    unit_num = int(s.get("current_unit", 1))
     finish_msg = s.get("finish_message")
 
-    from api.services.channel_scheduler_service import send_unit_to_channel
-    asyncio.create_task(
-        send_unit_to_channel(channel_id, book_slug, unit_num, finish_message=finish_msg)
-    )
+    book_info = vocab_service.books.get(book_slug, {})
+    book_title = book_info.get("short_title", book_slug)
+
+    target_chat_id = call.message.chat.id
+
+    async def _run_bg_test():
+        try:
+            sent = await send_unit_to_channel(
+                channel_id, book_slug, unit_num, finish_message=finish_msg
+            )
+            if sent:
+                await call.bot.send_message(
+                    chat_id=target_chat_id,
+                    text=(
+                        f"✅ <b>Unit {unit_num}</b> ({html.escape(book_title)}) ning barcha savollari "
+                        f"va yakuniy xabari kanalga to'liq jo'natib bo'lindi!"
+                    ),
+                    parse_mode="HTML",
+                )
+            else:
+                await call.bot.send_message(
+                    chat_id=target_chat_id,
+                    text=(
+                        f"❌ <b>Unit {unit_num}</b> ({html.escape(book_title)}) kanalga jo'natilmadi!\n"
+                        f"Bot kanalga admin qilinganligini va xabar yozish huquqi borligini tekshiring."
+                    ),
+                    parse_mode="HTML",
+                )
+        except Exception as err:
+            logger.exception("Error during test send for channel %s: %s", channel_id, err)
+            try:
+                await call.bot.send_message(
+                    chat_id=target_chat_id,
+                    text=f"❌ <b>Xatolik yuz berdi:</b>\n<code>{html.escape(str(err))}</code>",
+                    parse_mode="HTML",
+                )
+            except Exception:
+                pass
+
+    asyncio.create_task(_run_bg_test())
 
     await call.message.answer(
-        f"🚀 <b>Unit {unit_num}</b> ({book_slug}) savollari har 1 daqiqa oralig'ida kanalga jo'natilishi boshlandi!\n"
+        f"🚀 <b>Unit {unit_num}</b> ({html.escape(book_title)}) savollari har 1 daqiqa oralig'ida kanalga jo'natilishi boshlandi!\n"
         f"<i>(Jami testlar har minutda bittadan tashlanadi va oxirida yakuniy xabar yuboriladi)</i>",
         parse_mode="HTML"
     )

@@ -159,9 +159,31 @@ class VocabService:
                 "_all_words": book_all_words,
             }
 
+        # Register aliases for backwards compatibility
+        alias_map = {
+            "4000essentialenglishwords1": "essential1",
+            "4000essentialenglishwords2": "essential2",
+            "4000essentialenglishwords3": "essential3",
+            "4000essentialenglishwords4": "essential4",
+            "4000essentialenglishwords5": "essential5",
+            "4000essentialenglishwords6": "essential6",
+            "4000_1": "essential1",
+            "4000_2": "essential2",
+            "4000_3": "essential3",
+            "4000_4": "essential4",
+            "4000_5": "essential5",
+            "4000_6": "essential6",
+        }
+        for alias, target_slug in alias_map.items():
+            if target_slug in self.books:
+                self.books[alias] = self.books[target_slug]
+
     def get_books_list(self) -> list[dict]:
         res = []
-        for slug, b in self.books.items():
+        for cfg in BOOK_CONFIGS:
+            b = self.books.get(cfg["slug"])
+            if not b:
+                continue
             res.append({
                 "slug": b["slug"],
                 "title": b["title"],
