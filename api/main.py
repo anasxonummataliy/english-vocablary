@@ -37,6 +37,40 @@ def is_authenticated(session_token: str | None) -> bool:
     return session_token is not None and session_token in active_sessions
 
 
+ALLOWED_UPDATES = [
+    "message",
+    "callback_query",
+    "inline_query",
+    "poll",
+    "poll_answer",
+]
+
+
+async def webhook_watchdog_loop(webhook_url: str):
+    """Periodic check to ensure Telegram webhook always points to our server."""
+    if not webhook_url:
+        return
+    while True:
+        try:
+            await asyncio.sleep(120)  # Check every 2 minutes
+            info = await bot.get_webhook_info()
+            if info.url != webhook_url:
+                logging.warning(
+                    f"⚠️ Webhook URL mismatch detected! Current: '{info.url}', Expected: '{webhook_url}'. Restoring..."
+                )
+                await bot.set_webhook(
+                    url=webhook_url,
+                    allowed_updates=ALLOWED_UPDATES,
+                    drop_pending_updates=False,
+                    max_connections=40,
+                )
+                logging.info("✅ Webhook successfully restored by watchdog.")
+        except asyncio.CancelledError:
+            break
+        except Exception as e:
+            logging.warning(f"Webhook watchdog error: {e}")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await init_sqlite_db()
@@ -44,6 +78,7 @@ async def lifespan(app: FastAPI):
         dp.include_router(bot_code_router)
     reminder_task = asyncio.create_task(reminder_scheduler_loop())
     webhook_url = os.getenv("WEBHOOK_URL") or ""
+    watchdog_task = None
     try:
         await start_bot()
     except Exception as e:
@@ -53,15 +88,18 @@ async def lifespan(app: FastAPI):
             try:
                 await bot.set_webhook(
                     url=webhook_url,
-                    allowed_updates=["message", "callback_query", "inline_query", "poll", "poll_answer"],
+                    allowed_updates=ALLOWED_UPDATES,
                     drop_pending_updates=True,
                     max_connections=40,
                 )
                 logging.info("Webhook set with all required updates (message, callback_query, etc.)")
             except Exception as e:
                 logging.warning(f"Webhook configuration warning: {e}")
+            watchdog_task = asyncio.create_task(webhook_watchdog_loop(webhook_url))
     yield
     reminder_task.cancel()
+    if watchdog_task:
+        watchdog_task.cancel()
     try:
         await stop_bot()
     except Exception:
