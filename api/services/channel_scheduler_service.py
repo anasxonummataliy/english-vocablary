@@ -106,13 +106,18 @@ def build_unit_polls(book_slug: str, unit_num: int) -> list[dict]:
     return polls
 
 
+DEFAULT_POLL_INTERVAL_SECONDS = 60  # Savollar orasida 1 minutlik tanaffus
+currently_sending: set[str] = set()
+
+
 async def send_unit_to_channel(
     channel_id: str,
     book_slug: str,
     unit_num: int,
     finish_message: str | None = None,
+    poll_interval: float = DEFAULT_POLL_INTERVAL_SECONDS,
 ) -> bool:
-    """Send all words of a unit as Quiz Polls to the channel."""
+    """Send all words of a unit as Quiz Polls with 1 minute interval between each question."""
     polls = build_unit_polls(book_slug, unit_num)
     if not polls:
         logger.warning(
@@ -132,7 +137,7 @@ async def send_unit_to_channel(
         f"📚 <b>{html_lib.escape(book_title)}</b>\n"
         f"📖 <b>Unit {unit_num}:</b> {html_lib.escape(unit_title)}\n"
         f"🎯 Jami: <b>{len(polls)} ta test</b>\n\n"
-        f"👇 So'zlarni yod oling va to'g'ri javoblarni belgilang:"
+        f"👇 So'zlarni yod oling va to'g'ri javoblarni belgilang (har 1 daqiqada yangi savol):"
     )
     try:
         await bot.send_message(
@@ -140,13 +145,14 @@ async def send_unit_to_channel(
             text=intro_text,
             parse_mode="HTML",
         )
-        await asyncio.sleep(1.0)
     except Exception as e:
         logger.error("Failed to send intro message to channel %s: %s", channel_id, e)
         return False
 
-    # 2. Send each word as a Quiz Poll (no timer / open_period)
-    for p in polls:
+    # 2. Send each word as a Quiz Poll with 1 minute interval between them
+    for i, p in enumerate(polls):
+        if i > 0:
+            await asyncio.sleep(poll_interval)
         try:
             await bot.send_poll(
                 chat_id=target_chat,
@@ -157,15 +163,14 @@ async def send_unit_to_channel(
                 explanation=p["explanation"],
                 is_anonymous=True,  # In channels, anonymous polls allow private voting
             )
-            await asyncio.sleep(1.2)  # Delay between polls for Telegram rate limit safety
         except Exception as e:
-            logger.error("Failed to send poll to channel %s: %s", channel_id, e)
+            logger.error("Failed to send poll %d to channel %s: %s", i + 1, channel_id, e)
             return False
 
-    # 3. Send completion message immediately after all unit polls
+    # 3. Send completion message 1 minute after all unit polls
     if finish_message:
         try:
-            await asyncio.sleep(1.0)
+            await asyncio.sleep(poll_interval)
             formatted_msg = (
                 finish_message
                 .replace("{unit}", str(unit_num))
@@ -222,32 +227,39 @@ async def process_due_channel_schedulers() -> None:
             await finish_channel_scheduler(channel_id, today_str)
             continue
 
-        # --- Send the unit as Quiz Polls + completion message ---
-        finish_msg = sched.get("finish_message")
-        sent = await send_unit_to_channel(
-            channel_id, book_slug, current_unit, finish_message=finish_msg
-        )
-        if not sent:
-            logger.error(
-                "Sending unit %d polls to channel %s failed — will retry next loop",
-                current_unit, channel_id,
-            )
+        if channel_id in currently_sending:
             continue
+        currently_sending.add(channel_id)
 
-        logger.info(
-            "✅ Channel %s: sent book=%s unit=%d polls with completion message",
-            channel_id, book_slug, current_unit,
-        )
+        try:
+            # --- Send the unit as Quiz Polls + completion message ---
+            finish_msg = sched.get("finish_message")
+            sent = await send_unit_to_channel(
+                channel_id, book_slug, current_unit, finish_message=finish_msg
+            )
+            if not sent:
+                logger.error(
+                    "Sending unit %d polls to channel %s failed — will retry next loop",
+                    current_unit, channel_id,
+                )
+                continue
 
-        # --- Determine next unit ---
-        idx = all_units.index(current_unit)
-        if idx + 1 < len(all_units):
-            next_unit = all_units[idx + 1]
-            await advance_channel_scheduler(channel_id, next_unit, today_str)
-        else:
-            # All units exhausted
-            await finish_channel_scheduler(channel_id, today_str)
-            logger.info("🏁 Channel %s: all units finished for book=%s", channel_id, book_slug)
+            logger.info(
+                "✅ Channel %s: sent book=%s unit=%d polls with completion message",
+                channel_id, book_slug, current_unit,
+            )
+
+            # --- Determine next unit ---
+            idx = all_units.index(current_unit)
+            if idx + 1 < len(all_units):
+                next_unit = all_units[idx + 1]
+                await advance_channel_scheduler(channel_id, next_unit, today_str)
+            else:
+                # All units exhausted
+                await finish_channel_scheduler(channel_id, today_str)
+                logger.info("🏁 Channel %s: all units finished for book=%s", channel_id, book_slug)
+        finally:
+            currently_sending.discard(channel_id)
 
 
 async def channel_scheduler_loop() -> None:

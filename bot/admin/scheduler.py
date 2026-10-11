@@ -158,18 +158,15 @@ async def cb_test_send(call: CallbackQuery):
     finish_msg = s.get("finish_message")
 
     from api.services.channel_scheduler_service import send_unit_to_channel
-    sent = await send_unit_to_channel(channel_id, book_slug, unit_num, finish_message=finish_msg)
+    asyncio.create_task(
+        send_unit_to_channel(channel_id, book_slug, unit_num, finish_message=finish_msg)
+    )
 
-    if sent:
-        await call.message.answer(
-            f"✅ <b>Unit {unit_num}</b> va yakuniy xabar ({book_slug}) kanalga muvaffaqiyatli jo'natildi!",
-            parse_mode="HTML"
-        )
-    else:
-        await call.message.answer(
-            "❌ Xabar yuborilmadi! Bot kanalga admin qilinganligini va kanal ID si to'g'riligini tekshiring.",
-            parse_mode="HTML"
-        )
+    await call.message.answer(
+        f"🚀 <b>Unit {unit_num}</b> ({book_slug}) savollari har 1 daqiqa oralig'ida kanalga jo'natilishi boshlandi!\n"
+        f"<i>(Jami testlar har minutda bittadan tashlanadi va oxirida yakuniy xabar yuboriladi)</i>",
+        parse_mode="HTML"
+    )
 
 
 @router.callback_query(F.data.startswith("sched:next:"))
