@@ -105,10 +105,11 @@ async def send_unit_to_channel(channel_id: str, book_slug: str, unit_num: int) -
         )
         return False
 
+    target_chat: int | str = int(channel_id) if channel_id.lstrip("-").isdigit() else channel_id
     for msg in messages:
         try:
             await bot.send_message(
-                chat_id=int(channel_id),
+                chat_id=target_chat,
                 text=msg,
                 parse_mode="HTML",
             )
@@ -124,9 +125,10 @@ async def send_unit_to_channel(channel_id: str, book_slug: str, unit_num: int) -
 
 async def send_finish_message(channel_id: str, finish_text: str) -> bool:
     """Send the optional finish message after all units are done."""
+    target_chat: int | str = int(channel_id) if channel_id.lstrip("-").isdigit() else channel_id
     try:
         await bot.send_message(
-            chat_id=int(channel_id),
+            chat_id=target_chat,
             text=finish_text,
             parse_mode="HTML",
         )

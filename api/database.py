@@ -558,3 +558,23 @@ async def delete_channel_scheduler(channel_id: str) -> bool:
         )
         await db.commit()
     return True
+
+
+async def update_channel_scheduler_unit(channel_id: str, new_unit: int) -> dict:
+    """Manually update the current unit number of a scheduler."""
+    now = datetime.now(timezone.utc).isoformat()
+    async with get_db() as db:
+        await db.execute("""
+            UPDATE channel_scheduler SET
+                current_unit = ?,
+                updated_at = ?
+            WHERE channel_id = ?
+        """, (new_unit, now, channel_id))
+        await db.commit()
+
+        cursor = await db.execute(
+            "SELECT * FROM channel_scheduler WHERE channel_id = ?", (channel_id,)
+        )
+        row = await cursor.fetchone()
+        return dict(row) if row else {}
+

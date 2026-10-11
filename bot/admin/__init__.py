@@ -7,11 +7,12 @@ from bot.admin.reply import router as reply
 from bot.admin.statistics import router as statistics
 from bot.admin.start import router as start
 from bot.admin.clear import clear_router
+from bot.admin.scheduler import router as scheduler
 
 admin_router = Router()
 admin_router.message.filter(isAdmin())
 admin_router.callback_query.filter(isAdmin())
 
 admin_router.include_routers(
-    clear_router, broadcast, channels, reply, statistics, start
+    clear_router, broadcast, channels, reply, statistics, start, scheduler
 )
