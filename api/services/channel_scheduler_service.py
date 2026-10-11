@@ -146,7 +146,7 @@ async def send_unit_to_channel(
             f"📚 <b>{html_lib.escape(book_title)}</b>\n"
             f"📖 <b>Unit {unit_num}:</b> {html_lib.escape(unit_title)}\n"
             f"🎯 Jami: <b>{len(polls)} ta test</b>\n\n"
-            f"👇 So'zlarni yod oling va to'g'ri javoblarni belgilang (har 1 daqiqada yangi savol):"
+            f"👇 So'zlarni yod oling va to'g'ri javoblarni belgilang:"
         )
         try:
             await bot.send_message(
