@@ -2,21 +2,20 @@
 Channel Scheduler Service
 ─────────────────────────
 Background loop that posts vocabulary words to a Telegram channel on a
-daily schedule.  For each active scheduler, at the configured send_time
+daily schedule. For each active scheduler, at the configured send_time
 (Tashkent UTC+5) it:
 
 1. Reads all words from the current unit of the selected book.
-2. Formats them into a clean channel message (split across multiple
-   Telegram messages when the text exceeds 4000 chars).
-3. Sends the messages to the channel.
+2. Sends each word as a Telegram Quiz Poll (no countdown timer).
+3. Right after the unit's polls, sends the optional completion message.
 4. Advances to the next unit.
-5. When all units are exhausted, optionally sends a finish_message
-   and deactivates the scheduler.
+5. When all units are completed, deactivates the scheduler.
 """
 
 import asyncio
 import html as html_lib
 import logging
+import random
 from datetime import datetime, timedelta, timezone
 
 from bot.main import bot
@@ -29,71 +28,82 @@ from api.services.vocab_service import vocab_service
 
 logger = logging.getLogger(__name__)
 
-MAX_TG_MESSAGE_LEN = 4000
 
-
-def format_word_card(idx: int, w: dict) -> str:
-    """Format a single word into a channel-friendly HTML block."""
-    word = html_lib.escape(w.get("word", ""))
-    transcription = html_lib.escape(w.get("transcription", ""))
-    pos = html_lib.escape(w.get("part_of_speech", ""))
-    uzbek = html_lib.escape(w.get("uzbek", ""))
-    description = html_lib.escape(w.get("description", ""))
-    example = html_lib.escape(w.get("example", ""))
-
-    lines = [f"<b>{idx}. {word}</b>  {transcription}"]
-    if pos:
-        lines[0] += f"  <i>({pos})</i>"
-    if uzbek:
-        lines.append(f"    🇺🇿 {uzbek}")
-    if description:
-        lines.append(f"    📖 {description}")
-    if example:
-        lines.append(f"    💬 <i>{example}</i>")
-
-    return "\n".join(lines)
-
-
-def build_unit_messages(book_slug: str, unit_num: int) -> list[str]:
+def build_unit_polls(book_slug: str, unit_num: int) -> list[dict]:
     """
-    Build a list of Telegram messages for one unit's words.
-    Splits automatically if the text exceeds MAX_TG_MESSAGE_LEN.
+    Build a list of Quiz Poll data dicts for every word in the unit.
+    Each poll contains:
+      - question: e.g. "[1/20] 🇬🇧 afraid /ə'freɪd/ (adjective)\nTo'g'ri tarjimasini toping:"
+      - options: list of 4 unique options (1 correct Uzbek translation + 3 wrong candidates)
+      - correct_option_id: index of the correct answer
+      - explanation: definition and example sentence popup
     """
     unit_data = vocab_service.get_words(book_slug, unit_num)
     words = unit_data.get("words", [])
     if not words:
         return []
 
-    book_info = vocab_service.books.get(book_slug, {})
-    book_title = book_info.get("short_title", book_slug)
-    unit_title = unit_data.get("title", f"Unit {unit_num}")
+    book = vocab_service.books.get(book_slug, {})
+    all_book_words = [w for u in book.get("units", []) for w in u.get("words", [])]
 
-    header = (
-        f"📚 <b>{html_lib.escape(book_title)}</b>\n"
-        f"📖 <b>{html_lib.escape(unit_title)}</b>  •  "
-        f"{len(words)} ta so'z\n"
-        f"{'─' * 24}\n\n"
-    )
+    polls = []
+    total = len(words)
 
-    separator = f"\n{'─' * 18}\n\n"
-    word_blocks = [format_word_card(i + 1, w) for i, w in enumerate(words)]
+    for idx, w in enumerate(words, start=1):
+        word = w.get("word", "").strip()
+        transcription = w.get("transcription", "").strip()
+        pos = w.get("part_of_speech", "").strip()
+        correct_uzbek = w.get("uzbek", "").strip()[:100]
 
-    # Greedily pack blocks into messages, each ≤ MAX_TG_MESSAGE_LEN
-    messages: list[str] = []
-    current = header
+        if not word or not correct_uzbek:
+            continue
 
-    for block in word_blocks:
-        candidate = current + separator + block if current != header else current + block
-        if len(candidate) > MAX_TG_MESSAGE_LEN and current != header:
-            messages.append(current.rstrip())
-            current = block
-        else:
-            current = candidate
+        header = f"{word} {transcription}".strip()
+        if pos:
+            header += f" ({pos})"
+        question = f"[{idx}/{total}] 🇬🇧 {header}\nTo'g'ri tarjimasini toping:"
+        if len(question) > 255:
+            question = question[:252] + "..."
 
-    if current:
-        messages.append(current.rstrip())
+        # Wrong options pool (first try same unit, fallback to entire book)
+        wrong_candidates = [
+            o.get("uzbek", "").strip()[:100]
+            for o in words
+            if o.get("uzbek", "").strip() and o.get("uzbek", "").strip() != correct_uzbek
+        ]
+        unique_wrong = list(set(wrong_candidates))
 
-    return messages
+        if len(unique_wrong) < 3:
+            more_candidates = [
+                o.get("uzbek", "").strip()[:100]
+                for o in all_book_words
+                if o.get("uzbek", "").strip() and o.get("uzbek", "").strip() != correct_uzbek
+            ]
+            unique_wrong = list(set(unique_wrong + more_candidates))
+
+        selected_wrong = random.sample(unique_wrong, min(3, len(unique_wrong)))
+        options = [correct_uzbek] + selected_wrong
+        random.shuffle(options)
+        correct_idx = options.index(correct_uzbek)
+
+        # Explanation shown upon answering in Telegram Quiz (max 200 chars)
+        explanation_parts = []
+        if w.get("description"):
+            explanation_parts.append(f"📖 {w['description'].strip()}")
+        if w.get("example"):
+            explanation_parts.append(f"💬 {w['example'].strip()}")
+        explanation = "\n".join(explanation_parts) if explanation_parts else f"✅ {word} = {correct_uzbek}"
+        if len(explanation) > 200:
+            explanation = explanation[:197] + "..."
+
+        polls.append({
+            "question": question,
+            "options": options,
+            "correct_option_id": correct_idx,
+            "explanation": explanation,
+        })
+
+    return polls
 
 
 async def send_unit_to_channel(
@@ -102,35 +112,60 @@ async def send_unit_to_channel(
     unit_num: int,
     finish_message: str | None = None,
 ) -> bool:
-    """Send all word cards for a unit to the channel. Returns True on success."""
-    messages = build_unit_messages(book_slug, unit_num)
-    if not messages:
+    """Send all words of a unit as Quiz Polls to the channel."""
+    polls = build_unit_polls(book_slug, unit_num)
+    if not polls:
         logger.warning(
             "No words found for book=%s unit=%d — skipping send", book_slug, unit_num
         )
         return False
 
+    unit_data = vocab_service.get_words(book_slug, unit_num)
+    book_info = vocab_service.books.get(book_slug, {})
+    book_title = book_info.get("short_title", book_slug)
+    unit_title = unit_data.get("title", f"Unit {unit_num}")
+
     target_chat: int | str = int(channel_id) if channel_id.lstrip("-").isdigit() else channel_id
-    for msg in messages:
+
+    # 1. Send Unit intro header message
+    intro_text = (
+        f"📚 <b>{html_lib.escape(book_title)}</b>\n"
+        f"📖 <b>Unit {unit_num}:</b> {html_lib.escape(unit_title)}\n"
+        f"🎯 Jami: <b>{len(polls)} ta test</b>\n\n"
+        f"👇 So'zlarni yod oling va to'g'ri javoblarni belgilang:"
+    )
+    try:
+        await bot.send_message(
+            chat_id=target_chat,
+            text=intro_text,
+            parse_mode="HTML",
+        )
+        await asyncio.sleep(1.0)
+    except Exception as e:
+        logger.error("Failed to send intro message to channel %s: %s", channel_id, e)
+        return False
+
+    # 2. Send each word as a Quiz Poll (no timer / open_period)
+    for p in polls:
         try:
-            await bot.send_message(
+            await bot.send_poll(
                 chat_id=target_chat,
-                text=msg,
-                parse_mode="HTML",
+                question=p["question"],
+                options=p["options"],
+                type="quiz",
+                correct_option_id=p["correct_option_id"],
+                explanation=p["explanation"],
+                is_anonymous=True,  # In channels, anonymous polls allow private voting
             )
-            await asyncio.sleep(0.5)          # small delay between messages
+            await asyncio.sleep(1.2)  # Delay between polls for Telegram rate limit safety
         except Exception as e:
-            logger.error(
-                "Failed to send message to channel %s: %s", channel_id, e
-            )
+            logger.error("Failed to send poll to channel %s: %s", channel_id, e)
             return False
 
-    # Har bir unit so'zlari tashlab bo'lingandan so'ng xabar jo'natish
+    # 3. Send completion message immediately after all unit polls
     if finish_message:
         try:
-            await asyncio.sleep(0.5)
-            book_info = vocab_service.books.get(book_slug, {})
-            book_title = book_info.get("short_title", book_slug)
+            await asyncio.sleep(1.0)
             formatted_msg = (
                 finish_message
                 .replace("{unit}", str(unit_num))
@@ -144,7 +179,7 @@ async def send_unit_to_channel(
 
 
 async def send_finish_message(channel_id: str, finish_text: str) -> bool:
-    """Send the optional finish message after unit words are sent."""
+    """Send the completion message after unit polls are sent."""
     target_chat: int | str = int(channel_id) if channel_id.lstrip("-").isdigit() else channel_id
     try:
         await bot.send_message(
@@ -187,20 +222,20 @@ async def process_due_channel_schedulers() -> None:
             await finish_channel_scheduler(channel_id, today_str)
             continue
 
-        # --- Send the unit + finish message ---
+        # --- Send the unit as Quiz Polls + completion message ---
         finish_msg = sched.get("finish_message")
         sent = await send_unit_to_channel(
             channel_id, book_slug, current_unit, finish_message=finish_msg
         )
         if not sent:
             logger.error(
-                "Sending unit %d to channel %s failed — will retry next loop",
+                "Sending unit %d polls to channel %s failed — will retry next loop",
                 current_unit, channel_id,
             )
             continue
 
         logger.info(
-            "✅ Channel %s: sent book=%s unit=%d with completion message",
+            "✅ Channel %s: sent book=%s unit=%d polls with completion message",
             channel_id, book_slug, current_unit,
         )
 

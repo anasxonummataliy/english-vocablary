@@ -69,14 +69,26 @@ async def test_cmd_scheduler_renders_card():
 async def test_send_unit_to_channel_includes_finish_message():
     from api.services.channel_scheduler_service import send_unit_to_channel
     with patch("api.services.channel_scheduler_service.bot.send_message", new_callable=AsyncMock) as mock_send:
-        sent = await send_unit_to_channel(
-            channel_id="@testchannel",
-            book_slug="essential1",
-            unit_num=1,
-            finish_message="Unit 1 tugadi!"
-        )
-        assert sent is True
-        assert mock_send.call_count >= 2
-        last_call_kwargs = mock_send.call_args_list[-1].kwargs
-        assert last_call_kwargs["text"] == "Unit 1 tugadi!"
-        assert last_call_kwargs["chat_id"] == "@testchannel"
+        with patch("api.services.channel_scheduler_service.bot.send_poll", new_callable=AsyncMock) as mock_poll:
+            with patch("asyncio.sleep", new_callable=AsyncMock):
+                sent = await send_unit_to_channel(
+                    channel_id="@testchannel",
+                    book_slug="essential1",
+                    unit_num=1,
+                    finish_message="Unit 1 tugadi!"
+                )
+                assert sent is True
+
+            # Polls were sent for all 20 words in essential1 unit 1
+            assert mock_poll.call_count == 20
+            first_poll_kwargs = mock_poll.call_args_list[0].kwargs
+            assert first_poll_kwargs["type"] == "quiz"
+            assert "open_period" not in first_poll_kwargs  # No timer!
+            assert first_poll_kwargs["is_anonymous"] is True
+            assert len(first_poll_kwargs["options"]) == 4
+
+            # Finish message sent at the end
+            assert mock_send.call_count >= 2
+            last_call_kwargs = mock_send.call_args_list[-1].kwargs
+            assert last_call_kwargs["text"] == "Unit 1 tugadi!"
+            assert last_call_kwargs["chat_id"] == "@testchannel"
