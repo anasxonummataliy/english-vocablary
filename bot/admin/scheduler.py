@@ -313,9 +313,10 @@ async def prompt_book_selection(message: Message, state: FSMContext):
 
     buttons = []
     # Books list from vocab service
-    for slug, b in vocab_service.books.items():
+    for b in vocab_service.get_books_list():
+        slug = b["slug"]
         title = b.get("short_title", b.get("title", slug))
-        units_count = len(b.get("units", []))
+        units_count = b.get("total_units", 0)
         buttons.append([InlineKeyboardButton(text=f"📚 {title} ({units_count} unit)", callback_data=f"sched:pick_book:{slug}")])
 
     buttons.append([InlineKeyboardButton(text="❌ Bekor qilish", callback_data="sched:cancel")])
