@@ -19,7 +19,7 @@ services:
       - app-network
 
   postgres:
-    image: postgres:16
+    image: postgres:16-alpine
     container_name: english_vocab_db
     restart: always
 
@@ -32,7 +32,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pgdata_alpine:/var/lib/postgresql/data
 
     ports:
       - "5433:5432"
@@ -49,7 +49,7 @@ services:
       - redisdata:/data
 
 volumes:
-  pgdata:
+  pgdata_alpine:
   redisdata:
 
 

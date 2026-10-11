@@ -11,3 +11,5 @@ __pycache__/
 *.pyc
 .venv/
 poetry.lock
+*.sql
+*.dump

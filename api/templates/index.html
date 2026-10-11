@@ -640,6 +640,111 @@
       font-size: 0.85rem;
     }
 
+    /* Scheduler Form */
+    .form-group { margin-bottom: 0; }
+    .form-label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 0.83rem;
+      color: var(--text);
+    }
+    .form-input {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color .15s;
+      font-family: inherit;
+    }
+    .form-input:focus { border-color: var(--blue); box-shadow: 0 0 8px rgba(59,130,246,.2); }
+    textarea.form-input { resize: vertical; min-height: 60px; }
+    select.form-input { cursor: pointer; }
+    .form-hint {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .15s;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(59,130,246,.3);
+    }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
+    .btn-secondary {
+      background: var(--card2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { background: var(--border); }
+    .btn-danger {
+      background: rgba(239,68,68,.15);
+      color: var(--red);
+      border: 1px solid rgba(239,68,68,.3);
+    }
+    .btn-danger:hover { background: rgba(239,68,68,.25); }
+    .btn-success {
+      background: rgba(16,185,129,.15);
+      color: var(--green);
+      border: 1px solid rgba(16,185,129,.3);
+    }
+    .btn-success:hover { background: rgba(16,185,129,.25); }
+    .btn-sm { padding: 6px 14px; font-size: 0.78rem; border-radius: 8px; }
+
+    /* Scheduler status card */
+    .sched-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sched-card .sched-glow {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      opacity: .1;
+      filter: blur(25px);
+    }
+    .sched-card.active-sched { border-color: rgba(16,185,129,.4); }
+    .sched-card.active-sched .sched-glow { background: var(--green); }
+    .sched-card.inactive-sched { border-color: rgba(239,68,68,.3); }
+    .sched-card.inactive-sched .sched-glow { background: var(--red); }
+    .sched-progress {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      margin-top: 12px;
+      overflow: hidden;
+    }
+    .sched-progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      transition: width .4s ease;
+    }
+
     @media(max-width:900px) {
       .sidebar {
         width: 64px;
@@ -711,6 +816,12 @@
         <div class="nav-item" onclick="go('users',this)">
           <span>👥</span><span>Foydalanuvchilar</span>
           <span class="nav-badge" id="nb-u">—</span>
+        </div>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">Avtomatlashtirish</div>
+        <div class="nav-item" onclick="go('scheduler',this)">
+          <span>📬</span><span>Kanal Scheduler</span>
         </div>
       </div>
     </nav>
@@ -1010,6 +1121,70 @@
       </div>
     </div>
 
+    <!-- CHANNEL SCHEDULER -->
+    <div id="scheduler" class="page">
+      <div class="page-header">
+        <div class="page-title">📬 Kanal Scheduler</div>
+        <div class="page-sub">Kanalga har kuni avtomatik so'zlar jonatish sozlamalari</div>
+      </div>
+
+      <!-- Active Scheduler Status -->
+      <div id="sched-status-wrap" style="margin-bottom:24px;"></div>
+
+      <!-- Scheduler Form -->
+      <div class="card" style="margin-bottom:24px;">
+        <div class="card-head">
+          <div class="card-title">⚙️ Yangi scheduler sozlash</div>
+        </div>
+        <div class="card-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+            <!-- Channel ID -->
+            <div class="form-group">
+              <label class="form-label">📢 Kanal ID</label>
+              <input type="text" class="form-input" id="sched-channel-id" placeholder="-100xxxxxxxxxx">
+              <div class="form-hint">.env dagi CHANNEL_ID avtomatik ishlatiladi agar bo'sh qoldirsangiz</div>
+            </div>
+            <!-- Send Time -->
+            <div class="form-group">
+              <label class="form-label">🕐 Jonatish vaqti (Toshkent)</label>
+              <input type="time" class="form-input" id="sched-send-time" value="09:00">
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px;">
+            <!-- Book Select -->
+            <div class="form-group">
+              <label class="form-label">📚 Kitob</label>
+              <select class="form-input" id="sched-book-slug">
+                <option value="">Yuklanmoqda...</option>
+              </select>
+            </div>
+            <!-- Start Unit -->
+            <div class="form-group">
+              <label class="form-label">📖 Boshlang'ich Unit</label>
+              <select class="form-input" id="sched-start-unit">
+                <option value="1">Unit 1</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Finish Message -->
+          <div class="form-group" style="margin-top:16px;">
+            <label class="form-label">✉️ Tugagandan keyingi xabar <span style="color:var(--muted);font-weight:400;">(ixtiyoriy, HTML qo'llab-quvvatlanadi)</span></label>
+            <textarea class="form-input" id="sched-finish-msg" rows="3" placeholder="Masalan: 🎉 Tabriklaymiz! Barcha unitlar muvaffaqiyatli tugadi!"></textarea>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:20px;">
+            <button class="btn btn-primary" onclick="saveScheduler()">💾 Saqlash va ishga tushirish</button>
+            <button class="btn btn-secondary" onclick="testSendUnit()" id="sched-test-btn">🧪 Test yuborish</button>
+          </div>
+
+          <div id="sched-msg" style="margin-top:14px;font-size:0.85rem;"></div>
+        </div>
+      </div>
+
+    </div>
+
   </main>
 
   <script>
@@ -1229,6 +1404,219 @@
     }
 
     init();
+
+    // ═══ Channel Scheduler Logic ════════════════════════════════════════════
+
+    let schedBooks = [];
+    let schedList = [];
+
+    async function loadSchedulerData() {
+      try {
+        const [booksRes, schedRes] = await Promise.all([
+          fetch('/api/channel-scheduler/books'),
+          fetch('/api/channel-scheduler'),
+        ]);
+        if (booksRes.ok) schedBooks = await booksRes.json();
+        if (schedRes.ok) schedList = await schedRes.json();
+        renderBookSelect();
+        renderSchedulerStatus();
+      } catch(e) { console.error('Scheduler load error:', e); }
+    }
+
+    function renderBookSelect() {
+      const sel = document.getElementById('sched-book-slug');
+      if (!schedBooks.length) { sel.innerHTML = '<option value="">Kitoblar topilmadi</option>'; return; }
+      sel.innerHTML = schedBooks.map(b =>
+        `<option value="${b.slug}">${b.icon} ${b.short_title} (${b.total_units} unit, ${b.total_words} so'z)</option>`
+      ).join('');
+      sel.addEventListener('change', () => renderUnitSelect(sel.value));
+      renderUnitSelect(sel.value);
+    }
+
+    function renderUnitSelect(bookSlug) {
+      const sel = document.getElementById('sched-start-unit');
+      const book = schedBooks.find(b => b.slug === bookSlug);
+      if (!book || !book.units.length) { sel.innerHTML = '<option value="1">Unit 1</option>'; return; }
+      sel.innerHTML = book.units.map(u =>
+        `<option value="${u.unit_num}">Unit ${u.unit_num} — ${u.title} (${u.word_count} so'z)</option>`
+      ).join('');
+    }
+
+    function renderSchedulerStatus() {
+      const wrap = document.getElementById('sched-status-wrap');
+      if (!schedList.length) {
+        wrap.innerHTML = `
+          <div class="sched-card inactive-sched">
+            <div class="sched-glow"></div>
+            <div style="text-align:center;padding:20px 0;">
+              <div style="font-size:2rem;margin-bottom:10px;">📬</div>
+              <div style="font-size:1rem;font-weight:700;margin-bottom:4px;">Hech qanday scheduler sozlanmagan</div>
+              <div style="font-size:0.82rem;color:var(--muted);">Pastdagi formani to'ldirib scheduler yarating</div>
+            </div>
+          </div>`;
+        return;
+      }
+
+      wrap.innerHTML = schedList.map(s => {
+        const isActive = s.is_active;
+        const cls = isActive ? 'active-sched' : 'inactive-sched';
+        const statusBadge = isActive
+          ? '<span style="background:rgba(16,185,129,.15);color:var(--green);padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:700;">✅ Faol</span>'
+          : '<span style="background:rgba(239,68,68,.15);color:var(--red);padding:3px 10px;border-radius:20px;font-size:0.75rem;font-weight:700;">⏸ To\'xtatilgan</span>';
+        const totalUnits = s.total_units || 1;
+        const current = s.current_unit || 1;
+        const start = s.start_unit || 1;
+        const progress = Math.min(((current - start) / (totalUnits - start + 1)) * 100, 100);
+        const progressPct = Math.round(progress);
+        const finishMsg = s.finish_message ? `<div style="font-size:0.78rem;color:var(--muted);margin-top:6px;">✉️ Tugash xabari: <i>${s.finish_message.substring(0, 80)}${s.finish_message.length > 80 ? '...' : ''}</i></div>` : '';
+        const lastSent = s.last_sent_date ? `<span style="font-size:0.75rem;color:var(--muted);">📅 Oxirgi: ${s.last_sent_date}</span>` : '';
+
+        const toggleBtn = isActive
+          ? `<button class="btn btn-danger btn-sm" onclick="toggleScheduler('${s.channel_id}', false)">⏸ To'xtatish</button>`
+          : `<button class="btn btn-success btn-sm" onclick="toggleScheduler('${s.channel_id}', true)">▶️ Ishga tushirish</button>`;
+
+        return `
+          <div class="sched-card ${cls}" style="margin-bottom:14px;">
+            <div class="sched-glow"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+              <div>
+                <div style="font-size:1.05rem;font-weight:800;">📚 ${s.book_title || s.book_slug}</div>
+                <div style="font-size:0.82rem;color:var(--muted);margin-top:2px;">
+                  Kanal: <code>${s.channel_id}</code> &nbsp;•&nbsp; 🕐 ${s.send_time}
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                ${statusBadge}
+                ${toggleBtn}
+                <button class="btn btn-secondary btn-sm" onclick="deleteScheduler('${s.channel_id}')">🗑</button>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;">
+              <div style="text-align:center;">
+                <div style="font-size:1.4rem;font-weight:800;color:var(--blue);">${s.start_unit}</div>
+                <div style="font-size:0.7rem;color:var(--muted);">Boshlang'ich unit</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-size:1.4rem;font-weight:800;color:var(--green);">${current}</div>
+                <div style="font-size:0.7rem;color:var(--muted);">Hozirgi unit</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-size:1.4rem;font-weight:800;color:var(--purple);">${totalUnits}</div>
+                <div style="font-size:0.7rem;color:var(--muted);">Jami unitlar</div>
+              </div>
+              <div style="text-align:center;">
+                <div style="font-size:1.4rem;font-weight:800;color:var(--orange);">${progressPct}%</div>
+                <div style="font-size:0.7rem;color:var(--muted);">Bajarildi</div>
+              </div>
+            </div>
+            <div class="sched-progress">
+              <div class="sched-progress-fill" style="width:${progressPct}%"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+              ${lastSent}
+              <button class="btn btn-secondary btn-sm" onclick="testSendScheduler('${s.channel_id}','${s.book_slug}',${current})">🧪 Test (Unit ${current})</button>
+            </div>
+            ${finishMsg}
+          </div>`;
+      }).join('');
+    }
+
+    async function saveScheduler() {
+      const channelId = document.getElementById('sched-channel-id').value.trim();
+      const bookSlug = document.getElementById('sched-book-slug').value;
+      const startUnit = parseInt(document.getElementById('sched-start-unit').value) || 1;
+      const sendTime = document.getElementById('sched-send-time').value || '09:00';
+      const finishMsg = document.getElementById('sched-finish-msg').value.trim() || null;
+      const msgEl = document.getElementById('sched-msg');
+
+      if (!bookSlug) { msgEl.innerHTML = '<span style="color:var(--red)">❌ Kitobni tanlang!</span>'; return; }
+
+      msgEl.innerHTML = '<span style="color:var(--muted)">⏳ Saqlanmoqda...</span>';
+
+      try {
+        const res = await fetch('/api/channel-scheduler', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            channel_id: channelId || undefined,
+            book_slug: bookSlug,
+            start_unit: startUnit,
+            send_time: sendTime,
+            is_active: true,
+            finish_message: finishMsg,
+          }),
+        });
+        const data = await res.json();
+        if (data.status === 'ok') {
+          msgEl.innerHTML = '<span style="color:var(--green)">✅ Scheduler muvaffaqiyatli saqlandi va ishga tushirildi!</span>';
+          await loadSchedulerData();
+        } else {
+          msgEl.innerHTML = `<span style="color:var(--red)">❌ ${data.message || 'Xatolik'}</span>`;
+        }
+      } catch(e) {
+        msgEl.innerHTML = `<span style="color:var(--red)">❌ Tarmoq xatosi: ${e.message}</span>`;
+      }
+    }
+
+    async function toggleScheduler(channelId, isActive) {
+      try {
+        await fetch('/api/channel-scheduler/toggle', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ channel_id: channelId, is_active: isActive }),
+        });
+        await loadSchedulerData();
+      } catch(e) { console.error(e); }
+    }
+
+    async function deleteScheduler(channelId) {
+      if (!confirm('Schedulerni o\'chirishni xohlaysizmi?')) return;
+      try {
+        await fetch(`/api/channel-scheduler/${encodeURIComponent(channelId)}`, { method: 'DELETE' });
+        await loadSchedulerData();
+      } catch(e) { console.error(e); }
+    }
+
+    async function testSendScheduler(channelId, bookSlug, unitNum) {
+      try {
+        const res = await fetch('/api/channel-scheduler/test-send', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ channel_id: channelId, book_slug: bookSlug, unit_num: unitNum }),
+        });
+        const data = await res.json();
+        alert(data.message || 'Yuborildi!');
+      } catch(e) { alert('Xatolik: ' + e.message); }
+    }
+
+    async function testSendUnit() {
+      const channelId = document.getElementById('sched-channel-id').value.trim();
+      const bookSlug = document.getElementById('sched-book-slug').value;
+      const unitNum = parseInt(document.getElementById('sched-start-unit').value) || 1;
+      const msgEl = document.getElementById('sched-msg');
+
+      if (!bookSlug) { msgEl.innerHTML = '<span style="color:var(--red)">❌ Kitobni tanlang!</span>'; return; }
+
+      msgEl.innerHTML = '<span style="color:var(--muted)">⏳ Test yuborilmoqda...</span>';
+      try {
+        const res = await fetch('/api/channel-scheduler/test-send', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ channel_id: channelId || undefined, book_slug: bookSlug, unit_num: unitNum }),
+        });
+        const data = await res.json();
+        if (data.status === 'ok') {
+          msgEl.innerHTML = `<span style="color:var(--green)">✅ ${data.message}</span>`;
+        } else {
+          msgEl.innerHTML = `<span style="color:var(--red)">❌ ${data.message}</span>`;
+        }
+      } catch(e) {
+        msgEl.innerHTML = `<span style="color:var(--red)">❌ ${e.message}</span>`;
+      }
+    }
+
+    // Load scheduler data on page load
+    loadSchedulerData();
   </script>
 </body>
 

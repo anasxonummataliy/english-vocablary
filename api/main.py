@@ -19,7 +19,17 @@ from api.database import init_sqlite_db
 from api.routers.webapp import router as webapp_router
 
 from api.services.notification_service import reminder_scheduler_loop
+from api.services.channel_scheduler_service import channel_scheduler_loop
 from api.services.bot_code_handler import bot_code_router
+from api.database import (
+    get_all_channel_schedulers,
+    get_channel_scheduler,
+    save_channel_scheduler,
+    update_channel_scheduler_status,
+    delete_channel_scheduler,
+)
+from api.services.vocab_service import vocab_service
+from api.services.channel_scheduler_service import send_unit_to_channel
 import asyncio
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
@@ -77,6 +87,7 @@ async def lifespan(app: FastAPI):
     if bot_code_router.parent_router is None:
         dp.include_router(bot_code_router)
     reminder_task = asyncio.create_task(reminder_scheduler_loop())
+    channel_sched_task = asyncio.create_task(channel_scheduler_loop())
     webhook_url = os.getenv("WEBHOOK_URL") or ""
     watchdog_task = None
     try:
@@ -98,6 +109,7 @@ async def lifespan(app: FastAPI):
             watchdog_task = asyncio.create_task(webhook_watchdog_loop(webhook_url))
     yield
     reminder_task.cancel()
+    channel_sched_task.cancel()
     if watchdog_task:
         watchdog_task.cancel()
     try:
@@ -550,3 +562,101 @@ async def webhook_handler(request: Request):
         logging.exception(f"Error processing update {update.update_id}: {e}")
 
     return {"status": "ok"}
+
+
+# ─── Channel Scheduler Admin API ──────────────────────────────────────────────
+
+@app.get("/api/channel-scheduler")
+async def api_get_channel_schedulers(session_token: str | None = Cookie(default=None)):
+    """List all channel scheduler configs."""
+    if not is_authenticated(session_token):
+        return Response(status_code=401, content="Unauthorized")
+    schedulers = await get_all_channel_schedulers()
+    # Enrich with book info
+    for s in schedulers:
+        book = vocab_service.books.get(s.get("book_slug", ""), {})
+        s["book_title"] = book.get("short_title", s.get("book_slug", "—"))
+        s["total_units"] = book.get("total_units", 0)
+    return schedulers
+
+
+@app.get("/api/channel-scheduler/books")
+async def api_get_scheduler_books(session_token: str | None = Cookie(default=None)):
+    """List all available books with their units for the scheduler dropdown."""
+    if not is_authenticated(session_token):
+        return Response(status_code=401, content="Unauthorized")
+    result = []
+    for slug, book in vocab_service.books.items():
+        units = [{
+            "unit_num": u["unit_num"],
+            "title": u["title"],
+            "word_count": u["word_count"],
+        } for u in book["units"]]
+        result.append({
+            "slug": slug,
+            "title": book["title"],
+            "short_title": book["short_title"],
+            "icon": book["icon"],
+            "total_units": book["total_units"],
+            "total_words": book["total_words"],
+            "units": units,
+        })
+    return result
+
+
+@app.post("/api/channel-scheduler")
+async def api_save_channel_scheduler(request: Request, session_token: str | None = Cookie(default=None)):
+    """Create or update a channel scheduler config."""
+    if not is_authenticated(session_token):
+        return Response(status_code=401, content="Unauthorized")
+    data = await request.json()
+    channel_id = str(data.get("channel_id") or os.getenv("CHANNEL_ID", ""))
+    if not channel_id:
+        return {"status": "error", "message": "Channel ID is required"}
+
+    result = await save_channel_scheduler(
+        channel_id=channel_id,
+        book_slug=data.get("book_slug", "essential1"),
+        start_unit=int(data.get("start_unit", 1)),
+        send_time=data.get("send_time", "09:00"),
+        is_active=bool(data.get("is_active", True)),
+        finish_message=data.get("finish_message") or None,
+    )
+    return {"status": "ok", "scheduler": result}
+
+
+@app.post("/api/channel-scheduler/toggle")
+async def api_toggle_channel_scheduler(request: Request, session_token: str | None = Cookie(default=None)):
+    """Toggle active/inactive status."""
+    if not is_authenticated(session_token):
+        return Response(status_code=401, content="Unauthorized")
+    data = await request.json()
+    channel_id = str(data.get("channel_id", ""))
+    is_active = bool(data.get("is_active", False))
+    await update_channel_scheduler_status(channel_id, is_active)
+    return {"status": "ok"}
+
+
+@app.delete("/api/channel-scheduler/{channel_id}")
+async def api_delete_channel_scheduler(channel_id: str, session_token: str | None = Cookie(default=None)):
+    """Delete a channel scheduler config."""
+    if not is_authenticated(session_token):
+        return Response(status_code=401, content="Unauthorized")
+    await delete_channel_scheduler(channel_id)
+    return {"status": "ok"}
+
+
+@app.post("/api/channel-scheduler/test-send")
+async def api_test_send_unit(request: Request, session_token: str | None = Cookie(default=None)):
+    """Manually trigger a test send of the current unit to the channel."""
+    if not is_authenticated(session_token):
+        return Response(status_code=401, content="Unauthorized")
+    data = await request.json()
+    channel_id = str(data.get("channel_id") or os.getenv("CHANNEL_ID", ""))
+    book_slug = data.get("book_slug", "essential1")
+    unit_num = int(data.get("unit_num", 1))
+
+    sent = await send_unit_to_channel(channel_id, book_slug, unit_num)
+    if sent:
+        return {"status": "ok", "message": f"Unit {unit_num} kanalga yuborildi!"}
+    return {"status": "error", "message": "Xabar yuborilmadi. Kanal ID ni tekshiring."}
