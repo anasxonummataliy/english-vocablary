@@ -626,7 +626,10 @@ async def api_test_send_unit(request: Request, session_token: str | None = Cooki
     book_slug = data.get("book_slug", "essential1")
     unit_num = int(data.get("unit_num", 1))
 
-    sent = await send_unit_to_channel(channel_id, book_slug, unit_num)
+    sched = await get_channel_scheduler(channel_id)
+    finish_msg = data.get("finish_message") or (sched.get("finish_message") if sched else None)
+
+    sent = await send_unit_to_channel(channel_id, book_slug, unit_num, finish_message=finish_msg)
     if sent:
-        return {"status": "ok", "message": f"Unit {unit_num} kanalga yuborildi!"}
+        return {"status": "ok", "message": f"Unit {unit_num} va xabar kanalga muvaffaqiyatli yuborildi!"}
     return {"status": "error", "message": "Xabar yuborilmadi. Kanal ID ni tekshiring."}

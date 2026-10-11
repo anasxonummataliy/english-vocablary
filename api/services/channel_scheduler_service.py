@@ -96,7 +96,12 @@ def build_unit_messages(book_slug: str, unit_num: int) -> list[str]:
     return messages
 
 
-async def send_unit_to_channel(channel_id: str, book_slug: str, unit_num: int) -> bool:
+async def send_unit_to_channel(
+    channel_id: str,
+    book_slug: str,
+    unit_num: int,
+    finish_message: str | None = None,
+) -> bool:
     """Send all word cards for a unit to the channel. Returns True on success."""
     messages = build_unit_messages(book_slug, unit_num)
     if not messages:
@@ -120,11 +125,26 @@ async def send_unit_to_channel(channel_id: str, book_slug: str, unit_num: int) -
             )
             return False
 
+    # Har bir unit so'zlari tashlab bo'lingandan so'ng xabar jo'natish
+    if finish_message:
+        try:
+            await asyncio.sleep(0.5)
+            book_info = vocab_service.books.get(book_slug, {})
+            book_title = book_info.get("short_title", book_slug)
+            formatted_msg = (
+                finish_message
+                .replace("{unit}", str(unit_num))
+                .replace("{book}", str(book_title))
+            )
+            await send_finish_message(channel_id, formatted_msg)
+        except Exception as e:
+            logger.error("Failed to send unit completion message to %s: %s", channel_id, e)
+
     return True
 
 
 async def send_finish_message(channel_id: str, finish_text: str) -> bool:
-    """Send the optional finish message after all units are done."""
+    """Send the optional finish message after unit words are sent."""
     target_chat: int | str = int(channel_id) if channel_id.lstrip("-").isdigit() else channel_id
     try:
         await bot.send_message(
@@ -164,14 +184,14 @@ async def process_due_channel_schedulers() -> None:
                 "Unit %d not in book %s for channel %s — finishing",
                 current_unit, book_slug, channel_id,
             )
-            finish_msg = sched.get("finish_message")
-            if finish_msg:
-                await send_finish_message(channel_id, finish_msg)
             await finish_channel_scheduler(channel_id, today_str)
             continue
 
-        # --- Send the unit ---
-        sent = await send_unit_to_channel(channel_id, book_slug, current_unit)
+        # --- Send the unit + finish message ---
+        finish_msg = sched.get("finish_message")
+        sent = await send_unit_to_channel(
+            channel_id, book_slug, current_unit, finish_message=finish_msg
+        )
         if not sent:
             logger.error(
                 "Sending unit %d to channel %s failed — will retry next loop",
@@ -180,7 +200,7 @@ async def process_due_channel_schedulers() -> None:
             continue
 
         logger.info(
-            "✅ Channel %s: sent book=%s unit=%d",
+            "✅ Channel %s: sent book=%s unit=%d with completion message",
             channel_id, book_slug, current_unit,
         )
 
@@ -191,9 +211,6 @@ async def process_due_channel_schedulers() -> None:
             await advance_channel_scheduler(channel_id, next_unit, today_str)
         else:
             # All units exhausted
-            finish_msg = sched.get("finish_message")
-            if finish_msg:
-                await send_finish_message(channel_id, finish_msg)
             await finish_channel_scheduler(channel_id, today_str)
             logger.info("🏁 Channel %s: all units finished for book=%s", channel_id, book_slug)
 

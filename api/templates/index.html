@@ -1170,8 +1170,8 @@
 
           <!-- Finish Message -->
           <div class="form-group" style="margin-top:16px;">
-            <label class="form-label">✉️ Tugagandan keyingi xabar <span style="color:var(--muted);font-weight:400;">(ixtiyoriy, HTML qo'llab-quvvatlanadi)</span></label>
-            <textarea class="form-input" id="sched-finish-msg" rows="3" placeholder="Masalan: 🎉 Tabriklaymiz! Barcha unitlar muvaffaqiyatli tugadi!"></textarea>
+            <label class="form-label">✉️ Har bir unit so'zlari tashlangandan so'ng yuboriladigan xabar <span style="color:var(--muted);font-weight:400;">(ixtiyoriy, HTML qo'llab-quvvatlanadi)</span></label>
+            <textarea class="form-input" id="sched-finish-msg" rows="3" placeholder="Masalan: 💬 Bugungi unit so'zlari shulardan iborat edi. Yod oling va takrorlang!"></textarea>
           </div>
 
           <div style="display:flex;gap:12px;margin-top:20px;">
@@ -1468,7 +1468,7 @@
         const start = s.start_unit || 1;
         const progress = Math.min(((current - start) / (totalUnits - start + 1)) * 100, 100);
         const progressPct = Math.round(progress);
-        const finishMsg = s.finish_message ? `<div style="font-size:0.78rem;color:var(--muted);margin-top:6px;">✉️ Tugash xabari: <i>${s.finish_message.substring(0, 80)}${s.finish_message.length > 80 ? '...' : ''}</i></div>` : '';
+        const finishMsg = s.finish_message ? `<div style="font-size:0.78rem;color:var(--muted);margin-top:6px;">✉️ Unitdan keyingi xabar: <i>${s.finish_message.substring(0, 80)}${s.finish_message.length > 80 ? '...' : ''}</i></div>` : '';
         const lastSent = s.last_sent_date ? `<span style="font-size:0.75rem;color:var(--muted);">📅 Oxirgi: ${s.last_sent_date}</span>` : '';
 
         const toggleBtn = isActive

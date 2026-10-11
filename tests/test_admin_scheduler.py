@@ -63,3 +63,20 @@ async def test_cmd_scheduler_renders_card():
         message.answer.assert_awaited_once()
         args, kwargs = message.answer.call_args
         assert "@mychannel" in args[0]
+
+
+@pytest.mark.asyncio
+async def test_send_unit_to_channel_includes_finish_message():
+    from api.services.channel_scheduler_service import send_unit_to_channel
+    with patch("api.services.channel_scheduler_service.bot.send_message", new_callable=AsyncMock) as mock_send:
+        sent = await send_unit_to_channel(
+            channel_id="@testchannel",
+            book_slug="essential1",
+            unit_num=1,
+            finish_message="Unit 1 tugadi!"
+        )
+        assert sent is True
+        assert mock_send.call_count >= 2
+        last_call_kwargs = mock_send.call_args_list[-1].kwargs
+        assert last_call_kwargs["text"] == "Unit 1 tugadi!"
+        assert last_call_kwargs["chat_id"] == "@testchannel"

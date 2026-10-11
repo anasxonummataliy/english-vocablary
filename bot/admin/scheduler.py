@@ -58,7 +58,7 @@ def render_scheduler_card(s: dict) -> tuple[str, InlineKeyboardMarkup]:
         f"⏰ <b>Yuborish vaqti:</b> <code>{send_time}</code> (Har kuni)\n"
         f"📊 <b>Holati:</b> {status_icon}\n"
         f"📅 <b>Oxirgi jo'natilgan:</b> {last_sent}\n"
-        f"🏁 <b>Finish matni:</b> <i>{html.escape(str(finish_msg))}</i>\n"
+        f"🏁 <b>Unitdan keyingi xabar:</b> <i>{html.escape(str(finish_msg))}</i>\n"
     )
 
     kb = InlineKeyboardMarkup(
@@ -155,13 +155,14 @@ async def cb_test_send(call: CallbackQuery):
 
     book_slug = s.get("book_slug", "essential1")
     unit_num = s.get("current_unit", 1)
+    finish_msg = s.get("finish_message")
 
     from api.services.channel_scheduler_service import send_unit_to_channel
-    sent = await send_unit_to_channel(channel_id, book_slug, unit_num)
+    sent = await send_unit_to_channel(channel_id, book_slug, unit_num, finish_message=finish_msg)
 
     if sent:
         await call.message.answer(
-            f"✅ <b>Unit {unit_num}</b> ({book_slug}) kanalga muvaffaqiyatli jo'natildi!",
+            f"✅ <b>Unit {unit_num}</b> va yakuniy xabar ({book_slug}) kanalga muvaffaqiyatli jo'natildi!",
             parse_mode="HTML"
         )
     else:
@@ -387,9 +388,9 @@ async def prompt_finish_message(message: Message, state: FSMContext):
     )
 
     await message.answer(
-        "🏁 <b>5/5. Barcha unitlar tugagach kanalga qanday matn yuborilsin?</b>\n\n"
-        "Masalan: <i>🎉 Tabriklaymiz! 4000 Essential Words 1 kitobi barcha so'zlari tugadi!</i>\n\n"
-        "Agar kerak bo'lmasa, 'O'tkazib yuborish' tugmasini bosing:",
+        "🏁 <b>5/5. Har bir unit so'zlari tashlangandan so'ng kanalga qanday xabar yuborilsin?</b>\n\n"
+        "Masalan: <i>💬 Bugungi unit so'zlari shulardan iborat edi. Yod oling va takrorlang!</i>\n\n"
+        "Agar xabar kerak bo'lmasa, 'O'tkazib yuborish' tugmasini bosing:",
         reply_markup=kb,
         parse_mode="HTML"
     )
