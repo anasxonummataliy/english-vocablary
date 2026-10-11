@@ -5,8 +5,7 @@ from datetime import timedelta
 from pathlib import Path
 
 from fastapi import FastAPI, Request, Response, Cookie
-from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import HTMLResponse, RedirectResponse
 from sqlalchemy import select
 from bot.database.models.users import User
 from bot.database.models.reminders import Reminder
@@ -16,11 +15,7 @@ from aiogram.types import Update
 from contextlib import asynccontextmanager
 from bot.database.base import redis_client
 from api.database import init_sqlite_db
-from api.routers.webapp import router as webapp_router
-
-from api.services.notification_service import reminder_scheduler_loop
 from api.services.channel_scheduler_service import channel_scheduler_loop
-from api.services.bot_code_handler import bot_code_router
 from api.database import (
     get_all_channel_schedulers,
     get_channel_scheduler,
@@ -33,14 +28,15 @@ from api.services.channel_scheduler_service import send_unit_to_channel
 import asyncio
 
 TEMPLATES_DIR = Path(__file__).parent / "templates"
-STATIC_DIR = Path(__file__).parent / "static"
 
 # Session tokenlari saqlanadi (oddiy in-memory)
 active_sessions: set[str] = set()
 
 
 def verify_credentials(login: str, password: str) -> bool:
-    return login == "anasxon" and password == "muslim1306"
+    admin_login = os.getenv("ADMIN_LOGIN", "anasxon")
+    admin_password = os.getenv("ADMIN_PASSWORD", "muslim1306")
+    return login == admin_login and password == admin_password
 
 
 def is_authenticated(session_token: str | None) -> bool:
@@ -84,9 +80,6 @@ async def webhook_watchdog_loop(webhook_url: str):
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await init_sqlite_db()
-    if bot_code_router.parent_router is None:
-        dp.include_router(bot_code_router)
-    reminder_task = asyncio.create_task(reminder_scheduler_loop())
     channel_sched_task = asyncio.create_task(channel_scheduler_loop())
     webhook_url = os.getenv("WEBHOOK_URL") or ""
     watchdog_task = None
@@ -108,7 +101,6 @@ async def lifespan(app: FastAPI):
                 logging.warning(f"Webhook configuration warning: {e}")
             watchdog_task = asyncio.create_task(webhook_watchdog_loop(webhook_url))
     yield
-    reminder_task.cancel()
     channel_sched_task.cancel()
     if watchdog_task:
         watchdog_task.cancel()
@@ -119,24 +111,6 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan, docs_url="/docs", redoc_url=None, openapi_url="/openapi.json")
-if STATIC_DIR.exists():
-    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
-app.include_router(webapp_router)
-
-
-@app.get("/manifest.json")
-async def get_manifest():
-    return FileResponse(STATIC_DIR / "manifest.json", media_type="application/manifest+json")
-
-
-@app.get("/sw.js")
-async def get_service_worker():
-    return FileResponse(STATIC_DIR / "sw.js", media_type="application/javascript")
-
-
-@app.get("/favicon.ico")
-async def get_favicon():
-    return FileResponse(STATIC_DIR / "icons" / "favicon.png", media_type="image/png")
 
 
 @app.get("/login", response_class=HTMLResponse)
@@ -293,13 +267,9 @@ async def logout(session_token: str | None = Cookie(default=None)):
     return response
 
 
-@app.get("/", response_class=HTMLResponse)
-@app.get("/app", response_class=HTMLResponse)
-async def webapp_page():
-    html_path = TEMPLATES_DIR / "webapp.html"
-    if not html_path.exists():
-        return HTMLResponse(content="<h1>Web App yuklanmoqda...</h1>")
-    return HTMLResponse(content=html_path.read_text(encoding="utf-8"))
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/admin", status_code=303)
 
 
 @app.get("/admin", response_class=HTMLResponse)
